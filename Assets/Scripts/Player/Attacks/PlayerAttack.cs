@@ -6,20 +6,26 @@ public class PlayerAttack : MonoBehaviour
 {
     [Header ("Attack Actions")]    
     private InputAction NormalAttack;
+    private InputAction FirstSpell;
 
     [Header("PlayerComponents")]
     private Animator PlayerAnim;
     public  ScriptableObjectScript currentAttack;
+    public ScriptableObjectScript Spell1;
+    public ScriptableObjectScript Normal;
 
     [Header ("PlayerAttributes")]
     [SerializeField] private float timeBetweenAttack = 0;
     private float timeSinceAttack;
     public  bool attacking = false;
+    //public bool shooting = false;
+    public bool casting = false;
     public int Health;
     public int Mana;
     private float InvulFrames = 0;
     private bool invuln= false;
     private bool ableToAttack = true;
+
 
     [Header("Misc")]
     
@@ -28,14 +34,20 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Image ManaContainer;
     [SerializeField] private GameObject Camera;
     [SerializeField] private GameObject[] HealthMasks;
+    [SerializeField] private GameObject Fireball;
+    //when getting a new health mask, HealthMasks.Add(newMask);
     private int MaskInt = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         PlayerAnim = gameObject.GetComponent<Animator>();
+        
         NormalAttack = InputSystem.actions.FindAction("Attacks/NormalAttack");
         NormalAttack.performed += ctx => Attack();
+
+        FirstSpell = InputSystem.actions.FindAction("Attacks/Spell1");
+        FirstSpell.performed += ctx => FireSpell1();
     }
 
     public void TakeDamage(int AttackDamage)
@@ -79,6 +91,7 @@ public class PlayerAttack : MonoBehaviour
             if (timeSinceAttack >= currentAttack.AttackFrames)
             {
                 EndAttack();
+                
             }
         }
         else if (invuln)
@@ -89,6 +102,15 @@ public class PlayerAttack : MonoBehaviour
                 EndInvuln();
             }
         }
+        else if (casting)
+        {
+            timeSinceAttack++;
+            if (timeSinceAttack >=currentAttack.AttackFrames)
+            {
+                EndSpell();
+            }
+        }
+        
 
     }
     void Attack()
@@ -96,12 +118,29 @@ public class PlayerAttack : MonoBehaviour
         if (!attacking && ableToAttack)
         {
             //busy = true;
+            currentAttack = Normal;
             attacking = true;
             PlayerAnim.SetBool("Attacking", true);
             PlayerAnim.SetBool("Idle", false);
             //Debug.Log("Starting Attack");
           //when you shoot, set manacontainer.fillamount to Mana/10;
           //create a int of "Mana Gain" for when you hit an enemy
+        }
+    }
+    void FireSpell1()
+    {
+        if (!attacking && ableToAttack)
+        {
+            currentAttack = Spell1;
+            casting = true;
+            GameObject Projectile = Instantiate(Fireball, transform.position, transform.rotation);
+            //GameObject Projectile = Instantiate(Resources.Load("Projectiles/Fireball/FireballSO", typeof (GameObject))) as GameObject;
+            Projectile.GetComponent<ProjectileScript>().BelongsTo = gameObject;
+            //Projectile.GetComponent<Rigidbody2D>().AddForce(1 * transform.forward, ForceMode2D.Impulse);
+            Projectile.GetComponent<Rigidbody2D>().linearVelocityX = 5;
+            attacking = true;
+            PlayerAnim.SetBool("Casting", true);
+            PlayerAnim.SetBool("Idle", false);
         }
     }
     void EndAttack()
@@ -122,9 +161,20 @@ public class PlayerAttack : MonoBehaviour
             //busy = false;
             attacking = false;
     }
-    void Fireball()
+    void EndSpell()
     {
-
+        timeSinceAttack = 0;
+        PlayerAnim.SetBool("Casting", false);
+        if (!gameObject.GetComponent<PlayerMovement>().MovingLeft && !gameObject.GetComponent<PlayerMovement>().MovingRight)
+        {
+            PlayerAnim.SetBool("Idle", true);
+        }
+        else 
+        {
+            PlayerAnim.SetBool("Running", true);
+        }
+        //shooting = false;
+        casting = false;
     }
     void EndInvuln()
     {

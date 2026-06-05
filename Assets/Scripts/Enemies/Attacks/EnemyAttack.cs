@@ -139,13 +139,13 @@ public class EnemyAttack : MonoBehaviour
         Anim.SetBool("Shooting", true);
         int i = 0;
 
-        while (i < 30)
+        while (i < 45)
         {
             i++;
         }
         if (GameObject.FindGameObjectWithTag("Player").transform.position.x < gameObject.transform.position.x)
         {
-            if (i == 30)
+            if (i == 45)
             {
                 GameObject Projectile = Instantiate(Fireball, transform.position, transform.rotation);
                 Projectile.GetComponent<ProjectileScript>().BelongsTo = gameObject;
@@ -156,7 +156,7 @@ public class EnemyAttack : MonoBehaviour
         }
         if (GameObject.FindGameObjectWithTag("Player").transform.position.x > gameObject.transform.position.x)
         {
-            if (i == 30)
+            if (i == 45)
             {
                 GameObject Projectile = Instantiate(Fireball, transform.position, transform.rotation);
                 Projectile.GetComponent<ProjectileScript>().BelongsTo = gameObject;
