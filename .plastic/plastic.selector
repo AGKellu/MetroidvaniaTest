@@ -1,0 +1,4 @@
+repository "MetroidvaniaTest/MetroidvaniaTest@2474398351047@cloud"
+  path "/"
+    br "/main"
+    co "/main"

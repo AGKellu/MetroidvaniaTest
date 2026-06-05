@@ -1,0 +1,175 @@
+using UnityEngine;
+
+public class EnemyAttack : MonoBehaviour
+{
+    public int Health;
+    public EnemyAttackSOScript EnemyCurrentAttack;
+    public GameObject Fireball;
+
+    //public Projectile Fireball;
+    public bool attacking = false;
+    private bool shooting = false;
+    public float timeSinceAttack;
+    private Rigidbody2D RB2D;
+    private Animator Anim;
+    private float invulnFrames = 0;
+    private bool recoiling;
+    private bool chasing = false;
+
+    void Start()
+    {
+        Anim = gameObject.GetComponent<Animator>();
+        RB2D = gameObject.GetComponent<Rigidbody2D>();
+    }
+
+    public void TakeDamage(int AttackDamage, float KnockBackForce, Vector2 hitDirection)
+    {
+        if (!recoiling)
+        {
+            Health -= AttackDamage;
+            if (Health <= 0)
+            {
+                Anim.SetTrigger("Dead");
+                RB2D.gravityScale = 0;
+                RB2D.linearVelocity = new Vector2(0, 0);
+                Destroy(gameObject, 1);
+            }
+            else 
+            {
+                if (GameObject.FindGameObjectWithTag("Player").transform.position.x < gameObject.transform.position.x)
+            {
+                RB2D.AddForce(KnockBackForce * new Vector2(hitDirection.x, hitDirection.y));
+            }
+            else
+            {
+                RB2D.AddForce(-KnockBackForce * new Vector2(hitDirection.x, -hitDirection.y));
+            }
+            recoiling = true;
+            Anim.SetTrigger("Damaged");
+            }
+            
+            
+        }
+        
+    }
+
+    void Update()
+    {
+        if (recoiling)
+        {
+            invulnFrames++;
+            if (invulnFrames >= 15)
+            {
+                
+                EndRecoil();
+            }
+        }
+        else if (attacking)
+        {
+            timeSinceAttack++;
+            if (timeSinceAttack == 4)
+            {
+                Melee();
+            }
+            if (timeSinceAttack >= EnemyCurrentAttack.AttackFrames)
+            {
+                EndAttack();
+            }
+        }
+        else if (shooting)
+        {
+            timeSinceAttack++;
+            if (timeSinceAttack == 4)
+            {
+                Shoot();
+            }
+            if (timeSinceAttack >= EnemyCurrentAttack.AttackFrames)
+            {
+                EndShoot();
+            }
+        }
+        else if (chasing)
+        {
+
+        }
+    }
+
+    void MoveTowardsPlayer()
+    {
+        
+    }
+
+    void EndAttack()
+    {
+        timeSinceAttack = 0;
+        attacking = false;
+        Anim.SetBool("Attacking", false);
+        Anim.SetBool("Idle", true);
+    }
+
+    void EndShoot()
+    {
+        timeSinceAttack = 0;
+        shooting = false;
+        Anim.SetBool("Shooting", false);
+        Anim.SetBool("Idle", true);
+    }
+    
+    void EndRecoil()
+    {
+        invulnFrames = 0;
+        recoiling = false;
+        Anim.SetBool("Damaged", false);
+        Anim.SetBool("Idle", true);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            //MoveTowardsPlayer();
+            //attacking = true;
+            shooting = true;
+            //Anim.SetBool("Shooting", true);
+        }
+    }
+
+    void Shoot()
+    {
+        Anim.SetBool("Shooting", true);
+        int i = 0;
+
+        while (i < 30)
+        {
+            i++;
+        }
+        if (GameObject.FindGameObjectWithTag("Player").transform.position.x < gameObject.transform.position.x)
+        {
+            if (i == 30)
+            {
+                GameObject Projectile = Instantiate(Fireball, transform.position, transform.rotation);
+                Projectile.GetComponent<ProjectileScript>().BelongsTo = gameObject;
+                Projectile.transform.localScale = new Vector3(Projectile.transform.localScale.x * -1, Projectile.transform.localScale.y, Projectile.transform.localScale.z);
+
+                Projectile.GetComponent<Rigidbody2D>().AddForce(1 * new Vector2(-45, -45));
+            }
+        }
+        if (GameObject.FindGameObjectWithTag("Player").transform.position.x > gameObject.transform.position.x)
+        {
+            if (i == 30)
+            {
+                GameObject Projectile = Instantiate(Fireball, transform.position, transform.rotation);
+                Projectile.GetComponent<ProjectileScript>().BelongsTo = gameObject;
+                Projectile.transform.localScale  = new Vector3(Projectile.transform.localScale.x * 1, Projectile.transform.localScale.y, Projectile.transform.localScale.z);
+                Projectile.GetComponent<Rigidbody2D>().AddForce(1 * new Vector2(-45, -45));
+            }
+        }
+        //Fireball.GetComponent<Rigidbody2D>().linearVelocityX = 5;
+        //Fireball.GetComponent<Rigidbody2D>().linearVelocityY = 5;
+    }
+
+    void Melee() 
+    {
+
+    }
+}
