@@ -1,41 +1,51 @@
+//using System.Numerics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Debug = UnityEngine.Debug;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header ("Movement Actions")]
+    [Header("Movement Actions")]
     private InputAction moveActionRight;
     private InputAction moveActionLeft;
     private InputAction Jump;
+    private InputAction Slide;
 
-    
 
-    [Header ("Player Components")]
+
+    [Header("Player Components")]
     private Animator PlayerAnim;
     private Rigidbody2D PlayerRB;
     private SpriteRenderer PlayerSprite;
- //   public InputAction MoveRight;
 
-    [Header ("Player Attributes")]
+    [Header("Player Attributes")]
     public float Speed;
     public float JumpForce;
     public float JumpSpeed;
     public bool MovingLeft;
     public bool MovingRight;
-    public  bool CurrentlyJumping = false;
+   // public bool CurrentlyJumping = false;
     public bool Grounded = true;
-    public  bool ableToMove = true;
+    public bool ableToMove = true;
+    [SerializeField]private int JumpCount = 0; 
+    public bool sliding = false;
+    private int slideFrames= 0;
+    //public bool slideUnlocked = false;
     //private bool busy;
 
-    [Header ("Misc")]
+    [Header("Misc")]
     private int trueFrames;
     private int fallFrames = 0;
-    //private int JumpStartFrames = 0;
-    //private int JumpEndFrames = 0;
-    //private bool jumpStarted = false;
-    
-    
+    [SerializeField] private bool[] Unlockables;
+
+    /*
+    Unlockables are:
+    Slide
+    Dash
+    Wall Jump
+    Double Jump
+    */
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -48,6 +58,8 @@ public class PlayerMovement : MonoBehaviour
         Jump = InputSystem.actions.FindAction("Move/Jump");
         Jump.performed += ctx => StartJump();
         //Jump.canceled += ctx => EndJump();
+        Slide = InputSystem.actions.FindAction("Move/Slide");
+        Slide.performed += ctx => StartSlide();
         PlayerRB = gameObject.GetComponent<Rigidbody2D>();
         PlayerAnim = gameObject.GetComponent<Animator>();
         PlayerSprite = gameObject.GetComponent<SpriteRenderer>();
@@ -57,12 +69,21 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         if (ableToMove)
         {
-            
-        CheckForMovement();
-        
+
+            CheckForMovement();
+
+        }
+        if (sliding)
+        {
+            slideFrames++;
+            ableToMove = false;
+            if (slideFrames == 30)
+            {
+                EndSlide();
+            }
         }
         CheckForRelease();
     }
@@ -72,9 +93,10 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!MovingLeft)
             {
-            PlayerAnim.SetBool("Running", false);
-            PlayerRB.linearVelocityX = 0;
+                PlayerAnim.SetBool("Running", false);
+                PlayerRB.linearVelocityX = 0;
             }
+
             MovingRight = false;
         }
         else if (moveActionLeft.WasReleasedThisFrame())
@@ -82,111 +104,184 @@ public class PlayerMovement : MonoBehaviour
             if (!MovingRight)
             {
 
-            PlayerAnim.SetBool("Running", false);
-            PlayerRB.linearVelocityX = 0;
+                PlayerAnim.SetBool("Running", false);
+                PlayerRB.linearVelocityX = 0;
             }
             MovingLeft = false;
         }
     }
     void CheckForMovement()
     {
-        
-        if (PlayerRB.linearVelocityY <0 && !gameObject.GetComponent<PlayerAttack>().attacking && !Grounded)
-        {
 
-            PlayerAnim.SetBool("Falling", true);
+        
+        
+        if (PlayerRB.linearVelocityY < 0)
+        {
+            fallFrames++;
+            //Debug.Log(fallFrames);
+            if (fallFrames >= 15 && !Grounded && !gameObject.GetComponent<PlayerAttack>().attacking)
+            {
+                PlayerAnim.SetBool("Falling", true);
+            }
         }
-       
-        if (moveActionRight.IsPressed() && !gameObject.GetComponent<PlayerAttack>().attacking && MovingRight)
+        if (!sliding)
+        {
+            if (moveActionRight.IsPressed() && !gameObject.GetComponent<PlayerAttack>().attacking && MovingRight)
         {
             if (PlayerAnim.GetBool("Falling"))
             {
                 PlayerRB.linearVelocityX = JumpSpeed;
             }
-            else 
+            else
             {
-            PlayerRB.linearVelocityX = Speed;
+                PlayerRB.linearVelocityX = Speed;
             }
         }
-        
+
         if (moveActionLeft.IsPressed() && !gameObject.GetComponent<PlayerAttack>().attacking && MovingLeft)
         {
             if (PlayerAnim.GetBool("Falling"))
             {
                 PlayerRB.linearVelocityX = -JumpSpeed;
             }
-            else 
+            else
             {
-            PlayerRB.linearVelocityX = -Speed;
+                PlayerRB.linearVelocityX = -Speed;
             }
         }
+        }
         
+
+
     }
 
     void StartMovingRight()
     {
         if (ableToMove)
         {
-        MovingRight = true;
-        MovingLeft= false;
-       
-        transform.localScale = new Vector3(1, 1, 1);
-        
-        if (Grounded && !gameObject.GetComponent<PlayerAttack>().attacking)
-        {
+            MovingRight = true;
+            MovingLeft = false;
 
-        PlayerAnim.SetBool("Running", true);
-        PlayerAnim.SetBool("Idle", false);
+            transform.localScale = new Vector3(1, 1, 1);
+
+            if (Grounded && !gameObject.GetComponent<PlayerAttack>().attacking)
+            {
+
+                PlayerAnim.SetBool("Running", true);
+                PlayerAnim.SetBool("Idle", false);
+            }
+            //if youre in the sky for a speific amount of time, fall
+            //when you fall, change the movement things to -fallspeed
         }
-        }
-        
-      
+
+
     }
     void StartMovingLeft()
     {
         if (ableToMove)
         {
-        MovingLeft = true;
-        MovingRight = false;
-        transform.localScale = new Vector3(-1, 1, 1);
-        
-        if (Grounded && !gameObject.GetComponent<PlayerAttack>().attacking)
-        {
-            
-        PlayerAnim.SetBool("Running", true);
-        PlayerAnim.SetBool("Idle", false);
-        
+            MovingLeft = true;
+            MovingRight = false;
+            transform.localScale = new Vector3(-1, 1, 1);
+
+            if (Grounded && !gameObject.GetComponent<PlayerAttack>().attacking)
+            {
+
+                PlayerAnim.SetBool("Running", true);
+                PlayerAnim.SetBool("Idle", false);
+
+            }
+
         }
-        
-        }
-        
+
     }
     void StartJump()
     {
         if (ableToMove)
         {
-            if (Grounded && !gameObject.GetComponent<PlayerAttack>().attacking)
-        {
-           
-            PlayerRB.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
-            PlayerAnim.SetBool("Jumping", true);
-            Grounded = false;
-            CurrentlyJumping = true;
-            
+            if (!gameObject.GetComponent<PlayerAttack>().attacking)
+            {
+                if (Grounded)
+                {
 
+                    PlayerRB.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
+                    PlayerAnim.SetBool("Jumping", true);
+                    JumpCount++;
+                }
+                else if (Unlockables[3] == true && JumpCount < 2)
+                {
+                    PlayerRB.AddForce(transform.up * (JumpForce * 1.5f), ForceMode2D.Impulse);
+                    PlayerAnim.Play("jump", -1, 0f);
+                    JumpCount++;  
+                }
+                /*make another else if once you do wall logic 
+                else if (Unlockables[2] == true))
+                {
+                
+                PlayerRB.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
+                PlayerAnim.SetBool("Jumping", true);
+                
+                CurrentlyJumping = true;
+                }
+                */
+            }
         }
-        }
-        
+        //CREATE COYOTE TIME and jump buffering 
+        //create a timer when youre falling, if the jump button is pressed 
+        //and the player touches the ground before the timer ends(5 frames), jump when getting on the ground
+
+        //put this code in jump script
+        //create a timer after leaving the ground (5 frames)
+        // if (playervelocityY < 0  && (playervelocityX > || <0) && timer < ground leave timer)
+        //Jump
+        fallFrames = 0;
+
     }
-    
-    
+    void StartSlide()
+    {
+        
+        if (Grounded && !gameObject.GetComponent<PlayerAttack>().attacking)
+        {
+            if (transform.localScale.x == 1)
+            {
+                
+            PlayerRB.AddForce(transform.right * new Vector2(1, 0), ForceMode2D.Impulse);
+            }
+            else if (transform.localScale.x== -1)
+            {
+                
+            PlayerRB.AddForce(transform.right * new Vector2(-1, 0), ForceMode2D.Impulse);
+            }
+        sliding = true;
+        PlayerAnim.SetBool("Sliding", true);
+        ableToMove = false;
+        }
+    }
+    void EndSlide()
+    {
+        ableToMove = true;
+        sliding = false;
+        PlayerAnim.SetBool("Sliding", false);
+        if (!MovingLeft && !MovingRight)
+        {
+            Debug.Log("Stop");
+            PlayerAnim.SetBool("Idle", true);
+            PlayerRB.linearVelocityX = 0;
+        }
+        else if (MovingLeft || MovingRight)
+        {
+            PlayerAnim.SetBool("Running", true);
+            PlayerRB.linearVelocityX = Speed;
+        }
+        slideFrames = 0;
+    }
+
     public void EndJump()
     {
-        //if (PlayerAnim.GetBool("Falling"))
-        //{
+
         PlayerAnim.SetBool("Falling", false);
         PlayerAnim.SetBool("Jumping", false);
-        //}
+
         if (!MovingLeft && !MovingRight)
         {
             PlayerAnim.SetBool("Idle", true);
@@ -195,17 +290,13 @@ public class PlayerMovement : MonoBehaviour
         {
             PlayerAnim.SetBool("Running", true);
         }
-        //if (CurrentlyJumping)
-        //{
-            
+
         PlayerRB.linearVelocityX = 0;
-        //PlayerRB.linearVelocityY = 0;
-        //}
-        //PlayerAnim.SetBool("Idle", true);
-        CurrentlyJumping = false;
+        fallFrames = 0;
+        //CurrentlyJumping = false;
         Grounded = true;
-        //busy = false;
+        JumpCount = 0;
     }
-    
-    
+
+
 }

@@ -19,7 +19,14 @@ public class GroundScript : MonoBehaviour
         if (collider.gameObject.CompareTag("Player"))
         {
             collider.gameObject.GetComponent<PlayerMovement>().EndJump();
-            Debug.Log("Player is grounded");
+            //Debug.Log("Player is grounded");
+        }
+    }
+    void OnTriggerExit2D(Collider2D collider)
+    {
+        if (collider.gameObject.CompareTag("Player"))
+        {
+            collider.gameObject.GetComponent<PlayerMovement>().Grounded = false;
         }
     }
 }

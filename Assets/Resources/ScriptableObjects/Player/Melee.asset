@@ -18,3 +18,5 @@ MonoBehaviour:
   Using: 0
   KnockBack: 1
   HitDirection: {x: 45, y: 45}
+  ManaGain: 10
+  holdable: 0

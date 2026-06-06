@@ -1,3 +1,4 @@
+//using System.Numerics;
 using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
@@ -14,6 +15,7 @@ public class EnemyAttack : MonoBehaviour
     private Animator Anim;
     private float invulnFrames = 0;
     private bool recoiling;
+    [SerializeField] private bool pushable;
     private bool chasing = false;
 
     void Start()
@@ -31,26 +33,33 @@ public class EnemyAttack : MonoBehaviour
             {
                 Anim.SetTrigger("Dead");
                 RB2D.gravityScale = 0;
-                RB2D.linearVelocity = new Vector2(0, 0);
+                //RB2D.linearVelocity = new Vector2(0, 0);
+                RB2D.mass = 0;
                 Destroy(gameObject, 1);
-            }
-            else 
-            {
-                if (GameObject.FindGameObjectWithTag("Player").transform.position.x < gameObject.transform.position.x)
-            {
-                RB2D.AddForce(KnockBackForce * new Vector2(hitDirection.x, hitDirection.y));
             }
             else
             {
-                RB2D.AddForce(-KnockBackForce * new Vector2(hitDirection.x, -hitDirection.y));
-            }
-            recoiling = true;
-            Anim.SetTrigger("Damaged");
+                if (pushable)
+                {
+                    if (GameObject.FindGameObjectWithTag("Player").transform.position.x < gameObject.transform.position.x)
+                    {
+                        //Hollow knight does not do recoil, but metroid and castlevania does 
+                        RB2D.AddForce(KnockBackForce * new Vector2(hitDirection.x, hitDirection.y));
+                    }
+                    else
+                    {
+                        RB2D.AddForce(-KnockBackForce * new Vector2(hitDirection.x, -hitDirection.y));
+                    }
+                }
+
+                recoiling = true;
+                Anim.SetTrigger("Damaged");
             }
             
-            
+
+
         }
-        
+
     }
 
     void Update()
@@ -60,7 +69,7 @@ public class EnemyAttack : MonoBehaviour
             invulnFrames++;
             if (invulnFrames >= 15)
             {
-                
+
                 EndRecoil();
             }
         }
@@ -96,7 +105,7 @@ public class EnemyAttack : MonoBehaviour
 
     void MoveTowardsPlayer()
     {
-        
+
     }
 
     void EndAttack()
@@ -114,11 +123,12 @@ public class EnemyAttack : MonoBehaviour
         Anim.SetBool("Shooting", false);
         Anim.SetBool("Idle", true);
     }
-    
+
     void EndRecoil()
     {
         invulnFrames = 0;
         recoiling = false;
+        RB2D.linearVelocity = new Vector2(0, 0);
         Anim.SetBool("Damaged", false);
         Anim.SetBool("Idle", true);
     }
@@ -160,7 +170,7 @@ public class EnemyAttack : MonoBehaviour
             {
                 GameObject Projectile = Instantiate(Fireball, transform.position, transform.rotation);
                 Projectile.GetComponent<ProjectileScript>().BelongsTo = gameObject;
-                Projectile.transform.localScale  = new Vector3(Projectile.transform.localScale.x * 1, Projectile.transform.localScale.y, Projectile.transform.localScale.z);
+                Projectile.transform.localScale = new Vector3(Projectile.transform.localScale.x * 1, Projectile.transform.localScale.y, Projectile.transform.localScale.z);
                 Projectile.GetComponent<Rigidbody2D>().AddForce(1 * new Vector2(-45, -45));
             }
         }
@@ -168,7 +178,7 @@ public class EnemyAttack : MonoBehaviour
         //Fireball.GetComponent<Rigidbody2D>().linearVelocityY = 5;
     }
 
-    void Melee() 
+    void Melee()
     {
 
     }

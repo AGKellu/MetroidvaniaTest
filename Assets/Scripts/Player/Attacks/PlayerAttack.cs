@@ -2,39 +2,59 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Debug = UnityEngine.Debug;
 using UnityEngine.UI;
+//using System.Numerics;
 public class PlayerAttack : MonoBehaviour
 {
-    [Header ("Attack Actions")]    
+    [Header("Attack Actions")]
     private InputAction NormalAttack;
     private InputAction FirstSpell;
 
+
+
     [Header("PlayerComponents")]
     private Animator PlayerAnim;
-    public  ScriptableObjectScript currentAttack;
+    public ScriptableObjectScript currentAttack;
     public ScriptableObjectScript Spell1;
     public ScriptableObjectScript Normal;
+    [SerializeField] private int SpellHeldFrames = 0;
+    private bool healing;
+    [SerializeField] private int healingFrames = 0;
 
-    [Header ("PlayerAttributes")]
+    [Header("PlayerAttributes")]
     [SerializeField] private float timeBetweenAttack = 0;
     private float timeSinceAttack;
-    public  bool attacking = false;
+    public bool attacking = false;
     //public bool shooting = false;
     public bool casting = false;
     public int Health;
-    public int Mana;
+    public float Mana;
+    public int ManaMax;
     private float InvulFrames = 0;
-    private bool invuln= false;
+    private bool invuln = false;
     private bool ableToAttack = true;
 
 
     [Header("Misc")]
-    
-    [SerializeField]private Material trueMaterial;
-    [SerializeField]private Material flashMaterial;
-    [SerializeField] private Image ManaContainer;
+
+    [SerializeField] private Material trueMaterial;
+    [SerializeField] private Material flashMaterial;
+    public Image ManaContainer;
     [SerializeField] private GameObject Camera;
     [SerializeField] private GameObject[] HealthMasks;
     [SerializeField] private GameObject Fireball;
+    [SerializeField] private bool[] Unlockables;
+
+    //[SerializeField] private InputAction Heal;
+    //[SerializeField] private bool healing = false;
+   // [SerializeField] private int healingFrames = 0;
+    /*
+    Unlockables are:
+    Fireball
+    Iceball
+    */
+
+
+
     //when getting a new health mask, HealthMasks.Add(newMask);
     private int MaskInt = 0;
 
@@ -42,12 +62,16 @@ public class PlayerAttack : MonoBehaviour
     void Start()
     {
         PlayerAnim = gameObject.GetComponent<Animator>();
-        
+
         NormalAttack = InputSystem.actions.FindAction("Attacks/NormalAttack");
         NormalAttack.performed += ctx => Attack();
 
         FirstSpell = InputSystem.actions.FindAction("Attacks/Spell1");
-        FirstSpell.performed += ctx => FireSpell1();
+        FirstSpell.performed += ctx => StartFireSpell1();
+        FirstSpell.canceled += ctx => SpellCheck();
+        //Heal = InputSystem.actions.FindAction("Heal");
+        //Heal.performed += ctx => StartHeal();
+
     }
 
     public void TakeDamage(int AttackDamage)
@@ -60,24 +84,23 @@ public class PlayerAttack : MonoBehaviour
             Camera.GetComponent<CameraFollow>().Shake();
             HealthMasks[MaskInt].GetComponent<Animator>().SetTrigger("Broken");
             MaskInt++;
-            //Camera.GetComponent<CameraFollow>().Shake(60, 100);
             Health -= AttackDamage;
             if (Health <= 0)
             {
                 PlayerAnim.SetTrigger("Dead");
                 Destroy(gameObject, 5);
             }
-            else 
+            else
             {
-            invuln = true;
+                invuln = true;
 
-            PlayerAnim.SetTrigger("Damaged");
-            PlayerAnim.SetBool("Running", false);
-            
-            
-            
+                PlayerAnim.SetTrigger("Damaged");
+                PlayerAnim.SetBool("Running", false);
+
+
+
             }
-            
+
             gameObject.GetComponent<Rigidbody2D>().linearVelocityX = 0;
             gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
         }
@@ -88,10 +111,14 @@ public class PlayerAttack : MonoBehaviour
         if (attacking)
         {
             timeSinceAttack++;
+            //if (currentAttack.holdable)
+            //{
+            //  if (timeSinceAttack > )
+            //}
             if (timeSinceAttack >= currentAttack.AttackFrames)
             {
                 EndAttack();
-                
+
             }
         }
         else if (invuln)
@@ -105,40 +132,93 @@ public class PlayerAttack : MonoBehaviour
         else if (casting)
         {
             timeSinceAttack++;
-            if (timeSinceAttack >=currentAttack.AttackFrames)
+            if (currentAttack.holdable)
+            {
+                if (FirstSpell.IsPressed())
+                {
+                    SpellHeldFrames++;
+                    if (SpellHeldFrames >2)
+                    {
+                        StartHeal();
+                    }
+                    //if (SpellHeldFrames == 60)
+                    //{
+                      //  HealTick();
+                    //}
+                }
+            }
+            else if (!currentAttack.holdable)
+            {
+                FireSpell1();
+            }
+            if (timeSinceAttack >= currentAttack.AttackFrames)
             {
                 EndSpell();
             }
         }
         
+        if (healing)
+        {
+            if (FirstSpell.IsPressed())
+            {
+                healingFrames++;
+            if (healingFrames == 90)
+            {
+                HealTick();
+            }
+            //else
+            //{
+              //  CancelHeal();
+            //}
+            }
+            
+        }
 
     }
+
     void Attack()
     {
         if (!attacking && ableToAttack)
         {
-            //busy = true;
+            gameObject.GetComponent<PlayerMovement>().ableToMove = false;
+            gameObject.GetComponent<Rigidbody2D>().linearVelocityX = 0;
             currentAttack = Normal;
             attacking = true;
             PlayerAnim.SetBool("Attacking", true);
             PlayerAnim.SetBool("Idle", false);
-            //Debug.Log("Starting Attack");
-          //when you shoot, set manacontainer.fillamount to Mana/10;
-          //create a int of "Mana Gain" for when you hit an enemy
+        }
+    }
+    void StartFireSpell1()
+    {
+        currentAttack = Spell1;
+        if (!attacking && !casting && (Mana >= currentAttack.ManaGain) && Unlockables[0] == true)
+        {
+            casting = true;
         }
     }
     void FireSpell1()
     {
-        if (!attacking && ableToAttack)
+        currentAttack = Spell1;
+        if (!attacking && ableToAttack && (Mana >= currentAttack.ManaGain) && Unlockables[0] == true)
         {
-            currentAttack = Spell1;
+            gameObject.GetComponent<PlayerMovement>().ableToMove = false;
+            gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 0);
             casting = true;
             GameObject Projectile = Instantiate(Fireball, transform.position, transform.rotation);
-            //GameObject Projectile = Instantiate(Resources.Load("Projectiles/Fireball/FireballSO", typeof (GameObject))) as GameObject;
+            if (transform.localScale.x == 1)
+            {
+                Projectile.transform.localScale = new Vector3(-1, 1, 1);
+                Projectile.GetComponent<Rigidbody2D>().linearVelocityX = 5;
+            }
+            else if (transform.localScale.x == -1)
+            {
+                Projectile.transform.localScale = new Vector3(1, 1, 1);
+                Projectile.GetComponent<Rigidbody2D>().linearVelocityX = -5;
+            }
             Projectile.GetComponent<ProjectileScript>().BelongsTo = gameObject;
-            //Projectile.GetComponent<Rigidbody2D>().AddForce(1 * transform.forward, ForceMode2D.Impulse);
-            Projectile.GetComponent<Rigidbody2D>().linearVelocityX = 5;
             attacking = true;
+            Mana -= currentAttack.ManaGain;
+            ManaContainer.fillAmount = Mana / 100;
             PlayerAnim.SetBool("Casting", true);
             PlayerAnim.SetBool("Idle", false);
         }
@@ -146,34 +226,31 @@ public class PlayerAttack : MonoBehaviour
     void EndAttack()
     {
         timeSinceAttack = 0;
-            //Debug.Log("Attack should be done");
-            PlayerAnim.SetBool("Attacking", false);
-            if (!gameObject.GetComponent<PlayerMovement>().MovingLeft && !gameObject.GetComponent<PlayerMovement>().MovingRight)
-            {
-                PlayerAnim.SetBool("Idle", true);
-            }
-            else 
-            {
-                PlayerAnim.SetBool("Running", true);
-            }
-            //look at other xcript and check if moving and do idle
-
-            //busy = false;
-            attacking = false;
+        gameObject.GetComponent<PlayerMovement>().ableToMove = true;
+        PlayerAnim.SetBool("Attacking", false);
+        if (!gameObject.GetComponent<PlayerMovement>().MovingLeft && !gameObject.GetComponent<PlayerMovement>().MovingRight)
+        {
+            PlayerAnim.SetBool("Idle", true);
+        }
+        else
+        {
+            PlayerAnim.SetBool("Running", true);
+        }
+        attacking = false;
     }
     void EndSpell()
     {
+        gameObject.GetComponent<PlayerMovement>().ableToMove = true;
         timeSinceAttack = 0;
         PlayerAnim.SetBool("Casting", false);
         if (!gameObject.GetComponent<PlayerMovement>().MovingLeft && !gameObject.GetComponent<PlayerMovement>().MovingRight)
         {
             PlayerAnim.SetBool("Idle", true);
         }
-        else 
+        else
         {
             PlayerAnim.SetBool("Running", true);
         }
-        //shooting = false;
         casting = false;
     }
     void EndInvuln()
@@ -181,6 +258,7 @@ public class PlayerAttack : MonoBehaviour
         InvulFrames = 0;
         invuln = false;
         gameObject.GetComponent<PlayerMovement>().ableToMove = true;
+        ableToAttack = true;
         if (!gameObject.GetComponent<PlayerMovement>().MovingRight && !gameObject.GetComponent<PlayerMovement>().MovingLeft)
         {
             PlayerAnim.SetBool("Idle", true);
@@ -194,6 +272,40 @@ public class PlayerAttack : MonoBehaviour
             PlayerAnim.SetBool("Jumping", true);
         }
         gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
-        //PlayerAnim.SetBool("Damaged", false);
+    }
+    void StartHeal()
+    {
+        healing = true;
+        casting = false;
+       //put animation of healing and stuff here, can be cancelled only by ending the button press
+       Debug.Log("Healing!");
+    }
+    
+    void HealTick()
+    {
+        //healing = false;
+        healingFrames = 0;
+        //SpellHeldFrames = 0;
+        Debug.Log("Healed 1 mask!");
+    }
+    void SpellCheck()
+    {
+        
+        if (SpellHeldFrames >= 10 ||  healingFrames >= 10)
+        {
+            
+        }
+          //  StartHeal();
+        //}
+        else
+        {
+            FireSpell1();
+        }
+        SpellHeldFrames = 0;
+        healingFrames = 0;
+    }
+    void CancelHeal()
+    {
+        healing = false;
     }
 }
