@@ -17,6 +17,7 @@ public class EnemyAttack : MonoBehaviour
     private bool recoiling;
     [SerializeField] private bool pushable;
     private bool chasing = false;
+    [SerializeField] private BoxCollider2D hitboxCollider;
 
     void Start()
     {
@@ -55,7 +56,9 @@ public class EnemyAttack : MonoBehaviour
                 }
 
                 recoiling = true;
+                hitboxCollider.enabled = false;
                 Anim.SetTrigger("Damaged");
+                Anim.SetBool("Idle", false);
             }
             
 
@@ -133,6 +136,11 @@ public class EnemyAttack : MonoBehaviour
         RB2D.linearVelocity = new Vector2(0, 0);
         Anim.SetBool("Damaged", false);
         Anim.SetBool("Idle", true);
+        hitboxCollider.enabled = true;
+        if (!chasing)
+        {
+            Anim.SetBool("Idle", true);
+        }
     }
     
     

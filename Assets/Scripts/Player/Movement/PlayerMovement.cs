@@ -126,7 +126,9 @@ public class PlayerMovement : MonoBehaviour
         }
         if (!sliding)
         {
-            if (moveActionRight.IsPressed() && !gameObject.GetComponent<PlayerAttack>().attacking && MovingRight)
+            //dont stop movement while attacking as well as \/\/\/
+            //after attacking, check queued turn, once atacking finished, turn
+            if (moveActionRight.IsPressed() &&  MovingRight)
         {
             if (PlayerAnim.GetBool("Falling"))
             {
@@ -138,7 +140,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (moveActionLeft.IsPressed() && !gameObject.GetComponent<PlayerAttack>().attacking && MovingLeft)
+        if (moveActionLeft.IsPressed() &&  MovingLeft)
         {
             if (PlayerAnim.GetBool("Falling"))
             {
@@ -161,8 +163,15 @@ public class PlayerMovement : MonoBehaviour
         {
             MovingRight = true;
             MovingLeft = false;
-
+            if (gameObject.GetComponent<PlayerAttack>().attacking)
+            {
+                gameObject.GetComponent<PlayerAttack>().QueueRightTurn = true;
+            }
+            else
+            {
+                
             transform.localScale = new Vector3(1, 1, 1);
+            }
 
             if (Grounded && !gameObject.GetComponent<PlayerAttack>().attacking)
             {
@@ -182,7 +191,14 @@ public class PlayerMovement : MonoBehaviour
         {
             MovingLeft = true;
             MovingRight = false;
-            transform.localScale = new Vector3(-1, 1, 1);
+            if (gameObject.GetComponent<PlayerAttack>().attacking)
+            {
+                gameObject.GetComponent<PlayerAttack>().QueueLeftTurn = true;
+            }
+            else
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
 
             if (Grounded && !gameObject.GetComponent<PlayerAttack>().attacking)
             {
@@ -199,8 +215,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (ableToMove)
         {
-            if (!gameObject.GetComponent<PlayerAttack>().attacking)
-            {
+            //if (!gameObject.GetComponent<PlayerAttack>().attacking)
+            //{
                 if (Grounded)
                 {
 
@@ -224,7 +240,7 @@ public class PlayerMovement : MonoBehaviour
                 CurrentlyJumping = true;
                 }
                 */
-            }
+            //}
         }
         //CREATE COYOTE TIME and jump buffering 
         //create a timer when youre falling, if the jump button is pressed 

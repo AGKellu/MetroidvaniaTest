@@ -3,7 +3,10 @@ using UnityEngine;
 public class ProjectileScript : MonoBehaviour
 {
     public  GameObject BelongsTo;
-
+    void Start()
+    {
+        Destroy(gameObject, 5);
+    }
     
     void OnTriggerEnter2D(Collider2D attackHitbox)
     {
