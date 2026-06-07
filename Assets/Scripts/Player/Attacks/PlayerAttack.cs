@@ -101,7 +101,8 @@ public class PlayerAttack : MonoBehaviour
 
             }
 
-            gameObject.GetComponent<Rigidbody2D>().linearVelocityX = 0;
+            gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 0);
+            //gameObject.GetComponent<Rigidbody2D>().line
             gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
         }
     }
@@ -257,6 +258,8 @@ public class PlayerAttack : MonoBehaviour
     {
         InvulFrames = 0;
         invuln = false;
+        //gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        //gameObject.GetComponent<Rigidbody2D>().WakeUp();
         gameObject.GetComponent<PlayerMovement>().ableToMove = true;
         ableToAttack = true;
         if (!gameObject.GetComponent<PlayerMovement>().MovingRight && !gameObject.GetComponent<PlayerMovement>().MovingLeft)
@@ -271,6 +274,7 @@ public class PlayerAttack : MonoBehaviour
         {
             PlayerAnim.SetBool("Jumping", true);
         }
+        
         gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
     }
     void StartHeal()
@@ -307,5 +311,27 @@ public class PlayerAttack : MonoBehaviour
     void CancelHeal()
     {
         healing = false;
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        //Debug.Log("Please");
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            //Debug.Log("Ran into the enemy");
+            
+            TakeDamage(1);
+            
+            //gameObject.GetComponent<Rigidbody2D>().Sleep();
+            //gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            
+        }
+        /*else if (other.gameObject.CompareTag("Spike"))
+        {
+            TPToSafety();
+        }
+
+
+        */
     }
 }

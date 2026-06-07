@@ -9,7 +9,7 @@ public class EnemyAttack : MonoBehaviour
 
     //public Projectile Fireball;
     public bool attacking = false;
-    private bool shooting = false;
+    public bool shooting = false;
     public float timeSinceAttack;
     private Rigidbody2D RB2D;
     private Animator Anim;
@@ -44,11 +44,13 @@ public class EnemyAttack : MonoBehaviour
                     if (GameObject.FindGameObjectWithTag("Player").transform.position.x < gameObject.transform.position.x)
                     {
                         //Hollow knight does not do recoil, but metroid and castlevania does 
-                        RB2D.AddForce(KnockBackForce * new Vector2(hitDirection.x, hitDirection.y));
+                        RB2D.linearVelocity = KnockBackForce * new Vector2(hitDirection.x, hitDirection.y);
+                        //RB2D.AddForce(KnockBackForce * new Vector2(hitDirection.x, hitDirection.y));
                     }
                     else
                     {
-                        RB2D.AddForce(-KnockBackForce * new Vector2(hitDirection.x, -hitDirection.y));
+                        RB2D.linearVelocity = KnockBackForce * new Vector2(hitDirection.x, -hitDirection.y);
+                        //RB2D.AddForce(-KnockBackForce * new Vector2(hitDirection.x, -hitDirection.y));
                     }
                 }
 
@@ -132,17 +134,8 @@ public class EnemyAttack : MonoBehaviour
         Anim.SetBool("Damaged", false);
         Anim.SetBool("Idle", true);
     }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            //MoveTowardsPlayer();
-            //attacking = true;
-            shooting = true;
-            //Anim.SetBool("Shooting", true);
-        }
-    }
+    
+    
 
     void Shoot()
     {

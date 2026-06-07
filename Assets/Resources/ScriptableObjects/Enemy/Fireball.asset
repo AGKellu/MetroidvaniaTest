@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fireball
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttackSOScript
   name: Fireball
-  AttackFrames: 35
+  AttackFrames: 15
   Damage: 1
   Using: 0
   KnockBack: 0

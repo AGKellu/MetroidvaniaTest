@@ -16,7 +16,7 @@ MonoBehaviour:
   AttackFrames: 15
   Damage: 1
   Using: 0
-  KnockBack: 1
+  KnockBack: 0.01
   HitDirection: {x: 45, y: 45}
   ManaGain: 10
   holdable: 0
