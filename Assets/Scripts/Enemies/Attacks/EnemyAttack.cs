@@ -172,7 +172,7 @@ public class EnemyAttack : MonoBehaviour
                 GameObject Projectile = Instantiate(Fireball, transform.position, transform.rotation);
                 Projectile.GetComponent<ProjectileScript>().BelongsTo = gameObject;
                 Projectile.transform.localScale = new Vector3(Projectile.transform.localScale.x * 1, Projectile.transform.localScale.y, Projectile.transform.localScale.z);
-                Projectile.GetComponent<Rigidbody2D>().AddForce(1 * new Vector2(-45, -45));
+                Projectile.GetComponent<Rigidbody2D>().AddForce(1 * new Vector2(45, -45));
             }
         }
         //Fireball.GetComponent<Rigidbody2D>().linearVelocityX = 5;

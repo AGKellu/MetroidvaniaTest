@@ -1,16 +1,26 @@
+//using System.Numerics;
 using UnityEngine;
-using System.Collections;
+//using System.Collections;
+//using System.Numerics;
 
 public class CameraFollow : MonoBehaviour
 {
     private GameObject Player;
-    [SerializeField] private float followSpeed = 1f;
+    public float followSpeed = 1f;
     public Vector3 offset;
     public bool shaking;
     public float smoothTime;
     public float strength;
     public float strengthVelocity;
+    public bool movingUp;
+    public bool sliding;
     int i = 0;
+    //public bool LeftDoor;
+    //public bool RightDoor;
+    //public bool UpDoor;
+    //public bool DownDoor;
+    //[SerializeField] private float minCamera;
+    //[SerializeField] private float maxCamera;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,9 +32,18 @@ public class CameraFollow : MonoBehaviour
     {
         if (!shaking)
         {
+            //mathf.clamp (min, max), make min a little further than the transition
+            if (sliding || movingUp)
+            {
+                transform.position = Vector3.Lerp(transform.position, Player.transform.position + offset, followSpeed / 2);
+            }
+            else
+            {
+                
             transform.position = Vector3.Lerp(transform.position, Player.transform.position + offset, followSpeed);
+            }
         }
-        else if (shaking)
+        if (shaking)
         {
             //shaking = false;
             float randomX = Random.value - 0.5f;
@@ -43,19 +62,24 @@ public class CameraFollow : MonoBehaviour
 
         
     }
-    
+
     public void Shake()
     {
-    // distance dynamite to camera
-    //float distance = Vector3.Distance(explosionLocation, transform.position);
-    // map the distance to a [0-1] value based on chosen maximum distance
-    //float maxAffectDistance = 10f;
-    //float value = Mathf.Clamp01((maxAffectDistance - distance) / maxAffectDistance);
-    // set the camera shake strength to this value,
-    // or keep it at current value if it is already higher
-    strength = Mathf.SmoothDamp(strength, 0f, ref strengthVelocity, smoothTime);
-    
-    
-    //strength = Mathf.Max(strength, value);
+        // distance dynamite to camera
+        //float distance = Vector3.Distance(explosionLocation, transform.position);
+        // map the distance to a [0-1] value based on chosen maximum distance
+        //float maxAffectDistance = 10f;
+        //float value = Mathf.Clamp01((maxAffectDistance - distance) / maxAffectDistance);
+        // set the camera shake strength to this value,
+        // or keep it at current value if it is already higher
+        strength = Mathf.SmoothDamp(strength, 0f, ref strengthVelocity, smoothTime);
+
+
+        //strength = Mathf.Max(strength, value);
+    }
+    public void Switch()
+    {
+        transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+        //transform.localScale.x = transform.localScale.x * -1;
     }
 }

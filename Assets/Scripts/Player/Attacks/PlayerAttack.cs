@@ -46,7 +46,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Material trueMaterial;
     [SerializeField] private Material flashMaterial;
     public Image ManaContainer;
-    [SerializeField] private GameObject Camera;
+    public GameObject Camera;
     [SerializeField] private GameObject[] HealthMasks;
     [SerializeField] private GameObject Fireball;
     [SerializeField] private bool[] Unlockables;
@@ -90,8 +90,9 @@ public class PlayerAttack : MonoBehaviour
         {
             gameObject.GetComponent<PlayerMovement>().ableToMove = false;
             ableToAttack = false;
-            Camera.GetComponent<CameraFollow>().shaking = true;
+            //Camera.GetComponent<CameraFollow>().shaking = true;
             Camera.GetComponent<CameraFollow>().Shake();
+            //Camera.GetComponent<CinemachineImpulseSource>().GenerateImpulse();
             HealthMasks[MaskInt].GetComponent<Animator>().SetTrigger("Broken");
             MaskInt++;
             Health -= AttackDamage;
