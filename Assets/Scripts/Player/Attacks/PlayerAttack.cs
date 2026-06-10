@@ -31,7 +31,7 @@ public class PlayerAttack : MonoBehaviour
     public float Mana;
     public float ManaStartFloat;
     //public float ManaEndFloat;
-    public int ManaMax;
+    public float ManaMax;
     private float InvulFrames = 0;
     private bool invuln = false;
     private bool ableToAttack = true;
@@ -67,7 +67,7 @@ public class PlayerAttack : MonoBehaviour
     //when getting a new health mask, HealthMasks.Add(newMask);
     private int MaskInt = 0;
     private int HealthInt = 0;
-
+    [SerializeField] PlayerSOScript Values;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -81,6 +81,13 @@ public class PlayerAttack : MonoBehaviour
         FirstSpell.canceled += ctx => SpellCheck();
         //Heal = InputSystem.actions.FindAction("Heal");
         //Heal.performed += ctx => StartHeal();
+        Health = Values.Health;
+        maxHealth = Values.maxHealth;
+        Mana = Values.Mana;
+        ManaMax = Values.ManaMax;
+        currentAttack = Values.currentAttack;
+        Spell1 = Values.Spell1;
+        Normal = Values.Normal;
 
     }
 
@@ -405,7 +412,19 @@ public class PlayerAttack : MonoBehaviour
         }*/
 
 
-        
+
+    }
+    public void Transition()
+    {
+        Values.Health = Health;
+    Values.maxHealth = maxHealth;
+    Values.Mana = Mana;
+    Values.ManaMax = ManaMax;
+    Values.currentAttack = currentAttack;
+    Values.Spell1 = Spell1;
+    Values.Normal = Normal;
+        Values.currentTransform = transform.position;
+        Debug.Log(Values.currentTransform);
     }
     
 }

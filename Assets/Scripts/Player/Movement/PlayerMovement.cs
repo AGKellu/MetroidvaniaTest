@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     public bool ableToMove = true;
 
     [SerializeField]
-    private int JumpCount = 0;
+    private int JumpCount;
     public bool sliding = false;
     private int slideFrames = 0;
 
@@ -44,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private bool[] Unlockables;
 
+    [SerializeField] private PlayerSOScript Values; 
     /*
     Unlockables are:
     Slide
@@ -69,6 +70,11 @@ public class PlayerMovement : MonoBehaviour
         PlayerRB = gameObject.GetComponent<Rigidbody2D>();
         PlayerAnim = gameObject.GetComponent<Animator>();
         PlayerSprite = gameObject.GetComponent<SpriteRenderer>();
+        Speed = Values.speed;
+        JumpForce = Values.JumpForce;
+        JumpSpeed = Values.JumpSpeed;
+        JumpCount = Values.JumpCount;
+        transform.localScale = Values.currentRotation;
         //moveActionRight.canceled += ctx => StopCurrentMoveInput();
     }
 
@@ -253,6 +259,7 @@ public class PlayerMovement : MonoBehaviour
                 PlayerRB.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
                 PlayerAnim.SetBool("Jumping", true);
                 JumpCount++;
+                //Grounded = false;
             }
             else if (Unlockables[3] == true && JumpCount < 2)
             {
@@ -342,5 +349,13 @@ public class PlayerMovement : MonoBehaviour
         Grounded = true;
         JumpCount = 0;
         //falling = false;
+    }
+    public void Transition()
+    {
+        Values.speed = Speed;
+     Values.JumpForce = JumpForce;
+    Values.JumpSpeed = JumpSpeed;
+        Values.JumpCount = JumpCount;
+        Values.currentRotation = transform.localScale;
     }
 }
