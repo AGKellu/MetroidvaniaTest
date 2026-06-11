@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    private GameObject Player;
+    public GameObject Player;
     public float followSpeed = 1f;
     public Vector3 offset;
     public bool shaking;
@@ -14,6 +14,7 @@ public class CameraFollow : MonoBehaviour
     public float strengthVelocity;
     public bool movingUp;
     public bool sliding;
+    [SerializeField] private GameObject TransitionPanel;
     int i = 0;
     //public bool LeftDoor;
     //public bool RightDoor;
@@ -25,6 +26,9 @@ public class CameraFollow : MonoBehaviour
     void Start()
     {
         Player = GameObject.FindWithTag("Player");
+        Player.GetComponent<PlayerMovement>().ableToMove = true;
+        Player.GetComponent<PlayerAttack>().Camera = gameObject;
+        TransitionPanel.GetComponent<Animator>().SetTrigger("End");
     }
 
     // Update is called once per frame

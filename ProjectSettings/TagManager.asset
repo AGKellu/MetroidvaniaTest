@@ -9,6 +9,7 @@ TagManager:
   - Hurtbox
   - Terrain
   - Spike
+  - Canvas
   layers:
   - Default
   - TransparentFX

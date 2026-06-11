@@ -47,6 +47,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Material flashMaterial;
     public Image ManaContainer;
     public GameObject Camera;
+    //set camera
     [SerializeField] private GameObject[] HealthMasks;
     [SerializeField] private GameObject Fireball;
     [SerializeField] private bool[] Unlockables;
@@ -424,7 +425,7 @@ public class PlayerAttack : MonoBehaviour
     Values.Spell1 = Spell1;
     Values.Normal = Normal;
         Values.currentTransform = transform.position;
-        Debug.Log(Values.currentTransform);
+        //Debug.Log(Values.currentTransform);
     }
     
 }
