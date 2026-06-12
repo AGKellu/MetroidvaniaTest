@@ -8862,7 +8862,7 @@ MonoBehaviour:
   GOsInScene:
   - {fileID: 7139117116194595583, guid: 40c628758dcc6aa46a90502481b43677, type: 3}
   GOPositions:
-  - {x: -4.05, y: -0.05, z: 0}
+  - {x: -3.5, y: -0.05, z: 0}
   Vals: {fileID: 11400000, guid: d0a6d281caa2dc745aa220a6d0eccbb7, type: 2}
   LeftDoor: {fileID: 182226316}
   LeftTrans: {fileID: 182226317}

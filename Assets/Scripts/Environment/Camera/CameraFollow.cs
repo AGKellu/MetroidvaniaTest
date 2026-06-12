@@ -20,6 +20,7 @@ public class CameraFollow : MonoBehaviour
     int i = 0;
     public Vector3 LeftCamPos;
     public Vector3 RightCamPos;
+    private string CurrentScene;
     //public bool FromLeft;
     //public bool FromRight;
     //public bool LeftDoor;
@@ -109,27 +110,90 @@ public class CameraFollow : MonoBehaviour
     }
     public IEnumerator Transition(string RoomToLoad)
     {
-        string CurrentScene = SceneManager.GetActiveScene().name;
-        Debug.Log(CurrentScene);
+      //  public IEnumerator Transition(GameObject player)
+    //{
         changing = true;
-       //string ActiveScene = SceneManager.GetActiveScene().name;
+        Debug.Log("Transition to next Scene");
+        string ActiveScene = SceneManager.GetActiveScene().name;
+        Debug.Log(ActiveScene);
+        //Debug.Log(ActiveScene);
+        //GameObject player = GameObject.FindGameObjectWIthTag("Player");
+        //player.GetComponent<PlayerMovement>().ableToMove = false;
+        yield return null;
+        //player.GetComponent<PlayerAttack>().Transition();
+        //player.GetComponent<PlayerMovement>().Transition();
+        //Destroy(player, 0);
         AsyncOperation loadScene = SceneManager.LoadSceneAsync(RoomToLoad, LoadSceneMode.Additive);
         while (!loadScene.isDone)
         {
             yield return null;
         }
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(RoomToLoad));
+        //player.GetComponent<PlayerAttack>().Transition();
+        //player.GetComponent<PlayerMovement>().Transition();
+        //Destroy(player, 0);
+        //GameObject newPlayer = Instantiate(RealPlayer, Values.currentTransform, transform.rotation);
+        //newPlayer.transform.localScale = Values.currentRotation;
+        //Make Player Values onto Value SO, Destroy Player, then Instaniate New Player at transform
+        //GameObject RealCam = GameObject.FindGameObjectWithTag("Camera");
+        //RealCam.setActive(false);
+        GameObject UI = GameObject.FindGameObjectWithTag("Canvas");
+        SceneManager.MoveGameObjectToScene(UI, SceneManager.GetActiveScene());
+        //SceneManager.MoveGameObjectToScene(player, SceneManager.GetActiveScene());
+        //player.transform.position = nowPosition;
+        //player.GetComponent<PlayerAttack>().Camera = GameObject.FindGameObjectWithTag("RealCamera");
+        AsyncOperation unloadScene = SceneManager.UnloadSceneAsync(ActiveScene);
+        while (!unloadScene.isDone)
+        {
+            yield return null;
+        }
+        //GameObject newPlayer = Instantiate(RealPlayer, Values.currentTransform + new Vector3(-2.9f, 0, 0), transform.rotation);
+
+        //newPlayer.transform.localScale = Values.currentRotation;
+        //GameObject RealCam = GameObject.FindGameObjectWithTag("RealCamera");
+        //RealCam.GetComponent<CameraFollow>().Player = newPlayer;
+        //Make Player Values onto Value SO, Destroy Player, then Instaniate New Player at transform
+        
+        Debug.Log(RoomToLoad + " has been loaded!\nSend player in front of leave trigger depending on what direction theyre looking");
+
+        //yield return null;
+        //player.GetComponent<PlayerMovement>().ableToMove = true;
+        //player.GetComponent<PlayerMovement>().Grounded = true;
+        //abletomove = false, fade scene to black, load, send player in front of leave trigger, unload, unfade from black, abletomove = true;
+    
+    
+        /*CurrentScene = SceneManager.GetActiveScene().name;
+        //Debug.Log(CurrentScene);
+        changing = true;
+       //string ActiveScene = SceneManager.GetActiveScene().name;
+        //AsyncOperation loadScene = SceneManager.LoadSceneAsync(RoomToLoad, LoadSceneMode.Additive);
+        //while (!loadScene.isDone)
+        //{
+          //  yield return null;
+        //}
+        //SceneManager.SetActiveScene(SceneManager.GetSceneByName(RoomToLoad));
 
         //SceneManager.SetActiveScene(SceneManager.GetSceneByName(RoomToLoad));
-        GameObject UI = GameObject.FindGameObjectWithTag("Canvas");
-        SceneManager.MoveGameObjectToScene(UI, SceneManager.GetSceneByName(RoomToLoad));
+        //GameObject UI = GameObject.FindGameObjectWithTag("Canvas");
+        //SceneManager.MoveGameObjectToScene(UI, SceneManager.GetSceneByName(RoomToLoad));
         changing = false;
-        AsyncOperation unloadScene = SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName("DebugScene"));
+        //yield return null;
+        //StartCoroutine()
+        /*AsyncOperation unloadScene = SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName("DebugScene"));
         while (!unloadScene.isDone)
         {
             yield return null;
         }
         Debug.Log("Please help");
-        
+        */
     }
+    //IEnumerator UnloadScene()
+    //{
+      //  AsyncOperation asyncUnload = SceneManager.UnloadSceneAsync(CurrentScene);
+       // while (!asyncUnload.isDone)
+        //{
+          //  yield return null;
+        //}
+        
+    //}
 }

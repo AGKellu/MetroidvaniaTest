@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class SpawnerScript : MonoBehaviour
 {
     public GameObject[] GOsInScene;
@@ -24,9 +25,25 @@ public class SpawnerScript : MonoBehaviour
     }
     public void Spawn()
     {
+        /*int countLoaded = SceneManager.sceneCount;
+        Scene[] loadedScenes = new Scene[countLoaded];
+        for (int i= 0; i<countLoaded; i++)
+        {
+            loadedScenes[i] = SceneManager.GetSceneAt(i);
+            if (loadedScenes[i] !=gameObject.scene)
+        {
+            Debug.Log("Unload " + loadedScenes[i].name);
+        }
+        }*/
+        //GetArray of scenes, if gameObject doesnt belong to scene x, unload scene x
+        
         for (int i = 0; i< GOsInScene.Length; i++)
         {
             GameObject GO = Instantiate(GOsInScene[i], GOPositions[i], Quaternion.identity);
+            if (GO.scene != gameObject.scene)
+            {
+                SceneManager.MoveGameObjectToScene(GO, gameObject.scene);
+            }
             if (GO.CompareTag("Player"))
             {
                 
