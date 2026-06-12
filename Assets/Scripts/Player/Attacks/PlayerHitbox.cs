@@ -35,5 +35,14 @@ public class PlayerHitbox : MonoBehaviour
             }
             */
         }
+        else if (collider.gameObject.CompareTag("Door"))
+        {
+            if (collider.gameObject.GetComponent<DoorScript>().NormalDoor)
+            {
+
+            collider.gameObject.GetComponent<DoorScript>().OpenDoor();
+            }
+            
+        }
     }
 }

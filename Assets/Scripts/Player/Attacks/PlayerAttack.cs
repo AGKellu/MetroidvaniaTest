@@ -98,7 +98,7 @@ public class PlayerAttack : MonoBehaviour
         {
             gameObject.GetComponent<PlayerMovement>().ableToMove = false;
             ableToAttack = false;
-            //Camera.GetComponent<CameraFollow>().shaking = true;
+            Camera.GetComponent<CameraFollow>().shaking = true;
             Camera.GetComponent<CameraFollow>().Shake();
             //Camera.GetComponent<CinemachineImpulseSource>().GenerateImpulse();
             HealthMasks[MaskInt].GetComponent<Animator>().SetTrigger("Broken");
@@ -216,6 +216,7 @@ public class PlayerAttack : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 0);
             casting = true;
             GameObject Projectile = Instantiate(Fireball, transform.position, transform.rotation);
+            Destroy(Projectile, 1);
             if (transform.localScale.x == 1)
             {
                 Projectile.transform.localScale = new Vector3(-1, 1, 1);
@@ -314,6 +315,8 @@ public class PlayerAttack : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
             QueueRightTurn = false;
         }
+        Camera.transform.localEulerAngles = new Vector3(0, 0, 0);
+        Camera.GetComponent<CameraFollow>().shaking = false;
         gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
     }
     void StartHeal()
@@ -406,11 +409,11 @@ public class PlayerAttack : MonoBehaviour
             //gameObject.GetComponent<BoxCollider2D>().enabled = false;
 
         }
-        /*else if (other.gameObject.CompareTag("Spike"))
+        else if (other.gameObject.CompareTag("Spike"))
         {
             TakeDamage(1);
             //TPToSafety();
-        }*/
+        }
 
 
 
@@ -425,6 +428,7 @@ public class PlayerAttack : MonoBehaviour
     Values.Spell1 = Spell1;
     Values.Normal = Normal;
         Values.currentTransform = transform.position;
+        //Destroy(gameObject, 0);
         //Debug.Log(Values.currentTransform);
     }
     

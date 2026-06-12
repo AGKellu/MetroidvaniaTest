@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.15, y: -0.05, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1825977900493538940}
@@ -158,9 +158,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d771ba87b428c58439177104e58201eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  Speed: 0
-  JumpForce: 0
-  JumpSpeed: 0
+  Speed: 2
+  JumpForce: 3
+  JumpSpeed: 0.5
   MovingLeft: 0
   MovingRight: 0
   Grounded: 1
@@ -169,6 +169,7 @@ MonoBehaviour:
   sliding: 0
   Unlockables: 00000000
   Values: {fileID: 11400000, guid: d0a6d281caa2dc745aa220a6d0eccbb7, type: 2}
+  TransitionPanel: {fileID: 0}
 --- !u!114 &2300276320970379772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,11 +190,11 @@ MonoBehaviour:
   timeBetweenAttack: 0
   attacking: 0
   casting: 0
-  Health: 0
-  maxHealth: 0
-  Mana: 0
+  Health: 5
+  maxHealth: 5
+  Mana: 100
   ManaStartFloat: 0
-  ManaMax: 0
+  ManaMax: 100
   ManaDrainSpeed: 20
   TimeToNextHealthTick: 33
   trueMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}

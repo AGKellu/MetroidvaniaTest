@@ -1,8 +1,8 @@
 //using System.Numerics;
 using UnityEngine;
-//using System.Collections;
+using System.Collections;
 //using System.Numerics;
-
+using UnityEngine.SceneManagement;
 public class CameraFollow : MonoBehaviour
 {
     public GameObject Player;
@@ -13,9 +13,15 @@ public class CameraFollow : MonoBehaviour
     public float strength;
     public float strengthVelocity;
     public bool movingUp;
+    public bool movingDown;
     public bool sliding;
-    [SerializeField] private GameObject TransitionPanel;
+    public bool changing;
+    //[SerializeField] private GameObject TransitionPanel;
     int i = 0;
+    public Vector3 LeftCamPos;
+    public Vector3 RightCamPos;
+    //public bool FromLeft;
+    //public bool FromRight;
     //public bool LeftDoor;
     //public bool RightDoor;
     //public bool UpDoor;
@@ -25,10 +31,25 @@ public class CameraFollow : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Player = GameObject.FindWithTag("Player");
-        Player.GetComponent<PlayerMovement>().ableToMove = true;
-        Player.GetComponent<PlayerAttack>().Camera = gameObject;
-        TransitionPanel.GetComponent<Animator>().SetTrigger("End");
+        //Player = GameObject.FindWithTag("Player");
+        //if (FromLeft)
+        //{
+
+        //}
+        //else if (FromRight)
+        //{
+
+        //}
+        /*
+        if (Player.transform.localScale == new Vector3(-1, 1, 1))
+        {
+            Debug.Log("Coming from right");
+        }
+        else 
+        {
+            Debug.Log("Coming from left");
+        }
+        */
     }
 
     // Update is called once per frame
@@ -77,7 +98,7 @@ public class CameraFollow : MonoBehaviour
         // set the camera shake strength to this value,
         // or keep it at current value if it is already higher
         strength = Mathf.SmoothDamp(strength, 0f, ref strengthVelocity, smoothTime);
-
+        //shaking  = true;
 
         //strength = Mathf.Max(strength, value);
     }
@@ -85,5 +106,30 @@ public class CameraFollow : MonoBehaviour
     {
         transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
         //transform.localScale.x = transform.localScale.x * -1;
+    }
+    public IEnumerator Transition(string RoomToLoad)
+    {
+        string CurrentScene = SceneManager.GetActiveScene().name;
+        Debug.Log(CurrentScene);
+        changing = true;
+       //string ActiveScene = SceneManager.GetActiveScene().name;
+        AsyncOperation loadScene = SceneManager.LoadSceneAsync(RoomToLoad, LoadSceneMode.Additive);
+        while (!loadScene.isDone)
+        {
+            yield return null;
+        }
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(RoomToLoad));
+
+        //SceneManager.SetActiveScene(SceneManager.GetSceneByName(RoomToLoad));
+        GameObject UI = GameObject.FindGameObjectWithTag("Canvas");
+        SceneManager.MoveGameObjectToScene(UI, SceneManager.GetSceneByName(RoomToLoad));
+        changing = false;
+        AsyncOperation unloadScene = SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName("DebugScene"));
+        while (!unloadScene.isDone)
+        {
+            yield return null;
+        }
+        Debug.Log("Please help");
+        
     }
 }

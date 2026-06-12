@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
     private bool[] Unlockables;
 
     [SerializeField] private PlayerSOScript Values;
-    [SerializeField] private GameObject TransitionPanel;
+    //[SerializeField] private GameObject TransitionPanel;
     /*
     Unlockables are:
     Slide
@@ -358,6 +358,6 @@ public class PlayerMovement : MonoBehaviour
     Values.JumpSpeed = JumpSpeed;
         Values.JumpCount = JumpCount;
         Values.currentRotation = transform.localScale;
-        TransitionPanel.GetComponent<Animator>().SetTrigger("Start");
+        //TransitionPanel.GetComponent<Animator>().SetTrigger("Start");
     }
 }

@@ -25,5 +25,10 @@ public class ProjectileScript : MonoBehaviour
         {
             attackHitbox.gameObject.transform.parent.gameObject.GetComponent<EnemyAttack>().TakeDamage(BelongsTo.GetComponent<PlayerAttack>().currentAttack.Damage, BelongsTo.GetComponent<PlayerAttack>().currentAttack.KnockBack, BelongsTo.GetComponent<PlayerAttack>().currentAttack.HitDirection);
         }
+        else if (attackHitbox.gameObject.CompareTag("Door") && BelongsTo.CompareTag("Player"))
+        {
+            attackHitbox.gameObject.GetComponent<DoorScript>().OpenDoor();
+            Destroy(gameObject, 0);
+        }
     }
 }

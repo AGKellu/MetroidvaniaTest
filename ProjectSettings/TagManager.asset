@@ -10,6 +10,9 @@ TagManager:
   - Terrain
   - Spike
   - Canvas
+  - Door
+  - Container
+  - Spawner
   layers:
   - Default
   - TransparentFX
