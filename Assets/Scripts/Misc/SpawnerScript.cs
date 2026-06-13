@@ -48,9 +48,15 @@ public class SpawnerScript : MonoBehaviour
             {
                 
                 GO.GetComponent<PlayerMovement>().ableToMove = true;
-                GO.GetComponent<PlayerAttack>().Camera = GameObject.FindGameObjectWithTag("MainCamera");
+               // GO.GetComponent<PlayerAttack>().Camera = GameObject.FindGameObjectWithTag("MainCamera");
                 GO.GetComponent<PlayerAttack>().ManaContainer = GameObject.FindGameObjectWithTag("Container").GetComponent<Image>();
                 GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>().Player = GO;
+                GameObject[] Cameras = GameObject.FindGameObjectsWithTag("MainCamera");
+                foreach(GameObject cam in Cameras)
+                {
+                    Debug.Log(cam.scene);
+                }
+                GO.GetComponent<PlayerAttack>().Camera = GameObject.FindGameObjectWithTag("MainCamera");
                 GO.transform.localScale = Vals.currentRotation;
                 
                 if (GO.transform.localScale == new Vector3(-1, 1, 1))

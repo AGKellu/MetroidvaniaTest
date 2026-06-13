@@ -51,6 +51,7 @@ public class CameraFollow : MonoBehaviour
             Debug.Log("Coming from left");
         }
         */
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
