@@ -18,7 +18,7 @@ public class GroundScript : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            collider.gameObject.GetComponent<Player>().EndJump();
+            collider.gameObject.GetComponent<PlayerMovement>().EndJump();
             //Debug.Log("Player is grounded");
         }
     }
@@ -26,7 +26,7 @@ public class GroundScript : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            collider.gameObject.GetComponent<Player>().Grounded = false;
+            collider.gameObject.GetComponent<PlayerMovement>().Grounded = false;
         }
     }
 }

@@ -20,9 +20,8 @@ public class TransitionScript : MonoBehaviour
             GameObject Cam = GameObject.FindGameObjectWithTag("MainCamera");
             if (!Cam.GetComponent<CameraFollow>().changing)
             {
-                //other.gameObject.GetComponent<PlayerAttack>().Transition();
-                //other.gameObject.GetComponent<PlayerMovement>().Transition();
-                other.gameObject.GetComponent<Player>().Transition();
+                other.gameObject.GetComponent<PlayerAttack>().Transition();
+                other.gameObject.GetComponent<PlayerMovement>().Transition();
                 Destroy(other.gameObject, 0);
             StartCoroutine(Cam.GetComponent<CameraFollow>().Transition(RoomToLoad));
             }

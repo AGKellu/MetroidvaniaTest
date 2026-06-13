@@ -18,7 +18,7 @@ public class ProjectileScript : MonoBehaviour
         }*/
         if (attackHitbox.gameObject.CompareTag("Player") && !BelongsTo.CompareTag("Player"))
         {
-            attackHitbox.gameObject.GetComponent<Player>().TakeDamage(BelongsTo.GetComponent<EnemyAttack>().EnemyCurrentAttack.Damage);
+            attackHitbox.gameObject.GetComponent<PlayerAttack>().TakeDamage(BelongsTo.GetComponent<EnemyAttack>().EnemyCurrentAttack.Damage);
             Destroy(gameObject, 0);
         }
         else if (attackHitbox.gameObject.CompareTag("Hurtbox") && !BelongsTo.CompareTag("Enemy"))

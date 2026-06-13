@@ -5,7 +5,7 @@ public class SpawnerScript : MonoBehaviour
 {
     public GameObject[] GOsInScene;
     public Vector3[] GOPositions;
-    //public PlayerSOScript Vals;
+    public PlayerSOScript Vals;
     public GameObject LeftDoor;
     public GameObject LeftTrans;
     public GameObject RightDoor;
@@ -39,7 +39,7 @@ public class SpawnerScript : MonoBehaviour
         
         for (int i = 0; i< GOsInScene.Length; i++)
         {
-            GameObject GO = Instantiate(GOsInScene[i], GOPositions[i], Quaternion.identity) as GameObject;
+            GameObject GO = Instantiate(GOsInScene[i], GOPositions[i], Quaternion.identity);
             if (GO.scene != gameObject.scene)
             {
                 SceneManager.MoveGameObjectToScene(GO, gameObject.scene);
@@ -49,27 +49,16 @@ public class SpawnerScript : MonoBehaviour
                 
                 GO.GetComponent<PlayerMovement>().ableToMove = true;
                 GO.GetComponent<PlayerAttack>().Camera = GameObject.FindGameObjectWithTag("MainCamera");
-
                 GO.GetComponent<PlayerAttack>().ManaContainer = GameObject.FindGameObjectWithTag("Container").GetComponent<Image>();
-                GameObject Cameras = GameObject.FindGameObjectWithTag("MainCamera");
-                //for (int a =0; a < Cameras.Length; a++)
-                //{
-
-                  //  if (Cameras[a].scene == gameObject.scene)
-                   // {
-                     //   Debug.Log("This camera is here");
-                        Cameras.GetComponent<CameraFollow>().Player = GO;
-                   // }
-                //}
-                GO.GetComponent<Player>().SetVals();
-                //GO.transform.localScale = Vals.currentRotation;
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>().Player = GO;
+                GO.transform.localScale = Vals.currentRotation;
                 
-                if (GO.transform.localScale == new Vector3(1, 1, 1))
+                if (GO.transform.localScale == new Vector3(-1, 1, 1))
                 {
                     GO.transform.position = LeftTrans.GetComponent<TransitionScript>().nowPosition;
                     LeftDoor.GetComponent<DoorScript>().Close();
                 }
-                else if (GO.transform.localScale == new Vector3(-1, 1, 1))
+                else if (GO.transform.localScale == new Vector3(1, 1, 1))
                 {
                     GO.transform.position = RightTrans.GetComponent<TransitionScript>().nowPosition;
                     RightDoor.GetComponent<DoorScript>().Close();
