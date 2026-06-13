@@ -23,5 +23,5 @@ MonoBehaviour:
   currentAttack: {fileID: 11400000, guid: b1124fba94d27704a86d941cccf9a391, type: 2}
   Spell1: {fileID: 11400000, guid: ffaa80d36a68032409b79c144ce82a4b, type: 2}
   Normal: {fileID: 11400000, guid: b1124fba94d27704a86d941cccf9a391, type: 2}
-  currentTransform: {x: 0, y: 0, z: 0}
+  currentTransform: {x: -1.819994, y: -0.045000017, z: 0}
   currentRotation: {x: -1, y: 1, z: 1}

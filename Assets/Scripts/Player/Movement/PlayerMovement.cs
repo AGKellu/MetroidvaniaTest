@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private InputAction moveActionLeft;
     private InputAction Jump;
     private InputAction Slide;
+    
 
     [Header("Player Components")]
     private Animator PlayerAnim;

@@ -8,7 +8,7 @@ public class PlayerAttack : MonoBehaviour
     [Header("Attack Actions")]
     private InputAction NormalAttack;
     private InputAction FirstSpell;
-
+    
 
 
     [Header("PlayerComponents")]
@@ -43,8 +43,8 @@ public class PlayerAttack : MonoBehaviour
 
     [Header("Misc")]
 
-    [SerializeField] private Material trueMaterial;
-    [SerializeField] private Material flashMaterial;
+    //[SerializeField] private Material trueMaterial;
+    //[SerializeField] private Material flashMaterial;
     public Image ManaContainer;
     public GameObject Camera;
     //set camera
@@ -70,6 +70,7 @@ public class PlayerAttack : MonoBehaviour
     private int HealthInt = 0;
     [SerializeField] PlayerSOScript Values;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+   /*
     void Start()
     {
         PlayerAnim = gameObject.GetComponent<Animator>();
@@ -431,5 +432,5 @@ public class PlayerAttack : MonoBehaviour
         //Destroy(gameObject, 0);
         //Debug.Log(Values.currentTransform);
     }
-    
+    */
 }
