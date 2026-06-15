@@ -22,6 +22,10 @@ public class CameraFollow : MonoBehaviour
     public Vector3 LeftCamPos;
     public Vector3 RightCamPos;
     private string CurrentScene;
+    [SerializeField] private float minX;
+    [SerializeField] private float minY;
+    [SerializeField] private float maxX;
+    [SerializeField] private float maxY; 
     //public bool FromLeft;
     //public bool FromRight;
     //public bool LeftDoor;
@@ -59,7 +63,7 @@ public class CameraFollow : MonoBehaviour
         Spawner.GetComponent<SpawnerScript>().PlayerCheck(Player);
         //Player.instance.gameObject.GetComponent<PlayerAttack>().Camera = gameObject; 
     }
-
+    
     // Update is called once per frame
     void Update()
     {

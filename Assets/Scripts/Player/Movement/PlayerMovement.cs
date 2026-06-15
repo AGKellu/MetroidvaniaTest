@@ -210,7 +210,7 @@ public class PlayerMovement : MonoBehaviour
                     
                 //Camera.GetComponent<CameraFollow>().Switch();
                 }
-                Camera.GetComponent<CameraFollow>().offset.x = .2f;
+                Camera.GetComponent<CameraFollow>().offset.x = .3f;
                 transform.localScale = new Vector3(1, 1, 1);
             }
 
@@ -353,7 +353,7 @@ public class PlayerMovement : MonoBehaviour
         {
             PlayerAnim.SetBool("Running", true);
         }
-
+        Camera.GetComponent<CameraFollow>().movingUp = false;
         PlayerRB.linearVelocityX = 0;
         fallFrames = 0;
         //CurrentlyJumping = false;

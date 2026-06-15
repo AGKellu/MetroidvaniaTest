@@ -8892,10 +8892,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 743abfdb636737241bfaf956182461ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnerScript
-  GOsInScene:
-  - {fileID: 7139117116194595583, guid: 40c628758dcc6aa46a90502481b43677, type: 3}
-  GOPositions:
-  - {x: -3.5, y: -0.05, z: 0}
+  GOsInScene: []
+  GOPositions: []
   Vals: {fileID: 11400000, guid: d0a6d281caa2dc745aa220a6d0eccbb7, type: 2}
   LeftDoor: {fileID: 182226316}
   LeftTrans: {fileID: 182226317}

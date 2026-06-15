@@ -11780,8 +11780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnerScript
   GOsInScene: []
-  GOPositions:
-  - {x: -1.15, y: -0.05, z: 0}
+  GOPositions: []
   Vals: {fileID: 11400000, guid: d0a6d281caa2dc745aa220a6d0eccbb7, type: 2}
   LeftDoor: {fileID: 1430537135}
   LeftTrans: {fileID: 1734551454}
@@ -15630,6 +15629,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5497742884855756592, guid: 9818fd4355f65ec47b9730b6e92313bf, type: 3}
       propertyPath: m_LocalPosition.x
+      value: -2.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497742884855756592, guid: 9818fd4355f65ec47b9730b6e92313bf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.18271
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701422839931446199, guid: 9818fd4355f65ec47b9730b6e92313bf, type: 3}
+      propertyPath: maxX
+      value: 2.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701422839931446199, guid: 9818fd4355f65ec47b9730b6e92313bf, type: 3}
+      propertyPath: maxY
+      value: 1.86729
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701422839931446199, guid: 9818fd4355f65ec47b9730b6e92313bf, type: 3}
+      propertyPath: minX
+      value: -2.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701422839931446199, guid: 9818fd4355f65ec47b9730b6e92313bf, type: 3}
+      propertyPath: minY
       value: -2.05
       objectReference: {fileID: 0}
     - target: {fileID: 8701422839931446199, guid: 9818fd4355f65ec47b9730b6e92313bf, type: 3}

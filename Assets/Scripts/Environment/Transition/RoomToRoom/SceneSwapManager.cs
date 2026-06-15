@@ -22,8 +22,9 @@ public class SceneSwapManager : MonoBehaviour
 
     private IEnumerator FadeOutThenChangeScene(SceneField myScene, TransitionScript.DoorToSpawnAt doorToSpawnAt = TransitionScript.DoorToSpawnAt.None)
     {
-        SceneFadeManager.instance.StartFadeOut();
         DisablePlayer();
+        SceneFadeManager.instance.StartFadeOut();
+        
         while (SceneFadeManager.instance.isFadingOut)
         {
             yield return null;
