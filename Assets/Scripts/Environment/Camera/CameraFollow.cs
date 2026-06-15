@@ -53,7 +53,7 @@ public class CameraFollow : MonoBehaviour
         }
         */
         Player = GameObject.Find("Player");
-        Debug.Log(Player.name);
+        //Debug.Log(Player.name);
         Player.GetComponent<PlayerAttack>().Camera = gameObject;
         Player.GetComponent<PlayerMovement>().Camera = gameObject;
         Spawner.GetComponent<SpawnerScript>().PlayerCheck(Player);

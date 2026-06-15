@@ -61,11 +61,6 @@ public class PlayerMovement : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
         }
     }
 
@@ -369,10 +364,11 @@ public class PlayerMovement : MonoBehaviour
     public void Transition()
     {
         Values.speed = Speed;
-     Values.JumpForce = JumpForce;
-    Values.JumpSpeed = JumpSpeed;
+        Values.JumpForce = JumpForce;
+        Values.JumpSpeed = JumpSpeed;
         Values.JumpCount = JumpCount;
         Values.currentRotation = transform.localScale;
         //TransitionPanel.GetComponent<Animator>().SetTrigger("Start");
     }
+    
 }

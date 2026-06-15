@@ -36,33 +36,30 @@ public class TransitionScript : MonoBehaviour
             //{
             other.gameObject.GetComponent<PlayerAttack>().Transition();
             other.gameObject.GetComponent<PlayerMovement>().Transition();
-            StartCoroutine(Transition());
-            //Debug.Log("This should only trigger once");
+            //StartCoroutine(Transition());
+            CoolTrans();
         }
         //}
 
     }
     IEnumerator Transition()
     {
-        //SceneManager.LoadScene(RoomToLoad);
         AsyncOperation loadScene = SceneManager.LoadSceneAsync(RoomToLoad, LoadSceneMode.Additive);
         while (!loadScene.isDone)
         {
             yield return null;
         }
-        //GameObject[] Spawners = GameObject.FindGameObjectsWithTag("Spawner");
-        //foreach(GameObject Spawner in Spawners)
-        //{
-          //  Debug.Log(Spawner.scene);
-        //}
-        
-        //Debug.Log(SceneManager.GetActiveScene().name);
         AsyncOperation unloadScene = SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(RoomToLoad));
         while (!unloadScene.isDone)
         {
             yield return null;
         }
+        //THIS WORKS!!!
+        //if the new stuff doesnt work (below code), COME BACK to this
     }
-
+    public void CoolTrans()
+    {
+        SceneSwapManager.SwapSceneFromDoorUse(_sceneToLoad, DoorToSpawnTo);
+    }
 }

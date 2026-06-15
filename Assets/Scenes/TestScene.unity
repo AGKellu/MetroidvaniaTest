@@ -6934,9 +6934,25 @@ PrefabInstance:
       value: DebugScene
       objectReference: {fileID: 0}
     - target: {fileID: 149914946642496016, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
+      propertyPath: DoorToSpawnTo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 149914946642496016, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: nowPosition.x
       value: -3.5
       objectReference: {fileID: 0}
+    - target: {fileID: 149914946642496016, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
+      propertyPath: CurrentDoorPosition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 149914946642496016, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
+      propertyPath: _sceneToLoad._sceneName
+      value: DebugScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 149914946642496016, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
+      propertyPath: _sceneToLoad._sceneAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: 8c9cfa26abfee488c85f1582747f6a02, type: 3}
     - target: {fileID: 3132292607738067647, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: m_LocalScale.x
       value: -1

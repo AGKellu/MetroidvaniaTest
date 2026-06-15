@@ -430,7 +430,7 @@ public class PlayerAttack : MonoBehaviour
     Values.currentAttack = currentAttack;
     Values.Spell1 = Spell1;
     Values.Normal = Normal;
-        Values.currentTransform = transform.position;
+        //Values.currentTransform = transform.position;
         //Destroy(gameObject, 0);
         //Debug.Log(Values.currentTransform);
     }
