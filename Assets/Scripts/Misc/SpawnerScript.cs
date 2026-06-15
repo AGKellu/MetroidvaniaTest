@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+//using System.Diagnostics;
 public class SpawnerScript : MonoBehaviour
 {
     public GameObject[] GOsInScene;
@@ -10,18 +11,60 @@ public class SpawnerScript : MonoBehaviour
     public GameObject LeftTrans;
     public GameObject RightDoor;
     public GameObject RightTrans;
+    //public GameObject Camera;
     //public GameObject Player;
     //public GameObject EyeBat;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
         //Spawn();
         //SpawnPlayerOneTime();
-        if (GameObject.FindGameObjectWithTag("Player"))
+        //if (GameObject.FindGameObjectWithTag("Player"))
+        //{
+        //   Debug.Log("There is another pplayer jere\nYOu should never see this!");
+        // }
+        //  Spawn();
+        //PlayerCheck();
+       // SceneManager.activeSceneChanged += ChangePlayer;
+    }
+   // void OnEnable()
+   // {
+      //  SceneManager.sceneLoaded += ChangePlayer;
+    //}
+    //void OnDisable()
+    //{
+     //   SceneManager.sceneLoaded -= ChangePlayer;
+   // }
+   // private void ChangePlayer(Scene current, LoadSceneMode mode)
+   // {
+      //  Debug.Log("Send Player to " + current.name);
+        
+        //Debug.Log(current.name + " has changed to " + newScene.name);
+    //}
+    public void PlayerCheck(GameObject Player)
+    {
+        //GameObject Player = GameObject.FindGameObjectWithTag("Player");
+        //GameObject Camera = GameObject.FindGameObjectWithTag("MainCamera");
+        //Player.GetComponent<PlayerAttack>().Camera = Camera;
+        //SceneManager.MoveGameObjectToScene(Player, gameObject.scene);
+        //Debug.Log("Please exist");
+        //Debug.Log(Player.GetComponent<PlayerAttack>().Camera);
+        //Debug.Log(Player.GetComponent<PlayerMovement>().Camera);
+        //Player.GetComponent<PlayerMovement>().Camera = null;
+        //Player.GetComponent<PlayerMovement>().Camera = Camera;
+        //Player.GetComponent<PlayerAttack>().Camera = Camera;
+        if (Player.transform.localScale == new Vector3(1, 1, 1))
         {
-            Debug.Log("There is another pplayer jere\nYOu should never see this!");
+            Player.transform.position = LeftTrans.GetComponent<TransitionScript>().nowPosition;
+            LeftDoor.GetComponent<DoorScript>().Close();
         }
-        Spawn();
+        else if (Player.transform.localScale == new Vector3(-1, 1, 1))
+        {
+            Player.transform.position = RightTrans.GetComponent<TransitionScript>().nowPosition;
+            RightDoor.GetComponent<DoorScript>().Close();
+        }
+        Player.transform.localScale = Vals.currentRotation;
     }
     public void Spawn()
     {
@@ -44,47 +87,8 @@ public class SpawnerScript : MonoBehaviour
             {
                 SceneManager.MoveGameObjectToScene(GO, gameObject.scene);
             }
-            if (GO.CompareTag("Player"))
-            {
-                
-                GO.GetComponent<PlayerMovement>().ableToMove = true;
-               // GO.GetComponent<PlayerAttack>().Camera = GameObject.FindGameObjectWithTag("MainCamera");
-                GO.GetComponent<PlayerAttack>().ManaContainer = GameObject.FindGameObjectWithTag("Container").GetComponent<Image>();
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>().Player = GO;
-                GameObject[] Cameras = GameObject.FindGameObjectsWithTag("MainCamera");
-                foreach(GameObject cam in Cameras)
-                {
-                    Debug.Log(cam.scene);
-                }
-                GO.GetComponent<PlayerAttack>().Camera = GameObject.FindGameObjectWithTag("MainCamera");
-                GO.transform.localScale = Vals.currentRotation;
-                
-                if (GO.transform.localScale == new Vector3(-1, 1, 1))
-                {
-                    GO.transform.position = LeftTrans.GetComponent<TransitionScript>().nowPosition;
-                    LeftDoor.GetComponent<DoorScript>().Close();
-                }
-                else if (GO.transform.localScale == new Vector3(1, 1, 1))
-                {
-                    GO.transform.position = RightTrans.GetComponent<TransitionScript>().nowPosition;
-                    RightDoor.GetComponent<DoorScript>().Close();
-                }
-        
-
-            }
+           
         }
     }
-    public void SpawnPlayerOneTime()
-    {
-        for (int i = 0; i < GOsInScene.Length; i++)
-        {
-            GameObject GO = Instantiate(GOsInScene[i], GOPositions[i], Quaternion.identity);
-             GO.GetComponent<PlayerMovement>().ableToMove = true;
-                GO.GetComponent<PlayerAttack>().Camera = GameObject.FindGameObjectWithTag("MainCamera");
-                GO.GetComponent<PlayerAttack>().ManaContainer = GameObject.FindGameObjectWithTag("Container").GetComponent<Image>();
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>().Player = GO;
-
-        }
-        //Destroy(gameObject, 0);
-    }
+    
 }

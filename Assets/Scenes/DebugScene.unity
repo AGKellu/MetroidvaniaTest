@@ -3447,11 +3447,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &519420028 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6309615995480551778, guid: 9818fd4355f65ec47b9730b6e92313bf, type: 3}
-  m_PrefabInstance: {fileID: 7691614446713531123}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &525983655
 GameObject:
   m_ObjectHideFlags: 0
@@ -10869,6 +10864,50 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5737137948598207042, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
   m_PrefabInstance: {fileID: 4959671402612719663}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1435665776
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1435665778}
+  - component: {fileID: 1435665777}
+  m_Layer: 0
+  m_Name: SceneSwapManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1435665777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435665776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23326c0a10e549f4fb4e8d5d58f331a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneSwapManager
+--- !u!4 &1435665778
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435665776}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1452046744
 GameObject:
   m_ObjectHideFlags: 0
@@ -11777,8 +11816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 743abfdb636737241bfaf956182461ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnerScript
-  GOsInScene:
-  - {fileID: 7139117116194595583, guid: 40c628758dcc6aa46a90502481b43677, type: 3}
+  GOsInScene: []
   GOPositions:
   - {x: -1.15, y: -0.05, z: 0}
   Vals: {fileID: 11400000, guid: d0a6d281caa2dc745aa220a6d0eccbb7, type: 2}
@@ -12469,7 +12507,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1833513796
 Animator:
   serializedVersion: 7
@@ -12560,7 +12598,7 @@ Transform:
   m_GameObject: {fileID: 1833513795}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.08, y: -0.05, z: 0}
+  m_LocalPosition: {x: -1.15, y: -0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12590,7 +12628,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -12617,6 +12655,7 @@ MonoBehaviour:
   sliding: 0
   Unlockables: 00000000
   Values: {fileID: 11400000, guid: d0a6d281caa2dc745aa220a6d0eccbb7, type: 2}
+  Camera: {fileID: 0}
 --- !u!114 &1833513802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12647,7 +12686,7 @@ MonoBehaviour:
   trueMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   flashMaterial: {fileID: 2100000, guid: b95519cc062f57a4bbb73f4d34b5683c, type: 2}
   ManaContainer: {fileID: 1953483299}
-  Camera: {fileID: 519420028}
+  Camera: {fileID: 0}
   HealthMasks:
   - {fileID: 730343809}
   - {fileID: 876300809}
@@ -15482,6 +15521,18 @@ PrefabInstance:
       propertyPath: nowPosition.x
       value: -1.15
       objectReference: {fileID: 0}
+    - target: {fileID: 149914946642496016, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
+      propertyPath: CurrentDoorPosition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 149914946642496016, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
+      propertyPath: _sceneToLoad._sceneName
+      value: TestScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 149914946642496016, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
+      propertyPath: _sceneToLoad._sceneAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: 1d4b29520dad0b247b8bf618391e1e17, type: 3}
     - target: {fileID: 3132292607738067647, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.75
@@ -15522,9 +15573,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4633072334218301037, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5737137948598207042, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: m_Name
       value: LeftDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391437278500939696, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15539,6 +15598,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1699494306567353589, guid: 4c764fbc3cadc33468e2b9040248cc47, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1841128257237595351, guid: 4c764fbc3cadc33468e2b9040248cc47, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -15594,6 +15657,10 @@ PrefabInstance:
     - target: {fileID: 6117374305060980913, guid: 4c764fbc3cadc33468e2b9040248cc47, type: 3}
       propertyPath: nowPosition.x
       value: 5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117374305060980913, guid: 4c764fbc3cadc33468e2b9040248cc47, type: 3}
+      propertyPath: CurrentDoorPosition
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15661,8 +15728,16 @@ PrefabInstance:
       value: -2.05
       objectReference: {fileID: 0}
     - target: {fileID: 8701422839931446199, guid: 9818fd4355f65ec47b9730b6e92313bf, type: 3}
+      propertyPath: Spawner
+      value: 
+      objectReference: {fileID: 1723591939}
+    - target: {fileID: 8701422839931446199, guid: 9818fd4355f65ec47b9730b6e92313bf, type: 3}
       propertyPath: strength
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701422839931446199, guid: 9818fd4355f65ec47b9730b6e92313bf, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8701422839931446199, guid: 9818fd4355f65ec47b9730b6e92313bf, type: 3}
       propertyPath: LeftCamPos.x
@@ -15709,3 +15784,4 @@ SceneRoots:
   - {fileID: 4959671402612719663}
   - {fileID: 5429224162848038061}
   - {fileID: 1723591941}
+  - {fileID: 1435665778}

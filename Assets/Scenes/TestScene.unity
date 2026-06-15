@@ -1264,6 +1264,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 3452355051000060298, guid: 4c764fbc3cadc33468e2b9040248cc47, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6117374305060980913, guid: 4c764fbc3cadc33468e2b9040248cc47, type: 3}
       propertyPath: nowPosition.x
       value: -10.5
@@ -3655,6 +3659,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -6.95
       objectReference: {fileID: 0}
+    - target: {fileID: 8701422839931446199, guid: 9818fd4355f65ec47b9730b6e92313bf, type: 3}
+      propertyPath: Spawner
+      value: 
+      objectReference: {fileID: 1364570102}
     - target: {fileID: 8701422839931446199, guid: 9818fd4355f65ec47b9730b6e92313bf, type: 3}
       propertyPath: LeftCamPos.x
       value: -6.95
@@ -6977,6 +6985,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 5737137948598207042, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7083,6 +7095,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d862219d247c87241992dd7507be76c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TransitionScript
+  DoorToSpawnTo: 0
+  _sceneToLoad:
+    _sceneAsset: {fileID: 0}
+    _sceneName: 
+  CurrentDoorPosition: 0
   RoomToLoad: DebugScene
   nowPosition: {x: -1.15, y: -0.05, z: 0}
 --- !u!1 &953847965
@@ -12494,6 +12511,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d862219d247c87241992dd7507be76c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TransitionScript
+  DoorToSpawnTo: 0
+  _sceneToLoad:
+    _sceneAsset: {fileID: 0}
+    _sceneName: 
+  CurrentDoorPosition: 0
   RoomToLoad: TestScene
   nowPosition: {x: -4.05, y: -0.05, z: 0}
 --- !u!4 &1945308565

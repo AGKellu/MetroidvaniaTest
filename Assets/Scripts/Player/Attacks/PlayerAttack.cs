@@ -89,6 +89,9 @@ public class PlayerAttack : MonoBehaviour
         currentAttack = Values.currentAttack;
         Spell1 = Values.Spell1;
         Normal = Values.Normal;
+        //GameObject Spawner = GameObject.FindGameObjectWithTag("Spawner");
+        //Camera = Spawner.GetComponent<SpawnerScript>().Camera;
+        //Camera = GameObject.FindGameObjectWithTag("MainCamera");
 
     }
 

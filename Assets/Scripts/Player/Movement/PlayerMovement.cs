@@ -43,8 +43,11 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     private bool[] Unlockables;
+    public static PlayerMovement Instance;
+    private GameObject Spawner;
 
     [SerializeField] private PlayerSOScript Values;
+    public GameObject Camera;
     //[SerializeField] private GameObject TransitionPanel;
     /*
     Unlockables are:
@@ -53,6 +56,18 @@ public class PlayerMovement : MonoBehaviour
     Wall Jump
     Double Jump
     */
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -77,6 +92,11 @@ public class PlayerMovement : MonoBehaviour
         JumpSpeed = Values.JumpSpeed;
         JumpCount = Values.JumpCount;
         transform.localScale = Values.currentRotation;
+        //Spawner = GameObject.FindGameObjectWithTag("Spawner");
+        //Spawner.GetComponent<SpawnerScript>().PlayerCheck(gameObject);
+        //Camera = Spawner.GetComponent<SpawnerScript>().Camera;
+        //Camera = GameObject.FindGameObjectWithTag("MainCamera");
+        //Debug.Log(gameObject.GetComponent<PlayerAttack>().Camera);
         //moveActionRight.canceled += ctx => StopCurrentMoveInput();
     }
 
@@ -90,7 +110,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (sliding)
         {
-            gameObject.GetComponent<PlayerAttack>().Camera.GetComponent<CameraFollow>().sliding  = true;
+            Camera.GetComponent<CameraFollow>().sliding  = true;
             slideFrames++;
             ableToMove = false;
             if (slideFrames == 30)
@@ -139,7 +159,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 PlayerAnim.SetBool("Falling", true);
             }
-            gameObject.GetComponent<PlayerAttack>().Camera.GetComponent<CameraFollow>().movingUp = false;
+            Camera.GetComponent<CameraFollow>().movingUp = false;
         }
         if (!sliding)
         {
@@ -186,17 +206,16 @@ public class PlayerMovement : MonoBehaviour
             {
                 //gameObject.GetComponent<PlayerAttack>().Camera.transform.localScale = new Vector3(Mathf.Lerp(-1, 1, 30f), 1, 1);
                 //gameObject.GetComponent<PlayerAttack>().Camera.transform.localScale = new Vector3();
-                if (gameObject.GetComponent<PlayerAttack>().Camera.transform.localScale.x == transform.localScale.x)
+                if (Camera.transform.localScale.x == transform.localScale.x)
                 {
 
                 }
                 else
                 {
                     
-                gameObject.GetComponent<PlayerAttack>().Camera.GetComponent<CameraFollow>().Switch();
+                //Camera.GetComponent<CameraFollow>().Switch();
                 }
-                gameObject
-                    .GetComponent<PlayerAttack>().Camera.GetComponent<CameraFollow>().offset.x = .2f;
+                Camera.GetComponent<CameraFollow>().offset.x = .2f;
                 transform.localScale = new Vector3(1, 1, 1);
             }
 
@@ -224,20 +243,15 @@ public class PlayerMovement : MonoBehaviour
             else
             {
 
-                gameObject
-                    .GetComponent<PlayerAttack>()
-                    .Camera.GetComponent<CameraFollow>()
+                Camera.GetComponent<CameraFollow>()
                     .offset.x = -.1f;
-                    if (gameObject.GetComponent<PlayerAttack>().Camera.transform.localScale.x == transform.localScale.x)
+                    if (Camera.transform.localScale.x == transform.localScale.x)
                  {
                     
                 }
                 else
                 {
-                    gameObject
-                        .GetComponent<PlayerAttack>()
-                        .Camera.GetComponent<CameraFollow>()
-                        .Switch();
+                    //Camera.GetComponent<CameraFollow>().Switch();
                 }
                 transform.localScale = new Vector3(-1, 1, 1);
             }
@@ -280,7 +294,7 @@ public class PlayerMovement : MonoBehaviour
             }
             */
             //}
-            gameObject.GetComponent<PlayerAttack>().Camera.GetComponent<CameraFollow>().movingUp = true;
+            Camera.GetComponent<CameraFollow>().movingUp = true;
         }
         //CREATE COYOTE TIME and jump buffering
         //create a timer when youre falling, if the jump button is pressed
