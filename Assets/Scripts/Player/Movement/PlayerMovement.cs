@@ -47,7 +47,12 @@ public class PlayerMovement : MonoBehaviour
     private GameObject Spawner;
 
     [SerializeField] private PlayerSOScript Values;
-    public GameObject Camera;
+    //public GameObject Camera;
+
+    [Header("Camera Stuff")]
+    private CameraFollowObject cameraFollowObject;
+    [SerializeField] private GameObject cameraFollowGO;
+    private float fallSpeedYDampingChangeThreshold;
     //[SerializeField] private GameObject TransitionPanel;
     /*
     Unlockables are:
@@ -86,13 +91,10 @@ public class PlayerMovement : MonoBehaviour
         JumpForce = Values.JumpForce;
         JumpSpeed = Values.JumpSpeed;
         JumpCount = Values.JumpCount;
-        transform.localScale = Values.currentRotation;
-        //Spawner = GameObject.FindGameObjectWithTag("Spawner");
-        //Spawner.GetComponent<SpawnerScript>().PlayerCheck(gameObject);
-        //Camera = Spawner.GetComponent<SpawnerScript>().Camera;
-        //Camera = GameObject.FindGameObjectWithTag("MainCamera");
-        //Debug.Log(gameObject.GetComponent<PlayerAttack>().Camera);
-        //moveActionRight.canceled += ctx => StopCurrentMoveInput();
+        cameraFollowObject = cameraFollowGO.GetComponent<CameraFollowObject>();
+        //GameObject Spawner()
+        // transform.localScale = Values.currentRotation;
+        fallSpeedYDampingChangeThreshold = CameraManager.instance.fallSpeedYDampingChangeThreshold;
     }
 
     //void
@@ -105,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (sliding)
         {
-            Camera.GetComponent<CameraFollow>().sliding  = true;
+           // Camera.GetComponent<CameraFollow>().sliding  = true;
             slideFrames++;
             ableToMove = false;
             if (slideFrames == 30)
@@ -145,8 +147,9 @@ public class PlayerMovement : MonoBehaviour
 
     void CheckForMovement()
     {
-        if (PlayerRB.linearVelocityY < 0)
+        if (PlayerRB.linearVelocityY < fallSpeedYDampingChangeThreshold && !CameraManager.instance.isLerpingYDamping && !CameraManager.instance.lerpedFromPlayerFalling)
         {
+            CameraManager.instance.LerpYDamping(true);
             fallFrames++;
             // = true;
             //Debug.Log(fallFrames);
@@ -154,7 +157,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 PlayerAnim.SetBool("Falling", true);
             }
-            Camera.GetComponent<CameraFollow>().movingUp = false;
+            //Camera.GetComponent<CameraFollow>().movingUp = false;
+        }
+        if (PlayerRB.linearVelocityY >= 0f && !CameraManager.instance.isLerpingYDamping && CameraManager.instance.lerpedFromPlayerFalling)
+        {
+
+            CameraManager.instance.lerpedFromPlayerFalling = false;
+            CameraManager.instance.LerpYDamping(false);
         }
         if (!sliding)
         {
@@ -201,17 +210,23 @@ public class PlayerMovement : MonoBehaviour
             {
                 //gameObject.GetComponent<PlayerAttack>().Camera.transform.localScale = new Vector3(Mathf.Lerp(-1, 1, 30f), 1, 1);
                 //gameObject.GetComponent<PlayerAttack>().Camera.transform.localScale = new Vector3();
-                if (Camera.transform.localScale.x == transform.localScale.x)
-                {
+                //if (Camera.transform.localScale.x == transform.localScale.x)
+                //{
 
-                }
-                else
-                {
+                //}
+                //else
+                //{
                     
                 //Camera.GetComponent<CameraFollow>().Switch();
+                //}
+                //Camera.GetComponent<CameraFollow>().offset.x = .3f;
+                cameraFollowObject.CallTurn();
+                //transform.localScale = new Vector3(1, 1, 1);
+                if (transform.rotation != Quaternion.Euler(0f, 0f, 0f))
+                {
+                    
+                transform.Rotate(new Vector3(0f, 180f, 0f));
                 }
-                Camera.GetComponent<CameraFollow>().offset.x = .3f;
-                transform.localScale = new Vector3(1, 1, 1);
             }
 
             // Vector3 startLocalScale = gameObject.GetComponent<PlayerAttack>().Camera.transform.localScale;
@@ -238,17 +253,22 @@ public class PlayerMovement : MonoBehaviour
             else
             {
 
-                Camera.GetComponent<CameraFollow>()
-                    .offset.x = -.1f;
-                    if (Camera.transform.localScale.x == transform.localScale.x)
-                 {
-                    
-                }
-                else
-                {
+                //Camera.GetComponent<CameraFollow>().offset.x = -.1f;
+                //if (Camera.transform.localScale.x == transform.localScale.x)
+                //{
+
+                //}
+                //else
+                //{
                     //Camera.GetComponent<CameraFollow>().Switch();
+                //}
+                cameraFollowObject.CallTurn();
+                //transform.localScale = new Vector3(-1, 1, 1);
+                if (transform.rotation == Quaternion.Euler(0f, 0f, 0f))
+                {
+                    
+                transform.Rotate(new Vector3(0f, 180f, 0f));
                 }
-                transform.localScale = new Vector3(-1, 1, 1);
             }
 
             if (Grounded && !gameObject.GetComponent<PlayerAttack>().attacking)
@@ -289,7 +309,7 @@ public class PlayerMovement : MonoBehaviour
             }
             */
             //}
-            Camera.GetComponent<CameraFollow>().movingUp = true;
+            //Camera.GetComponent<CameraFollow>().movingUp = true;
         }
         //CREATE COYOTE TIME and jump buffering
         //create a timer when youre falling, if the jump button is pressed
@@ -353,7 +373,7 @@ public class PlayerMovement : MonoBehaviour
         {
             PlayerAnim.SetBool("Running", true);
         }
-        Camera.GetComponent<CameraFollow>().movingUp = false;
+        //Camera.GetComponent<CameraFollow>().movingUp = false;
         PlayerRB.linearVelocityX = 0;
         fallFrames = 0;
         //CurrentlyJumping = false;

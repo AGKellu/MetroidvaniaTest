@@ -25,7 +25,7 @@ public class SpawnerScript : MonoBehaviour
         //   Debug.Log("There is another pplayer jere\nYOu should never see this!");
         // }
         //  Spawn();
-        //PlayerCheck();
+        PlayerCheck();
        // SceneManager.activeSceneChanged += ChangePlayer;
     }
    // void OnEnable()
@@ -42,9 +42,9 @@ public class SpawnerScript : MonoBehaviour
         
         //Debug.Log(current.name + " has changed to " + newScene.name);
     //}
-    public void PlayerCheck(GameObject Player)
+    public void PlayerCheck()
     {
-        //GameObject Player = GameObject.FindGameObjectWithTag("Player");
+        GameObject Player = GameObject.FindGameObjectWithTag("Player");
         //GameObject Camera = GameObject.FindGameObjectWithTag("MainCamera");
         //Player.GetComponent<PlayerAttack>().Camera = Camera;
         //SceneManager.MoveGameObjectToScene(Player, gameObject.scene);
@@ -53,18 +53,18 @@ public class SpawnerScript : MonoBehaviour
         //Debug.Log(Player.GetComponent<PlayerMovement>().Camera);
         //Player.GetComponent<PlayerMovement>().Camera = null;
         //Player.GetComponent<PlayerMovement>().Camera = Camera;
-        //Player.GetComponent<PlayerAttack>().Camera = Camera;
-        if (Player.transform.localScale == new Vector3(1, 1, 1))
+        // Player.GetComponent<PlayerAttack>().Camera = Camera;
+        if (Player.transform.rotation == Quaternion.Euler(0f, 0f, 0f))
         {
             Player.transform.position = LeftTrans.GetComponent<TransitionScript>().nowPosition;
             LeftDoor.GetComponent<DoorScript>().Close();
         }
-        else if (Player.transform.localScale == new Vector3(-1, 1, 1))
+        else if (Player.transform.rotation == Quaternion.Euler(0f, 180f, 0f))
         {
             Player.transform.position = RightTrans.GetComponent<TransitionScript>().nowPosition;
             RightDoor.GetComponent<DoorScript>().Close();
         }
-        Player.transform.localScale = Vals.currentRotation;
+       // Player.transform.localScale = Vals.currentRotation;
     }
     public void Spawn()
     {

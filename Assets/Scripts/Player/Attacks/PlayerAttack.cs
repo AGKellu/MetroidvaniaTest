@@ -46,7 +46,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Material trueMaterial;
     [SerializeField] private Material flashMaterial;
     public Image ManaContainer;
-    public GameObject Camera;
+    //public GameObject Camera;
     //set camera
     [SerializeField] private GameObject[] HealthMasks;
     [SerializeField] private GameObject Fireball;
@@ -101,8 +101,9 @@ public class PlayerAttack : MonoBehaviour
         {
             gameObject.GetComponent<PlayerMovement>().ableToMove = false;
             ableToAttack = false;
-            Camera.GetComponent<CameraFollow>().shaking = true;
-            Camera.GetComponent<CameraFollow>().Shake();
+            //Camera.GetComponent<CameraFollow>().shaking = true;
+            //Camera.GetComponent<CameraFollow>().Shake();
+            //Use cinemachine noise
             //Camera.GetComponent<CinemachineImpulseSource>().GenerateImpulse();
             HealthMasks[MaskInt].GetComponent<Animator>().SetTrigger("Broken");
             MaskInt++;
@@ -318,8 +319,8 @@ public class PlayerAttack : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
             QueueRightTurn = false;
         }
-        Camera.transform.localEulerAngles = new Vector3(0, 0, 0);
-        Camera.GetComponent<CameraFollow>().shaking = false;
+        //Camera.transform.localEulerAngles = new Vector3(0, 0, 0);
+        //Camera.GetComponent<CameraFollow>().shaking = false;
         gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
     }
     void StartHeal()

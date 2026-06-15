@@ -1,0 +1,85 @@
+CameraFollow
+
+//using System.Numerics;
+using UnityEngine;
+using System.Collections;
+//using System.Numerics;
+using UnityEngine.SceneManagement;
+public class CameraFollow : MonoBehaviour
+{
+    public GameObject Player;
+    public float followSpeed = 1f;
+    public Vector3 offset;
+    public bool shaking;
+    public float smoothTime;
+    public float strength;
+    public float strengthVelocity;
+    public bool movingUp;
+    public bool movingDown;
+    public bool sliding;
+    public bool changing;
+    [SerializeField] private GameObject Spawner;
+    //[SerializeField] private GameObject TransitionPanel;
+    int i = 0;
+    public Vector3 LeftCamPos;
+    public Vector3 RightCamPos;
+    private string CurrentScene;
+    [SerializeField] private float minX;
+    [SerializeField] private float minY;
+    [SerializeField] private float maxX;
+    [SerializeField] private float maxY; 
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+        Player = GameObject.Find("Player");
+        Spawner.GetComponent<SpawnerScript>().PlayerCheck(Player);
+    }
+    
+    // Update is called once per frame
+    void Update()
+    {
+        if (!shaking)
+        {
+            //mathf.clamp (min, max), make min a little further than the transition
+            if (sliding || movingUp)
+            {
+                transform.position = Vector3.Lerp(transform.position, Player.transform.position + offset, followSpeed / 2);
+            }
+            else
+            {
+                
+            transform.position = Vector3.Lerp(transform.position, Player.transform.position + offset, followSpeed);
+            }
+        }
+        if (shaking)
+        {
+            //shaking = false;
+            float randomX = Random.value - 0.5f;
+            float randomY = Random.value - 0.5f;
+            float randomZ = Random.value - 0.5f;
+
+            transform.localEulerAngles = new Vector3(randomX, randomY, randomZ) * strength;
+            i++;
+            if (i == 30)
+            {
+                shaking = false;
+                i = 0;
+            }
+            
+        }
+
+        
+    }
+
+    public void Shake()
+    {
+        strength = Mathf.SmoothDamp(strength, 0f, ref strengthVelocity, smoothTime);
+    }
+   // public void Switch()
+    //{
+      //  transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+        //transform.localScale.x = transform.localScale.x * -1;
+    //}
+    
+}
