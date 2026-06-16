@@ -27,6 +27,7 @@ public class ProjectileScript : MonoBehaviour
         }
         else if (attackHitbox.gameObject.CompareTag("Door") && BelongsTo.CompareTag("Player"))
         {
+            
             attackHitbox.gameObject.GetComponent<DoorScript>().OpenDoor();
             Destroy(gameObject, 0);
         }

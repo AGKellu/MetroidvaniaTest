@@ -24,13 +24,14 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private bool movingUp;
     [SerializeField] private bool movingDown;
     [SerializeField] private float panSpeed = 0f;
-    [SerializeField] private float lookCapUp;
-    [SerializeField] private float lookCapDown;
+    //[SerializeField] private float lookCapUp;
+    //[SerializeField] private float lookCapDown;
     
     private InputAction panCamUp;
     private InputAction panCamDown;
     private bool Moving;
     private GameObject FollowTarget;
+    private bool Working;
     private void Awake()
     {
         if (instance == null)
@@ -38,14 +39,15 @@ public class CameraManager : MonoBehaviour
             instance = this;
             
         }
-
         for (int i = 0; i < allCams.Length; i++)
         {
-            if (allCams[i].enabled)
+            //allCams[i].Follow = FollowTarget.transform;
+            if (allCams[i].gameObject.name.Contains("Follow"))
             {
                 currentCam = allCams[i];
                 positionComposer = currentCam.GetComponent<CinemachinePositionComposer>();
-                FollowTarget = GameObject.FindGameObjectWithTag("Follower");
+                
+        FollowTarget = GameObject.FindGameObjectWithTag("Follower");
                 currentCam.Follow = FollowTarget.transform;
             }
         }
@@ -62,7 +64,13 @@ public class CameraManager : MonoBehaviour
         panCamDown = InputSystem.actions.FindAction("Camera/MoveDown");
         panCamDown.performed += ctx => StartCamPan(false);
         panCamDown.canceled += ctx => StopMovingUpDown();
-        
+
+    }
+    public void Shake()
+    {
+        //Debug.Log(currentCam);
+        PlayerMovement.instance.GetComponent<CinemachineImpulseSource>().GenerateImpulse();
+//        currentCam.gameObject.GetComponent<CinemachineImpulseSource>().GenerateImpulse();
     }
 
     private void StartCamPan(bool Direction)
@@ -79,7 +87,9 @@ public class CameraManager : MonoBehaviour
     }
     public void StartMovingUp()
     {
-        Moving = true;
+        //Moving = true;
+        Working = true;
+        
         //Debug.Log(allCams[0].gameObject.name);
         for (int i = 0; i< allCams.Length; i++)
         {
@@ -89,17 +99,17 @@ public class CameraManager : MonoBehaviour
                 //lookCapUp = allCams[i].transform.position.y + 3;
                 currentCam = allCams[i];
                 currentCam.Priority=1;
-                lookCapUp = currentCam.transform.position.y + 3;
-                if (PlayerMovement.instance.gameObject.transform.rotation == Quaternion.Euler(0f, 180f, 0f))
+                //lookCapUp = currentCam.transform.position.y + 3;
+                /*if (PlayerMovement.instance.gameObject.transform.rotation == Quaternion.Euler(0f, 180f, 0f))
                 {
-                    Debug.Log("Move To the left");
-                    currentCam.transform.position = new Vector3(FollowTarget.transform.position.x - .5f, currentCam.transform.position.y, currentCam.transform.position.z);
+                    //Debug.Log("Move To the left");
+                    currentCam.transform.position = new Vector3(FollowTarget.transform.position.x - .5f, currentCam.transform.position.y + (panSpeed * Time.deltaTime), currentCam.transform.position.z);
                 }
                 else if (PlayerMovement.instance.gameObject.transform.rotation == Quaternion.Euler(0f, 0f, 0f))
                 {
-                    Debug.Log("Move to the right");
-                    currentCam.transform.position = new Vector3(FollowTarget.transform.position.x + .5f, currentCam.transform.position.y, currentCam.transform.position.z);
-                }
+                    //Debug.Log("Move to the right");
+                    currentCam.transform.position = new Vector3(FollowTarget.transform.position.x + .5f, currentCam.transform.position.y + (panSpeed * Time.deltaTime), currentCam.transform.position.z);
+                }*/
                 //currentCam.transform.position = FollowTarget.transform.position + (FollowTarget.transform.right * 3);
                 //Debug.Log(currentCam.gameObject.name);
             }
@@ -113,33 +123,57 @@ public class CameraManager : MonoBehaviour
 
     public void StartMovingDown()
     {
-        Moving = true;
-        for (int i= 0;i < allCams.Length; i++)
+        //Moving = true;
+        Working = true;
+        for (int i = 0; i < allCams.Length; i++)
         {
             if (allCams[i].gameObject.name.Contains("Up"))
             {
                 //allCams[i].Priority++;
                 //lookCapDown = allCams[i].transform.position.y - 3;
                 currentCam = allCams[i];
-                currentCam.Priority= 1;
-                lookCapDown = currentCam.transform.position.y - 3;
-                if (PlayerMovement.instance.gameObject.transform.rotation == Quaternion.Euler(0f, 180f, 0f))
-                {
-                    Debug.Log("Move To the left");
-                    currentCam.transform.position = new Vector3(FollowTarget.transform.position.x - .5f, currentCam.transform.position.y, currentCam.transform.position.z);
-                }
-                else if (PlayerMovement.instance.gameObject.transform.rotation == Quaternion.Euler(0f, 0f, 0f))
-                {
-                    Debug.Log("Move to the right");
-                    currentCam.transform.position = new Vector3(FollowTarget.transform.position.x + .5f, currentCam.transform.position.y, currentCam.transform.position.z);
-                }
+                currentCam.Priority = 1;
+                //lookCapDown = currentCam.transform.position.y - 3;
+
                 //currentCam.transform.position = FollowTarget.transform.position +(FollowTarget.transform.right * 3);
                 //Debug.Log(currentCam.gameObject.name);
             }
-            else 
+            else
             {
-                allCams[i].Priority= 0;
+                allCams[i].Priority = 0;
             }
+        }
+    }
+    
+    void Move(bool movingUp)
+    {
+        if (movingUp)
+        {
+            if (PlayerMovement.instance.gameObject.transform.rotation == Quaternion.Euler(0f, 180f, 0f))
+        {
+            //Debug.Log("Move To the left");
+            currentCam.transform.position = new Vector3(FollowTarget.transform.position.x, currentCam.transform.position.y + (panSpeed * Time.deltaTime), currentCam.transform.position.z);
+        }
+        else if (PlayerMovement.instance.gameObject.transform.rotation == Quaternion.Euler(0f, 0f, 0f))
+        {
+            //Debug.Log("Move to the right");
+            currentCam.transform.position = new Vector3(FollowTarget.transform.position.x, currentCam.transform.position.y + (panSpeed * Time.deltaTime), currentCam.transform.position.z);
+        }
+        }
+        
+
+        else
+        {
+            if (PlayerMovement.instance.gameObject.transform.rotation == Quaternion.Euler(0f, 180f, 0f))
+                {
+                    //Debug.Log("Move To the left");
+                    currentCam.transform.position = new Vector3(FollowTarget.transform.position.x, currentCam.transform.position.y - (panSpeed * Time.deltaTime), currentCam.transform.position.z);
+                }
+                else if (PlayerMovement.instance.gameObject.transform.rotation == Quaternion.Euler(0f, 0f, 0f))
+                {
+                    //Debug.Log("Move to the right");
+                    currentCam.transform.position = new Vector3(FollowTarget.transform.position.x, currentCam.transform.position.y - (panSpeed * Time.deltaTime), currentCam.transform.position.z);
+                }
         }
     }
 
@@ -149,15 +183,18 @@ public class CameraManager : MonoBehaviour
         //direction true = up
         //direction false = down
         Moving = false;
+        Working = false;
         if (movingUp)
         {
-            lookCapUp = 0f;
+            //lookCapUp = 0f;
             movingUp = false;
             for (int i = 0; i< allCams.Length; i++)
             {
                 if (allCams[i].gameObject.name.Contains("Up"))
                 {
-                    allCams[i].Priority= 0;
+                    allCams[i].Priority = 0;
+                    //Debug.Log("Please");
+                    allCams[i].transform.localPosition = new Vector3(3.25f, -0.75f, -10);
                 }
                 else if (allCams[i].gameObject.name.Contains("Follow"))
                 {
@@ -169,13 +206,15 @@ public class CameraManager : MonoBehaviour
         }
         else if (movingDown)
         {
-            lookCapDown = 0f;
+            //lookCapDown = 0f;
             movingDown = false;
             for (int i = 0; i < allCams.Length; i++)
             {
                 if (allCams[i].gameObject.name.Contains("Up"))
                 {
-                    allCams[i].Priority=0;
+                    allCams[i].Priority = 0;
+                    //Debug.Log("Please");
+                    allCams[i].transform.localPosition = new Vector3(3.25f,-0.75f,-10);
                 }
                 else if (allCams[i].gameObject.name.Contains("Follow"))
                 {
@@ -189,22 +228,33 @@ public class CameraManager : MonoBehaviour
     }
     private void Update()
     {
-        if (movingUp && !Moving)
+        if (movingUp)
         {
             lookFrames++;
             if (lookFrames >= 5)
             {
                 StartMovingUp();
-            //Debug.Log(currentCam.transform.position + (PlayerMovement.instance.transform.forward * 3));
+                //Debug.Log(currentCam.transform.position + (PlayerMovement.instance.transform.forward * 3));
             }
         }
-        else if (movingDown && !Moving)
+        else if (movingDown)
         {
             lookFrames++;
             if (lookFrames >= 5)
             {
                 StartMovingDown();
-            //Debug.Log(currentCam.transform.position + (PlayerMovement.instance.transform.forward * 3));
+                //Debug.Log(currentCam.transform.position + (PlayerMovement.instance.transform.forward * 3));
+            }
+        }
+        if (Working)
+        {
+            if (movingUp)
+            {
+                Move(true);
+            }
+            else if (movingDown)
+            {
+                Move(false);
             }
         }
     }

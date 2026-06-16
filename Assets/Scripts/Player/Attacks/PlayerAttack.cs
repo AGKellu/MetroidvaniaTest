@@ -48,11 +48,17 @@ public class PlayerAttack : MonoBehaviour
     public Image ManaContainer;
     //public GameObject Camera;
     //set camera
-    [SerializeField] private GameObject[] HealthMasks;
+    //[SerializeField] private GameObject[] HealthMasks;
+    [SerializeField] private GameObject FirstMask;
+    [SerializeField] private GameObject SecondMask;
+    [SerializeField] private GameObject ThirdMask;
+    [SerializeField] private GameObject FourthMask;
+    [SerializeField] private GameObject FifthMask;
     [SerializeField] private GameObject Fireball;
     [SerializeField] private bool[] Unlockables;
     public bool QueueRightTurn = false;
     public bool QueueLeftTurn = false;
+    //private bool sequentialHealing;
 
     //[SerializeField] private InputAction Heal;
     //[SerializeField] private bool healing = false;
@@ -66,8 +72,8 @@ public class PlayerAttack : MonoBehaviour
 
 
     //when getting a new health mask, HealthMasks.Add(newMask);
-    private int MaskInt = 0;
-    private int HealthInt = 0;
+    //private int MaskInt = 0;
+    //private int HealthInt = 0;
     [SerializeField] PlayerSOScript Values;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -101,16 +107,44 @@ public class PlayerAttack : MonoBehaviour
         {
             gameObject.GetComponent<PlayerMovement>().ableToMove = false;
             ableToAttack = false;
+            
+            
             //Camera.GetComponent<CameraFollow>().shaking = true;
             //Camera.GetComponent<CameraFollow>().Shake();
             //Use cinemachine noise
             //Camera.GetComponent<CinemachineImpulseSource>().GenerateImpulse();
-            HealthMasks[MaskInt].GetComponent<Animator>().SetTrigger("Broken");
-            MaskInt++;
+            CameraManager.instance.Shake();
+            //HealthMasks[MaskInt].GetComponent<Animator>().SetTrigger("Broken");
+            //MaskInt++;
             Health -= AttackDamage;
+            if (Health == 4)
+            {
+                
+                FirstMask.GetComponent<Animator>().SetBool("Healed", false);
+                FirstMask.GetComponent<Animator>().SetTrigger("Broken");
+            }
+            else if (Health == 3)
+            {
+                
+                SecondMask.GetComponent<Animator>().SetBool("Healed", false);
+                SecondMask.GetComponent<Animator>().SetTrigger("Broken");
+            }
+            else if (Health == 2)
+            {
+                
+                ThirdMask.GetComponent<Animator>().SetBool("Healed", false);
+                ThirdMask.GetComponent<Animator>().SetTrigger("Broken");
+            }
+            else if (Health == 1)
+            {
+                
+                FourthMask.GetComponent<Animator>().SetBool("Healed", false);
+                FourthMask.GetComponent<Animator>().SetTrigger("Broken");
+            }
             if (Health <= 0)
             {
                 PlayerAnim.SetTrigger("Dead");
+                FifthMask.GetComponent<Animator>().SetTrigger("Broken");
                 Destroy(gameObject, 5);
             }
             else
@@ -182,6 +216,7 @@ public class PlayerAttack : MonoBehaviour
         {
             if (FirstSpell.IsPressed())
             {
+                gameObject.GetComponent<Rigidbody2D>().linearVelocityX = 0; 
                 Heal();
             
             }
@@ -221,15 +256,15 @@ public class PlayerAttack : MonoBehaviour
             casting = true;
             GameObject Projectile = Instantiate(Fireball, transform.position, transform.rotation);
             Destroy(Projectile, 1);
-            if (transform.localScale.x == 1)
+            if (transform.rotation == Quaternion.Euler(0f, 180f, 0f))
             {
-                Projectile.transform.localScale = new Vector3(-1, 1, 1);
-                Projectile.GetComponent<Rigidbody2D>().linearVelocityX = 5;
-            }
-            else if (transform.localScale.x == -1)
-            {
-                Projectile.transform.localScale = new Vector3(1, 1, 1);
+                //Projectile.transform.localScale = new Vector3(-1, 1, 1);
                 Projectile.GetComponent<Rigidbody2D>().linearVelocityX = -5;
+            }
+            else if (transform.rotation == Quaternion.Euler(0f, 0f,0f))
+            {
+              //  Projectile.transform.localScale = new Vector3(1, 1, 1);
+                Projectile.GetComponent<Rigidbody2D>().linearVelocityX = 5;
             }
             Projectile.GetComponent<ProjectileScript>().BelongsTo = gameObject;
             attacking = true;
@@ -329,7 +364,34 @@ public class PlayerAttack : MonoBehaviour
         casting = false;
         ManaStartFloat = Mana;
         timeSinceAttack = 0;
-        HealthMasks[HealthInt].GetComponent<Animator>().SetTrigger("Heal");
+        //if (Health < (Health - 1))
+        //{
+          //  sequentialHealing = true;
+        //}
+       // if (sequentialHealing)
+        //{
+
+        //}
+        //else
+        //{
+            if (Health == 4)
+            {
+                FirstMask.GetComponent<Animator>().SetTrigger("Heal");
+            }
+            else if (Health == 3)
+            {
+                SecondMask.GetComponent<Animator>().SetTrigger("Heal");
+            }
+            else if (Health == 2)
+            {
+                ThirdMask.GetComponent<Animator>().SetTrigger("Heal");
+            }
+            else if (Health == 1)
+            {
+                FourthMask.GetComponent<Animator>().SetTrigger("Heal");
+            }
+        //HealthMasks[HealthInt].GetComponent<Animator>().SetTrigger("Heal");
+        //}
     }
     
     void Heal()
@@ -340,9 +402,30 @@ public class PlayerAttack : MonoBehaviour
             if (Mana < (ManaStartFloat - TimeToNextHealthTick))
             {
                 ManaStartFloat = Mana;
+                if (Health == 4)
+            {
+                FirstMask.GetComponent<Animator>().SetBool("Healed", true);
+            }
+            else if (Health == 3)
+            {
+                SecondMask.GetComponent<Animator>().SetBool("Healed", true);
+            }
+            else if (Health == 2)
+            {
+                ThirdMask.GetComponent<Animator>().SetBool("Healed", true);
+            }
+            else if (Health == 1)
+            {
+                FourthMask.GetComponent<Animator>().SetBool("Healed", true);
+            }
                 Health++;
-                HealthMasks[HealthInt].GetComponent<Animator>().SetBool("Healed", true);
-                MaskInt--;
+
+                //HealthMasks[HealthInt].GetComponent<Animator>().SetBool("Healed", true);
+                //MaskInt--;
+               // HealthInt++;
+                //HealthMasks[HealthInt].GetComponent<Animator>().SetTrigger("Heal");
+                //HealthInt--;
+                Debug.Log("Healed one mask!");
             }
         Mana -= ManaDrainSpeed* Time.deltaTime;
         ManaContainer.fillAmount = Mana/100;
@@ -374,19 +457,48 @@ public class PlayerAttack : MonoBehaviour
     void CancelHeal()
     {
         healing = false;
-        Debug.Log(ManaStartFloat -= Mana);
+        //sequentialHealing = false;
+        if ((Mana - ManaStartFloat) < TimeToNextHealthTick)
+        {
+            if (Health == 4)
+            {
+                
+                FirstMask.GetComponent<Animator>().SetBool("Healed", false);
+                FirstMask.GetComponent<Animator>().SetTrigger("Broken");
+            }
+            else if (Health == 3)
+            {
+                
+                SecondMask.GetComponent<Animator>().SetBool("Healed", false);
+                SecondMask.GetComponent<Animator>().SetTrigger("Broken");
+            }
+            else if (Health == 2)
+            {
+                
+                ThirdMask.GetComponent<Animator>().SetBool("Healed", false);
+                ThirdMask.GetComponent<Animator>().SetTrigger("Broken");
+            }
+            else if (Health == 1)
+            {
+                
+                FourthMask.GetComponent<Animator>().SetBool("Healed", false);
+                FourthMask.GetComponent<Animator>().SetTrigger("Broken");
+            }
+            //Debug.Log("Heal Canceled! Mask at " + HealthMasks[HealthInt].name + "will be broken again");
+        }
+        //Debug.Log(ManaStartFloat -= Mana);
         //if (Mana - ManaStartFloat < 33)
         //{
           //  Debug.Log("Interrupted! \nMask Canceled!");
            // Debug.Log("The mask at " + HealthMasks[HealthInt].name + " will be broken again");
             //HealthMasks[HealthInt].GetComponent<Animator>().SetTrigger("Broken");
         //}
-        if ((ManaStartFloat - Mana) < TimeToNextHealthTick)
-        {
-            Debug.Log("Interrupted!\nMask Canceled!\nThe mask at " + HealthMasks[HealthInt].name + " will be broken again");
-            HealthMasks[HealthInt].GetComponent<Animator>().SetTrigger("Broken");
-            HealthInt++;
-        }
+        //if ((ManaStartFloat - Mana) < TimeToNextHealthTick)
+        //{
+          //  Debug.Log("Interrupted!\nMask Canceled!\nThe mask at " + HealthMasks[HealthInt].name + " will be broken again");
+          //  HealthMasks[HealthInt].GetComponent<Animator>().SetTrigger("Broken");
+          //  HealthInt++;
+       // }
         if (QueueLeftTurn)
         {
             transform.localScale = new Vector3(-1, 1, 1);

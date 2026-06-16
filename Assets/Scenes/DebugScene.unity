@@ -3579,7 +3579,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &525983656
 Animator:
   serializedVersion: 7
@@ -5264,7 +5264,7 @@ GameObject:
   - component: {fileID: 730343812}
   - component: {fileID: 730343811}
   m_Layer: 5
-  m_Name: HealthMask (4)
+  m_Name: FirstMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6956,7 +6956,7 @@ GameObject:
   - component: {fileID: 876300812}
   - component: {fileID: 876300811}
   m_Layer: 5
-  m_Name: HealthMask (3)
+  m_Name: SecondMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8024,7 +8024,7 @@ GameObject:
   - component: {fileID: 978018291}
   - component: {fileID: 978018290}
   m_Layer: 5
-  m_Name: HealthMask (1)
+  m_Name: FourthMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8297,12 +8297,12 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 5828964076455980766}
+    TrackingTarget: {fileID: 0}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 34
-    OrthographicSize: 0.75
+    OrthographicSize: 0.25
     NearClipPlane: 0.01
     FarClipPlane: 1000
     Dutch: 0
@@ -8329,8 +8329,8 @@ Transform:
   m_GameObject: {fileID: 987762554}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4, y: -0.4, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3.25, y: -0.75, z: -10}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5828964076455980766}
@@ -8768,7 +8768,7 @@ GameObject:
   - component: {fileID: 1121113822}
   - component: {fileID: 1121113821}
   m_Layer: 5
-  m_Name: HealthMask (2)
+  m_Name: ThirdMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10507,7 +10507,7 @@ GameObject:
   - component: {fileID: 1348840732}
   - component: {fileID: 1348840731}
   m_Layer: 5
-  m_Name: HealthMask
+  m_Name: FifthMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11592,6 +11592,7 @@ GameObject:
   - component: {fileID: 1531758709}
   - component: {fileID: 1531758708}
   - component: {fileID: 1531758711}
+  - component: {fileID: 1531758712}
   m_Layer: 0
   m_Name: PlayerFollowCam
   m_TagString: Untagged
@@ -11708,6 +11709,30 @@ MonoBehaviour:
     MaxWindowSize: 0
     Padding: 0
   m_LegacyMaxWindowSize: -2
+--- !u!114 &1531758712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531758707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b2d199b96b516448144ab30fb26aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineImpulseListener
+  ApplyAfter: 2
+  ChannelMask: 1
+  Gain: 1
+  Use2DDistance: 0
+  UseCameraSpace: 1
+  SignalCombinationMode: 0
+  ReactionSettings:
+    m_SecondaryNoise: {fileID: 0}
+    AmplitudeGain: 1
+    FrequencyGain: 1
+    Duration: 1
+    m_NoiseOffsets: {x: 673.7854, y: -14.867676, z: -345.17087}
 --- !u!1 &1601299062
 GameObject:
   m_ObjectHideFlags: 0
@@ -12911,6 +12936,7 @@ GameObject:
   - component: {fileID: 1833513801}
   - component: {fileID: 1833513802}
   - component: {fileID: 1833513803}
+  - component: {fileID: 1833513804}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -13096,12 +13122,11 @@ MonoBehaviour:
   trueMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   flashMaterial: {fileID: 2100000, guid: b95519cc062f57a4bbb73f4d34b5683c, type: 2}
   ManaContainer: {fileID: 1953483299}
-  HealthMasks:
-  - {fileID: 730343809}
-  - {fileID: 876300809}
-  - {fileID: 1121113819}
-  - {fileID: 978018288}
-  - {fileID: 1348840729}
+  FirstMask: {fileID: 730343809}
+  SecondMask: {fileID: 876300809}
+  ThirdMask: {fileID: 1121113819}
+  FourthMask: {fileID: 978018288}
+  FifthMask: {fileID: 1348840729}
   Fireball: {fileID: 6831931665148355495, guid: 383c80186434c3a479b677f723c315ba, type: 3}
   Unlockables: 0100
   QueueRightTurn: 0
@@ -13153,6 +13178,59 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.25, y: 0.35}
   m_EdgeRadius: 0
+--- !u!114 &1833513804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833513795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineImpulseSource
+  ImpulseDefinition:
+    ImpulseChannel: 1
+    ImpulseShape: 3
+    CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ImpulseDuration: 0.2
+    ImpulseType: 0
+    DissipationRate: 0.25
+    RawSignal: {fileID: 0}
+    AmplitudeGain: 1
+    FrequencyGain: 1
+    RepeatMode: 0
+    Randomize: 1
+    TimeEnvelope:
+      AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      AttackTime: 0
+      SustainTime: 0.2
+      DecayTime: 0.7
+      ScaleWithImpact: 1
+      HoldForever: 0
+    ImpactRadius: 100
+    DirectionMode: 0
+    DissipationMode: 2
+    DissipationDistance: 100
+    PropagationSpeed: 343
+  DefaultVelocity: {x: -0.2, y: -0.2, z: 0}
 --- !u!1 &1836605709
 GameObject:
   m_ObjectHideFlags: 0
@@ -15865,7 +15943,7 @@ Transform:
   m_GameObject: {fileID: 4408558697805175697}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.8588799, y: -0.18270999, z: -10}
+  m_LocalPosition: {x: -1.8588767, y: -0.18270999, z: -10}
   m_LocalScale: {x: 1, y: 1.3333334, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16028,7 +16106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5737137948598207042, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6391437278500939696, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: m_Enabled
@@ -16216,9 +16294,7 @@ MonoBehaviour:
   lookFrames: 0
   movingUp: 0
   movingDown: 0
-  panSpeed: 0
-  lookCapUp: 0
-  lookCapDown: 0
+  panSpeed: 0.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
