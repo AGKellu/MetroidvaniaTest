@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     private bool[] Unlockables;
-    public static PlayerMovement Instance;
+    public static PlayerMovement instance;
     private GameObject Spawner;
 
     [SerializeField] private PlayerSOScript Values;
@@ -63,9 +63,9 @@ public class PlayerMovement : MonoBehaviour
     */
     void Awake()
     {
-        if (Instance == null)
+        if (instance == null)
         {
-            Instance = this;
+            instance = this;
         }
     }
 
@@ -81,7 +81,6 @@ public class PlayerMovement : MonoBehaviour
         moveActionLeft.performed += ctx => StartMovingLeft();
         Jump = InputSystem.actions.FindAction("Move/Jump");
         Jump.performed += ctx => StartJump();
-        //Jump.canceled += ctx => EndJump();
         Slide = InputSystem.actions.FindAction("Move/Slide");
         Slide.performed += ctx => StartSlide();
         PlayerRB = gameObject.GetComponent<Rigidbody2D>();
@@ -94,7 +93,9 @@ public class PlayerMovement : MonoBehaviour
         cameraFollowObject = cameraFollowGO.GetComponent<CameraFollowObject>();
         //GameObject Spawner()
         // transform.localScale = Values.currentRotation;
+        CameraManager.instance.enabled = true;
         fallSpeedYDampingChangeThreshold = CameraManager.instance.fallSpeedYDampingChangeThreshold;
+        
     }
 
     //void
@@ -151,13 +152,10 @@ public class PlayerMovement : MonoBehaviour
         {
             CameraManager.instance.LerpYDamping(true);
             fallFrames++;
-            // = true;
-            //Debug.Log(fallFrames);
             if (fallFrames >= 15 && !Grounded && !gameObject.GetComponent<PlayerAttack>().attacking)
             {
                 PlayerAnim.SetBool("Falling", true);
             }
-            //Camera.GetComponent<CameraFollow>().movingUp = false;
         }
         if (PlayerRB.linearVelocityY >= 0f && !CameraManager.instance.isLerpingYDamping && CameraManager.instance.lerpedFromPlayerFalling)
         {
@@ -167,8 +165,6 @@ public class PlayerMovement : MonoBehaviour
         }
         if (!sliding)
         {
-            //dont stop movement while attacking as well as \/\/\/
-            //after attacking, check queued turn, once atacking finished, turn
             if (moveActionRight.IsPressed() && MovingRight)
             {
                 if (PlayerAnim.GetBool("Falling"))
@@ -208,28 +204,13 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                //gameObject.GetComponent<PlayerAttack>().Camera.transform.localScale = new Vector3(Mathf.Lerp(-1, 1, 30f), 1, 1);
-                //gameObject.GetComponent<PlayerAttack>().Camera.transform.localScale = new Vector3();
-                //if (Camera.transform.localScale.x == transform.localScale.x)
-                //{
-
-                //}
-                //else
-                //{
-                    
-                //Camera.GetComponent<CameraFollow>().Switch();
-                //}
-                //Camera.GetComponent<CameraFollow>().offset.x = .3f;
                 cameraFollowObject.CallTurn();
-                //transform.localScale = new Vector3(1, 1, 1);
                 if (transform.rotation != Quaternion.Euler(0f, 0f, 0f))
                 {
                     
                 transform.Rotate(new Vector3(0f, 180f, 0f));
                 }
             }
-
-            // Vector3 startLocalScale = gameObject.GetComponent<PlayerAttack>().Camera.transform.localScale;
             if (Grounded && !gameObject.GetComponent<PlayerAttack>().attacking)
             {
                 PlayerAnim.SetBool("Running", true);
@@ -252,18 +233,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-
-                //Camera.GetComponent<CameraFollow>().offset.x = -.1f;
-                //if (Camera.transform.localScale.x == transform.localScale.x)
-                //{
-
-                //}
-                //else
-                //{
-                    //Camera.GetComponent<CameraFollow>().Switch();
-                //}
                 cameraFollowObject.CallTurn();
-                //transform.localScale = new Vector3(-1, 1, 1);
                 if (transform.rotation == Quaternion.Euler(0f, 0f, 0f))
                 {
                     
@@ -283,14 +253,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (ableToMove)
         {
-            //if (!gameObject.GetComponent<PlayerAttack>().attacking)
-            //{
             if (Grounded)
             {
                 PlayerRB.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
                 PlayerAnim.SetBool("Jumping", true);
                 JumpCount++;
-                //Grounded = false;
             }
             else if (Unlockables[3] == true && JumpCount < 2)
             {
