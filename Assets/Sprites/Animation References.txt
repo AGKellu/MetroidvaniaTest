@@ -1,0 +1,17 @@
+Animation References 
+Idle - Chris UMVC3 Idle
+Walk - Chris UMVC3 Walk
+Shoot - 
+	Chris UMVC3 Revolver
+	Wesker UMVC3 Straight shot 
+Melee Shot - Ryu UMVC3 Medium Donkey Kick
+Aerial Shot - Wesker UMVC3 Air shot
+Set Kinetic Erasure Field - Rocket Racoon UMVC3	Medium Trap
+Body Double - Deadpool UMVC3 Teleport
+Dash - 
+	Nova UMVC3 Medium Centurion Rush
+	Captain America UMVC3 Shield Rush ++
+Air Slam - Frank West UMVC3 Air 2H
+Slide - Frank West UMVC3 Slide
+Crawl - 
+	Chris UMVC3 Prone/Crawl
