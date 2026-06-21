@@ -207,8 +207,8 @@ public class PlayerMovement : MonoBehaviour
                 cameraFollowObject.CallTurn();
                 if (transform.rotation != Quaternion.Euler(0f, 0f, 0f))
                 {
-                    
-                transform.Rotate(new Vector3(0f, 180f, 0f));
+                    transform.rotation = Quaternion.Euler(0f, 0f, 0f);   
+               // transform.Rotate(new Vector3(0f, 180f, 0f));
                 }
             }
             if (Grounded && !gameObject.GetComponent<PlayerAttack>().attacking)
@@ -236,8 +236,8 @@ public class PlayerMovement : MonoBehaviour
                 cameraFollowObject.CallTurn();
                 if (transform.rotation == Quaternion.Euler(0f, 0f, 0f))
                 {
-                    
-                transform.Rotate(new Vector3(0f, 180f, 0f));
+                    transform.rotation = Quaternion.Euler(0f, 180f, 0f);  
+                //transform.Rotate(new Vector3(0f, 180f, 0f));
                 }
             }
 
