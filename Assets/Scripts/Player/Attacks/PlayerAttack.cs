@@ -207,14 +207,12 @@ public class PlayerAttack : MonoBehaviour
                     
                 }
             }*/
-            if (!currentAttack.holdable)
-            {
-                FireSpell1();
-            }
-            if (timeSinceAttack >= currentAttack.AttackFrames)
+            
+            /*if (timeSinceAttack >= currentAttack.AttackFrames)
             {
                 EndSpell();
-            }
+            }*/
+
         }
         /*
         if (healing)
@@ -292,24 +290,17 @@ public class PlayerAttack : MonoBehaviour
             else
             {
                 attacking = true;
-                
+                //make hella hitstop here, like a second or half second
                 PlayerAnim.Play("ShootMelee");
                 PlayerAnim.SetBool(currentClipName, false);
             }
         }
     }
-    void StartFireSpell1()
-    {
-        //currentAttack = Spell1;
-        if (!attacking && !casting && (Mana >= currentAttack.ManaGain) && Unlockables[0] == true)
-        {
-            casting = true;
-        }
-    }
-    void FireSpell1()
+    
+    void FireSpell()
     {
        // currentAttack = Spell1;
-        if (!attacking && ableToAttack && (Mana >= currentAttack.ManaGain) && Unlockables[0] == true)
+       /* if (!attacking && ableToAttack && (Mana >= currentAttack.ManaGain) && Unlockables[0] == true)
         {
             gameObject.GetComponent<PlayerMovement>().ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 0);
@@ -332,6 +323,25 @@ public class PlayerAttack : MonoBehaviour
             ManaContainer.fillAmount = Mana / 100;
             PlayerAnim.SetBool("Casting", true);
             PlayerAnim.SetBool("Idle", false);
+        }*/
+        if (!attacking && ableToAttack)
+        {
+            gameObject.GetComponent<PlayerMovement>().ableToMove = false;
+            gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 0);
+            casting = true;
+            //for dash, keep the linearvelocity = new Vector2(0, 0) and abletomove = false;
+            //Instantiate a clone of the player that has trigger collider, make the alpha slightly transparent, and move them forward while the button is held
+            //maybe stop time???
+            //make no rigidbody so it doesnt have gravity
+            //when the button is let go, set the player position to the clone position, destroy the clone, allow yourself to cast again 
+
+            //for trap, make sure the player is grounded, instantiate trap that when projectiles contact it, destroy the projectile, set collider to trigger, make no rigidbody so it doesnt move
+            
+            //for clone, make sure the player is grounded, instantiate player clone, make player invisible to enemies (most likely change a tag)
+            //after 3 seconds and/or when the player attacks return tag to player, delete clone
+            
+            //casting is Y or f for keyboard, changing casts is LT/RT or scroll wheel for keyboard
+
         }
     }
     void EndAttack()
@@ -363,7 +373,7 @@ public class PlayerAttack : MonoBehaviour
     {
         gameObject.GetComponent<PlayerMovement>().ableToMove = true;
         timeSinceAttack = 0;
-        PlayerAnim.SetBool("Casting", false);
+        //PlayerAnim.SetBool("Casting", false);
         if (!gameObject.GetComponent<PlayerMovement>().MovingLeft && !gameObject.GetComponent<PlayerMovement>().MovingRight)
         {
             PlayerAnim.SetBool("Idle", true);
