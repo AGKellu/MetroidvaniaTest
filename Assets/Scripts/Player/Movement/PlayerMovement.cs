@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement Actions")]
     private InputAction moveActionRight;
     private InputAction moveActionLeft;
+    private InputAction moveActionCrouch;
     private InputAction Jump;
     private InputAction Slide;
 
@@ -31,7 +32,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private int JumpCount;
     public bool sliding = false;
+    //public bool crouching;
     private int slideFrames = 0;
+    [SerializeField]private bool canWalk;
 
     //public bool slideUnlocked = false;
     //private bool busy;
@@ -47,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
     private GameObject Spawner;
 
     [SerializeField] private PlayerSOScript Values;
+    [SerializeField] private GameObject CrouchHB;
     //public GameObject Camera;
 
     [Header("Camera Stuff")]
@@ -79,23 +83,27 @@ public class PlayerMovement : MonoBehaviour
         moveActionRight.performed += ctx => StartMovingRight();
         moveActionLeft = InputSystem.actions.FindAction("Move/WalkLeft");
         moveActionLeft.performed += ctx => StartMovingLeft();
+        moveActionCrouch = InputSystem.actions.FindAction("Move/Crouch");
+        moveActionCrouch.performed += ctx => StartCrouching();
+        moveActionCrouch.canceled += ctx => EndCrouch();
         Jump = InputSystem.actions.FindAction("Move/Jump");
         Jump.performed += ctx => StartJump();
         Slide = InputSystem.actions.FindAction("Move/Slide");
         Slide.performed += ctx => StartSlide();
+        
         PlayerRB = gameObject.GetComponent<Rigidbody2D>();
         PlayerAnim = gameObject.GetComponent<Animator>();
         PlayerSprite = gameObject.GetComponent<SpriteRenderer>();
-        Speed = Values.speed;
-        JumpForce = Values.JumpForce;
-        JumpSpeed = Values.JumpSpeed;
+       // Speed = Values.speed;
+        //JumpForce = Values.JumpForce;
+        //JumpSpeed = Values.JumpSpeed;
         JumpCount = Values.JumpCount;
         cameraFollowObject = cameraFollowGO.GetComponent<CameraFollowObject>();
         //GameObject Spawner()
         // transform.localScale = Values.currentRotation;
         CameraManager.instance.enabled = true;
         fallSpeedYDampingChangeThreshold = CameraManager.instance.fallSpeedYDampingChangeThreshold;
-        
+        canWalk = true;
     }
 
     //void
@@ -130,6 +138,7 @@ public class PlayerMovement : MonoBehaviour
             if (!MovingLeft)
             {
                 PlayerAnim.SetBool("Running", false);
+                PlayerAnim.SetBool("Idle", true);
                 PlayerRB.linearVelocityX = 0;
             }
 
@@ -140,10 +149,15 @@ public class PlayerMovement : MonoBehaviour
             if (!MovingRight)
             {
                 PlayerAnim.SetBool("Running", false);
+                PlayerAnim.SetBool("Idle", true);
                 PlayerRB.linearVelocityX = 0;
             }
             MovingLeft = false;
         }
+        //else if (moveActionCrouch.WasReleasedThisFrame())
+        //{
+            //PlayerAnim.SetBool()
+        //}
     }
 
     void CheckForMovement()
@@ -186,31 +200,36 @@ public class PlayerMovement : MonoBehaviour
                 else
                 {
                     PlayerRB.linearVelocityX = -Speed;
-                  
+
                 }
+            }
+            if (moveActionCrouch.IsPressed() && !MovingRight && !MovingLeft)
+            {
+                //Debug.Log("I should be Crouching");
+                
             }
         }
     }
 
     void StartMovingRight()
     {
-        if (ableToMove)
+        if (ableToMove && canWalk)
         {
             MovingRight = true;
             MovingLeft = false;
-            if (gameObject.GetComponent<PlayerAttack>().attacking)
-            {
-                gameObject.GetComponent<PlayerAttack>().QueueRightTurn = true;
-            }
-            else
-            {
+            //if (gameObject.GetComponent<PlayerAttack>().attacking)
+            //{
+                //gameObject.GetComponent<PlayerAttack>().QueueRightTurn = true;
+            //}
+            //else
+           // {
                 cameraFollowObject.CallTurn();
                 if (transform.rotation != Quaternion.Euler(0f, 0f, 0f))
                 {
                     transform.rotation = Quaternion.Euler(0f, 0f, 0f);   
                // transform.Rotate(new Vector3(0f, 180f, 0f));
                 }
-            }
+           // }
             if (Grounded && !gameObject.GetComponent<PlayerAttack>().attacking)
             {
                 PlayerAnim.SetBool("Running", true);
@@ -223,23 +242,23 @@ public class PlayerMovement : MonoBehaviour
 
     void StartMovingLeft()
     {
-        if (ableToMove)
+        if (ableToMove && canWalk)
         {
             MovingLeft = true;
             MovingRight = false;
-            if (gameObject.GetComponent<PlayerAttack>().attacking)
-            {
-                gameObject.GetComponent<PlayerAttack>().QueueLeftTurn = true;
-            }
-            else
-            {
+            //if (gameObject.GetComponent<PlayerAttack>().attacking)
+            //{
+                //gameObject.GetComponent<PlayerAttack>().QueueLeftTurn = true;
+            //}
+            //else
+            //{
                 cameraFollowObject.CallTurn();
                 if (transform.rotation == Quaternion.Euler(0f, 0f, 0f))
                 {
                     transform.rotation = Quaternion.Euler(0f, 180f, 0f);  
                 //transform.Rotate(new Vector3(0f, 180f, 0f));
                 }
-            }
+            //}
 
             if (Grounded && !gameObject.GetComponent<PlayerAttack>().attacking)
             {
@@ -248,7 +267,29 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+    void StartCrouching()
+    {
+        if (ableToMove && Grounded)
+        {
 
+            //transform.GetChild(1).gameObject.SetActive(true);
+            CrouchHB.SetActive(true);
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            //PlayerRB.enabled = false;
+            //gameObject.GetComponent<Rigidbody2D>().enabled = false;
+                PlayerAnim.SetBool("Crouching", true);
+                PlayerAnim.SetBool("Idle", false);
+                if (MovingLeft || MovingRight)
+                {
+                    PlayerAnim.SetBool("Running", false);
+                    PlayerAnim.SetBool("Crouching", true);
+                }
+            
+            MovingLeft = false;
+            MovingRight = false;
+            canWalk = false;
+        }
+    }
     void StartJump()
     {
         if (ableToMove)
@@ -256,7 +297,7 @@ public class PlayerMovement : MonoBehaviour
             if (Grounded)
             {
                 PlayerRB.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
-                PlayerAnim.SetBool("Jumping", true);
+                PlayerAnim.SetTrigger("Jumping");
                 JumpCount++;
             }
             else if (Unlockables[3] == true && JumpCount < 2)
@@ -305,6 +346,7 @@ public class PlayerMovement : MonoBehaviour
             sliding = true;
             PlayerAnim.SetBool("Sliding", true);
             ableToMove = false;
+            canWalk = false;
         }
     }
 
@@ -325,12 +367,13 @@ public class PlayerMovement : MonoBehaviour
             PlayerRB.linearVelocityX = Speed;
         }
         slideFrames = 0;
+        canWalk = true;
     }
 
     public void EndJump()
     {
         PlayerAnim.SetBool("Falling", false);
-        PlayerAnim.SetBool("Jumping", false);
+        //PlayerAnim.SetTrigger("Jumping");
 
         if (!MovingLeft && !MovingRight)
         {
@@ -348,11 +391,33 @@ public class PlayerMovement : MonoBehaviour
         JumpCount = 0;
         //falling = false;
     }
+    public void EndCrouch()
+    {
+        if (ableToMove)
+        {
+
+            PlayerAnim.SetBool("Crouching", false);
+            if (MovingRight || MovingLeft)
+            {
+                PlayerAnim.SetBool("Running", true);
+            }
+            else if (!MovingRight && !MovingLeft)
+            {
+                PlayerAnim.SetBool("Idle", true);
+            }
+            //gameObject.GetComponent<Rigidbody2D>().enabled = true;
+            //PlayerRB.enabled = true;
+            gameObject.GetComponent<BoxCollider2D>().enabled = true;
+            CrouchHB.SetActive(false);
+            //transform.GetChild(1).gameObject.SetActive(false);
+            canWalk = true;
+        }
+    }
     public void Transition()
     {
-        Values.speed = Speed;
-        Values.JumpForce = JumpForce;
-        Values.JumpSpeed = JumpSpeed;
+       // Values.speed = Speed;
+        //Values.JumpForce = JumpForce;
+        //Values.JumpSpeed = JumpSpeed;
         Values.JumpCount = JumpCount;
         Values.currentRotation = transform.localScale;
         //TransitionPanel.GetComponent<Animator>().SetTrigger("Start");

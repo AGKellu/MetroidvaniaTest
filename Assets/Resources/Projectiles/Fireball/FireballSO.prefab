@@ -193,3 +193,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileScript
   BelongsTo: {fileID: 0}
+  OpensFire: 1
+  OpensIce: 0

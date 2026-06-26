@@ -12,15 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea08c3dfa0ccbf149abb6387b5aa9de9, type: 3}
   m_Name: DefaultPlayer
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSOScript
-  speed: 2
-  JumpForce: 3
-  JumpSpeed: 0.5
   JumpCount: 0
   Health: 5
   maxHealth: 5
   Mana: 50
   ManaMax: 100
-  currentAttack: {fileID: 11400000, guid: ffaa80d36a68032409b79c144ce82a4b, type: 2}
   Spell1: {fileID: 11400000, guid: ffaa80d36a68032409b79c144ce82a4b, type: 2}
   Normal: {fileID: 11400000, guid: b1124fba94d27704a86d941cccf9a391, type: 2}
   currentRotation: {x: 1, y: 1, z: 1}

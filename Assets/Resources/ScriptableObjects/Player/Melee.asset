@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 712c721fdbe33544faaea84409f37033, type: 3}
   m_Name: Melee
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjectScript
-  name: Normal
-  AttackFrames: 15
-  Damage: 1
+  name: Melee
+  AttackFrames: 60
+  Damage: 2
   Using: 0
-  KnockBack: 0.01
-  HitDirection: {x: 45, y: 45}
-  ManaGain: 10
-  holdable: 0
+  KnockBack: 0
+  HitDirection: {x: 0, y: 0}
+  ManaGain: 25
+  holdable: 1

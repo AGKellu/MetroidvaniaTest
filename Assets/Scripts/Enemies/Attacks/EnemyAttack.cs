@@ -18,6 +18,7 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private bool pushable;
     private bool chasing = false;
     [SerializeField] private BoxCollider2D hitboxCollider;
+    [SerializeField] private GameObject FreezeBlock;
 
     void Start()
     {
@@ -29,6 +30,7 @@ public class EnemyAttack : MonoBehaviour
     {
         if (!recoiling)
         {
+            FreezeBlock.SetActive(true);
             Health -= AttackDamage;
             if (Health <= 0)
             {
@@ -45,18 +47,18 @@ public class EnemyAttack : MonoBehaviour
                     if (GameObject.FindGameObjectWithTag("Player").transform.position.x < gameObject.transform.position.x)
                     {
                         //Hollow knight does not do recoil, but metroid and castlevania does 
-                        RB2D.linearVelocity = KnockBackForce * new Vector2(hitDirection.x, hitDirection.y);
-                        //RB2D.AddForce(KnockBackForce * new Vector2(hitDirection.x, hitDirection.y));
+                        //RB2D.linearVelocity = KnockBackForce * new Vector2(hitDirection.x, hitDirection.y);
+                        
                     }
                     else
                     {
-                        RB2D.linearVelocity = KnockBackForce * new Vector2(hitDirection.x, -hitDirection.y);
-                        //RB2D.AddForce(-KnockBackForce * new Vector2(hitDirection.x, -hitDirection.y));
+                        //RB2D.linearVelocity = KnockBackForce * new Vector2(-hitDirection.x, -hitDirection.y);
+                        
                     }
                 }
 
                 recoiling = true;
-                hitboxCollider.enabled = false;
+                //hitboxCollider.enabled = false;
                 Anim.SetTrigger("Damaged");
                 Anim.SetBool("Idle", false);
             }
@@ -72,13 +74,13 @@ public class EnemyAttack : MonoBehaviour
         if (recoiling)
         {
             invulnFrames++;
-            if (invulnFrames >= 15)
+            if (invulnFrames >= 120)
             {
 
                 EndRecoil();
             }
         }
-        else if (attacking)
+        if (attacking)
         {
             timeSinceAttack++;
             if (timeSinceAttack == 4)
@@ -136,11 +138,12 @@ public class EnemyAttack : MonoBehaviour
         RB2D.linearVelocity = new Vector2(0, 0);
         Anim.SetBool("Damaged", false);
         Anim.SetBool("Idle", true);
-        hitboxCollider.enabled = true;
+       // hitboxCollider.enabled = true;
         if (!chasing)
         {
             Anim.SetBool("Idle", true);
         }
+        FreezeBlock.SetActive(false);
     }
     
     

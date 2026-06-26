@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour
 {
-    public  GameObject BelongsTo;
+    public GameObject BelongsTo;
+    public bool OpensFire;
+    public bool OpensIce;
     void Start()
     {
         Destroy(gameObject, 5);
@@ -28,7 +30,7 @@ public class ProjectileScript : MonoBehaviour
         else if (attackHitbox.gameObject.CompareTag("Door") && BelongsTo.CompareTag("Player"))
         {
             
-            attackHitbox.gameObject.GetComponent<DoorScript>().OpenDoor();
+            attackHitbox.gameObject.GetComponent<DoorScript>().OpenDoor(OpensFire, OpensIce);
             Destroy(gameObject, 0);
         }
     }

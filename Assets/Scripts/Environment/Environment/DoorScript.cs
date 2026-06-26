@@ -5,12 +5,30 @@ public class DoorScript : MonoBehaviour
     //public bool hit;
     public bool NormalDoor;
     public bool FireDoor;
-    public bool IceBool;
-    public void OpenDoor()
+    public bool IceDoor;
+    public void OpenDoor(bool Fire, bool Ice)
     {
+        if (Fire && FireDoor)
+        {
+
         gameObject.GetComponent<Animator>().SetTrigger("Open");
         //hit = true;
         gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+        }
+        else if (Ice && IceDoor)
+        {
+
+        gameObject.GetComponent<Animator>().SetTrigger("Open");
+        //hit = true;
+        gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+        }
+        else if (!Fire && !Ice && NormalDoor)
+        {
+            
+        gameObject.GetComponent<Animator>().SetTrigger("Open");
+        //hit = true;
+        gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+        }
         
     }
 

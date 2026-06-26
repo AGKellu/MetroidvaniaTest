@@ -41,15 +41,18 @@ public class CameraManager : MonoBehaviour
         }
         for (int i = 0; i < allCams.Length; i++)
         {
+            allCams[i].Follow = GameObject.FindGameObjectWithTag("Follower").transform;
+            //allCams[i]
             //allCams[i].Follow = FollowTarget.transform;
             if (allCams[i].gameObject.name.Contains("Follow"))
             {
                 currentCam = allCams[i];
                 positionComposer = currentCam.GetComponent<CinemachinePositionComposer>();
-                
-        FollowTarget = GameObject.FindGameObjectWithTag("Follower");
+
+                FollowTarget = GameObject.FindGameObjectWithTag("Follower");
                 currentCam.Follow = FollowTarget.transform;
             }
+            
         }
         //normYPanAmount = positionComposer.YDamping;
         startingTrackedObjectOffset = positionComposer.TargetOffset;
@@ -64,7 +67,7 @@ public class CameraManager : MonoBehaviour
         panCamDown = InputSystem.actions.FindAction("Camera/MoveDown");
         panCamDown.performed += ctx => StartCamPan(false);
         panCamDown.canceled += ctx => StopMovingUpDown();
-
+        FollowTarget = GameObject.FindGameObjectWithTag("Follower");
     }
     public void Shake()
     {
@@ -98,7 +101,8 @@ public class CameraManager : MonoBehaviour
                 //allCams[i].Priority++;
                 //lookCapUp = allCams[i].transform.position.y + 3;
                 currentCam = allCams[i];
-                currentCam.Priority=1;
+                currentCam.Priority = 1;
+                currentCam.Follow = null;
                 //lookCapUp = currentCam.transform.position.y + 3;
                 /*if (PlayerMovement.instance.gameObject.transform.rotation == Quaternion.Euler(0f, 180f, 0f))
                 {
@@ -113,8 +117,9 @@ public class CameraManager : MonoBehaviour
                 //currentCam.transform.position = FollowTarget.transform.position + (FollowTarget.transform.right * 3);
                 //Debug.Log(currentCam.gameObject.name);
             }
-            else 
+            else
             {
+                
                 allCams[i].Priority =0;
             }
             //Debug.Log(allCams[i].gameObject.name);
@@ -133,6 +138,7 @@ public class CameraManager : MonoBehaviour
                 //lookCapDown = allCams[i].transform.position.y - 3;
                 currentCam = allCams[i];
                 currentCam.Priority = 1;
+                currentCam.Follow = null;
                 //lookCapDown = currentCam.transform.position.y - 3;
 
                 //currentCam.transform.position = FollowTarget.transform.position +(FollowTarget.transform.right * 3);
@@ -190,18 +196,26 @@ public class CameraManager : MonoBehaviour
             movingUp = false;
             for (int i = 0; i< allCams.Length; i++)
             {
-                if (allCams[i].gameObject.name.Contains("Up"))
-                {
-                    allCams[i].Priority = 0;
-                    //Debug.Log("Please");
-                    allCams[i].transform.localPosition = new Vector3(3.25f, -0.75f, -10);
-                }
-                else if (allCams[i].gameObject.name.Contains("Follow"))
+                if (allCams[i].gameObject.name.Contains("Follow"))
                 {
                     allCams[i].Priority= 1;
                     currentCam = allCams[i];
                     //Debug.Log(currentCam.gameObject.name);
                 }
+                else if (allCams[i].gameObject.name.Contains("Up"))
+                {
+                    allCams[i].Priority = 0;
+                    //currentCam.Follow = GameObject.FindGameObjectWithTag("Follower").transform;
+                    //Debug.Log("Please");
+                    //allCams[i].Follow = GameObject.FindGameObjectWithTag("Follower").transform;
+                    //allCams[i].position
+                    //allCams[i].Follow = FollowTarget.transform;
+                    //allCams[i].ForceCameraPosition(new Vector3(allCams[i].transform.position.x, -.75f, allCams[i].transform.position.z), Quaternion.identity);
+                   // allCams[i].transform.position = new Vector3(allCams[i].transform.position.x, -.75f, allCams[i].transform.position.z);
+                    allCams[i].transform.localPosition = new Vector3(allCams[i].transform.position.x, -0.75f, -10);
+                    
+                }
+                
             }
         }
         else if (movingDown)
@@ -214,7 +228,10 @@ public class CameraManager : MonoBehaviour
                 {
                     allCams[i].Priority = 0;
                     //Debug.Log("Please");
-                    allCams[i].transform.localPosition = new Vector3(3.25f,-0.75f,-10);
+                    //allCams[i].transform.position = new Vector3(allCams[i].transform.position.x,-.75f, allCams[i].transform.position.z);
+                    //allCams[i].Follow = FollowTarget.transform;
+                    allCams[i].transform.localPosition = new Vector3(allCams[i].transform.position.x,-0.75f,-10);
+                    //allCams[i].ForceCameraPosition(new Vector3(allCams[i].transform.position.x, -.75f, allCams[i].transform.position.z), Quaternion.identity);
                 }
                 else if (allCams[i].gameObject.name.Contains("Follow"))
                 {

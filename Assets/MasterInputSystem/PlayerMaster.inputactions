@@ -41,6 +41,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Crouch",
+                    "type": "Button",
+                    "id": "79fc5b1e-80f3-4662-8bc2-d62a6286a111",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -131,6 +140,17 @@
                     "action": "Slide",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ba725b5d-0528-4898-a92e-94406ab1dff4",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -148,18 +168,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Spell1",
+                    "name": "Melee",
                     "type": "Button",
                     "id": "54aaac1b-780b-4595-a6be-1c0d24068cef",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Heal",
-                    "type": "Button",
-                    "id": "e0145a5c-7378-46c2-b236-eeca5df023bf",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -196,40 +207,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Spell1",
+                    "action": "Melee",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "8d9335f0-4d2c-47c2-9cff-66b18a3f2b74",
-                    "path": "<Gamepad>/buttonEast",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Spell1",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "16b2833f-c513-46c3-ae63-d8d0e08448ea",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Heal",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "65715d04-9671-4d52-847c-fc86648c6453",
-                    "path": "<Gamepad>/buttonEast",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Heal",
+                    "action": "Melee",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
