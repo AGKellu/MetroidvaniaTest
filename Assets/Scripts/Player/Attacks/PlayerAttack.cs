@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Debug = UnityEngine.Debug;
+using System.Collections;
 using UnityEngine.UI;
 //using System.Numerics;
 public class PlayerAttack : MonoBehaviour
@@ -290,13 +291,20 @@ public class PlayerAttack : MonoBehaviour
             else
             {
                 attacking = true;
+
                 //make hella hitstop here, like a second or half second
-                PlayerAnim.Play("ShootMelee");
-                PlayerAnim.SetBool(currentClipName, false);
+                StartCoroutine(FreezeTime());
             }
         }
     }
-    
+    IEnumerator FreezeTime()
+    {
+        Debug.Log(Time.time);
+        PlayerAnim.Play("ShootMelee");
+        PlayerAnim.SetBool(currentClipName, false);
+        yield return new WaitForSecondsRealtime(2);
+        Debug.Log(Time.time);
+    }
     void FireSpell()
     {
        // currentAttack = Spell1;
