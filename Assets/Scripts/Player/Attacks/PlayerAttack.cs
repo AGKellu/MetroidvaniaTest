@@ -291,7 +291,7 @@ public class PlayerAttack : MonoBehaviour
             else
             {
                 attacking = true;
-
+                PlayerAnim.SetBool(currentClipName, false);
                 //make hella hitstop here, like a second or half second
                 StartCoroutine(FreezeTime());
             }
@@ -301,7 +301,7 @@ public class PlayerAttack : MonoBehaviour
     {
         Debug.Log(Time.time);
         PlayerAnim.Play("ShootMelee");
-        PlayerAnim.SetBool(currentClipName, false);
+        
         yield return new WaitForSecondsRealtime(2);
         Debug.Log(Time.time);
     }
