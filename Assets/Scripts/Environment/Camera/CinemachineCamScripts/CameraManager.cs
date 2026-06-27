@@ -69,10 +69,10 @@ public class CameraManager : MonoBehaviour
         panCamDown.canceled += ctx => StopMovingUpDown();
         FollowTarget = GameObject.FindGameObjectWithTag("Follower");
     }
-    public void Shake()
+    public void Shake(Vector3 direction)
     {
         //Debug.Log(currentCam);
-        PlayerMovement.instance.GetComponent<CinemachineImpulseSource>().GenerateImpulse();
+        PlayerMovement.instance.GetComponent<CinemachineImpulseSource>().GenerateImpulseWithVelocity(direction);
 //        currentCam.gameObject.GetComponent<CinemachineImpulseSource>().GenerateImpulse();
     }
 

@@ -25,7 +25,7 @@ public class ProjectileScript : MonoBehaviour
         }
         else if (attackHitbox.gameObject.CompareTag("Hurtbox") && !BelongsTo.CompareTag("Enemy"))
         {
-            attackHitbox.gameObject.transform.parent.gameObject.GetComponent<EnemyAttack>().TakeDamage(BelongsTo.GetComponent<PlayerAttack>().currentAttack.Damage, BelongsTo.GetComponent<PlayerAttack>().currentAttack.KnockBack, BelongsTo.GetComponent<PlayerAttack>().currentAttack.HitDirection);
+            attackHitbox.gameObject.transform.parent.gameObject.GetComponent<EnemyAttack>().TakeDamage();
         }
         else if (attackHitbox.gameObject.CompareTag("Door") && BelongsTo.CompareTag("Player"))
         {

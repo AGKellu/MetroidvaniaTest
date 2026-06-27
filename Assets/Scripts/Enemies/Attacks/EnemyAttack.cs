@@ -1,4 +1,5 @@
 //using System.Numerics;
+using System.Collections;
 using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
@@ -17,30 +18,51 @@ public class EnemyAttack : MonoBehaviour
     private bool recoiling;
     [SerializeField] private bool pushable;
     private bool chasing = false;
-    [SerializeField] private BoxCollider2D hitboxCollider;
+    //[SerializeField] private BoxCollider2D hitboxCollider;
     [SerializeField] private GameObject FreezeBlock;
+    public bool Frozen;
 
     void Start()
     {
         Anim = gameObject.GetComponent<Animator>();
         RB2D = gameObject.GetComponent<Rigidbody2D>();
     }
+    IEnumerator FreezeTime()
+    {
+        //Debug.Log(Time.time);
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(.5f);
+        //Debug.Log(Time.time);
+        Time.timeScale = 1;
+    }
+    public void TakeShatterDamage()
+    {
+        Anim.SetTrigger("Dead");
+        //CameraManager.instance.Shake(new Vector3(-.2f, -.2f, 0));
+        StartCoroutine(FreezeTime());
+        Destroy(gameObject, 1);
+    }
 
-    public void TakeDamage(int AttackDamage, float KnockBackForce, Vector2 hitDirection)
+    public void TakeDamage()
     {
         if (!recoiling)
         {
             FreezeBlock.SetActive(true);
-            Health -= AttackDamage;
-            if (Health <= 0)
-            {
-                Anim.SetTrigger("Dead");
+            Frozen = true;
+            //Health -= AttackDamage;
+            //if (Health <= 0)
+            //{
+                //StartCoroutine(FreezeTime());
+               // Anim.SetTrigger("Dead");
                 RB2D.gravityScale = 0;
                 //RB2D.linearVelocity = new Vector2(0, 0);
                 RB2D.mass = 0;
-                Destroy(gameObject, 1);
-            }
-            else
+              //  Destroy(gameObject, 1);
+            //}
+            recoiling = true;
+            Anim.SetTrigger("Damaged");
+            Anim.SetBool("Idle", false);
+           /* else
             {
                 if (pushable)
                 {
@@ -56,12 +78,12 @@ public class EnemyAttack : MonoBehaviour
                         
                     }
                 }
-
+                //StartCoroutine(FreezeTime());
                 recoiling = true;
                 //hitboxCollider.enabled = false;
                 Anim.SetTrigger("Damaged");
                 Anim.SetBool("Idle", false);
-            }
+            }*/
             
 
 
@@ -129,6 +151,7 @@ public class EnemyAttack : MonoBehaviour
         shooting = false;
         Anim.SetBool("Shooting", false);
         Anim.SetBool("Idle", true);
+
     }
 
     void EndRecoil()
@@ -144,6 +167,7 @@ public class EnemyAttack : MonoBehaviour
             Anim.SetBool("Idle", true);
         }
         FreezeBlock.SetActive(false);
+        Frozen = false;
     }
     
     

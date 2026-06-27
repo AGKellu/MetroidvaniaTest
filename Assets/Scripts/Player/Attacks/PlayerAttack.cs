@@ -58,6 +58,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private GameObject Fireball;
     [SerializeField] private GameObject Shot;
     [SerializeField] private bool[] Unlockables;
+    [SerializeField] private GameObject MeleeHB;
     /*public bool QueueRightTurn = false;
     public bool QueueLeftTurn = false;
     */
@@ -119,7 +120,7 @@ public class PlayerAttack : MonoBehaviour
             //Camera.GetComponent<CameraFollow>().Shake();
             //Use cinemachine noise
             //Camera.GetComponent<CinemachineImpulseSource>().GenerateImpulse();
-            CameraManager.instance.Shake();
+            CameraManager.instance.Shake(new Vector3(-.2f, -.2f,0));
             //HealthMasks[MaskInt].GetComponent<Animator>().SetTrigger("Broken");
             //MaskInt++;
             Health -= AttackDamage;
@@ -292,19 +293,14 @@ public class PlayerAttack : MonoBehaviour
             {
                 attacking = true;
                 PlayerAnim.SetBool(currentClipName, false);
+                PlayerAnim.Play("ShootMelee");
+                MeleeHB.SetActive(true);
                 //make hella hitstop here, like a second or half second
-                StartCoroutine(FreezeTime());
+                //StartCoroutine(FreezeTime());
             }
         }
     }
-    IEnumerator FreezeTime()
-    {
-        Debug.Log(Time.time);
-        PlayerAnim.Play("ShootMelee");
-        
-        yield return new WaitForSecondsRealtime(2);
-        Debug.Log(Time.time);
-    }
+    
     void FireSpell()
     {
        // currentAttack = Spell1;
@@ -357,6 +353,7 @@ public class PlayerAttack : MonoBehaviour
         timeSinceAttack = 0;
         //gameObject.GetComponent<PlayerMovement>().ableToMove = true;
         //PlayerAnim.SetTrigger("Attacking");
+        MeleeHB.SetActive(false);
         if (!gameObject.GetComponent<PlayerMovement>().MovingLeft && !gameObject.GetComponent<PlayerMovement>().MovingRight)
         {
             PlayerAnim.SetBool("Idle", true);
