@@ -29,10 +29,10 @@ public class PlayerAttack : MonoBehaviour
     public bool casting = false;
     public int Health;
     public int maxHealth;
-    public float Mana;
-    public float ManaStartFloat;
+    //public float Mana;
+    //public float ManaStartFloat;
     //public float ManaEndFloat;
-    public float ManaMax;
+    //public float ManaMax;
     private float InvulFrames = 0;
     private bool invuln = false;
     private bool ableToAttack = true;
@@ -97,8 +97,8 @@ public class PlayerAttack : MonoBehaviour
         //Heal.performed += ctx => StartHeal();
         Health = Values.Health;
         maxHealth = Values.maxHealth;
-        Mana = Values.Mana;
-        ManaMax = Values.ManaMax;
+        //Mana = Values.Mana;
+        //ManaMax = Values.ManaMax;
         //currentAttack = Values.currentAttack;
         //Spell1 = Values.Spell1;
         Normal = Values.Normal;
@@ -272,6 +272,7 @@ public class PlayerAttack : MonoBehaviour
                 }
                 Projectile.GetComponent<ProjectileScript>().BelongsTo = gameObject;
                 PlayerAnim.Play("Shoot");
+                //ManaContainer.fillAmount -= 30;
                 PlayerAnim.SetBool(currentClipName, false);
             }
         }
@@ -613,8 +614,8 @@ public class PlayerAttack : MonoBehaviour
     {
         Values.Health = Health;
     Values.maxHealth = maxHealth;
-    Values.Mana = Mana;
-        Values.ManaMax = ManaMax;
+    //Values.Mana = Mana;
+        //Values.ManaMax = ManaMax;
     //Values.currentAttack = currentAttack;
     //Values.Spell1 = Spell1;
     //hfeiuheuihfe

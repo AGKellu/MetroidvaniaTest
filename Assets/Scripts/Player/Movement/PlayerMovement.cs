@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
        // Speed = Values.speed;
         //JumpForce = Values.JumpForce;
         //JumpSpeed = Values.JumpSpeed;
-        JumpCount = Values.JumpCount;
+        //JumpCount = Values.JumpCount;
         cameraFollowObject = cameraFollowGO.GetComponent<CameraFollowObject>();
         //GameObject Spawner()
         // transform.localScale = Values.currentRotation;
@@ -418,7 +418,7 @@ public class PlayerMovement : MonoBehaviour
        // Values.speed = Speed;
         //Values.JumpForce = JumpForce;
         //Values.JumpSpeed = JumpSpeed;
-        Values.JumpCount = JumpCount;
+        //Values.JumpCount = JumpCount;
         Values.currentRotation = transform.localScale;
         //TransitionPanel.GetComponent<Animator>().SetTrigger("Start");
     }

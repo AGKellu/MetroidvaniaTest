@@ -6,11 +6,11 @@ public class PlayerSOScript : ScriptableObject
     //public float speed;
     //public float JumpForce;
     //public float JumpSpeed;
-    public int JumpCount;
+   // public int JumpCount;
     public int Health;
     public int maxHealth;
-    public float Mana;
-    public float ManaMax;
+    //public float Mana;
+    //public float ManaMax;
     //public ScriptableObjectScript currentAttack;
     public ScriptableObjectScript Spell1;
     public ScriptableObjectScript Normal;
