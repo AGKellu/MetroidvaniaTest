@@ -21,6 +21,7 @@ public class EnemyAttack : MonoBehaviour
     //[SerializeField] private BoxCollider2D hitboxCollider;
     [SerializeField] private GameObject FreezeBlock;
     public bool Frozen;
+    public GameObject DNADrop;
 
     void Start()
     {
@@ -31,16 +32,24 @@ public class EnemyAttack : MonoBehaviour
     {
         //Debug.Log(Time.time);
         Time.timeScale = 0;
-        yield return new WaitForSecondsRealtime(.5f);
+        yield return new WaitForSecondsRealtime(1/60);
         //Debug.Log(Time.time);
         Time.timeScale = 1;
     }
     public void TakeShatterDamage()
     {
+        if (Frozen)
+        {
+            FreezeBlock.SetActive(false);
         Anim.SetTrigger("Dead");
         //CameraManager.instance.Shake(new Vector3(-.2f, -.2f, 0));
-        StartCoroutine(FreezeTime());
+        //StartCoroutine(FreezeTime());
         Destroy(gameObject, 1);
+        GameObject Drop = Instantiate(DNADrop, transform.position, Quaternion.identity);
+//
+        
+        }
+        
     }
 
     public void TakeDamage()

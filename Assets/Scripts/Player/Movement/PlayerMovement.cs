@@ -28,10 +28,10 @@ public class PlayerMovement : MonoBehaviour
     // public bool CurrentlyJumping = false;
     public bool Grounded = true;
     public bool ableToMove = true;
-
-    [SerializeField]
-    private int JumpCount;
+    private float jumpGoodFrames;
+    [SerializeField] private int JumpCount;
     public bool sliding = false;
+    [SerializeField] private bool gripping;
     //public bool crouching;
     private int slideFrames = 0;
     [SerializeField]private bool canWalk;
@@ -64,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
     Dash
     Wall Jump
     Double Jump
+    Ledge Grab
     */
     void Awake()
     {
@@ -88,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
         moveActionCrouch.canceled += ctx => EndCrouch();
         Jump = InputSystem.actions.FindAction("Move/Jump");
         Jump.performed += ctx => StartJump();
+        Jump.canceled += ctx => EndUpwardMomentum();
         Slide = InputSystem.actions.FindAction("Move/Slide");
         Slide.performed += ctx => StartSlide();
         
@@ -104,6 +106,8 @@ public class PlayerMovement : MonoBehaviour
         CameraManager.instance.enabled = true;
         fallSpeedYDampingChangeThreshold = CameraManager.instance.fallSpeedYDampingChangeThreshold;
         canWalk = true;
+        gripping = false;
+        Grounded = true;
     }
 
     //void
@@ -114,6 +118,7 @@ public class PlayerMovement : MonoBehaviour
         {
             CheckForMovement();
         }
+        
         if (sliding)
         {
            // Camera.GetComponent<CameraFollow>().sliding  = true;
@@ -124,7 +129,33 @@ public class PlayerMovement : MonoBehaviour
                 EndSlide();
             }
         }
+        /*if (Grounded)
+        {
+            PlayerRB.linearVelocityY = 0;
+            PlayerRB.gravityScale = 0;
+        }
+        else 
+        {
+            if (gripping)
+            {
+                PlayerRB.linearVelocity = new Vector2(0, 0);
+                PlayerRB.gravityScale = 0;
+            
+            }
+            else 
+            {
+                PlayerRB.gravityScale = 1;
+            }
+        }*/
         
+        /*if (Grounded)
+        {
+            PlayerRB.gravityScale = 0;
+        }
+        else 
+        {
+            PlayerRB.gravityScale = 1;
+        }*/
         
             
         
@@ -169,6 +200,7 @@ public class PlayerMovement : MonoBehaviour
             if (fallFrames >= 15 && !Grounded && !gameObject.GetComponent<PlayerAttack>().attacking)
             {
                 PlayerAnim.SetBool("Falling", true);
+                PlayerRB.gravityScale = 1.5f;
             }
         }
         if (PlayerRB.linearVelocityY >= 0f && !CameraManager.instance.isLerpingYDamping && CameraManager.instance.lerpedFromPlayerFalling)
@@ -200,14 +232,35 @@ public class PlayerMovement : MonoBehaviour
                 else
                 {
                     PlayerRB.linearVelocityX = -Speed;
+                   // Debug.Log("Moving left");
 
                 }
             }
-            if (moveActionCrouch.IsPressed() && !MovingRight && !MovingLeft)
+            RaycastHit2D hitDown = Physics2D.Raycast(transform.position, -Vector2.up, 1.5f, LayerMask.GetMask("Ground"));
+            Debug.DrawRay(transform.position, -Vector2.up *1.5f, Color.red);
+            if (hitDown && JumpCount <=1)
             {
+                //if hitdown gameObject.tag 
+                if (hitDown.collider.gameObject.name.Contains("Floor"))
+                {
+                    Grounded = true;
+                    PlayerRB.linearVelocityY = 0;
+                    PlayerRB.gravityScale = 0;
+                }
+                else 
+                {
+                    Grounded = false;
+                    PlayerRB.gravityScale = 1;
+                }
+                Debug.Log(hitDown.collider.gameObject.name);
+            }
+            
+            //RaycastHit2D hitup 
+            //if (moveActionCrouch.IsPressed() && !MovingRight && !MovingLeft)
+            //{
                 //Debug.Log("I should be Crouching");
                 
-            }
+            //}
         }
     }
 
@@ -271,8 +324,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (ableToMove && Grounded)
         {
-
-            //transform.GetChild(1).gameObject.SetActive(true);
+            if (Grounded)
+            {
+                //transform.GetChild(1).gameObject.SetActive(true);
             CrouchHB.SetActive(true);
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
             //PlayerRB.enabled = false;
@@ -288,6 +342,29 @@ public class PlayerMovement : MonoBehaviour
             MovingLeft = false;
             MovingRight = false;
             canWalk = false;
+            }
+            else if (gripping)
+            {
+
+                PlayerAnim.SetBool("Falling", false);
+                gripping = false;
+                PlayerRB.gravityScale = 1;
+            }
+            //transform.GetChild(1).gameObject.SetActive(true);
+            //CrouchHB.SetActive(true);
+            //gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            //PlayerRB.enabled = false;
+            //gameObject.GetComponent<Rigidbody2D>().enabled = false;
+                //PlayerAnim.SetBool("Crouching", true);
+                //if (MovingLeft || MovingRight)
+                //{
+                  //  PlayerAnim.SetBool("Running", false);
+                   // PlayerAnim.SetBool("Crouching", true);
+                //}
+            
+            //MovingLeft = false;
+            //MovingRight = false;
+            //canWalk = false;
         }
     }
     void StartJump()
@@ -298,6 +375,9 @@ public class PlayerMovement : MonoBehaviour
             {
                 PlayerRB.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
                 PlayerAnim.SetTrigger("Jumping");
+                //Grounded = false;
+                //Jumping = true;
+                //PlayerRB.gravityScale = 1;
                 JumpCount++;
             }
             else if (Unlockables[3] == true && JumpCount < 2)
@@ -319,6 +399,7 @@ public class PlayerMovement : MonoBehaviour
             //}
             //Camera.GetComponent<CameraFollow>().movingUp = true;
         }
+        
         //CREATE COYOTE TIME and jump buffering
         //create a timer when youre falling, if the jump button is pressed
         //and the player touches the ground before the timer ends(5 frames), jump when getting on the ground
@@ -329,6 +410,13 @@ public class PlayerMovement : MonoBehaviour
         //Jump
         fallFrames = 0;
         
+    }
+    void EndUpwardMomentum()
+    {
+        if (PlayerRB.linearVelocityY >=0.01f)
+        {
+            PlayerRB.linearVelocityY = 0;
+        }
     }
 
     void StartSlide()
@@ -347,7 +435,9 @@ public class PlayerMovement : MonoBehaviour
             PlayerAnim.SetBool("Sliding", true);
             ableToMove = false;
             canWalk = false;
-        }
+            RaycastHit2D hitDown = Physics2D.Raycast(transform.position, -Vector2.up);
+            RaycastHit2D hitUp = Physics2D.Raycast(transform.position, Vector2.up);
+       }
     }
 
     void EndSlide()
@@ -364,7 +454,7 @@ public class PlayerMovement : MonoBehaviour
         else if (MovingLeft || MovingRight)
         {
             PlayerAnim.SetBool("Running", true);
-            PlayerRB.linearVelocityX = Speed;
+            //PlayerRB.linearVelocityX = Speed;
         }
         slideFrames = 0;
         canWalk = true;
@@ -384,11 +474,12 @@ public class PlayerMovement : MonoBehaviour
             PlayerAnim.SetBool("Running", true);
         }
         //Camera.GetComponent<CameraFollow>().movingUp = false;
-        PlayerRB.linearVelocityX = 0;
+        //PlayerRB.linearVelocityX = 0;
         fallFrames = 0;
         //CurrentlyJumping = false;
         Grounded = true;
         JumpCount = 0;
+
         //falling = false;
     }
     public void EndCrouch()
@@ -421,6 +512,10 @@ public class PlayerMovement : MonoBehaviour
         //Values.JumpCount = JumpCount;
         Values.currentRotation = transform.localScale;
         //TransitionPanel.GetComponent<Animator>().SetTrigger("Start");
+    }
+    public void GrabLedge()
+    {
+        gripping= true;
     }
     
 }

@@ -16,17 +16,19 @@ public class GroundScript : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collider)
     {
+//
         if (collider.gameObject.CompareTag("Player"))
         {
-            collider.gameObject.GetComponent<PlayerMovement>().EndJump();
+            //PlayerMovement.instance.EndJump();
+            //collider.GetComponent<Rigidbody2D>().gravityScale = 0;
             //Debug.Log("Player is grounded");
         }
     }
-    void OnTriggerExit2D(Collider2D collider)
-    {
-        if (collider.gameObject.CompareTag("Player"))
-        {
-            collider.gameObject.GetComponent<PlayerMovement>().Grounded = false;
-        }
-    }
+   // void OnTriggerExit2D(Collider2D collider)
+   // {
+       // if (collider.gameObject.CompareTag("Player"))
+       // {
+        //    collider.gameObject.GetComponent<PlayerMovement>().Grounded = false;
+      //  }
+    //}
 }

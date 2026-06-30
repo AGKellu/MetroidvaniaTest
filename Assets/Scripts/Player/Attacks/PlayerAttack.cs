@@ -19,16 +19,21 @@ public class PlayerAttack : MonoBehaviour
     public ScriptableObjectScript Normal;
     [SerializeField] private int SpellHeldFrames = 0;
     [SerializeField]private bool healing;
+    [SerializeField] private string currentSpell;
     //[SerializeField] private int healingFrames = 0;
 
     [Header("PlayerAttributes")]
-    [SerializeField] private float timeBetweenAttack = 0;
+    //[SerializeField] private float timeBetweenAttack = 0;
     private float timeSinceAttack;
     public bool attacking = false;
     //public bool shooting = false;
     public bool casting = false;
     public int Health;
     public int maxHealth;
+    public float ammo;
+    //start ammo is .3f
+    //private float maxAmmo;
+    private bool reloading;
     //public float Mana;
     //public float ManaStartFloat;
     //public float ManaEndFloat;
@@ -46,7 +51,7 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField] private Material trueMaterial;
     [SerializeField] private Material flashMaterial;
-    public Image ManaContainer;
+    public Image ShotBarImage;
     //public GameObject Camera;
     //set camera
     //[SerializeField] private GameObject[] HealthMasks;
@@ -102,6 +107,9 @@ public class PlayerAttack : MonoBehaviour
         //currentAttack = Values.currentAttack;
         //Spell1 = Values.Spell1;
         Normal = Values.Normal;
+        //ammo = .3f;
+        //maxAmmo = 1.0f;
+        reloading = false;
         //GameObject Spawner = GameObject.FindGameObjectWithTag("Spawner");
         //Camera = Spawner.GetComponent<SpawnerScript>().Camera;
         //Camera = GameObject.FindGameObjectWithTag("MainCamera");
@@ -112,7 +120,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (!invuln)
         {
-            gameObject.GetComponent<PlayerMovement>().ableToMove = false;
+            PlayerMovement.instance.ableToMove = false;
             ableToAttack = false;
             
             
@@ -124,47 +132,66 @@ public class PlayerAttack : MonoBehaviour
             //HealthMasks[MaskInt].GetComponent<Animator>().SetTrigger("Broken");
             //MaskInt++;
             Health -= AttackDamage;
+            
+            AnimatorClipInfo[] clipInfo = PlayerAnim.GetCurrentAnimatorClipInfo(0);
+            string currentClipName = clipInfo[0].clip.name;
+            PlayerAnim.SetBool(currentClipName, false);
             if (Health == 4)
             {
                 
                 FirstMask.GetComponent<Animator>().SetBool("Healed", false);
                 FirstMask.GetComponent<Animator>().SetTrigger("Broken");
+                //invuln = true;
+
+            PlayerAnim.SetTrigger("Damaged");
+            
+            
             }
             else if (Health == 3)
             {
                 
                 SecondMask.GetComponent<Animator>().SetBool("Healed", false);
                 SecondMask.GetComponent<Animator>().SetTrigger("Broken");
+                //invuln = true;
+
+            PlayerAnim.SetTrigger("Damaged");
+            //PlayerAnim.SetBool("Running", false);
+            
             }
             else if (Health == 2)
             {
                 
                 ThirdMask.GetComponent<Animator>().SetBool("Healed", false);
                 ThirdMask.GetComponent<Animator>().SetTrigger("Broken");
+                //invuln = true;
+
+            PlayerAnim.SetTrigger("Damaged");
+            //PlayerAnim.SetBool("Running", false);
+            
             }
             else if (Health == 1)
             {
                 
                 FourthMask.GetComponent<Animator>().SetBool("Healed", false);
                 FourthMask.GetComponent<Animator>().SetTrigger("Broken");
+                //invuln = true;
+
+            PlayerAnim.SetTrigger("Damaged");
+            //PlayerAnim.SetBool("Running", false);
+            
             }
-            if (Health <= 0)
+            else if (Health <= 0)
             {
                 PlayerAnim.SetTrigger("Dead");
                 FifthMask.GetComponent<Animator>().SetTrigger("Broken");
                 Destroy(gameObject, 5);
             }
-            else
-            {
-                invuln = true;
-
-                PlayerAnim.SetTrigger("Damaged");
-                PlayerAnim.SetBool("Running", false);
+            
+            invuln = true;                
 
 
 
-            }
-
+            
             gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 0);
             gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
             //gameObject.GetComponent<BoxCollider2D>().enabled = false;
@@ -182,10 +209,18 @@ public class PlayerAttack : MonoBehaviour
             //}
             if (timeSinceAttack >= currentAttack.AttackFrames)
             {
-                EndAttack();
+                StartCoroutine(EndAttack());
 
             }
+
         }
+        
+        if (!attacking && ShotBarImage.fillAmount <= 1.0f && reloading)
+        {
+
+            ShotBarImage.fillAmount += .01f;
+        }
+        
         else if (invuln)
         {
             InvulFrames++;
@@ -235,11 +270,20 @@ public class PlayerAttack : MonoBehaviour
     {
         if (!attacking && ableToAttack)
         {
+            if (ShotBarImage.fillAmount >= ammo)
+            {
+            ShotBarImage.fillAmount -= ammo;
+            reloading = false;
+            //}
+            PlayerMovement.instance.ableToMove = false;
+            if (PlayerMovement.instance.Grounded)
+            {
+                gameObject.GetComponent<Rigidbody2D>().linearVelocityX = 0;   
+            }
             currentAttack = Normal;
             attacking = true;
             AnimatorClipInfo[] clipInfo = PlayerAnim.GetCurrentAnimatorClipInfo(0);
             string currentClipName = clipInfo[0].clip.name;
-            //Debug.Log(currentClipName);
             if (PlayerAnim.GetBool("Crouching"))
             {
                 attacking = true;
@@ -275,12 +319,14 @@ public class PlayerAttack : MonoBehaviour
                 //ManaContainer.fillAmount -= 30;
                 PlayerAnim.SetBool(currentClipName, false);
             }
+            }
         }
     }
     void MeleeAttack()
     {
         if (!attacking && ableToAttack)
         {
+            PlayerMovement.instance.ableToMove = false;
             currentAttack = MeleeAttackSO;
             attacking = true;
             AnimatorClipInfo[] clipInfo = PlayerAnim.GetCurrentAnimatorClipInfo(0);
@@ -331,7 +377,7 @@ public class PlayerAttack : MonoBehaviour
         }*/
         if (!attacking && ableToAttack)
         {
-            gameObject.GetComponent<PlayerMovement>().ableToMove = false;
+            PlayerMovement.instance.ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 0);
             casting = true;
             //for dash, keep the linearvelocity = new Vector2(0, 0) and abletomove = false;
@@ -349,13 +395,14 @@ public class PlayerAttack : MonoBehaviour
 
         }
     }
-    void EndAttack()
+    IEnumerator EndAttack()
     {
         timeSinceAttack = 0;
         //gameObject.GetComponent<PlayerMovement>().ableToMove = true;
         //PlayerAnim.SetTrigger("Attacking");
+        PlayerMovement.instance.ableToMove = true;
         MeleeHB.SetActive(false);
-        if (!gameObject.GetComponent<PlayerMovement>().MovingLeft && !gameObject.GetComponent<PlayerMovement>().MovingRight)
+        if (!PlayerMovement.instance.MovingLeft && !PlayerMovement.instance.MovingRight)
         {
             PlayerAnim.SetBool("Idle", true);
         }
@@ -364,6 +411,9 @@ public class PlayerAttack : MonoBehaviour
             PlayerAnim.SetBool("Running", true);
         }
         attacking = false;
+        yield return new WaitForSeconds(2);
+
+        reloading= true;
         /*if (QueueLeftTurn)
         {
             transform.localScale = new Vector3(-1, 1, 1);
@@ -377,10 +427,10 @@ public class PlayerAttack : MonoBehaviour
     }
     void EndSpell()
     {
-        gameObject.GetComponent<PlayerMovement>().ableToMove = true;
+        PlayerMovement.instance.ableToMove = true;
         timeSinceAttack = 0;
         //PlayerAnim.SetBool("Casting", false);
-        if (!gameObject.GetComponent<PlayerMovement>().MovingLeft && !gameObject.GetComponent<PlayerMovement>().MovingRight)
+        if (!PlayerMovement.instance.MovingLeft && !PlayerMovement.instance.MovingRight)
         {
             PlayerAnim.SetBool("Idle", true);
         }
@@ -406,9 +456,10 @@ public class PlayerAttack : MonoBehaviour
         invuln = false;
         //gameObject.GetComponent<BoxCollider2D>().enabled = true;
         //gameObject.GetComponent<Rigidbody2D>().WakeUp();
-        gameObject.GetComponent<PlayerMovement>().ableToMove = true;
+        PlayerMovement.instance.ableToMove = true;
+        //Debug.Log("What the fuck");
         ableToAttack = true;
-        if (!gameObject.GetComponent<PlayerMovement>().MovingRight && !gameObject.GetComponent<PlayerMovement>().MovingLeft)
+        if (!PlayerMovement.instance.MovingRight && !PlayerMovement.instance.MovingLeft)
         {
             PlayerAnim.SetBool("Idle", true);
         }
@@ -432,7 +483,7 @@ public class PlayerAttack : MonoBehaviour
         }*/
         //Camera.transform.localEulerAngles = new Vector3(0, 0, 0);
         //Camera.GetComponent<CameraFollow>().shaking = false;
-        gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
+        //gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
     }
     /*void StartHeal()
     {

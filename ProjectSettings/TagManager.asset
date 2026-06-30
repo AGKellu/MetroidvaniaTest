@@ -11,14 +11,15 @@ TagManager:
   - Spike
   - Canvas
   - Door
-  - Container
   - Spawner
   - Follower
+  - Drop
+  - Container
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - Player

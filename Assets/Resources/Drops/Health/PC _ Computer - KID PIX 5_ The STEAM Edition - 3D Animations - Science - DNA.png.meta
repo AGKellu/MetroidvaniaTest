@@ -1,0 +1,985 @@
+fileFormatVersion: 2
+guid: 6ffd44dc58768424fa38dc85ea012499
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2665272656266864253
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_0
+  - first:
+      213: 746064248723833218
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_1
+  - first:
+      213: 3661778259046950454
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_2
+  - first:
+      213: 7391058264258484934
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_3
+  - first:
+      213: 6306957280568125690
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_4
+  - first:
+      213: 7939128888621987392
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_5
+  - first:
+      213: -8406925349052660007
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_6
+  - first:
+      213: -5271024358669918777
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_7
+  - first:
+      213: 1118981712688514202
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_8
+  - first:
+      213: -4972066626613268110
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_9
+  - first:
+      213: 2400270442789569187
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_10
+  - first:
+      213: 4874975215084589143
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_11
+  - first:
+      213: -6766904135838023395
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_12
+  - first:
+      213: 3643158570317038385
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_13
+  - first:
+      213: -474916674220131597
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_14
+  - first:
+      213: 5919777624025851226
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_15
+  - first:
+      213: 1896112777163215007
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_16
+  - first:
+      213: -4963735138914827141
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_17
+  - first:
+      213: -797645763446307938
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_18
+  - first:
+      213: 4285264499484468103
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_19
+  - first:
+      213: -8468907126767914346
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_20
+  - first:
+      213: -2324326720671161492
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_21
+  - first:
+      213: 317869526059414346
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_22
+  - first:
+      213: -72280767316668385
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_23
+  - first:
+      213: 6488048608145899534
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_24
+  - first:
+      213: -1160984566174458745
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_25
+  - first:
+      213: 1459924585318761634
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_26
+  - first:
+      213: -7373305185079916378
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_27
+  - first:
+      213: -6889465365693611181
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_28
+  - first:
+      213: 3705468325458879139
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_29
+  - first:
+      213: -1532555823094162438
+    second: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+      - DNA_30
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 300
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1162
+        width: 148
+        height: 329
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7629521c53fcf420800000000000000
+      internalID: 2665272656266864253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_1
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 1154
+        width: 128
+        height: 319
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2818dcc3b7d8a5a00800000000000000
+      internalID: 746064248723833218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_2
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 1151
+        width: 129
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 636edb8fcef31d230800000000000000
+      internalID: 3661778259046950454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_3
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 1151
+        width: 150
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ca9753f450529660800000000000000
+      internalID: 7391058264258484934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_4
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 1151
+        width: 128
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af8a3d12b30d68750800000000000000
+      internalID: 6306957280568125690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_5
+      rect:
+        serializedVersion: 2
+        x: 746
+        y: 1151
+        width: 135
+        height: 389
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 046fa5039a37d2e60800000000000000
+      internalID: 7939128888621987392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_6
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 695
+        width: 105
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d64d74dfe9945b80800000000000000
+      internalID: -8406925349052660007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_7
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 702
+        width: 102
+        height: 449
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cd5c0bd54f89d6b0800000000000000
+      internalID: -5271024358669918777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_8
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 709
+        width: 106
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9405f660fb678f00800000000000000
+      internalID: 1118981712688514202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_9
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 714
+        width: 112
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27134290fbbaffab0800000000000000
+      internalID: -4972066626613268110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_10
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 718
+        width: 111
+        height: 411
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a2875320497f4120800000000000000
+      internalID: 2400270442789569187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_11
+      rect:
+        serializedVersion: 2
+        x: 757
+        y: 717
+        width: 113
+        height: 409
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75053ff112467a340800000000000000
+      internalID: 4874975215084589143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_12
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 712
+        width: 114
+        height: 405
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d11c0428a802712a0800000000000000
+      internalID: -6766904135838023395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_13
+      rect:
+        serializedVersion: 2
+        x: 1051
+        y: 697
+        width: 117
+        height: 376
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 133ca2cda691f8230800000000000000
+      internalID: 3643158570317038385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_14
+      rect:
+        serializedVersion: 2
+        x: 1195
+        y: 682
+        width: 125
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3faf23f0dc1c869f0800000000000000
+      internalID: -474916674220131597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_15
+      rect:
+        serializedVersion: 2
+        x: 1341
+        y: 666
+        width: 129
+        height: 366
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a55ed5d7266472250800000000000000
+      internalID: 5919777624025851226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_16
+      rect:
+        serializedVersion: 2
+        x: 1486
+        y: 642
+        width: 135
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9094e85688505a10800000000000000
+      internalID: 1896112777163215007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_17
+      rect:
+        serializedVersion: 2
+        x: 1632
+        y: 624
+        width: 138
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b748bdda0354d1bb0800000000000000
+      internalID: -4963735138914827141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_18
+      rect:
+        serializedVersion: 2
+        x: 1782
+        y: 606
+        width: 135
+        height: 338
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e93003d77613ee4f0800000000000000
+      internalID: -797645763446307938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_19
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 0
+        width: 133
+        height: 422
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7832d54ab51587b30800000000000000
+      internalID: 4285264499484468103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_20
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 0
+        width: 135
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6927931a6d5687a80800000000000000
+      internalID: -8468907126767914346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_21
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 139
+        height: 382
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c63627099255ebfd0800000000000000
+      internalID: -2324326720671161492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_22
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 0
+        width: 144
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4371b956ac496400800000000000000
+      internalID: 317869526059414346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_23
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 0
+        width: 297
+        height: 318
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f105ffb66053ffef0800000000000000
+      internalID: -72280767316668385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_24
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 5
+        width: 143
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e00010e75dd2a0a50800000000000000
+      internalID: 6488048608145899534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_25
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 23
+        width: 129
+        height: 364
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78cd57f20ba53efe0800000000000000
+      internalID: -1160984566174458745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_26
+      rect:
+        serializedVersion: 2
+        x: 1197
+        y: 40
+        width: 122
+        height: 391
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a4c8c2eca1b24410800000000000000
+      internalID: 1459924585318761634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_27
+      rect:
+        serializedVersion: 2
+        x: 1349
+        y: 59
+        width: 114
+        height: 416
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a804c6eff1cca990800000000000000
+      internalID: -7373305185079916378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_28
+      rect:
+        serializedVersion: 2
+        x: 1501
+        y: 86
+        width: 107
+        height: 447
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 353c97970c3b360a0800000000000000
+      internalID: -6889465365693611181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_29
+      rect:
+        serializedVersion: 2
+        x: 1646
+        y: 98
+        width: 111
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a220714fc77c6330800000000000000
+      internalID: 3705468325458879139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science
+        - DNA_30
+      rect:
+        serializedVersion: 2
+        x: 1796
+        y: 106
+        width: 107
+        height: 460
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afb140649944bbae0800000000000000
+      internalID: -1532555823094162438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_0: 2665272656266864253
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_1: 746064248723833218
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_10: 2400270442789569187
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_11: 4874975215084589143
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_12: -6766904135838023395
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_13: 3643158570317038385
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_14: -474916674220131597
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_15: 5919777624025851226
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_16: 1896112777163215007
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_17: -4963735138914827141
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_18: -797645763446307938
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_19: 4285264499484468103
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_2: 3661778259046950454
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_20: -8468907126767914346
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_21: -2324326720671161492
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_22: 317869526059414346
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_23: -72280767316668385
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_24: 6488048608145899534
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_25: -1160984566174458745
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_26: 1459924585318761634
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_27: -7373305185079916378
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_28: -6889465365693611181
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_29: 3705468325458879139
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_3: 7391058264258484934
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_30: -1532555823094162438
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_4: 6306957280568125690
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_5: 7939128888621987392
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_6: -8406925349052660007
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_7: -5271024358669918777
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_8: 1118981712688514202
+      PC _ Computer - KID PIX 5_ The STEAM Edition - 3D Animations - Science - DNA_9: -4972066626613268110
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
