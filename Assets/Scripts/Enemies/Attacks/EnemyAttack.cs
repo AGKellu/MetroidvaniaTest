@@ -28,22 +28,16 @@ public class EnemyAttack : MonoBehaviour
         Anim = gameObject.GetComponent<Animator>();
         RB2D = gameObject.GetComponent<Rigidbody2D>();
     }
-    IEnumerator FreezeTime()
-    {
-        //Debug.Log(Time.time);
-        Time.timeScale = 0;
-        yield return new WaitForSecondsRealtime(1/60);
-        //Debug.Log(Time.time);
-        Time.timeScale = 1;
-    }
+    
     public void TakeShatterDamage()
     {
         if (Frozen)
         {
+
             FreezeBlock.SetActive(false);
         Anim.SetTrigger("Dead");
         //CameraManager.instance.Shake(new Vector3(-.2f, -.2f, 0));
-        //StartCoroutine(FreezeTime());
+        StartCoroutine(CameraManager.instance.Shatter(60));
         Destroy(gameObject, 1);
         GameObject Drop = Instantiate(DNADrop, transform.position, Quaternion.identity);
 //

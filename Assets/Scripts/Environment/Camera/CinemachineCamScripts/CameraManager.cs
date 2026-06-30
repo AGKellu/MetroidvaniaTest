@@ -32,6 +32,7 @@ public class CameraManager : MonoBehaviour
     private bool Moving;
     private GameObject FollowTarget;
     private bool Working;
+    [SerializeField] private CinemachineCamera ShatterCam;
     private void Awake()
     {
         if (instance == null)
@@ -75,7 +76,13 @@ public class CameraManager : MonoBehaviour
         PlayerMovement.instance.GetComponent<CinemachineImpulseSource>().GenerateImpulseWithVelocity(direction);
 //        currentCam.gameObject.GetComponent<CinemachineImpulseSource>().GenerateImpulse();
     }
-
+    public IEnumerator Shatter(float Frames)
+    {
+        ShatterCam.Priority = 2;
+        Time.timeScale = .25f;
+        yield return new WaitForSeconds((Frames* 2) / 60);
+        Time.timeScale = 1;
+    }
     private void StartCamPan(bool Direction)
     {
         if (Direction && !movingDown && PlayerMovement.instance.Grounded && !PlayerMovement.instance.MovingRight && !PlayerMovement.instance.MovingLeft)

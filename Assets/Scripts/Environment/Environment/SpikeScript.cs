@@ -10,7 +10,7 @@ public class SpikeScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<PlayerAttack>().TakeDamage(1);
+            PlayerAttack.instance.TakeDamage(1);
             TPToSafety(other.gameObject);
         }
     }

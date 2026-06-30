@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Misc")]
     private int trueFrames;
-    private int fallFrames = 0;
+    //private int fallFrames = 0;
     //private bool falling;
 
     [SerializeField]
@@ -57,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
     private CameraFollowObject cameraFollowObject;
     [SerializeField] private GameObject cameraFollowGO;
     private float fallSpeedYDampingChangeThreshold;
+    public float thingy;
     //[SerializeField] private GameObject TransitionPanel;
     /*
     Unlockables are:
@@ -109,7 +110,19 @@ public class PlayerMovement : MonoBehaviour
         gripping = false;
         Grounded = true;
     }
+    public void Recoil()
+    {
+        Grounded = false;
+        if (transform.rotation != Quaternion.Euler(0f, 0f, 0f))
 
+            {
+                PlayerRB.linearVelocity = 0.25f * new Vector2(5, 5);
+            }
+            else if (transform.rotation == Quaternion.Euler(0f, 0f, 0f))
+            {
+                PlayerRB.linearVelocity = 0.25f * new Vector2(-5, -5);
+            }
+    }
     //void
     // Update is called once per frame
     void Update()
@@ -196,16 +209,58 @@ public class PlayerMovement : MonoBehaviour
         if (PlayerRB.linearVelocityY < fallSpeedYDampingChangeThreshold && !CameraManager.instance.isLerpingYDamping && !CameraManager.instance.lerpedFromPlayerFalling)
         {
             CameraManager.instance.LerpYDamping(true);
-            fallFrames++;
-            if (fallFrames >= 15 && !Grounded && !gameObject.GetComponent<PlayerAttack>().attacking)
+           // fallFrames++;
+            //if (fallFrames >= 15 && !Grounded && !gameObject.GetComponent<PlayerAttack>().attacking)
+            //{
+              //  PlayerAnim.SetBool("Falling", true);
+              //  PlayerRB.gravityScale = 1.5f;
+
+            //}
+        }
+        //if (PlayerRB.linearVelocityY <0 && PlayerRB.linearVelocityY > 0)
+        //{
+               RaycastHit2D hitDown = Physics2D.Raycast(transform.position, -Vector2.up, thingy, LayerMask.GetMask("Ground"));
+            Debug.DrawRay(transform.position, -Vector2.up * thingy, Color.red);
+        if (hitDown)
+        {
+            //if hitdown gameObject.tag 
+            if (hitDown.collider.gameObject.name.Contains("Floor"))
+            {
+
+                if (PlayerRB.linearVelocityY < 0)
+                {
+                    //Debug.Log("Grounded");
+                    if (JumpCount > 0)
+                    {
+
+                      EndJump();
+                     }
+                }
+
+
+                //Debug.Log("WHat");
+                //Grounded = true;
+                //PlayerAnim.SetBool("Jumping", false);
+                // PlayerRB.linearVelocityY = 0;
+                //PlayerRB.gravityScale = 0;
+            }
+            
+            //Debug.Log(hitDown.collider.gameObject.name);
+        }
+        else
+        {
+            //Debug.Log("Player should not be grounded");
+            Grounded = false;
+            if (PlayerRB.linearVelocityY < 0 && !PlayerAttack.instance.attacking)
             {
                 PlayerAnim.SetBool("Falling", true);
                 PlayerRB.gravityScale = 1.5f;
             }
         }
+        //}
         if (PlayerRB.linearVelocityY >= 0f && !CameraManager.instance.isLerpingYDamping && CameraManager.instance.lerpedFromPlayerFalling)
         {
-
+            
             CameraManager.instance.lerpedFromPlayerFalling = false;
             CameraManager.instance.LerpYDamping(false);
         }
@@ -236,15 +291,15 @@ public class PlayerMovement : MonoBehaviour
 
                 }
             }
-            RaycastHit2D hitDown = Physics2D.Raycast(transform.position, -Vector2.up, 1.5f, LayerMask.GetMask("Ground"));
-            Debug.DrawRay(transform.position, -Vector2.up *1.5f, Color.red);
-            if (hitDown && JumpCount <=1)
+            /*RaycastHit2D hitDown = Physics2D.Raycast(transform.position, -Vector2.up, .5f, LayerMask.GetMask("Ground"));
+            Debug.DrawRay(transform.position, -Vector2.up *.5f, Color.red);
+            if (hitDown)
             {
                 //if hitdown gameObject.tag 
                 if (hitDown.collider.gameObject.name.Contains("Floor"))
                 {
-                    Grounded = true;
-                    PlayerRB.linearVelocityY = 0;
+                    //Grounded = true;
+                    //PlayerRB.linearVelocityY = 0;
                     PlayerRB.gravityScale = 0;
                 }
                 else 
@@ -253,7 +308,7 @@ public class PlayerMovement : MonoBehaviour
                     PlayerRB.gravityScale = 1;
                 }
                 Debug.Log(hitDown.collider.gameObject.name);
-            }
+            }*/
             
             //RaycastHit2D hitup 
             //if (moveActionCrouch.IsPressed() && !MovingRight && !MovingLeft)
@@ -283,7 +338,7 @@ public class PlayerMovement : MonoBehaviour
                // transform.Rotate(new Vector3(0f, 180f, 0f));
                 }
            // }
-            if (Grounded && !gameObject.GetComponent<PlayerAttack>().attacking)
+            if (Grounded && !PlayerAttack.instance.attacking)
             {
                 PlayerAnim.SetBool("Running", true);
                 PlayerAnim.SetBool("Idle", false);
@@ -313,7 +368,7 @@ public class PlayerMovement : MonoBehaviour
                 }
             //}
 
-            if (Grounded && !gameObject.GetComponent<PlayerAttack>().attacking)
+            if (Grounded && !PlayerAttack.instance.attacking)
             {
                 PlayerAnim.SetBool("Running", true);
                 PlayerAnim.SetBool("Idle", false);
@@ -377,15 +432,16 @@ public class PlayerMovement : MonoBehaviour
                 PlayerAnim.SetTrigger("Jumping");
                 //Grounded = false;
                 //Jumping = true;
-                //PlayerRB.gravityScale = 1;
+                PlayerRB.gravityScale = 1;
                 JumpCount++;
             }
             else if (Unlockables[3] == true && JumpCount < 2)
             {
                 PlayerRB.AddForce(transform.up * (JumpForce * 1.5f), ForceMode2D.Impulse);
                 PlayerAnim.Play("jump", -1, 0f);
-                JumpCount++;
+               // JumpCount++;
             }
+
             /*make another else if once you do wall logic
             else if (Unlockables[2] == true))
             {
@@ -408,7 +464,7 @@ public class PlayerMovement : MonoBehaviour
         //create a timer after leaving the ground (5 frames)
         // if (playervelocityY < 0  && (playervelocityX > || <0) && timer < ground leave timer)
         //Jump
-        fallFrames = 0;
+       //fallFrames = 0;
         
     }
     void EndUpwardMomentum()
@@ -421,7 +477,7 @@ public class PlayerMovement : MonoBehaviour
 
     void StartSlide()
     {
-        if (Grounded && !gameObject.GetComponent<PlayerAttack>().attacking)
+        if (Grounded && !PlayerAttack.instance.attacking)
         {
             if (transform.localScale.x == 1)
             {
@@ -475,7 +531,9 @@ public class PlayerMovement : MonoBehaviour
         }
         //Camera.GetComponent<CameraFollow>().movingUp = false;
         //PlayerRB.linearVelocityX = 0;
-        fallFrames = 0;
+       // fallFrames = 0;
+        PlayerRB.linearVelocityY = 0;
+        PlayerRB.gravityScale = 0;
         //CurrentlyJumping = false;
         Grounded = true;
         JumpCount = 0;

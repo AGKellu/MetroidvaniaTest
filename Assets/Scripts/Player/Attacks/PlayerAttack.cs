@@ -64,6 +64,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private GameObject Shot;
     [SerializeField] private bool[] Unlockables;
     [SerializeField] private GameObject MeleeHB;
+    public static PlayerAttack instance;
     /*public bool QueueRightTurn = false;
     public bool QueueLeftTurn = false;
     */
@@ -86,6 +87,13 @@ public class PlayerAttack : MonoBehaviour
     //private int MaskInt = 0;
     //private int HealthInt = 0;
     [SerializeField] PlayerSOScript Values;
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -308,7 +316,7 @@ public class PlayerAttack : MonoBehaviour
                 if (transform.rotation != Quaternion.Euler(0f, 0f, 0f))
                 {
                     Projectile.GetComponent<Rigidbody2D>().linearVelocityX = -5;
-                    Debug.Log(Projectile.GetComponent<Rigidbody2D>().linearVelocityX);
+                    //Debug.Log(Projectile.GetComponent<Rigidbody2D>().linearVelocityX);
                 }
                 if (transform.rotation == Quaternion.Euler(0f, 0f, 0f))
                 {
@@ -647,10 +655,9 @@ public class PlayerAttack : MonoBehaviour
             //Debug.Log("Ran into the enemy");
 
             TakeDamage(1);
+            PlayerMovement.instance.Recoil();
 
-            //gameObject.GetComponent<Rigidbody2D>().Sleep();
-            //gameObject.GetComponent<BoxCollider2D>().enabled = false;
-
+            
         }
         else if (other.gameObject.CompareTag("Spike"))
         {
