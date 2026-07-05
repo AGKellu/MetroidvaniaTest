@@ -200,8 +200,8 @@ public class PlayerAttack : MonoBehaviour
 
 
             
-            gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 0);
-            gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
+            //gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 0);
+            //gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
             //gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
     }
@@ -465,6 +465,7 @@ public class PlayerAttack : MonoBehaviour
         //gameObject.GetComponent<BoxCollider2D>().enabled = true;
         //gameObject.GetComponent<Rigidbody2D>().WakeUp();
         PlayerMovement.instance.ableToMove = true;
+        //Debug.Log(gameObject.GetComponent<PlayerMovement>().ableToMove);
         //Debug.Log("What the fuck");
         ableToAttack = true;
         if (!PlayerMovement.instance.MovingRight && !PlayerMovement.instance.MovingLeft)

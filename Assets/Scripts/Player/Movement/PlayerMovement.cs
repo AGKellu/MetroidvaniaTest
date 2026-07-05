@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private InputAction moveActionCrouch;
     private InputAction Jump;
     private InputAction Slide;
+    private InputAction CamToggle;
 
     [Header("Player Components")]
     private Animator PlayerAnim;
@@ -33,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     public bool sliding = false;
     [SerializeField] private bool gripping;
     //public bool crouching;
-    private int slideFrames = 0;
+    //private int slideFrames = 0;
     [SerializeField]private bool canWalk;
 
     //public bool slideUnlocked = false;
@@ -58,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject cameraFollowGO;
     private float fallSpeedYDampingChangeThreshold;
     public float thingy;
+    public bool CanMoveCam;
     //[SerializeField] private GameObject TransitionPanel;
     /*
     Unlockables are:
@@ -78,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        //CanMoveCam = false;
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
         moveActionRight = InputSystem.actions.FindAction("Move/WalkRight");
@@ -93,7 +95,10 @@ public class PlayerMovement : MonoBehaviour
         Jump.canceled += ctx => EndUpwardMomentum();
         Slide = InputSystem.actions.FindAction("Move/Slide");
         Slide.performed += ctx => StartSlide();
-        
+        Slide.canceled += ctx => EndSlide();
+        CamToggle = InputSystem.actions.FindAction("Camera/Toggle");
+        CamToggle.performed += ctx => ToggleCamera();
+        CamToggle.canceled += ctx => EndToggleCamera();
         PlayerRB = gameObject.GetComponent<Rigidbody2D>();
         PlayerAnim = gameObject.GetComponent<Animator>();
         PlayerSprite = gameObject.GetComponent<SpriteRenderer>();
@@ -109,19 +114,21 @@ public class PlayerMovement : MonoBehaviour
         canWalk = true;
         gripping = false;
         Grounded = true;
+        PlayerAnim.SetBool("Idle", true);
     }
     public void Recoil()
     {
         Grounded = false;
+        PlayerRB.gravityScale = 1;
         if (transform.rotation != Quaternion.Euler(0f, 0f, 0f))
 
-            {
-                PlayerRB.linearVelocity = 0.25f * new Vector2(5, 5);
-            }
-            else if (transform.rotation == Quaternion.Euler(0f, 0f, 0f))
-            {
-                PlayerRB.linearVelocity = 0.25f * new Vector2(-5, -5);
-            }
+        {
+            PlayerRB.linearVelocity = 0.25f * new Vector2(25, 25);
+        }
+        else if (transform.rotation == Quaternion.Euler(0f, 0f, 0f))
+        {
+            PlayerRB.linearVelocity = 0.25f * new Vector2(-25, -25);
+        }
     }
     //void
     // Update is called once per frame
@@ -131,8 +138,54 @@ public class PlayerMovement : MonoBehaviour
         {
             CheckForMovement();
         }
-        
-        if (sliding)
+       /* if (sliding)
+        {
+            if (moveActionRight.WasReleasedThisFrame())
+            {
+                if (!MovingLeft && !sliding)
+                {
+                    PlayerAnim.SetBool("Running", false);
+                    PlayerAnim.SetBool("Idle", true);
+                    //PlayerRB.linearVelocityX = 0;
+                }
+
+                MovingRight = false;
+            }
+            else if (moveActionLeft.WasReleasedThisFrame())
+            {
+                if (!MovingRight && !sliding)
+                {
+                    PlayerAnim.SetBool("Running", false);
+                    PlayerAnim.SetBool("Idle", true);
+
+                    //PlayerRB.linearVelocityX = 0;
+                }
+
+                MovingLeft = false;
+            }
+        }*/
+               RaycastHit2D hitDown = Physics2D.Raycast(transform.position, -Vector2.up, thingy, LayerMask.GetMask("Ground"));
+            Debug.DrawRay(transform.position, -Vector2.up * thingy, Color.red);
+        if (hitDown)
+        {
+            if (hitDown.collider.gameObject.name.Contains("Floor"))
+            {
+
+                Grounded = true;
+
+            }
+            
+        }
+        else
+        {
+            Grounded = false;
+            if (PlayerRB.linearVelocityY < 0 && !PlayerAttack.instance.attacking)
+            {
+                PlayerAnim.SetBool("Falling", true);
+                PlayerRB.gravityScale = 1.5f;
+            }
+        }
+        /*if (sliding)
         {
            // Camera.GetComponent<CameraFollow>().sliding  = true;
             slideFrames++;
@@ -141,7 +194,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 EndSlide();
             }
-        }
+        }*/
         /*if (Grounded)
         {
             PlayerRB.linearVelocityY = 0;
@@ -179,25 +232,55 @@ public class PlayerMovement : MonoBehaviour
     {
         if (moveActionRight.WasReleasedThisFrame())
         {
-            if (!MovingLeft)
+            if (!MovingLeft && !sliding)
             {
                 PlayerAnim.SetBool("Running", false);
                 PlayerAnim.SetBool("Idle", true);
                 PlayerRB.linearVelocityX = 0;
+            }
+            if (sliding)
+            {
+                PlayerAnim.SetBool("Running", false);
             }
 
             MovingRight = false;
         }
         else if (moveActionLeft.WasReleasedThisFrame())
         {
+            if (!MovingRight && !sliding)
+            {
+                PlayerAnim.SetBool("Running", false);
+                PlayerAnim.SetBool("Idle", true);
+
+                PlayerRB.linearVelocityX = 0;
+            }
+
+            MovingLeft = false;
+            if (sliding)
+            {
+                PlayerAnim.SetBool("Running", false);
+            }
+            
+        }
+        /*if (QueueReleaseLeft)
+        {
             if (!MovingRight)
             {
                 PlayerAnim.SetBool("Running", false);
                 PlayerAnim.SetBool("Idle", true);
-                PlayerRB.linearVelocityX = 0;
+                
             }
-            MovingLeft = false;
         }
+        else if (QueueReleaseRight)
+        {
+            if (!MovingLeft)
+            {
+                
+            PlayerAnim.SetBool("Running", false);
+            PlayerAnim.SetBool("Idle", true);
+            }
+
+        }*/
         //else if (moveActionCrouch.WasReleasedThisFrame())
         //{
             //PlayerAnim.SetBool()
@@ -223,13 +306,11 @@ public class PlayerMovement : MonoBehaviour
             Debug.DrawRay(transform.position, -Vector2.up * thingy, Color.red);
         if (hitDown)
         {
-            //if hitdown gameObject.tag 
             if (hitDown.collider.gameObject.name.Contains("Floor"))
             {
 
-                if (PlayerRB.linearVelocityY < 0)
+                if (PlayerRB.linearVelocityY < 0.01)
                 {
-                    //Debug.Log("Grounded");
                     if (JumpCount > 0)
                     {
 
@@ -237,19 +318,11 @@ public class PlayerMovement : MonoBehaviour
                      }
                 }
 
-
-                //Debug.Log("WHat");
-                //Grounded = true;
-                //PlayerAnim.SetBool("Jumping", false);
-                // PlayerRB.linearVelocityY = 0;
-                //PlayerRB.gravityScale = 0;
             }
             
-            //Debug.Log(hitDown.collider.gameObject.name);
         }
         else
         {
-            //Debug.Log("Player should not be grounded");
             Grounded = false;
             if (PlayerRB.linearVelocityY < 0 && !PlayerAttack.instance.attacking)
             {
@@ -270,11 +343,19 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (PlayerAnim.GetBool("Falling"))
                 {
-                    PlayerRB.linearVelocityX = JumpSpeed;
+                    //PlayerRB.linearVelocityX = JumpSpeed;
                 }
                 else
                 {
+                    if (PlayerAnim.GetBool("Crouching"))
+                    {
+
+                    }
+                    else
+                    {
+                        
                     PlayerRB.linearVelocityX = Speed;
+                    }
                 }
             }
 
@@ -282,11 +363,19 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (PlayerAnim.GetBool("Falling"))
                 {
-                    PlayerRB.linearVelocityX = -JumpSpeed;
+                    //PlayerRB.linearVelocityX = -JumpSpeed;
                 }
                 else
                 {
+                    if (PlayerAnim.GetBool("Crouching"))
+                    {
+
+                    }
+                    else
+                    {
+                        
                     PlayerRB.linearVelocityX = -Speed;
+                    }
                    // Debug.Log("Moving left");
 
                 }
@@ -377,26 +466,33 @@ public class PlayerMovement : MonoBehaviour
     }
     void StartCrouching()
     {
-        if (ableToMove && Grounded)
+        if (ableToMove)
         {
             if (Grounded)
             {
+                //ableToMove = false;
                 //transform.GetChild(1).gameObject.SetActive(true);
             CrouchHB.SetActive(true);
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            //PlayerRB.enabled = false;
-            //gameObject.GetComponent<Rigidbody2D>().enabled = false;
-                PlayerAnim.SetBool("Crouching", true);
-                PlayerAnim.SetBool("Idle", false);
+                //PlayerRB.enabled = false;
+                //gameObject.GetComponent<Rigidbody2D>().enabled = false;
+                //PlayerAnim.SetBool("Crouching", true);
+                //PlayerAnim.SetBool("Idle", false);
                 if (MovingLeft || MovingRight)
                 {
                     PlayerAnim.SetBool("Running", false);
                     PlayerAnim.SetBool("Crouching", true);
                 }
+                else
+                {
+                    PlayerAnim.SetBool("Idle", false);
+                    PlayerAnim.SetBool("Crouching", true);
+                }
             
             MovingLeft = false;
             MovingRight = false;
-            canWalk = false;
+                canWalk = false;
+                PlayerRB.linearVelocityX = 0;
             }
             else if (gripping)
             {
@@ -441,7 +537,8 @@ public class PlayerMovement : MonoBehaviour
                 PlayerAnim.Play("jump", -1, 0f);
                // JumpCount++;
             }
-
+            canWalk = false;
+            //CrouchHB.GetComponent<BoxCollider2D>().offset = new Vector2(0, 0);
             /*make another else if once you do wall logic
             else if (Unlockables[2] == true))
             {
@@ -487,12 +584,16 @@ public class PlayerMovement : MonoBehaviour
             {
                 PlayerRB.AddForce(transform.right * new Vector2(-1, 0), ForceMode2D.Impulse);
             }
+            CrouchHB.SetActive(true);
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
             sliding = true;
             PlayerAnim.SetBool("Sliding", true);
+            PlayerAnim.SetBool("Idle", false);
             ableToMove = false;
             canWalk = false;
             RaycastHit2D hitDown = Physics2D.Raycast(transform.position, -Vector2.up);
             RaycastHit2D hitUp = Physics2D.Raycast(transform.position, Vector2.up);
+            //ableToMove = false;
        }
     }
 
@@ -501,9 +602,10 @@ public class PlayerMovement : MonoBehaviour
         ableToMove = true;
         sliding = false;
         PlayerAnim.SetBool("Sliding", false);
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        CrouchHB.SetActive(false);
         if (!MovingLeft && !MovingRight)
         {
-            Debug.Log("Stop");
             PlayerAnim.SetBool("Idle", true);
             PlayerRB.linearVelocityX = 0;
         }
@@ -512,13 +614,14 @@ public class PlayerMovement : MonoBehaviour
             PlayerAnim.SetBool("Running", true);
             //PlayerRB.linearVelocityX = Speed;
         }
-        slideFrames = 0;
+       // slideFrames = 0;
         canWalk = true;
     }
 
     public void EndJump()
     {
         PlayerAnim.SetBool("Falling", false);
+        //PlayerAnim.SetBool("Jumping", false);
         //PlayerAnim.SetTrigger("Jumping");
 
         if (!MovingLeft && !MovingRight)
@@ -537,6 +640,8 @@ public class PlayerMovement : MonoBehaviour
         //CurrentlyJumping = false;
         Grounded = true;
         JumpCount = 0;
+        canWalk = true;
+        CrouchHB.GetComponent<BoxCollider2D>().offset = new Vector2(0, 0);
 
         //falling = false;
     }
@@ -560,7 +665,16 @@ public class PlayerMovement : MonoBehaviour
             CrouchHB.SetActive(false);
             //transform.GetChild(1).gameObject.SetActive(false);
             canWalk = true;
+            //ableToMove = true;
         }
+    }
+    void ToggleCamera()
+    {
+        CanMoveCam = true;
+    }
+    void EndToggleCamera()
+    {
+        CanMoveCam = false;
     }
     public void Transition()
     {

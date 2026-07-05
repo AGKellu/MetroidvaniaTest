@@ -7863,7 +7863,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1196331937
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11097,6 +11097,7 @@ MonoBehaviour:
   CrouchHB: {fileID: 835098304}
   cameraFollowGO: {fileID: 950800487}
   thingy: 0.25
+  CanMoveCam: 0
 --- !u!114 &1833513802
 MonoBehaviour:
   m_ObjectHideFlags: 0

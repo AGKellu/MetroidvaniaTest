@@ -36,12 +36,13 @@ public class EnemyAttack : MonoBehaviour
 
             FreezeBlock.SetActive(false);
         Anim.SetTrigger("Dead");
-        //CameraManager.instance.Shake(new Vector3(-.2f, -.2f, 0));
-        StartCoroutine(CameraManager.instance.Shatter(60));
+            //CameraManager.instance.Shake(new Vector3(-.2f, -.2f, 0));
+            StartCoroutine(CameraManager.instance.Shatter(60));
+            
         Destroy(gameObject, 1);
         GameObject Drop = Instantiate(DNADrop, transform.position, Quaternion.identity);
 //
-        
+        gameObject.SetActive(false);
         }
         
     }
