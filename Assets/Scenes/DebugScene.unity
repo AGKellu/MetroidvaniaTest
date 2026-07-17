@@ -8852,6 +8852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 324260dce5a278746b7d88239cf75d82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LedgeScript
+  climbPosition: {x: 0, y: 0}
 --- !u!1 &1373687553
 GameObject:
   m_ObjectHideFlags: 0
@@ -11095,6 +11096,7 @@ MonoBehaviour:
   Unlockables: 00000000
   Values: {fileID: 11400000, guid: d0a6d281caa2dc745aa220a6d0eccbb7, type: 2}
   CrouchHB: {fileID: 835098304}
+  climbPosition: {x: 0, y: 0}
   cameraFollowGO: {fileID: 950800487}
   thingy: 0.25
   CanMoveCam: 0
@@ -11860,6 +11862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 324260dce5a278746b7d88239cf75d82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LedgeScript
+  climbPosition: {x: 0, y: 0}
 --- !u!1 &1953483297
 GameObject:
   m_ObjectHideFlags: 0
@@ -13872,6 +13875,10 @@ PrefabInstance:
     - target: {fileID: 3452355051000060298, guid: 4c764fbc3cadc33468e2b9040248cc47, type: 3}
       propertyPath: m_Name
       value: RightDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 3452355051000060298, guid: 4c764fbc3cadc33468e2b9040248cc47, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6117374305060980913, guid: 4c764fbc3cadc33468e2b9040248cc47, type: 3}
       propertyPath: RoomToLoad

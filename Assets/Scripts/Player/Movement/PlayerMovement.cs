@@ -52,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private PlayerSOScript Values;
     [SerializeField] private GameObject CrouchHB;
+    public Vector2 climbPosition;
     //public GameObject Camera;
 
     [Header("Camera Stuff")]
@@ -174,7 +175,7 @@ public class PlayerMovement : MonoBehaviour
                 Grounded = true;
 
             }
-            
+
         }
         else
         {
@@ -184,6 +185,12 @@ public class PlayerMovement : MonoBehaviour
                 PlayerAnim.SetBool("Falling", true);
                 PlayerRB.gravityScale = 1.5f;
             }
+        }
+        if (gripping)
+        {
+            Grounded = false;
+            PlayerRB.gravityScale = 0;
+            PlayerRB.linearVelocityY = 0;
         }
         /*if (sliding)
         {
@@ -535,7 +542,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 PlayerRB.AddForce(transform.up * (JumpForce * 1.5f), ForceMode2D.Impulse);
                 PlayerAnim.Play("jump", -1, 0f);
-               // JumpCount++;
+                // JumpCount++;
             }
             canWalk = false;
             //CrouchHB.GetComponent<BoxCollider2D>().offset = new Vector2(0, 0);
@@ -551,6 +558,11 @@ public class PlayerMovement : MonoBehaviour
             */
             //}
             //Camera.GetComponent<CameraFollow>().movingUp = true;
+        }
+        if (gripping)
+        {
+            gripping = false;
+            transform.position = Vector2.Lerp(transform.position, climbPosition, 1f);
         }
         
         //CREATE COYOTE TIME and jump buffering
@@ -687,7 +699,9 @@ public class PlayerMovement : MonoBehaviour
     }
     public void GrabLedge()
     {
-        gripping= true;
+        gripping = true;
+        //Debug.Log("Grab ledge");
     }
+    
     
 }
