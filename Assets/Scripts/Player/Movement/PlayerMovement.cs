@@ -61,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
     private float fallSpeedYDampingChangeThreshold;
     public float thingy;
     public bool CanMoveCam;
+    [SerializeField] Vector3 BackFootOffset;
     //[SerializeField] private GameObject TransitionPanel;
     /*
     Unlockables are:
@@ -124,11 +125,11 @@ public class PlayerMovement : MonoBehaviour
         if (transform.rotation != Quaternion.Euler(0f, 0f, 0f))
 
         {
-            PlayerRB.linearVelocity = 0.25f * new Vector2(25, 25);
+            PlayerRB.linearVelocity = 0.05f * new Vector2(25, 25);
         }
         else if (transform.rotation == Quaternion.Euler(0f, 0f, 0f))
         {
-            PlayerRB.linearVelocity = 0.25f * new Vector2(-25, -25);
+            PlayerRB.linearVelocity = 0.05f * new Vector2(-25, -25);
         }
     }
     //void
@@ -165,8 +166,8 @@ public class PlayerMovement : MonoBehaviour
                 MovingLeft = false;
             }
         }*/
-               RaycastHit2D hitDown = Physics2D.Raycast(transform.position, -Vector2.up, thingy, LayerMask.GetMask("Ground"));
-            Debug.DrawRay(transform.position, -Vector2.up * thingy, Color.red);
+               RaycastHit2D hitDown = Physics2D.Raycast(transform.position + BackFootOffset, -Vector2.up, thingy, LayerMask.GetMask("Ground"));
+            Debug.DrawRay(transform.position + BackFootOffset, -Vector2.up * thingy, Color.red);
         if (hitDown)
         {
             if (hitDown.collider.gameObject.name.Contains("Floor"))
@@ -180,11 +181,12 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             Grounded = false;
-            if (PlayerRB.linearVelocityY < 0 && !PlayerAttack.instance.attacking)
-            {
+            PlayerRB.gravityScale = 1f;
+            //if (PlayerRB.linearVelocityY < 0 && !PlayerAttack.instance.attacking)
+            //{
                 PlayerAnim.SetBool("Falling", true);
-                PlayerRB.gravityScale = 1.5f;
-            }
+               // PlayerRB.gravityScale = 1.5f;
+            //}
         }
         if (gripping)
         {
@@ -430,7 +432,8 @@ public class PlayerMovement : MonoBehaviour
                 cameraFollowObject.CallTurn();
                 if (transform.rotation != Quaternion.Euler(0f, 0f, 0f))
                 {
-                    transform.rotation = Quaternion.Euler(0f, 0f, 0f);   
+                transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+                BackFootOffset = BackFootOffset * -1;   
                // transform.Rotate(new Vector3(0f, 180f, 0f));
                 }
            // }
@@ -459,7 +462,8 @@ public class PlayerMovement : MonoBehaviour
                 cameraFollowObject.CallTurn();
                 if (transform.rotation == Quaternion.Euler(0f, 0f, 0f))
                 {
-                    transform.rotation = Quaternion.Euler(0f, 180f, 0f);  
+                transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+                BackFootOffset = BackFootOffset * -1;
                 //transform.Rotate(new Vector3(0f, 180f, 0f));
                 }
             //}
@@ -563,6 +567,7 @@ public class PlayerMovement : MonoBehaviour
         {
             gripping = false;
             transform.position = Vector2.Lerp(transform.position, climbPosition, 1f);
+            EndJump();
         }
         
         //CREATE COYOTE TIME and jump buffering
