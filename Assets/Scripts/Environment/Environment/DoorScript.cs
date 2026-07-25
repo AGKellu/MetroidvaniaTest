@@ -37,5 +37,6 @@ public class DoorScript : MonoBehaviour
         gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
         //hit = false;
         gameObject.GetComponent<Animator>().SetTrigger("Close");
+        //PlayerMovement.instance.Grounded = true;
     }
 }

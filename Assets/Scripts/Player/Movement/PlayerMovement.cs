@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     public float JumpSpeed;
     public bool MovingLeft;
     public bool MovingRight;
+    public bool slamming;
+    public float slideSpeed;
 
     // public bool CurrentlyJumping = false;
     public bool Grounded = true;
@@ -76,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            //Grounded = true;
         }
     }
 
@@ -181,7 +184,15 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             Grounded = false;
-            PlayerRB.gravityScale = 1f;
+            if (!slamming)
+            {
+                PlayerRB.gravityScale = 1f;
+            }
+         
+        
+                
+            //PlayerRB.gravityScale = 3f;
+            
             //if (PlayerRB.linearVelocityY < 0 && !PlayerAttack.instance.attacking)
             //{
                 PlayerAnim.SetBool("Falling", true);
@@ -336,7 +347,7 @@ public class PlayerMovement : MonoBehaviour
             if (PlayerRB.linearVelocityY < 0 && !PlayerAttack.instance.attacking)
             {
                 PlayerAnim.SetBool("Falling", true);
-                PlayerRB.gravityScale = 1.5f;
+                //PlayerRB.gravityScale = 1.5f;
             }
         }
         //}
@@ -350,9 +361,21 @@ public class PlayerMovement : MonoBehaviour
         {
             if (moveActionRight.IsPressed() && MovingRight)
             {
-                if (PlayerAnim.GetBool("Falling"))
+                if (PlayerAnim.GetBool("Crouching"))
                 {
-                    //PlayerRB.linearVelocityX = JumpSpeed;
+
+                }
+                else if (!slamming)
+                {
+                    
+                    PlayerRB.linearVelocityX = Speed;
+                    //Debug.Log("Move normal speed");
+                }
+                
+
+                /*if (PlayerAnim.GetBool("Falling"))
+                {
+                    PlayerRB.linearVelocityX = JumpSpeed;
                 }
                 else
                 {
@@ -365,17 +388,31 @@ public class PlayerMovement : MonoBehaviour
                         
                     PlayerRB.linearVelocityX = Speed;
                     }
-                }
+                }*/
             }
 
             if (moveActionLeft.IsPressed() && MovingLeft)
             {
-                if (PlayerAnim.GetBool("Falling"))
+                if (PlayerAnim.GetBool("Crouching"))
                 {
-                    //PlayerRB.linearVelocityX = -JumpSpeed;
+
                 }
-                else
+                else if (!slamming)
                 {
+                    PlayerRB.linearVelocityX = -Speed;
+                    //Debug.Log("Move normal speed");
+                }
+                //else 
+               // {
+                 //   PlayerRB.linearVelocityX = -JumpSpeed;
+                  //  Debug.Log("Move jumpSpeed");
+                //}
+                /*if (PlayerAnim.GetBool("Falling"))
+                //{
+                    PlayerRB.linearVelocityX = -JumpSpeed;
+                //}
+                //else
+                //{
                     if (PlayerAnim.GetBool("Crouching"))
                     {
 
@@ -387,7 +424,7 @@ public class PlayerMovement : MonoBehaviour
                     }
                    // Debug.Log("Moving left");
 
-                }
+                }*/
             }
             /*RaycastHit2D hitDown = Physics2D.Raycast(transform.position, -Vector2.up, .5f, LayerMask.GetMask("Ground"));
             Debug.DrawRay(transform.position, -Vector2.up *.5f, Color.red);
@@ -512,6 +549,12 @@ public class PlayerMovement : MonoBehaviour
                 gripping = false;
                 PlayerRB.gravityScale = 1;
             }
+            else if (!Grounded)
+            {
+                slamming = true;
+                PlayerRB.gravityScale = 3f;
+                PlayerRB.linearVelocityX = 0;
+            }
             //transform.GetChild(1).gameObject.SetActive(true);
             //CrouchHB.SetActive(true);
             //gameObject.GetComponent<BoxCollider2D>().enabled = false;
@@ -537,6 +580,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 PlayerRB.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
                 PlayerAnim.SetTrigger("Jumping");
+                PlayerAnim.SetBool("Idle", false);
                 //Grounded = false;
                 //Jumping = true;
                 PlayerRB.gravityScale = 1;
@@ -595,11 +639,11 @@ public class PlayerMovement : MonoBehaviour
         {
             if (transform.localScale.x == 1)
             {
-                PlayerRB.AddForce(transform.right * new Vector2(1, 0), ForceMode2D.Impulse);
+                PlayerRB.AddForce(transform.right * new Vector2(slideSpeed, 0), ForceMode2D.Impulse);
             }
             else if (transform.localScale.x == -1)
             {
-                PlayerRB.AddForce(transform.right * new Vector2(-1, 0), ForceMode2D.Impulse);
+                PlayerRB.AddForce(transform.right * new Vector2(-slideSpeed, 0), ForceMode2D.Impulse);
             }
             CrouchHB.SetActive(true);
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
@@ -608,6 +652,7 @@ public class PlayerMovement : MonoBehaviour
             PlayerAnim.SetBool("Idle", false);
             ableToMove = false;
             canWalk = false;
+            PlayerAttack.instance.ableToAttack = false;
             RaycastHit2D hitDown = Physics2D.Raycast(transform.position, -Vector2.up);
             RaycastHit2D hitUp = Physics2D.Raycast(transform.position, Vector2.up);
             //ableToMove = false;
@@ -632,6 +677,7 @@ public class PlayerMovement : MonoBehaviour
             //PlayerRB.linearVelocityX = Speed;
         }
        // slideFrames = 0;
+       PlayerAttack.instance.ableToAttack = true;
         canWalk = true;
     }
 
@@ -653,11 +699,13 @@ public class PlayerMovement : MonoBehaviour
         //PlayerRB.linearVelocityX = 0;
        // fallFrames = 0;
         PlayerRB.linearVelocityY = 0;
-        PlayerRB.gravityScale = 0;
+        PlayerRB.gravityScale = 1;
         //CurrentlyJumping = false;
         Grounded = true;
         JumpCount = 0;
         canWalk = true;
+        //
+        slamming = false;
         CrouchHB.GetComponent<BoxCollider2D>().offset = new Vector2(0, 0);
 
         //falling = false;

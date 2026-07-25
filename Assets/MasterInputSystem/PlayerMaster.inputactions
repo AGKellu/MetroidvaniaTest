@@ -77,6 +77,17 @@
                 },
                 {
                     "name": "",
+                    "id": "1024ad0c-6c13-4cc7-a0e1-73986893a099",
+                    "path": "<HID::8BitDo 8BitDo Pro 2>/hat/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WalkLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "2e7bb52d-3a91-4de0-b876-d64a172b05e9",
                     "path": "<Keyboard>/d",
                     "interactions": "",
@@ -90,6 +101,17 @@
                     "name": "",
                     "id": "4dcd49c8-a8d9-4b01-8f27-74c5d9283e21",
                     "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WalkRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "33e94bfd-e654-40d7-982d-2bd579990c9f",
+                    "path": "<HID::8BitDo 8BitDo Pro 2>/hat/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -121,6 +143,17 @@
                 },
                 {
                     "name": "",
+                    "id": "9903e699-40e7-4b22-934d-dd3ebe98b5ff",
+                    "path": "<HID::8BitDo 8BitDo Pro 2>/button2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "91bd3d9b-d659-4a8d-92f0-91e5747d1a8e",
                     "path": "<Keyboard>/leftCtrl",
                     "interactions": "",
@@ -143,6 +176,17 @@
                 },
                 {
                     "name": "",
+                    "id": "4951359d-f99b-4d2e-a277-024bdead006f",
+                    "path": "<HID::8BitDo 8BitDo Pro 2>/button7",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Slide",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "ba725b5d-0528-4898-a92e-94406ab1dff4",
                     "path": "<Keyboard>/c",
                     "interactions": "",
@@ -156,6 +200,17 @@
                     "name": "",
                     "id": "729b78a9-8d23-46b9-992d-3ff263844004",
                     "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "708c6788-3e39-46d1-a865-827d936f7ba3",
+                    "path": "<HID::8BitDo 8BitDo Pro 2>/trigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -231,6 +286,17 @@
                 },
                 {
                     "name": "",
+                    "id": "c0b39388-fccd-450d-8204-ea13c2a9e92b",
+                    "path": "<HID::8BitDo 8BitDo Pro 2>/button5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NormalAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "7c574a12-a38c-46b9-9a9f-7d78b6eb0135",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
@@ -253,6 +319,17 @@
                 },
                 {
                     "name": "",
+                    "id": "f7469928-0883-49ad-83db-1b867d911fba",
+                    "path": "<HID::8BitDo 8BitDo Pro 2>/button4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Melee",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "07358e8d-8182-4a23-965f-ce961574c636",
                     "path": "<Keyboard>/f",
                     "interactions": "",
@@ -266,6 +343,17 @@
                     "name": "",
                     "id": "cfcd5937-e082-4ac9-9ad8-86df87c1d521",
                     "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "408283db-85dc-461b-85cd-7c45f198175a",
+                    "path": "<HID::8BitDo 8BitDo Pro 2>/button9",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -316,6 +404,17 @@
                     "action": "AbilitySwap",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "14f52214-5c64-4b38-a194-0e1390bd0044",
+                    "path": "<HID::8BitDo 8BitDo Pro 2>/button8",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AbilitySwap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

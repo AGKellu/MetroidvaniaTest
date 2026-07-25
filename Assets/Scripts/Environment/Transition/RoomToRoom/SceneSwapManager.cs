@@ -32,6 +32,8 @@ public class SceneSwapManager : MonoBehaviour
         //yield return null;
         _doorToSpawnTo = doorToSpawnAt;
         SceneManager.LoadScene(myScene);
+       // PlayerMovement.instance.Grounded = true;
+        //PlayerMovement.instance.canWalk = true;
         SceneFadeManager.instance.StartFadeIn();
         while (SceneFadeManager.instance.isFadingIn)
         {

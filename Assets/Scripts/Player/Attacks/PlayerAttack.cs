@@ -40,7 +40,7 @@ public class PlayerAttack : MonoBehaviour
     //public float ManaMax;
     private float InvulFrames = 0;
     private bool invuln = false;
-    private bool ableToAttack = true;
+    public bool ableToAttack = true;
     [SerializeField] private float ManaDrainSpeed;
     [SerializeField] private float TimeToNextHealthTick;
 
@@ -290,8 +290,17 @@ public class PlayerAttack : MonoBehaviour
             }
             currentAttack = Normal;
             attacking = true;
-            AnimatorClipInfo[] clipInfo = PlayerAnim.GetCurrentAnimatorClipInfo(0);
-            string currentClipName = clipInfo[0].clip.name;
+            if (!PlayerMovement.instance.MovingLeft && !PlayerMovement.instance.MovingRight)
+        {
+            PlayerAnim.SetBool("Idle", false);
+        }
+        else
+        {
+            PlayerAnim.SetBool("Running", false);
+        }
+            //PlayerAnim.SetBool("Idle", false);
+            //AnimatorClipInfo[] clipInfo = PlayerAnim.GetCurrentAnimatorClipInfo(0);
+            //string currentClipName = clipInfo[0].clip.name;
             if (PlayerAnim.GetBool("Crouching"))
             {
                 attacking = true;
@@ -325,7 +334,7 @@ public class PlayerAttack : MonoBehaviour
                 Projectile.GetComponent<ProjectileScript>().BelongsTo = gameObject;
                 PlayerAnim.Play("Shoot");
                 //ManaContainer.fillAmount -= 30;
-                PlayerAnim.SetBool(currentClipName, false);
+                //PlayerAnim.SetBool(currentClipName, false);
             }
             }
         }

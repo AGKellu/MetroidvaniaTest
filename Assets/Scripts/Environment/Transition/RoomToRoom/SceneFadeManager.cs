@@ -70,5 +70,6 @@ public class SceneFadeManager : MonoBehaviour
         _fadeOutImage.color = _fadeOutStartColor;
         isFadingIn = true;
         }
+        //PlayerMovement.instance.Grounded = true;
     }
 }   
