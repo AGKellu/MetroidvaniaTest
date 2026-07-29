@@ -123,16 +123,18 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Recoil()
     {
-        Grounded = false;
+        //Grounded = false;
         PlayerRB.gravityScale = 1;
         if (transform.rotation != Quaternion.Euler(0f, 0f, 0f))
 
         {
             PlayerRB.linearVelocity = 0.05f * new Vector2(25, 25);
+            //PlayerRB.linearVelocity = 0.15f * new Vector2(25, 25);
         }
         else if (transform.rotation == Quaternion.Euler(0f, 0f, 0f))
         {
             PlayerRB.linearVelocity = 0.05f * new Vector2(-25, -25);
+           // PlayerRB.linearVelocity = 0.15f * new Vector2(-25, -25);
         }
     }
     //void
@@ -331,11 +333,11 @@ public class PlayerMovement : MonoBehaviour
 
                 if (PlayerRB.linearVelocityY < 0.01)
                 {
-                    if (JumpCount > 0)
-                    {
+                    //if (JumpCount > 0)
+                    //{
 
                       EndJump();
-                     }
+                     //}
                 }
 
             }
@@ -552,7 +554,7 @@ public class PlayerMovement : MonoBehaviour
             else if (!Grounded)
             {
                 slamming = true;
-                PlayerRB.gravityScale = 3f;
+                PlayerRB.gravityScale = 4f;
                 PlayerRB.linearVelocityX = 0;
             }
             //transform.GetChild(1).gameObject.SetActive(true);

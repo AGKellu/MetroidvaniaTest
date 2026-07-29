@@ -10,6 +10,7 @@ public class PlayerAttack : MonoBehaviour
     private InputAction Shoot;
     //private InputAction FirstSpell;
     private InputAction Melee;
+    private InputAction Aim;
 
 
     [Header("PlayerComponents")]
@@ -39,7 +40,7 @@ public class PlayerAttack : MonoBehaviour
     //public float ManaEndFloat;
     //public float ManaMax;
     private float InvulFrames = 0;
-    private bool invuln = false;
+    [SerializeField] private bool invuln = false;
     public bool ableToAttack = true;
     [SerializeField] private float ManaDrainSpeed;
     [SerializeField] private float TimeToNextHealthTick;
@@ -51,6 +52,8 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField] private Material trueMaterial;
     [SerializeField] private Material flashMaterial;
+    [SerializeField] private float duration;
+    private SpriteRenderer PlayerRenderer;
     public Image ShotBarImage;
     //public GameObject Camera;
     //set camera
@@ -65,6 +68,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private bool[] Unlockables;
     [SerializeField] private GameObject MeleeHB;
     public static PlayerAttack instance;
+    //[SerializeField] Material FlashMaterial;
+    //[SerializeField] Material NormalMaterial;
     /*public bool QueueRightTurn = false;
     public bool QueueLeftTurn = false;
     */
@@ -98,12 +103,15 @@ public class PlayerAttack : MonoBehaviour
     void Start()
     {
         PlayerAnim = gameObject.GetComponent<Animator>();
-
+        PlayerRenderer = gameObject.GetComponent<SpriteRenderer>();
         Shoot = InputSystem.actions.FindAction("Attacks/NormalAttack");
         Shoot.performed += ctx => Attack();
 
         Melee = InputSystem.actions.FindAction("Attacks/Melee");
         Melee.performed += ctx => MeleeAttack();
+        Aim = InputSystem.actions.FindAction("Attacks/Aim");
+        Aim.performed += ctx => StartAim();
+        Aim.canceled += ctx => EndAiming();
        // Melee.performed += ctx => StartFireSpell1();
        // Melee.canceled += ctx => SpellCheck();
         //Heal = InputSystem.actions.FindAction("Heal");
@@ -196,7 +204,7 @@ public class PlayerAttack : MonoBehaviour
             }
             
             invuln = true;                
-
+            StartCoroutine(Flash());
 
 
             
@@ -204,6 +212,18 @@ public class PlayerAttack : MonoBehaviour
             //gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
             //gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
+    }
+    void StartAim()
+    {
+        if (PlayerMovement.instance.Grounded)
+        {
+            
+        PlayerMovement.instance.ableToMove = false;
+        }
+    }
+    void EndAiming()
+    {
+        PlayerMovement.instance.ableToMove = true;
     }
     // Update is called once per frame
     void Update()
@@ -232,6 +252,11 @@ public class PlayerAttack : MonoBehaviour
         else if (invuln)
         {
             InvulFrames++;
+            if (InvulFrames >= 15)
+            {
+                ableToAttack = true;
+                PlayerMovement.instance.ableToMove = true;
+            }
             if (InvulFrames >= 60)
             {
                 EndInvuln();
@@ -467,19 +492,40 @@ public class PlayerAttack : MonoBehaviour
             QueueRightTurn = false;
         }*/
     }
+    IEnumerator Flash()
+    {
+        if (invuln)
+        {
+            //yield return new WaitForSeconds(duration);
+            PlayerRenderer.material = flashMaterial;
+          //  for (int i = 0; i< 5; i++)
+            //{
+                
+            //yield return null;
+           // }
+           yield return new WaitForSeconds(duration);
+           Debug.Log("Hello");
+            PlayerRenderer.material = trueMaterial;
+            yield return new WaitForSeconds(duration);
+            StartCoroutine(Flash());
+        }
+    }
     void EndInvuln()
     {
         InvulFrames = 0;
+        StopCoroutine(Flash());
         invuln = false;
         //gameObject.GetComponent<BoxCollider2D>().enabled = true;
         //gameObject.GetComponent<Rigidbody2D>().WakeUp();
         PlayerMovement.instance.ableToMove = true;
+        //PlayerRenderer.material = trueMaterial;
         //Debug.Log(gameObject.GetComponent<PlayerMovement>().ableToMove);
         //Debug.Log("What the fuck");
         ableToAttack = true;
         if (!PlayerMovement.instance.MovingRight && !PlayerMovement.instance.MovingLeft)
         {
             PlayerAnim.SetBool("Idle", true);
+            //Debug.Log("Huh");
         }
         else if (gameObject.GetComponent<Rigidbody2D>().linearVelocityY < -0.01)
         {
@@ -662,10 +708,14 @@ public class PlayerAttack : MonoBehaviour
         //Debug.Log("Please");
         if (other.gameObject.CompareTag("Enemy"))
         {
+            if (!other.gameObject.GetComponent<EnemyAttack>().Frozen)
+            {
+                
             //Debug.Log("Ran into the enemy");
 
             TakeDamage(1);
             PlayerMovement.instance.Recoil();
+            }
 
             
         }

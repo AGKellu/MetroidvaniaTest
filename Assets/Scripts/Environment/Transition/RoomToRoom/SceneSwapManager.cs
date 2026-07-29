@@ -34,6 +34,14 @@ public class SceneSwapManager : MonoBehaviour
         SceneManager.LoadScene(myScene);
        // PlayerMovement.instance.Grounded = true;
         //PlayerMovement.instance.canWalk = true;
+        //PlayerMovement.instance.gameObject.transform.position = ;
+        //TransitionScript[] Scripts = GameObject.FindGameObjects
+        /*GameObject[] Doors = GameObject.FindGameObjectsWithTag("Door");
+        foreach (GameObject Door in Doors)
+        {
+            Debug.Log(Door.name);
+        }*/
+        //no need to find the doors nowposition, since its weird and i hate it (the bug was created due to there being a ledge, that stopped gravity scale)
         SceneFadeManager.instance.StartFadeIn();
         while (SceneFadeManager.instance.isFadingIn)
         {
