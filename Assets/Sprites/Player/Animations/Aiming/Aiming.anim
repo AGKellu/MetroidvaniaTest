@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shoot
+  m_Name: Aiming
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -24,15 +24,6 @@ AnimationClip:
       - serializedVersion: 3
         time: 0
         value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.13333334
-        value: 1
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -60,20 +51,11 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0
         outWeight: 0
-      - serializedVersion: 3
-        time: 0.13333334
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: PlayerLower
+    path: PlayerHead
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -90,20 +72,11 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0
         outWeight: 0
-      - serializedVersion: 3
-        time: 0.13333334
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: PlayerHead
+    path: PlayerLower
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -112,14 +85,6 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 3543951579290997797, guid: 0351b2536aa675f47a5aec55247404ea, type: 3}
-    - time: 0.033333335
-      value: {fileID: 6965141416131787096, guid: 201840f3b49a91f4d95e764ec56d7030, type: 3}
-    - time: 0.06666667
-      value: {fileID: 5157981464117204104, guid: 06e51193c29755b49b22e267caa77fcb, type: 3}
-    - time: 0.1
-      value: {fileID: -7046603050322154802, guid: c3c9c9c4fb2abb04a97b3bb650bc8bdf, type: 3}
-    - time: 0.13333334
-      value: {fileID: 2042865486241899557, guid: 7e8bf63f20466c440beb9c04f510aeab, type: 3}
     attribute: m_Sprite
     path: PlayerHead
     classID: 212
@@ -129,14 +94,6 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 1402536650, guid: 0351b2536aa675f47a5aec55247404ea, type: 3}
-    - time: 0.033333335
-      value: {fileID: -72161442, guid: 201840f3b49a91f4d95e764ec56d7030, type: 3}
-    - time: 0.06666667
-      value: {fileID: 3042258918266139832, guid: 06e51193c29755b49b22e267caa77fcb, type: 3}
-    - time: 0.1
-      value: {fileID: 1921993340, guid: c3c9c9c4fb2abb04a97b3bb650bc8bdf, type: 3}
-    - time: 0.13333334
-      value: {fileID: -1066501318, guid: 7e8bf63f20466c440beb9c04f510aeab, type: 3}
     attribute: m_Sprite
     path: PlayerLower
     classID: 212
@@ -159,7 +116,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3069770712
+      path: 2027291307
       attribute: 3305885265
       script: {fileID: 0}
       typeID: 212
@@ -168,7 +125,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2027291307
+      path: 3069770712
       attribute: 3305885265
       script: {fileID: 0}
       typeID: 212
@@ -196,26 +153,18 @@ AnimationClip:
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
     - {fileID: 3543951579290997797, guid: 0351b2536aa675f47a5aec55247404ea, type: 3}
-    - {fileID: 6965141416131787096, guid: 201840f3b49a91f4d95e764ec56d7030, type: 3}
-    - {fileID: 5157981464117204104, guid: 06e51193c29755b49b22e267caa77fcb, type: 3}
-    - {fileID: -7046603050322154802, guid: c3c9c9c4fb2abb04a97b3bb650bc8bdf, type: 3}
-    - {fileID: 2042865486241899557, guid: 7e8bf63f20466c440beb9c04f510aeab, type: 3}
     - {fileID: 1402536650, guid: 0351b2536aa675f47a5aec55247404ea, type: 3}
-    - {fileID: -72161442, guid: 201840f3b49a91f4d95e764ec56d7030, type: 3}
-    - {fileID: 3042258918266139832, guid: 06e51193c29755b49b22e267caa77fcb, type: 3}
-    - {fileID: 1921993340, guid: c3c9c9c4fb2abb04a97b3bb650bc8bdf, type: 3}
-    - {fileID: -1066501318, guid: 7e8bf63f20466c440beb9c04f510aeab, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.15
+    m_StopTime: 0.016666668
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 0
+    m_LoopTime: 1
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -233,15 +182,6 @@ AnimationClip:
       - serializedVersion: 3
         time: 0
         value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.13333334
-        value: 1
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -269,20 +209,11 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0
         outWeight: 0
-      - serializedVersion: 3
-        time: 0.13333334
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: PlayerLower
+    path: PlayerHead
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -299,20 +230,11 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0
         outWeight: 0
-      - serializedVersion: 3
-        time: 0.13333334
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: PlayerHead
+    path: PlayerLower
     classID: 212
     script: {fileID: 0}
     flags: 0

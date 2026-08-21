@@ -40,6 +40,7 @@ public class PlayerAttack : MonoBehaviour
     //public float ManaEndFloat;
     //public float ManaMax;
     private float InvulFrames = 0;
+    //[SerializeField]private bool Aiming;
     [SerializeField] private bool invuln = false;
     public bool ableToAttack = true;
     [SerializeField] private float ManaDrainSpeed;
@@ -64,10 +65,16 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private GameObject FourthMask;
     [SerializeField] private GameObject FifthMask;
     [SerializeField] private GameObject Fireball;
-    [SerializeField] private GameObject Shot;
+   // [SerializeField] private GameObject Shot;
     [SerializeField] private bool[] Unlockables;
     [SerializeField] private GameObject MeleeHB;
     public static PlayerAttack instance;
+    [SerializeField] private AimScript AimingScript;
+    //[SerializeField] private GameObject AimRay;
+    //[SerializeField] private GameObject UpperBody;
+    //[SerializeField] private GameObject LowerBody;
+    //private float amgle;
+    //private Vector3 mousePos;
     //[SerializeField] Material FlashMaterial;
     //[SerializeField] Material NormalMaterial;
     /*public bool QueueRightTurn = false;
@@ -126,6 +133,7 @@ public class PlayerAttack : MonoBehaviour
         //ammo = .3f;
         //maxAmmo = 1.0f;
         reloading = false;
+       // Aiming = false;
         //GameObject Spawner = GameObject.FindGameObjectWithTag("Spawner");
         //Camera = Spawner.GetComponent<SpawnerScript>().Camera;
         //Camera = GameObject.FindGameObjectWithTag("MainCamera");
@@ -138,7 +146,10 @@ public class PlayerAttack : MonoBehaviour
         {
             PlayerMovement.instance.ableToMove = false;
             ableToAttack = false;
-            
+            if (AimingScript.Aiming)
+            {
+                AimingScript.Aiming = false;
+            }
             
             //Camera.GetComponent<CameraFollow>().shaking = true;
             //Camera.GetComponent<CameraFollow>().Shake();
@@ -217,12 +228,30 @@ public class PlayerAttack : MonoBehaviour
     {
         if (PlayerMovement.instance.Grounded)
         {
-            
+            //Aiming = true;
+            //AimRay.SetActive(true);
+            //PlayerAnim.speed = 0;
+            PlayerAnim.SetBool("Idle", false);
+            PlayerAnim.Play("Aim");
+            AimingScript.Aim();
+            //UpperBody.GetComponent<SpriteRenderer>().enabled = true;
+            //LowerBody.GetComponent<SpriteRenderer>().enabled = true;
+            //PlayerRenderer.enabled = false;
+          //  PlayerAnim.SetBool("Aiming", true);
         PlayerMovement.instance.ableToMove = false;
         }
     }
     void EndAiming()
     {
+        //Aiming = false;
+        //AimRay.SetActive(false);
+        //PlayerRenderer.enabled = true;
+        PlayerAnim.SetBool("Idle", true);
+        AimingScript.EndAim();
+        //PlayerAnim.speed = 1;
+        //UpperBody.GetComponent<SpriteRenderer>().enabled = false;
+        //LowerBody.GetComponent<SpriteRenderer>().enabled = false;
+        //PlayerAnim.SetBool("")
         PlayerMovement.instance.ableToMove = true;
     }
     // Update is called once per frame
@@ -242,13 +271,13 @@ public class PlayerAttack : MonoBehaviour
             }
 
         }
-        
+
         if (!attacking && ShotBarImage.fillAmount <= 1.0f && reloading)
         {
 
             ShotBarImage.fillAmount += .01f;
         }
-        
+
         else if (invuln)
         {
             InvulFrames++;
@@ -277,13 +306,14 @@ public class PlayerAttack : MonoBehaviour
                     
                 }
             }*/
-            
+
             /*if (timeSinceAttack >= currentAttack.AttackFrames)
             {
                 EndSpell();
             }*/
 
         }
+        
         /*
         if (healing)
         {
@@ -329,9 +359,10 @@ public class PlayerAttack : MonoBehaviour
             if (PlayerAnim.GetBool("Crouching"))
             {
                 attacking = true;
-                GameObject Projectile = Instantiate(Shot, new Vector2(transform.position.x, transform.position.y + 0.05f), transform.rotation);
-                Destroy(Projectile, 0.5f);
-                if (transform.rotation != Quaternion.Euler(0f, 0f, 0f))
+                //GameObject Projectile = Instantiate(Shot, new Vector2(transform.position.x, transform.position.y + 0.05f), transform.rotation);
+                   // Destroy(Projectile, 0.5f);
+                
+                /*if (transform.rotation != Quaternion.Euler(0f, 0f, 0f))
                 {
                     Projectile.GetComponent<Rigidbody2D>().linearVelocityX = -5;
                     Debug.Log(Projectile.GetComponent<Rigidbody2D>().linearVelocityX);
@@ -339,24 +370,25 @@ public class PlayerAttack : MonoBehaviour
                 if (transform.rotation == Quaternion.Euler(0f, 0f, 0f))
                 {
                     Projectile.GetComponent<Rigidbody2D>().linearVelocityX = 5;
-                }
-                Projectile.GetComponent<ProjectileScript>().BelongsTo = gameObject;
+                }*/
+                //Projectile.GetComponent<ProjectileScript>().BelongsTo = gameObject;
             }
             else
             {
-                attacking = true;
-                GameObject Projectile = Instantiate(Shot, new Vector2(transform.position.x, transform.position.y + .1f), transform.rotation);
-                Destroy(Projectile, 0.5f);
-                if (transform.rotation != Quaternion.Euler(0f, 0f, 0f))
-                {
-                    Projectile.GetComponent<Rigidbody2D>().linearVelocityX = -5;
-                    //Debug.Log(Projectile.GetComponent<Rigidbody2D>().linearVelocityX);
-                }
-                if (transform.rotation == Quaternion.Euler(0f, 0f, 0f))
-                {
-                    Projectile.GetComponent<Rigidbody2D>().linearVelocityX = 5;
-                }
-                Projectile.GetComponent<ProjectileScript>().BelongsTo = gameObject;
+                    attacking = true;
+                    // GameObject Projectile = Instantiate(Shot, new Vector2(transform.position.x, transform.position.y + .1f), transform.rotation);
+                    //Destroy(Projectile, 0.5f);
+                    /*if (transform.rotation != Quaternion.Euler(0f, 0f, 0f))
+                    {
+                        Projectile.GetComponent<Rigidbody2D>().linearVelocityX = -5;
+                        //Debug.Log(Projectile.GetComponent<Rigidbody2D>().linearVelocityX);
+                    }
+                    if (transform.rotation == Quaternion.Euler(0f, 0f, 0f))
+                    {
+                        Projectile.GetComponent<Rigidbody2D>().linearVelocityX = 5;
+                    }*/
+                    AimingScript.Shoot();
+                //Projectile.GetComponent<ProjectileScript>().BelongsTo = gameObject;
                 PlayerAnim.Play("Shoot");
                 //ManaContainer.fillAmount -= 30;
                 //PlayerAnim.SetBool(currentClipName, false);
