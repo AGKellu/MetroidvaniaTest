@@ -58,12 +58,12 @@ public class PlayerMovement : MonoBehaviour
     //public GameObject Camera;
 
     [Header("Camera Stuff")]
-    private CameraFollowObject cameraFollowObject;
+    public  CameraFollowObject cameraFollowObject;
     [SerializeField] private GameObject cameraFollowGO;
     private float fallSpeedYDampingChangeThreshold;
     public float thingy;
     public bool CanMoveCam;
-    [SerializeField] Vector3 BackFootOffset;
+    public  Vector3 BackFootOffset;
     //[SerializeField] private GameObject TransitionPanel;
     /*
     Unlockables are:
