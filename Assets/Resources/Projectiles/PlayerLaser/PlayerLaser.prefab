@@ -205,4 +205,5 @@ MonoBehaviour:
   BelongsTo: {fileID: 0}
   OpensFire: 0
   OpensIce: 0
-  force: 5
+  mousePos: {x: 0, y: 0, z: 0}
+  force: 15

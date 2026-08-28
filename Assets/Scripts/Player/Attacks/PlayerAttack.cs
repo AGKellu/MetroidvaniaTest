@@ -14,7 +14,7 @@ public class PlayerAttack : MonoBehaviour
 
 
     [Header("PlayerComponents")]
-    private Animator PlayerAnim;
+    public Animator PlayerAnim;
     public ScriptableObjectScript currentAttack;
     public ScriptableObjectScript MeleeAttackSO;
     public ScriptableObjectScript Normal;
@@ -389,7 +389,7 @@ public class PlayerAttack : MonoBehaviour
                     }*/
                     AimingScript.Shoot();
                 //Projectile.GetComponent<ProjectileScript>().BelongsTo = gameObject;
-                PlayerAnim.Play("Shoot");
+                //PlayerAnim.Play("Shoot");
                 //ManaContainer.fillAmount -= 30;
                 //PlayerAnim.SetBool(currentClipName, false);
             }
@@ -476,7 +476,8 @@ public class PlayerAttack : MonoBehaviour
         //PlayerAnim.SetTrigger("Attacking");
         PlayerMovement.instance.ableToMove = true;
         MeleeHB.SetActive(false);
-        if (!PlayerMovement.instance.MovingLeft && !PlayerMovement.instance.MovingRight)
+        Debug.Log(Aim.IsPressed());
+        if (!PlayerMovement.instance.MovingLeft && !PlayerMovement.instance.MovingRight && !Aim.IsPressed())
         {
             PlayerAnim.SetBool("Idle", true);
         }

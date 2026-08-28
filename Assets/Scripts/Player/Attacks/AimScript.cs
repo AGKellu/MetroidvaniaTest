@@ -1,3 +1,4 @@
+//using System.Numerics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class AimScript : MonoBehaviour
@@ -63,6 +64,14 @@ public class AimScript : MonoBehaviour
     {
         Aiming = false;
         AimRay.SetActive(false);
+        if (!PlayerMovement.instance.MovingLeft && !PlayerMovement.instance.MovingRight)
+        {
+            PlayerAttack.instance.PlayerAnim.SetBool("Idle", true);
+        }
+        else
+        {
+            PlayerAttack.instance.PlayerAnim.SetBool("Running", true);
+        }
     }
     public void Shoot()
     {
@@ -70,10 +79,23 @@ public class AimScript : MonoBehaviour
         GameObject Projectile = Instantiate(Shot, new Vector2(UpperBody.transform.position.x - .25f, UpperBody.transform.position.y - .1f), Shot.transform.rotation);
         //Destroy(Projectile, 0.5f);
         Projectile.GetComponent<ProjectileScript>().BelongsTo = PlayerAttack.instance.gameObject;
+        Projectile.GetComponent<ProjectileScript>().mousePos = mousePos;
         //Projectile.transform.LookAt(AimRay.transform);
-        Projectile.transform.localRotation = Quaternion.Euler(0, 0, UpperBody.transform.localRotation.z);
-        Debug.Log(Projectile.transform.rotation.z);
+        //Projectile.transform.localRotation = Quaternion.Euler(Projectile.transform.localRotation.x, Projectile.transform.localRotation.y, UpperBody.transform.localRotation.z);
+        //Debug.Log(Projectile.transform.rotation.z);
+        
+        /*if (Projectile.transform.localRotation != Quaternion.Euler(0f, 0f, ))
+                {
+                    Projectile.GetComponent<Rigidbody2D>().linearVelocityX = -5;
+                    //Debug.Log(Projectile.GetComponent<Rigidbody2D>().linearVelocityX);
+                }
+                if (Projectile.transform.localRotation == Quaternion.Euler(0f, 0f, 0f))
+                {
+                    Projectile.GetComponent<Rigidbody2D>().linearVelocityX = 5;
+                }
+        */
+        
        //Projectile.GetComponent<Rigidbody2D>().linearVelocity = transform.TransformDirection(Vector3.forward * 50);
-        Projectile.GetComponent<Rigidbody2D>().linearVelocityX = 1;
+        //Projectile.GetComponent<Rigidbody2D>().linearVelocityX = 5;
     }
 }
