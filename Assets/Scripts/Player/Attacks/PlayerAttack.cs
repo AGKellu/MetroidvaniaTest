@@ -11,6 +11,7 @@ public class PlayerAttack : MonoBehaviour
     //private InputAction FirstSpell;
     private InputAction Melee;
     private InputAction Aim;
+    private InputAction Cast;
 
 
     [Header("PlayerComponents")]
@@ -19,8 +20,10 @@ public class PlayerAttack : MonoBehaviour
     public ScriptableObjectScript MeleeAttackSO;
     public ScriptableObjectScript Normal;
     [SerializeField] private int SpellHeldFrames = 0;
-    [SerializeField]private bool healing;
+    [SerializeField] private bool healing;
+    [SerializeField] private string[] SpellBook;
     [SerializeField] private string currentSpell;
+    private int SpellInt;
     //[SerializeField] private int healingFrames = 0;
 
     [Header("PlayerAttributes")]
@@ -68,6 +71,7 @@ public class PlayerAttack : MonoBehaviour
    // [SerializeField] private GameObject Shot;
     [SerializeField] private bool[] Unlockables;
     [SerializeField] private GameObject MeleeHB;
+    [SerializeField] private GameObject[] AbilityUIBoxes;
     public static PlayerAttack instance;
     [SerializeField] private AimScript AimingScript;
     //[SerializeField] private GameObject AimRay;
@@ -119,6 +123,11 @@ public class PlayerAttack : MonoBehaviour
         Aim = InputSystem.actions.FindAction("Attacks/Aim");
         Aim.performed += ctx => StartAim();
         Aim.canceled += ctx => EndAiming();
+        Cast = InputSystem.actions.FindAction("Attacks/Cast");
+        Cast.performed += ctx => FireSpell();
+        Cast.canceled += ctx => CancelCast();
+        
+        //Cast.canceled += ctx => EndSpell();
        // Melee.performed += ctx => StartFireSpell1();
        // Melee.canceled += ctx => SpellCheck();
         //Heal = InputSystem.actions.FindAction("Heal");
@@ -133,6 +142,7 @@ public class PlayerAttack : MonoBehaviour
         //ammo = .3f;
         //maxAmmo = 1.0f;
         reloading = false;
+        SpellInt = 0;
        // Aiming = false;
         //GameObject Spawner = GameObject.FindGameObjectWithTag("Spawner");
         //Camera = Spawner.GetComponent<SpawnerScript>().Camera;
@@ -293,26 +303,46 @@ public class PlayerAttack : MonoBehaviour
         }
         else if (casting)
         {
-            timeSinceAttack++;
-            /*if (currentAttack.holdable)
-            {
-                if (FirstSpell.IsPressed())
-                {
-                    SpellHeldFrames++;
-                    if (SpellHeldFrames >=10 && Health < maxHealth)
-                    {
-                        StartHeal();
-                    }
-                    
-                }
-            }*/
 
-            /*if (timeSinceAttack >= currentAttack.AttackFrames)
+            //if (Cast.ReadValue<float>() > 0)
+            //{
+            //  Debug.Log("Scroll wheel went down");
+            //}
+            if (Mouse.current.scroll.ReadValue().y < -0.1)
+            {
+                if (SpellInt < SpellBook.Length-1)
+                {
+                    AbilityUIBoxes[SpellInt].SetActive(false);
+                    SpellInt++;
+                    Debug.Log(SpellInt + "\n" + SpellBook.Length);
+                    AbilityUIBoxes[SpellInt].SetActive(true);
+                }
+                currentSpell = SpellBook[SpellInt];
+                Debug.Log(currentSpell);
+            }
+            else if (Mouse.current.scroll.ReadValue().y > 0.1)
+            {
+                if (SpellInt > 0)
+                {
+                    AbilityUIBoxes[SpellInt].SetActive(false);
+                    SpellInt--;
+                    AbilityUIBoxes[SpellInt].SetActive(true);
+                }
+                currentSpell = SpellBook[SpellInt];
+                Debug.Log(currentSpell);
+            }
+            //Debug.Log(Mouse.current.scroll.ReadValue().y);
+        }
+        /*else if (casting)
+        {
+            timeSinceAttack++;
+            
+            if (timeSinceAttack >= currentAttack.AttackFrames)
             {
                 EndSpell();
-            }*/
+            }
 
-        }
+        }*/
         
         /*
         if (healing)
@@ -421,39 +451,48 @@ public class PlayerAttack : MonoBehaviour
             }
         }
     }
-    
+
     void FireSpell()
     {
-       // currentAttack = Spell1;
-       /* if (!attacking && ableToAttack && (Mana >= currentAttack.ManaGain) && Unlockables[0] == true)
-        {
-            gameObject.GetComponent<PlayerMovement>().ableToMove = false;
-            gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 0);
-            casting = true;
-            GameObject Projectile = Instantiate(Fireball, transform.position, transform.rotation);
-            Destroy(Projectile, 1);
-            if (transform.rotation == Quaternion.Euler(0f, 180f, 0f))
-            {
-                //Projectile.transform.localScale = new Vector3(-1, 1, 1);
-                Projectile.GetComponent<Rigidbody2D>().linearVelocityX = -5;
-            }
-            else if (transform.rotation == Quaternion.Euler(0f, 0f,0f))
-            {
-              //  Projectile.transform.localScale = new Vector3(1, 1, 1);
-                Projectile.GetComponent<Rigidbody2D>().linearVelocityX = 5;
-            }
-            Projectile.GetComponent<ProjectileScript>().BelongsTo = gameObject;
-            attacking = true;
-            Mana -= currentAttack.ManaGain;
-            ManaContainer.fillAmount = Mana / 100;
-            PlayerAnim.SetBool("Casting", true);
-            PlayerAnim.SetBool("Idle", false);
-        }*/
+        // currentAttack = Spell1;
+        /* if (!attacking && ableToAttack && (Mana >= currentAttack.ManaGain) && Unlockables[0] == true)
+         {
+             gameObject.GetComponent<PlayerMovement>().ableToMove = false;
+             gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 0);
+             casting = true;
+             GameObject Projectile = Instantiate(Fireball, transform.position, transform.rotation);
+             Destroy(Projectile, 1);
+             if (transform.rotation == Quaternion.Euler(0f, 180f, 0f))
+             {
+                 //Projectile.transform.localScale = new Vector3(-1, 1, 1);
+                 Projectile.GetComponent<Rigidbody2D>().linearVelocityX = -5;
+             }
+             else if (transform.rotation == Quaternion.Euler(0f, 0f,0f))
+             {
+               //  Projectile.transform.localScale = new Vector3(1, 1, 1);
+                 Projectile.GetComponent<Rigidbody2D>().linearVelocityX = 5;
+             }
+             Projectile.GetComponent<ProjectileScript>().BelongsTo = gameObject;
+             attacking = true;
+             Mana -= currentAttack.ManaGain;
+             ManaContainer.fillAmount = Mana / 100;
+             PlayerAnim.SetBool("Casting", true);
+             PlayerAnim.SetBool("Idle", false);
+         }*/
         if (!attacking && ableToAttack)
         {
             PlayerMovement.instance.ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 0);
             casting = true;
+            PlayerAnim.SetBool("Idle", false);
+            PlayerAnim.Play("Cast");
+            PlayerAnim.SetBool("Casting", true);
+            //for (int i = 0; i < AbilityUIBoxes.Length; i++)
+            //{
+
+            //AbilityUIBoxes[i].SetActive(true);
+            //}
+            AbilityUIBoxes[SpellInt].SetActive(true);
             //for dash, keep the linearvelocity = new Vector2(0, 0) and abletomove = false;
             //Instantiate a clone of the player that has trigger collider, make the alpha slightly transparent, and move them forward while the button is held
             //maybe stop time???
@@ -461,12 +500,23 @@ public class PlayerAttack : MonoBehaviour
             //when the button is let go, set the player position to the clone position, destroy the clone, allow yourself to cast again 
 
             //for trap, make sure the player is grounded, instantiate trap that when projectiles contact it, destroy the projectile, set collider to trigger, make no rigidbody so it doesnt move
-            
+
             //for clone, make sure the player is grounded, instantiate player clone, make player invisible to enemies (most likely change a tag)
             //after 3 seconds and/or when the player attacks return tag to player, delete clone
-            
+
             //casting is Y or f for keyboard, changing casts is LT/RT or scroll wheel for keyboard
 
+        }
+    }
+    void CancelCast()
+    {
+        PlayerMovement.instance.ableToMove = true;
+        casting = false;
+        PlayerAnim.SetBool("Casting", false);
+        for (int i = 0; i < AbilityUIBoxes.Length; i++)
+        {
+            
+        AbilityUIBoxes[i].SetActive(false);
         }
     }
     IEnumerator EndAttack()
@@ -476,7 +526,7 @@ public class PlayerAttack : MonoBehaviour
         //PlayerAnim.SetTrigger("Attacking");
         PlayerMovement.instance.ableToMove = true;
         MeleeHB.SetActive(false);
-        Debug.Log(Aim.IsPressed());
+       // Debug.Log(Aim.IsPressed());
         if (!PlayerMovement.instance.MovingLeft && !PlayerMovement.instance.MovingRight && !Aim.IsPressed())
         {
             PlayerAnim.SetBool("Idle", true);

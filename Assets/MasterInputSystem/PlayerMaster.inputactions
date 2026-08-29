@@ -197,9 +197,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "AbilitySwap",
+                    "name": "FireSpell",
                     "type": "Button",
                     "id": "cf780833-d5a0-48af-afa4-7ac5df7c2d97",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Cast",
+                    "type": "Button",
+                    "id": "01a0aad0-ab03-4143-9204-1add4108c064",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -280,42 +289,31 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "AbilitySwap",
+                    "action": "FireSpell",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "1D Axis",
-                    "id": "9ff45631-5b96-4dcc-ac60-1a7c16fa2d80",
-                    "path": "1DAxis",
+                    "name": "",
+                    "id": "1dcadb22-f770-4fe9-9f13-ce376db2fe82",
+                    "path": "<Keyboard>/leftAlt",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "AbilitySwap",
-                    "isComposite": true,
+                    "action": "Cast",
+                    "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "negative",
-                    "id": "62a77bc9-2a23-4e71-8238-cf95116ff498",
-                    "path": "<Mouse>/scroll/down",
+                    "name": "",
+                    "id": "216fa9f0-1dc5-4a47-a564-b7c6d0939134",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "AbilitySwap",
+                    "action": "Cast",
                     "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "c099782e-e349-4031-a3e4-1e4135ce37ca",
-                    "path": "<Mouse>/scroll/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "AbilitySwap",
-                    "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -336,15 +334,6 @@
                     "name": "MoveDown",
                     "type": "Button",
                     "id": "0b8cbaca-b5a5-4527-a9e2-d0b0d6032a72",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Toggle",
-                    "type": "Button",
-                    "id": "0faecad8-618d-4c24-85c3-c061f3ba8214",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -371,28 +360,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "MoveDown",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "22087b57-7b93-4dfd-99d0-bec6baf368a3",
-                    "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Toggle",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c5ec2895-8059-4888-b255-c72b9b9e4cba",
-                    "path": "<Keyboard>/r",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Toggle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

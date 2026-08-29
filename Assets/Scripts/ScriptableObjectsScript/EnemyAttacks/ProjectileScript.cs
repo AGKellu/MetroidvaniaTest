@@ -16,7 +16,7 @@ public class ProjectileScript : MonoBehaviour
     void Start()
     {
         Destroy(gameObject, 2);
-        Debug.Log(mousePos);
+        //Debug.Log(mousePos);
         /*mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         Vector3 direction = mousePos - transform.position;
         Vector3 rotation = transform.position - mousePos;
@@ -32,7 +32,7 @@ public class ProjectileScript : MonoBehaviour
         float step = force * Time.deltaTime;
         //transform.position = Vector3.MoveTowards(transform.position, mousePos, step);
         transform.position += MoveVector * Time.deltaTime;
-        Debug.Log(transform.position);
+        //Debug.Log(transform.position);
     }
     
     void OnTriggerEnter2D(Collider2D attackHitbox)

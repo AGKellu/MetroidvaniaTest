@@ -101,9 +101,9 @@ public class PlayerMovement : MonoBehaviour
         Slide = InputSystem.actions.FindAction("Move/Slide");
         Slide.performed += ctx => StartSlide();
         Slide.canceled += ctx => EndSlide();
-        CamToggle = InputSystem.actions.FindAction("Camera/Toggle");
-        CamToggle.performed += ctx => ToggleCamera();
-        CamToggle.canceled += ctx => EndToggleCamera();
+        //CamToggle = InputSystem.actions.FindAction("Camera/Toggle");
+        //CamToggle.performed += ctx => ToggleCamera();
+        //CamToggle.canceled += ctx => EndToggleCamera();
         PlayerRB = gameObject.GetComponent<Rigidbody2D>();
         PlayerAnim = gameObject.GetComponent<Animator>();
         PlayerSprite = gameObject.GetComponent<SpriteRenderer>();
@@ -735,7 +735,7 @@ public class PlayerMovement : MonoBehaviour
             //ableToMove = true;
         }
     }
-    void ToggleCamera()
+    /*void ToggleCamera()
     {
         CanMoveCam = true;
     }
@@ -743,6 +743,7 @@ public class PlayerMovement : MonoBehaviour
     {
         CanMoveCam = false;
     }
+    */
     public void Transition()
     {
        // Values.speed = Speed;
