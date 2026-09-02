@@ -295,6 +295,17 @@
                 },
                 {
                     "name": "",
+                    "id": "c061677e-75e5-40e6-b105-bab971344eb0",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FireSpell",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "1dcadb22-f770-4fe9-9f13-ce376db2fe82",
                     "path": "<Keyboard>/leftAlt",
                     "interactions": "",

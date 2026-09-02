@@ -12,6 +12,7 @@ public class PlayerAttack : MonoBehaviour
     private InputAction Melee;
     private InputAction Aim;
     private InputAction Cast;
+    private InputAction ShootSpell;
 
 
     [Header("PlayerComponents")]
@@ -48,6 +49,7 @@ public class PlayerAttack : MonoBehaviour
     public bool ableToAttack = true;
     [SerializeField] private float ManaDrainSpeed;
     [SerializeField] private float TimeToNextHealthTick;
+    private bool inCooldown;
 
     //This was originally 33f
 
@@ -74,6 +76,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private GameObject[] AbilityUIBoxes;
     public static PlayerAttack instance;
     [SerializeField] private AimScript AimingScript;
+    [SerializeField] private GameObject ClonePlayer;
     //[SerializeField] private GameObject AimRay;
     //[SerializeField] private GameObject UpperBody;
     //[SerializeField] private GameObject LowerBody;
@@ -126,7 +129,8 @@ public class PlayerAttack : MonoBehaviour
         Cast = InputSystem.actions.FindAction("Attacks/Cast");
         Cast.performed += ctx => FireSpell();
         Cast.canceled += ctx => CancelCast();
-        
+        ShootSpell = InputSystem.actions.FindAction("Attacks/FireSpell");
+        ShootSpell.performed += ctx => CastSpell();
         //Cast.canceled += ctx => EndSpell();
        // Melee.performed += ctx => StartFireSpell1();
        // Melee.canceled += ctx => SpellCheck();
@@ -143,6 +147,7 @@ public class PlayerAttack : MonoBehaviour
         //maxAmmo = 1.0f;
         reloading = false;
         SpellInt = 0;
+        inCooldown = false;
        // Aiming = false;
         //GameObject Spawner = GameObject.FindGameObjectWithTag("Spawner");
         //Camera = Spawner.GetComponent<SpawnerScript>().Camera;
@@ -301,7 +306,7 @@ public class PlayerAttack : MonoBehaviour
                 EndInvuln();
             }
         }
-        else if (casting)
+        if (casting)
         {
 
             //if (Cast.ReadValue<float>() > 0)
@@ -310,7 +315,7 @@ public class PlayerAttack : MonoBehaviour
             //}
             if (Mouse.current.scroll.ReadValue().y < -0.1)
             {
-                if (SpellInt < SpellBook.Length-1)
+                if (SpellInt < SpellBook.Length - 1)
                 {
                     AbilityUIBoxes[SpellInt].SetActive(false);
                     SpellInt++;
@@ -333,6 +338,7 @@ public class PlayerAttack : MonoBehaviour
             }
             //Debug.Log(Mouse.current.scroll.ReadValue().y);
         }
+        
         /*else if (casting)
         {
             timeSinceAttack++;
@@ -618,19 +624,62 @@ public class PlayerAttack : MonoBehaviour
         {
             PlayerAnim.SetBool("Jumping", true);
         }
-       /* if (QueueLeftTurn)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-            QueueLeftTurn = false;
-        }
-        else if (QueueRightTurn)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-            QueueRightTurn = false;
-        }*/
+        /* if (QueueLeftTurn)
+         {
+             transform.localScale = new Vector3(-1, 1, 1);
+             QueueLeftTurn = false;
+         }
+         else if (QueueRightTurn)
+         {
+             transform.localScale = new Vector3(1, 1, 1);
+             QueueRightTurn = false;
+         }*/
         //Camera.transform.localEulerAngles = new Vector3(0, 0, 0);
         //Camera.GetComponent<CameraFollow>().shaking = false;
         //gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
+    }
+
+    void CastSpell()
+    {
+        if (!attacking && ableToAttack && !inCooldown)
+        {
+            //Debug.Log(SpellBook[SpellInt]);
+            if (SpellInt == 0)
+            {
+                GameObject PlayerClone = Instantiate(ClonePlayer, transform.position, Quaternion.identity);
+                PlayerClone.transform.rotation = transform.rotation;
+                /*if (transform.rotation.y == 0)
+                {
+                    PlayerClone.GetComponent<SpriteRenderer>().flipX = false;
+                    //!PlayerClone.GetComponent<SpriteRenderer>().flipX;
+                }
+                else if (transform.rotation.y == 180)
+                {
+                    PlayerClone.GetComponent<SpriteRenderer>().flipX = true;
+                }*/
+
+
+            }
+            else if (SpellInt == 1)
+            {
+
+            }
+            else if (SpellInt == 2)
+            {
+
+            }
+            inCooldown = true;
+            Debug.Log(inCooldown);
+            StartCoroutine(Timer(3));
+            //inCooldown = false;
+            //Debug.Log(inCooldown);
+        }
+    }
+    IEnumerator Timer(int seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        inCooldown = false;
+        Debug.Log(inCooldown);
     }
     /*void StartHeal()
     {
@@ -667,7 +716,7 @@ public class PlayerAttack : MonoBehaviour
         //HealthMasks[HealthInt].GetComponent<Animator>().SetTrigger("Heal");
         //}
     }*/
-    
+
     void Heal()
     {
         /*SpellHeldFrames = 0;
