@@ -14199,6 +14199,7 @@ MonoBehaviour:
   ableToAttack: 1
   ManaDrainSpeed: 20
   TimeToNextHealthTick: 33
+  invisible: 0
   trueMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   flashMaterial: {fileID: 2100000, guid: b95519cc062f57a4bbb73f4d34b5683c, type: 2}
   duration: 0.16666667
@@ -14217,6 +14218,7 @@ MonoBehaviour:
   - {fileID: 1554621047539602435}
   AimingScript: {fileID: 7921428466073725331}
   ClonePlayer: {fileID: 721355669858393536, guid: 074989390476aef4b82cf54d6b1b293b, type: 3}
+  KEF: {fileID: 6842962693575696103, guid: 7ec48b033d6b51b46bb0792bb8eb1fcd, type: 3}
   Values: {fileID: 11400000, guid: d0a6d281caa2dc745aa220a6d0eccbb7, type: 2}
 --- !u!1 &3506754177258793759
 GameObject:

@@ -50,6 +50,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float ManaDrainSpeed;
     [SerializeField] private float TimeToNextHealthTick;
     private bool inCooldown;
+    public bool invisible;
 
     //This was originally 33f
 
@@ -77,6 +78,7 @@ public class PlayerAttack : MonoBehaviour
     public static PlayerAttack instance;
     [SerializeField] private AimScript AimingScript;
     [SerializeField] private GameObject ClonePlayer;
+    [SerializeField] private GameObject KEF;
     //[SerializeField] private GameObject AimRay;
     //[SerializeField] private GameObject UpperBody;
     //[SerializeField] private GameObject LowerBody;
@@ -131,6 +133,7 @@ public class PlayerAttack : MonoBehaviour
         Cast.canceled += ctx => CancelCast();
         ShootSpell = InputSystem.actions.FindAction("Attacks/FireSpell");
         ShootSpell.performed += ctx => CastSpell();
+        ShootSpell.canceled += ctx => EndCast();
         //Cast.canceled += ctx => EndSpell();
        // Melee.performed += ctx => StartFireSpell1();
        // Melee.canceled += ctx => SpellCheck();
@@ -148,6 +151,7 @@ public class PlayerAttack : MonoBehaviour
         reloading = false;
         SpellInt = 0;
         inCooldown = false;
+        invisible = false;
        // Aiming = false;
         //GameObject Spawner = GameObject.FindGameObjectWithTag("Spawner");
         //Camera = Spawner.GetComponent<SpawnerScript>().Camera;
@@ -521,8 +525,25 @@ public class PlayerAttack : MonoBehaviour
         PlayerAnim.SetBool("Casting", false);
         for (int i = 0; i < AbilityUIBoxes.Length; i++)
         {
-            
-        AbilityUIBoxes[i].SetActive(false);
+
+            AbilityUIBoxes[i].SetActive(false);
+        }
+    }
+    void EndCast()
+    {
+        PlayerMovement.instance.ableToMove = true;
+        if (SpellInt == 1)
+        {
+            GameObject ClonePlayer = GameObject.FindWithTag("Clone");
+            if (ClonePlayer)
+            {
+                if (ClonePlayer.GetComponent<PlayerCloneCollider>().dashing)
+                {
+                    
+            transform.position = ClonePlayer.transform.position;
+            Destroy(ClonePlayer);
+                }
+            }
         }
     }
     IEnumerator EndAttack()
@@ -648,6 +669,8 @@ public class PlayerAttack : MonoBehaviour
             {
                 GameObject PlayerClone = Instantiate(ClonePlayer, transform.position, Quaternion.identity);
                 PlayerClone.transform.rotation = transform.rotation;
+                Destroy(PlayerClone, 3);
+                //make player invisible to enemies 
                 /*if (transform.rotation.y == 0)
                 {
                     PlayerClone.GetComponent<SpriteRenderer>().flipX = false;
@@ -662,10 +685,29 @@ public class PlayerAttack : MonoBehaviour
             }
             else if (SpellInt == 1)
             {
+                PlayerMovement.instance.ableToMove = false;
+                GameObject PlayerClone = Instantiate(ClonePlayer, transform.position, Quaternion.identity);
+                if (transform.rotation == Quaternion.Euler(0, 180, 0))
+                {
+                    PlayerClone.GetComponent<PlayerCloneCollider>().direction = transform.right;
+                }
+                else if (transform.rotation == Quaternion.Euler(0, 0, 0))
+                {
+                    PlayerClone.GetComponent<PlayerCloneCollider>().direction = transform.right;
+                }
+                PlayerClone.transform.rotation = transform.rotation;
+                gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 0);
+                PlayerClone.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 145);
+                PlayerClone.GetComponent<PlayerCloneCollider>().dashing = true;
 
+                
+                //GameObject.Findwithtag("Enemy")
+                //foreach gameObject enemy, pause animator 
+                //foreach gameobject movingplatform, pause movement 
             }
             else if (SpellInt == 2)
             {
+                GameObject KEFDrop = Instantiate(KEF, new Vector3(transform.position.x, transform.position.y -.155f, transform.position.z), Quaternion.identity);
 
             }
             inCooldown = true;

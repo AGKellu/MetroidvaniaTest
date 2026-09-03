@@ -15,6 +15,7 @@ TagManager:
   - Follower
   - Drop
   - Container
+  - Clone
   layers:
   - Default
   - TransparentFX

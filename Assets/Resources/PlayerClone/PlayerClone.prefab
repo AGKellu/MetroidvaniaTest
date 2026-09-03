@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6364271789838480225}
   m_Layer: 0
   m_Name: PlayerClone
-  m_TagString: Player
+  m_TagString: Clone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86a1bb7925af9d14aa96a93c82228ded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCloneCollider
+  dashing: 0
 --- !u!1 &3769751779792991040
 GameObject:
   m_ObjectHideFlags: 0

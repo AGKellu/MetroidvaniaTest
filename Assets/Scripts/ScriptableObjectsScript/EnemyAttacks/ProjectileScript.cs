@@ -31,7 +31,7 @@ public class ProjectileScript : MonoBehaviour
     {
         float step = force * Time.deltaTime;
         //transform.position = Vector3.MoveTowards(transform.position, mousePos, step);
-        transform.position += MoveVector * Time.deltaTime;
+        transform.position += MoveVector *  3* Time.deltaTime;
         //Debug.Log(transform.position);
     }
     

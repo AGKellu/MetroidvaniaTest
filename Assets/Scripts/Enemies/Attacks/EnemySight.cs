@@ -6,7 +6,11 @@ public class EnemySight : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            if (!other.gameObject.GetComponent<PlayerAttack>().invisible)
+            {
+                
             gameObject.transform.parent.gameObject.GetComponent<EnemyAttack>().shooting = true;
+            }
         }
     }
 }
