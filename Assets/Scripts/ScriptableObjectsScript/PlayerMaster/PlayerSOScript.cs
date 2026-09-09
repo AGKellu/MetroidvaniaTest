@@ -14,8 +14,12 @@ public class PlayerSOScript : ScriptableObject
     //public ScriptableObjectScript currentAttack;
     public ScriptableObjectScript Spell1;
     public ScriptableObjectScript Normal;
-   // public Vector3 currentTransform;
+    public bool ableToAttack;
+    // public Vector3 currentTransform;
     public Vector3 currentRotation;
+    public bool[] AttackUnlockables;
+    public bool[] MoveUnlockables;
+
 
 
 }

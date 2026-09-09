@@ -63,15 +63,15 @@ public class PlayerMovement : MonoBehaviour
     private float fallSpeedYDampingChangeThreshold;
     public float thingy;
     public bool CanMoveCam;
-    public  Vector3 BackFootOffset;
+    public Vector3 BackFootOffset;
     //[SerializeField] private GameObject TransitionPanel;
     /*
     Unlockables are:
     Slide
-    Dash
     Wall Jump
     Double Jump
     Ledge Grab
+    Slam
     */
     void Awake()
     {

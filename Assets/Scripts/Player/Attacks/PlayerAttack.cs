@@ -21,7 +21,7 @@ public class PlayerAttack : MonoBehaviour
     public ScriptableObjectScript MeleeAttackSO;
     public ScriptableObjectScript Normal;
     [SerializeField] private int SpellHeldFrames = 0;
-    [SerializeField] private bool healing;
+   // [SerializeField] private bool healing;
     [SerializeField] private string[] SpellBook;
     [SerializeField] private string currentSpell;
     private int SpellInt;
@@ -46,11 +46,13 @@ public class PlayerAttack : MonoBehaviour
     private float InvulFrames = 0;
     //[SerializeField]private bool Aiming;
     [SerializeField] private bool invuln = false;
-    public bool ableToAttack = true;
+    public bool ableToAttack;
     [SerializeField] private float ManaDrainSpeed;
-    [SerializeField] private float TimeToNextHealthTick;
+  //  [SerializeField] private float TimeToNextHealthTick;
     private bool inCooldown;
     public bool invisible;
+    [SerializeField] private float EffectiveRange;
+    [SerializeField] private GameObject RangeFinder; 
 
     //This was originally 33f
 
@@ -98,8 +100,11 @@ public class PlayerAttack : MonoBehaviour
     // [SerializeField] private int healingFrames = 0;
     /*
     Unlockables are:
-    Fireball
-    Iceball
+    Clone
+    Dash
+    KEF
+    Long Beam (just put effective range to 1 or 1.25)
+    Normal Shot (just put Able to attack to true)
     */
 
 
@@ -124,7 +129,7 @@ public class PlayerAttack : MonoBehaviour
         Shoot.performed += ctx => Attack();
 
         Melee = InputSystem.actions.FindAction("Attacks/Melee");
-        Melee.performed += ctx => MeleeAttack();
+        //Melee.performed += ctx => MeleeAttack();
         Aim = InputSystem.actions.FindAction("Attacks/Aim");
         Aim.performed += ctx => StartAim();
         Aim.canceled += ctx => EndAiming();
@@ -152,6 +157,7 @@ public class PlayerAttack : MonoBehaviour
         SpellInt = 0;
         inCooldown = false;
         invisible = false;
+        RangeFinder.GetComponent<CircleCollider2D>().radius = EffectiveRange;
        // Aiming = false;
         //GameObject Spawner = GameObject.FindGameObjectWithTag("Spawner");
         //Camera = Spawner.GetComponent<SpawnerScript>().Camera;
@@ -665,137 +671,74 @@ public class PlayerAttack : MonoBehaviour
         if (!attacking && ableToAttack && !inCooldown)
         {
             //Debug.Log(SpellBook[SpellInt]);
-            if (SpellInt == 0)
+            if (Unlockables[SpellInt] == true)
             {
-                GameObject PlayerClone = Instantiate(ClonePlayer, transform.position, Quaternion.identity);
-                PlayerClone.transform.rotation = transform.rotation;
-                Destroy(PlayerClone, 3);
-                //make player invisible to enemies 
-                /*if (transform.rotation.y == 0)
+                if (SpellInt == 0)
                 {
-                    PlayerClone.GetComponent<SpriteRenderer>().flipX = false;
-                    //!PlayerClone.GetComponent<SpriteRenderer>().flipX;
+                    if (Unlockables[SpellInt] == true)
+                    {
+                        GameObject PlayerClone = Instantiate(ClonePlayer, transform.position, Quaternion.identity);
+                        PlayerClone.transform.rotation = transform.rotation;
+                        Destroy(PlayerClone, 3);
+                    }
+
+                    //make player invisible to enemies 
+                    /*if (transform.rotation.y == 0)
+                    {
+                        PlayerClone.GetComponent<SpriteRenderer>().flipX = false;
+                        //!PlayerClone.GetComponent<SpriteRenderer>().flipX;
+                    }
+                    else if (transform.rotation.y == 180)
+                    {
+                        PlayerClone.GetComponent<SpriteRenderer>().flipX = true;
+                    }*/
+
+
                 }
-                else if (transform.rotation.y == 180)
+                else if (SpellInt == 1)
                 {
-                    PlayerClone.GetComponent<SpriteRenderer>().flipX = true;
-                }*/
+                    PlayerMovement.instance.ableToMove = false;
+                    GameObject PlayerClone = Instantiate(ClonePlayer, transform.position, Quaternion.identity);
+                    if (transform.rotation == Quaternion.Euler(0, 180, 0))
+                    {
+                        PlayerClone.GetComponent<PlayerCloneCollider>().direction = transform.right;
+                    }
+                    else if (transform.rotation == Quaternion.Euler(0, 0, 0))
+                    {
+                        PlayerClone.GetComponent<PlayerCloneCollider>().direction = transform.right;
+                    }
+                    PlayerClone.transform.rotation = transform.rotation;
+                    gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 0);
+                    PlayerClone.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 145);
+                    PlayerClone.GetComponent<PlayerCloneCollider>().dashing = true;
 
 
-            }
-            else if (SpellInt == 1)
-            {
-                PlayerMovement.instance.ableToMove = false;
-                GameObject PlayerClone = Instantiate(ClonePlayer, transform.position, Quaternion.identity);
-                if (transform.rotation == Quaternion.Euler(0, 180, 0))
-                {
-                    PlayerClone.GetComponent<PlayerCloneCollider>().direction = transform.right;
+                    //GameObject.Findwithtag("Enemy")
+                    //foreach gameObject enemy, pause animator 
+                    //foreach gameobject movingplatform, pause movement 
                 }
-                else if (transform.rotation == Quaternion.Euler(0, 0, 0))
+                else if (SpellInt == 2)
                 {
-                    PlayerClone.GetComponent<PlayerCloneCollider>().direction = transform.right;
+                    GameObject KEFDrop = Instantiate(KEF, new Vector3(transform.position.x, transform.position.y - .155f, transform.position.z), Quaternion.identity);
+
                 }
-                PlayerClone.transform.rotation = transform.rotation;
-                gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 0);
-                PlayerClone.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 145);
-                PlayerClone.GetComponent<PlayerCloneCollider>().dashing = true;
-
-                
-                //GameObject.Findwithtag("Enemy")
-                //foreach gameObject enemy, pause animator 
-                //foreach gameobject movingplatform, pause movement 
+                inCooldown = true;
+                //Debug.Log(inCooldown);
+                StartCoroutine(Timer(3));
+                //inCooldown = false;
+                //Debug.Log(inCooldown);
             }
-            else if (SpellInt == 2)
-            {
-                GameObject KEFDrop = Instantiate(KEF, new Vector3(transform.position.x, transform.position.y -.155f, transform.position.z), Quaternion.identity);
-
-            }
-            inCooldown = true;
-            Debug.Log(inCooldown);
-            StartCoroutine(Timer(3));
-            //inCooldown = false;
-            //Debug.Log(inCooldown);
         }
     }
     IEnumerator Timer(int seconds)
     {
         yield return new WaitForSeconds(seconds);
         inCooldown = false;
-        Debug.Log(inCooldown);
+        //Debug.Log(inCooldown);
     }
-    /*void StartHeal()
-    {
-        healing = true;
-        casting = false;
-        ManaStartFloat = Mana;
-        timeSinceAttack = 0;
-        //if (Health < (Health - 1))
-        //{
-          //  sequentialHealing = true;
-        //}
-       // if (sequentialHealing)
-        //{
 
-        //}
-        //else
-        //{
-            if (Health == 4)
-            {
-                FirstMask.GetComponent<Animator>().SetTrigger("Heal");
-            }
-            else if (Health == 3)
-            {
-                SecondMask.GetComponent<Animator>().SetTrigger("Heal");
-            }
-            else if (Health == 2)
-            {
-                ThirdMask.GetComponent<Animator>().SetTrigger("Heal");
-            }
-            else if (Health == 1)
-            {
-                FourthMask.GetComponent<Animator>().SetTrigger("Heal");
-            }
-        //HealthMasks[HealthInt].GetComponent<Animator>().SetTrigger("Heal");
-        //}
-    }*/
 
-    void Heal()
-    {
-        /*SpellHeldFrames = 0;
-        if (Mana > 0)
-        {
-            if (Mana < (ManaStartFloat - TimeToNextHealthTick))
-            {
-                ManaStartFloat = Mana;
-                if (Health == 4)
-            {
-                FirstMask.GetComponent<Animator>().SetBool("Healed", true);
-            }
-            else if (Health == 3)
-            {
-                SecondMask.GetComponent<Animator>().SetBool("Healed", true);
-            }
-            else if (Health == 2)
-            {
-                ThirdMask.GetComponent<Animator>().SetBool("Healed", true);
-            }
-            else if (Health == 1)
-            {
-                FourthMask.GetComponent<Animator>().SetBool("Healed", true);
-            }
-                Health++;
 
-                //HealthMasks[HealthInt].GetComponent<Animator>().SetBool("Healed", true);
-                //MaskInt--;
-               // HealthInt++;
-                //HealthMasks[HealthInt].GetComponent<Animator>().SetTrigger("Heal");
-                //HealthInt--;
-                Debug.Log("Healed one mask!");
-            }
-        Mana -= ManaDrainSpeed* Time.deltaTime;
-        ManaContainer.fillAmount = Mana/100;
-        }*/
-    }
     void SpellCheck()
     {
         //if (healing)
@@ -819,63 +762,7 @@ public class PlayerAttack : MonoBehaviour
         SpellHeldFrames = 0;
         //healingFrames = 0;
     }
-    void CancelHeal()
-    {
-        /*healing = false;
-        //sequentialHealing = false;
-        if ((Mana - ManaStartFloat) < TimeToNextHealthTick)
-        {
-            if (Health == 4)
-            {
-                
-                FirstMask.GetComponent<Animator>().SetBool("Healed", false);
-                FirstMask.GetComponent<Animator>().SetTrigger("Broken");
-            }
-            else if (Health == 3)
-            {
-                
-                SecondMask.GetComponent<Animator>().SetBool("Healed", false);
-                SecondMask.GetComponent<Animator>().SetTrigger("Broken");
-            }
-            else if (Health == 2)
-            {
-                
-                ThirdMask.GetComponent<Animator>().SetBool("Healed", false);
-                ThirdMask.GetComponent<Animator>().SetTrigger("Broken");
-            }
-            else if (Health == 1)
-            {
-                
-                FourthMask.GetComponent<Animator>().SetBool("Healed", false);
-                FourthMask.GetComponent<Animator>().SetTrigger("Broken");
-            }
-            //Debug.Log("Heal Canceled! Mask at " + HealthMasks[HealthInt].name + "will be broken again");
-        }
-        //Debug.Log(ManaStartFloat -= Mana);
-        //if (Mana - ManaStartFloat < 33)
-        //{
-          //  Debug.Log("Interrupted! \nMask Canceled!");
-           // Debug.Log("The mask at " + HealthMasks[HealthInt].name + " will be broken again");
-            //HealthMasks[HealthInt].GetComponent<Animator>().SetTrigger("Broken");
-        //}
-        //if ((ManaStartFloat - Mana) < TimeToNextHealthTick)
-        //{
-          //  Debug.Log("Interrupted!\nMask Canceled!\nThe mask at " + HealthMasks[HealthInt].name + " will be broken again");
-          //  HealthMasks[HealthInt].GetComponent<Animator>().SetTrigger("Broken");
-          //  HealthInt++;
-       // }
-        /*if (QueueLeftTurn)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-            QueueLeftTurn = false;
-        }
-        else if (QueueRightTurn)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-            QueueRightTurn = false;
-        }*/
-        
-    }
+
 
     void OnCollisionEnter2D(Collision2D other)
     {
@@ -906,12 +793,13 @@ public class PlayerAttack : MonoBehaviour
     {
         Values.Health = Health;
     Values.maxHealth = maxHealth;
-    //Values.Mana = Mana;
+        //Values.Mana = Mana;
         //Values.ManaMax = ManaMax;
-    //Values.currentAttack = currentAttack;
-    //Values.Spell1 = Spell1;
-    //hfeiuheuihfe
-    Values.Normal = Normal;
+        //Values.currentAttack = currentAttack;
+        //Values.Spell1 = Spell1;
+        //hfeiuheuihfe
+        Values.Normal = Normal;
+        Values.ableToAttack = ableToAttack;
         //Values.currentTransform = transform.position;
         //Destroy(gameObject, 0);
         //Debug.Log(Values.currentTransform);

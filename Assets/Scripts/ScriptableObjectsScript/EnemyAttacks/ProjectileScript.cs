@@ -34,7 +34,7 @@ public class ProjectileScript : MonoBehaviour
         transform.position += MoveVector *  3* Time.deltaTime;
         //Debug.Log(transform.position);
     }
-    
+
     void OnTriggerEnter2D(Collider2D attackHitbox)
     {
         //GameObject Player = GameObject.FindGameObjectWithTag("Player");
@@ -54,9 +54,17 @@ public class ProjectileScript : MonoBehaviour
         }
         else if (attackHitbox.gameObject.CompareTag("Door") && BelongsTo.CompareTag("Player"))
         {
-            
+
             attackHitbox.gameObject.GetComponent<DoorScript>().OpenDoor(OpensFire, OpensIce);
             Destroy(gameObject, 0);
+        }
+    }
+    void OnTriggerExit2D(Collider2D rangeCircle)
+    {
+        if (rangeCircle.gameObject.name == "RangeCircle")
+        {
+            //Debug.Log("Leaving effective range.\nDestroy.");
+            Destroy(gameObject);
         }
     }
 }

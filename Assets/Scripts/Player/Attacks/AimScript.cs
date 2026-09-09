@@ -59,11 +59,13 @@ public class AimScript : MonoBehaviour
     {
         Aiming = true;
         AimRay.SetActive(true);
+        Line.SetActive(true);
     }
     public void EndAim()
     {
         Aiming = false;
         AimRay.SetActive(false);
+        Line.SetActive(false);
         if (!PlayerMovement.instance.MovingLeft && !PlayerMovement.instance.MovingRight)
         {
             PlayerAttack.instance.PlayerAnim.SetBool("Idle", true);
