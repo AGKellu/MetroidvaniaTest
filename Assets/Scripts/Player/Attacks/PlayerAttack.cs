@@ -80,6 +80,7 @@ public class PlayerAttack : MonoBehaviour
     public static PlayerAttack instance;
     [SerializeField] private AimScript AimingScript;
     [SerializeField] private GameObject ClonePlayer;
+    
     [SerializeField] private GameObject KEF;
     //[SerializeField] private GameObject AimRay;
     //[SerializeField] private GameObject UpperBody;
@@ -333,7 +334,7 @@ public class PlayerAttack : MonoBehaviour
                     AbilityUIBoxes[SpellInt].SetActive(true);
                 }
                 currentSpell = SpellBook[SpellInt];
-                Debug.Log(currentSpell);
+                //Debug.Log(currentSpell);
             }
             else if (Mouse.current.scroll.ReadValue().y > 0.1)
             {
@@ -344,7 +345,7 @@ public class PlayerAttack : MonoBehaviour
                     AbilityUIBoxes[SpellInt].SetActive(true);
                 }
                 currentSpell = SpellBook[SpellInt];
-                Debug.Log(currentSpell);
+                //Debug.Log(currentSpell);
             }
             //Debug.Log(Mouse.current.scroll.ReadValue().y);
         }

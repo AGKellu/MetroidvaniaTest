@@ -14325,7 +14325,7 @@ MonoBehaviour:
   maxHealth: 5
   ammo: 0.3
   invuln: 0
-  ableToAttack: 0
+  ableToAttack: 1
   ManaDrainSpeed: 20
   invisible: 0
   EffectiveRange: 0.75
@@ -14340,7 +14340,7 @@ MonoBehaviour:
   FourthMask: {fileID: 978018288}
   FifthMask: {fileID: 1348840729}
   Fireball: {fileID: 6831931665148355495, guid: 383c80186434c3a479b677f723c315ba, type: 3}
-  Unlockables: 000000
+  Unlockables: 000100
   MeleeHB: {fileID: 5334200526625482467}
   AbilityUIBoxes:
   - {fileID: 6183659932104161723}

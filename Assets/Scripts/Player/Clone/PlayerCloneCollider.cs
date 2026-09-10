@@ -7,9 +7,13 @@ public class PlayerCloneCollider : MonoBehaviour
     //public GameObject Player;
     public Vector3 direction;
     public Vector3 RealDir;
+    [SerializeField] private float maxCloneDistance;
+    private Vector2 playerTransformPos;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        playerTransformPos = transform.position;
+        Debug.Log(playerTransformPos);
         if (direction.x < 0)
         {
             RealDir = -transform.right;
@@ -28,7 +32,9 @@ public class PlayerCloneCollider : MonoBehaviour
     {
         if (dashing)
         {
-            if (direction.x < 0)
+            if (Vector2.Distance(playerTransformPos, transform.position) < maxCloneDistance)
+            {
+                if (direction.x < 0)
             {
 
             transform.position -= RealDir * 1 / 100;
@@ -38,6 +44,8 @@ public class PlayerCloneCollider : MonoBehaviour
                 
             transform.position += RealDir * 1/100;
             }
+            }
+            
         }
     }
 }

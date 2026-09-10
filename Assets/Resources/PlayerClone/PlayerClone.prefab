@@ -154,6 +154,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCloneCollider
   dashing: 0
+  direction: {x: 0, y: 0, z: 0}
+  RealDir: {x: 0, y: 0, z: 0}
+  maxCloneDistance: 2
 --- !u!1 &3769751779792991040
 GameObject:
   m_ObjectHideFlags: 0
