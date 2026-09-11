@@ -15386,7 +15386,7 @@ MonoBehaviour:
   FourthMask: {fileID: 978018288}
   FifthMask: {fileID: 1348840729}
   Fireball: {fileID: 6831931665148355495, guid: 383c80186434c3a479b677f723c315ba, type: 3}
-  Unlockables: 000000
+  Unlockables: 010101
   MeleeHB: {fileID: 5334200526625482467}
   AbilityUIBoxes:
   - {fileID: 6183659932104161723}
@@ -15644,7 +15644,7 @@ MonoBehaviour:
   sliding: 0
   gripping: 0
   canWalk: 0
-  Unlockables: 0000000000
+  Unlockables: 0100000001
   Values: {fileID: 11400000, guid: d0a6d281caa2dc745aa220a6d0eccbb7, type: 2}
   CrouchHB: {fileID: 575863606361913894}
   climbPosition: {x: 0, y: 0}
@@ -15664,7 +15664,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 149914946642496016, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: DoorToSpawnTo
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 149914946642496016, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: nowPosition.x
@@ -15676,12 +15676,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 149914946642496016, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: _sceneToLoad._sceneName
-      value: UnderLairStartRoom
+      value: TestScene
       objectReference: {fileID: 0}
     - target: {fileID: 149914946642496016, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: _sceneToLoad._sceneAsset
       value: 
-      objectReference: {fileID: 102900000, guid: 54a6cfd7830944c44bc26d623fa35660, type: 3}
+      objectReference: {fileID: 102900000, guid: 1d4b29520dad0b247b8bf618391e1e17, type: 3}
     - target: {fileID: 253584485623210418, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: m_Enabled
       value: 0
