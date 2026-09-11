@@ -21,7 +21,7 @@ public class PlayerAttack : MonoBehaviour
     public ScriptableObjectScript MeleeAttackSO;
     public ScriptableObjectScript Normal;
     [SerializeField] private int SpellHeldFrames = 0;
-   // [SerializeField] private bool healing;
+    // [SerializeField] private bool healing;
     [SerializeField] private string[] SpellBook;
     [SerializeField] private string currentSpell;
     private int SpellInt;
@@ -38,7 +38,7 @@ public class PlayerAttack : MonoBehaviour
     public float ammo;
     //start ammo is .3f
     //private float maxAmmo;
-    private bool reloading;
+    public bool reloading;
     //public float Mana;
     //public float ManaStartFloat;
     //public float ManaEndFloat;
@@ -48,11 +48,11 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private bool invuln = false;
     public bool ableToAttack;
     [SerializeField] private float ManaDrainSpeed;
-  //  [SerializeField] private float TimeToNextHealthTick;
+    //  [SerializeField] private float TimeToNextHealthTick;
     private bool inCooldown;
     public bool invisible;
-    [SerializeField] private float EffectiveRange;
-    [SerializeField] private GameObject RangeFinder; 
+    public float EffectiveRange;
+    [SerializeField] private GameObject RangeFinder;
 
     //This was originally 33f
 
@@ -73,14 +73,14 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private GameObject FourthMask;
     [SerializeField] private GameObject FifthMask;
     [SerializeField] private GameObject Fireball;
-   // [SerializeField] private GameObject Shot;
+    // [SerializeField] private GameObject Shot;
     [SerializeField] private bool[] Unlockables;
     [SerializeField] private GameObject MeleeHB;
     [SerializeField] private GameObject[] AbilityUIBoxes;
     public static PlayerAttack instance;
     [SerializeField] private AimScript AimingScript;
     [SerializeField] private GameObject ClonePlayer;
-    
+
     [SerializeField] private GameObject KEF;
     //[SerializeField] private GameObject AimRay;
     //[SerializeField] private GameObject UpperBody;
@@ -141,8 +141,8 @@ public class PlayerAttack : MonoBehaviour
         ShootSpell.performed += ctx => CastSpell();
         ShootSpell.canceled += ctx => EndCast();
         //Cast.canceled += ctx => EndSpell();
-       // Melee.performed += ctx => StartFireSpell1();
-       // Melee.canceled += ctx => SpellCheck();
+        // Melee.performed += ctx => StartFireSpell1();
+        // Melee.canceled += ctx => SpellCheck();
         //Heal = InputSystem.actions.FindAction("Heal");
         //Heal.performed += ctx => StartHeal();
         Health = Values.Health;
@@ -159,7 +159,7 @@ public class PlayerAttack : MonoBehaviour
         inCooldown = false;
         invisible = false;
         RangeFinder.GetComponent<CircleCollider2D>().radius = EffectiveRange;
-       // Aiming = false;
+        // Aiming = false;
         //GameObject Spawner = GameObject.FindGameObjectWithTag("Spawner");
         //Camera = Spawner.GetComponent<SpawnerScript>().Camera;
         //Camera = GameObject.FindGameObjectWithTag("MainCamera");
@@ -176,62 +176,62 @@ public class PlayerAttack : MonoBehaviour
             {
                 AimingScript.Aiming = false;
             }
-            
+
             //Camera.GetComponent<CameraFollow>().shaking = true;
             //Camera.GetComponent<CameraFollow>().Shake();
             //Use cinemachine noise
             //Camera.GetComponent<CinemachineImpulseSource>().GenerateImpulse();
-            CameraManager.instance.Shake(new Vector3(-.2f, -.2f,0));
+            CameraManager.instance.Shake(new Vector3(-.2f, -.2f, 0));
             //HealthMasks[MaskInt].GetComponent<Animator>().SetTrigger("Broken");
             //MaskInt++;
             Health -= AttackDamage;
-            
+
             AnimatorClipInfo[] clipInfo = PlayerAnim.GetCurrentAnimatorClipInfo(0);
             string currentClipName = clipInfo[0].clip.name;
             PlayerAnim.SetBool(currentClipName, false);
             if (Health == 4)
             {
-                
+
                 FirstMask.GetComponent<Animator>().SetBool("Healed", false);
                 FirstMask.GetComponent<Animator>().SetTrigger("Broken");
                 //invuln = true;
 
-            PlayerAnim.SetTrigger("Damaged");
-            
-            
+                PlayerAnim.SetTrigger("Damaged");
+
+
             }
             else if (Health == 3)
             {
-                
+
                 SecondMask.GetComponent<Animator>().SetBool("Healed", false);
                 SecondMask.GetComponent<Animator>().SetTrigger("Broken");
                 //invuln = true;
 
-            PlayerAnim.SetTrigger("Damaged");
-            //PlayerAnim.SetBool("Running", false);
-            
+                PlayerAnim.SetTrigger("Damaged");
+                //PlayerAnim.SetBool("Running", false);
+
             }
             else if (Health == 2)
             {
-                
+
                 ThirdMask.GetComponent<Animator>().SetBool("Healed", false);
                 ThirdMask.GetComponent<Animator>().SetTrigger("Broken");
                 //invuln = true;
 
-            PlayerAnim.SetTrigger("Damaged");
-            //PlayerAnim.SetBool("Running", false);
-            
+                PlayerAnim.SetTrigger("Damaged");
+                //PlayerAnim.SetBool("Running", false);
+
             }
             else if (Health == 1)
             {
-                
+
                 FourthMask.GetComponent<Animator>().SetBool("Healed", false);
                 FourthMask.GetComponent<Animator>().SetTrigger("Broken");
                 //invuln = true;
 
-            PlayerAnim.SetTrigger("Damaged");
-            //PlayerAnim.SetBool("Running", false);
-            
+                PlayerAnim.SetTrigger("Damaged");
+                //PlayerAnim.SetBool("Running", false);
+
             }
             else if (Health <= 0)
             {
@@ -239,12 +239,12 @@ public class PlayerAttack : MonoBehaviour
                 FifthMask.GetComponent<Animator>().SetTrigger("Broken");
                 Destroy(gameObject, 5);
             }
-            
-            invuln = true;                
+
+            invuln = true;
             StartCoroutine(Flash());
 
 
-            
+
             //gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 0);
             //gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
             //gameObject.GetComponent<BoxCollider2D>().enabled = false;
@@ -252,7 +252,7 @@ public class PlayerAttack : MonoBehaviour
     }
     void StartAim()
     {
-        if (PlayerMovement.instance.Grounded)
+        if (PlayerMovement.instance.Grounded && ableToAttack)
         {
             //Aiming = true;
             //AimRay.SetActive(true);
@@ -263,22 +263,26 @@ public class PlayerAttack : MonoBehaviour
             //UpperBody.GetComponent<SpriteRenderer>().enabled = true;
             //LowerBody.GetComponent<SpriteRenderer>().enabled = true;
             //PlayerRenderer.enabled = false;
-          //  PlayerAnim.SetBool("Aiming", true);
-        PlayerMovement.instance.ableToMove = false;
+            //  PlayerAnim.SetBool("Aiming", true);
+            PlayerMovement.instance.ableToMove = false;
         }
     }
     void EndAiming()
     {
+        if (PlayerMovement.instance.Grounded  && ableToAttack)
+        {
+            
         //Aiming = false;
         //AimRay.SetActive(false);
         //PlayerRenderer.enabled = true;
-        PlayerAnim.SetBool("Idle", true);
+        //PlayerAnim.SetBool("Idle", true);
         AimingScript.EndAim();
         //PlayerAnim.speed = 1;
         //UpperBody.GetComponent<SpriteRenderer>().enabled = false;
         //LowerBody.GetComponent<SpriteRenderer>().enabled = false;
         //PlayerAnim.SetBool("")
         PlayerMovement.instance.ableToMove = true;
+        }
     }
     // Update is called once per frame
     void Update()
@@ -349,7 +353,7 @@ public class PlayerAttack : MonoBehaviour
             }
             //Debug.Log(Mouse.current.scroll.ReadValue().y);
         }
-        
+
         /*else if (casting)
         {
             timeSinceAttack++;
@@ -360,7 +364,7 @@ public class PlayerAttack : MonoBehaviour
             }
 
         }*/
-        
+
         /*
         if (healing)
         {
@@ -382,64 +386,35 @@ public class PlayerAttack : MonoBehaviour
         {
             if (ShotBarImage.fillAmount >= ammo)
             {
-            ShotBarImage.fillAmount -= ammo;
-            reloading = false;
-            //}
-            PlayerMovement.instance.ableToMove = false;
-            if (PlayerMovement.instance.Grounded)
-            {
-                gameObject.GetComponent<Rigidbody2D>().linearVelocityX = 0;   
-            }
-            currentAttack = Normal;
-            attacking = true;
-            if (!PlayerMovement.instance.MovingLeft && !PlayerMovement.instance.MovingRight)
-        {
-            PlayerAnim.SetBool("Idle", false);
-        }
-        else
-        {
-            PlayerAnim.SetBool("Running", false);
-        }
-            //PlayerAnim.SetBool("Idle", false);
-            //AnimatorClipInfo[] clipInfo = PlayerAnim.GetCurrentAnimatorClipInfo(0);
-            //string currentClipName = clipInfo[0].clip.name;
-            if (PlayerAnim.GetBool("Crouching"))
-            {
-                attacking = true;
-                //GameObject Projectile = Instantiate(Shot, new Vector2(transform.position.x, transform.position.y + 0.05f), transform.rotation);
-                   // Destroy(Projectile, 0.5f);
-                
-                /*if (transform.rotation != Quaternion.Euler(0f, 0f, 0f))
+                /*ShotBarImage.fillAmount -= ammo;
+                reloading = false;
+                //}
+                PlayerMovement.instance.ableToMove = false;
+                if (PlayerMovement.instance.Grounded)
                 {
-                    Projectile.GetComponent<Rigidbody2D>().linearVelocityX = -5;
-                    Debug.Log(Projectile.GetComponent<Rigidbody2D>().linearVelocityX);
+                    gameObject.GetComponent<Rigidbody2D>().linearVelocityX = 0;
                 }
-                if (transform.rotation == Quaternion.Euler(0f, 0f, 0f))
+                currentAttack = Normal;
+                attacking = true;
+                if (!PlayerMovement.instance.MovingLeft && !PlayerMovement.instance.MovingRight)
                 {
-                    Projectile.GetComponent<Rigidbody2D>().linearVelocityX = 5;
-                }*/
-                //Projectile.GetComponent<ProjectileScript>().BelongsTo = gameObject;
-            }
-            else
-            {
+                    PlayerAnim.SetBool("Idle", false);
+                }
+                else
+                {
+                    PlayerAnim.SetBool("Running", false);
+                }
+                if (PlayerAnim.GetBool("Crouching"))
+                {
                     attacking = true;
-                    // GameObject Projectile = Instantiate(Shot, new Vector2(transform.position.x, transform.position.y + .1f), transform.rotation);
-                    //Destroy(Projectile, 0.5f);
-                    /*if (transform.rotation != Quaternion.Euler(0f, 0f, 0f))
-                    {
-                        Projectile.GetComponent<Rigidbody2D>().linearVelocityX = -5;
-                        //Debug.Log(Projectile.GetComponent<Rigidbody2D>().linearVelocityX);
-                    }
-                    if (transform.rotation == Quaternion.Euler(0f, 0f, 0f))
-                    {
-                        Projectile.GetComponent<Rigidbody2D>().linearVelocityX = 5;
-                    }*/
+                }
+                else
+                {
+                    attacking = true;
                     AimingScript.Shoot();
-                //Projectile.GetComponent<ProjectileScript>().BelongsTo = gameObject;
-                //PlayerAnim.Play("Shoot");
-                //ManaContainer.fillAmount -= 30;
-                //PlayerAnim.SetBool(currentClipName, false);
-            }
+                }*/
+                currentAttack= Normal;
+                AimingScript.Shoot();
             }
         }
     }
@@ -546,9 +521,9 @@ public class PlayerAttack : MonoBehaviour
             {
                 if (ClonePlayer.GetComponent<PlayerCloneCollider>().dashing)
                 {
-                    
-            transform.position = ClonePlayer.transform.position;
-            Destroy(ClonePlayer);
+
+                    transform.position = ClonePlayer.transform.position;
+                    Destroy(ClonePlayer);
                 }
             }
         }
@@ -560,19 +535,19 @@ public class PlayerAttack : MonoBehaviour
         //PlayerAnim.SetTrigger("Attacking");
         PlayerMovement.instance.ableToMove = true;
         MeleeHB.SetActive(false);
-       // Debug.Log(Aim.IsPressed());
-        if (!PlayerMovement.instance.MovingLeft && !PlayerMovement.instance.MovingRight && !Aim.IsPressed())
+        // Debug.Log(Aim.IsPressed());
+        /*if (!PlayerMovement.instance.MovingLeft && !PlayerMovement.instance.MovingRight && !Aim.IsPressed())
         {
             PlayerAnim.SetBool("Idle", true);
         }
         else
         {
             PlayerAnim.SetBool("Running", true);
-        }
+        }*/
         attacking = false;
         yield return new WaitForSeconds(2);
 
-        reloading= true;
+        reloading = true;
         /*if (QueueLeftTurn)
         {
             transform.localScale = new Vector3(-1, 1, 1);
@@ -589,14 +564,14 @@ public class PlayerAttack : MonoBehaviour
         PlayerMovement.instance.ableToMove = true;
         timeSinceAttack = 0;
         //PlayerAnim.SetBool("Casting", false);
-        if (!PlayerMovement.instance.MovingLeft && !PlayerMovement.instance.MovingRight)
+        /*if (!PlayerMovement.instance.MovingLeft && !PlayerMovement.instance.MovingRight)
         {
             PlayerAnim.SetBool("Idle", true);
         }
         else
         {
             PlayerAnim.SetBool("Running", true);
-        }
+        }*/
         casting = false;
         /*if (QueueLeftTurn)
         {
@@ -615,13 +590,13 @@ public class PlayerAttack : MonoBehaviour
         {
             //yield return new WaitForSeconds(duration);
             PlayerRenderer.material = flashMaterial;
-          //  for (int i = 0; i< 5; i++)
+            //  for (int i = 0; i< 5; i++)
             //{
-                
+
             //yield return null;
-           // }
-           yield return new WaitForSeconds(duration);
-           Debug.Log("Hello");
+            // }
+            yield return new WaitForSeconds(duration);
+            Debug.Log("Hello");
             PlayerRenderer.material = trueMaterial;
             yield return new WaitForSeconds(duration);
             StartCoroutine(Flash());
@@ -641,7 +616,7 @@ public class PlayerAttack : MonoBehaviour
         ableToAttack = true;
         if (!PlayerMovement.instance.MovingRight && !PlayerMovement.instance.MovingLeft)
         {
-            PlayerAnim.SetBool("Idle", true);
+            //PlayerAnim.SetBool("Idle", true);
             //Debug.Log("Huh");
         }
         else if (gameObject.GetComponent<Rigidbody2D>().linearVelocityY < -0.01)
@@ -744,7 +719,7 @@ public class PlayerAttack : MonoBehaviour
     {
         //if (healing)
         //{
-          //  CancelHeal();
+        //  CancelHeal();
         //}
         /*else 
         {
@@ -772,14 +747,14 @@ public class PlayerAttack : MonoBehaviour
         {
             if (!other.gameObject.GetComponent<EnemyAttack>().Frozen)
             {
-                
-            //Debug.Log("Ran into the enemy");
 
-            TakeDamage(1);
-            PlayerMovement.instance.Recoil();
+                //Debug.Log("Ran into the enemy");
+
+                TakeDamage(1);
+                PlayerMovement.instance.Recoil();
             }
 
-            
+
         }
         else if (other.gameObject.CompareTag("Spike"))
         {
@@ -793,7 +768,7 @@ public class PlayerAttack : MonoBehaviour
     public void Transition()
     {
         Values.Health = Health;
-    Values.maxHealth = maxHealth;
+        Values.maxHealth = maxHealth;
         //Values.Mana = Mana;
         //Values.ManaMax = ManaMax;
         //Values.currentAttack = currentAttack;
@@ -805,5 +780,5 @@ public class PlayerAttack : MonoBehaviour
         //Destroy(gameObject, 0);
         //Debug.Log(Values.currentTransform);
     }
-    
+
 }

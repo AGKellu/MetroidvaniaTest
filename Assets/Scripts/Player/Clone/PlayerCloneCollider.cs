@@ -32,20 +32,22 @@ public class PlayerCloneCollider : MonoBehaviour
     {
         if (dashing)
         {
-            if (Vector2.Distance(playerTransformPos, transform.position) < maxCloneDistance)
+            if (Mathf.Abs(Vector2.Distance(playerTransformPos, transform.position)) < maxCloneDistance)
             {
                 if (direction.x < 0)
-            {
+                {
 
-            transform.position -= RealDir * 1 / 100;
+                    transform.position -= RealDir * 1 / 100;
+                }
+                else if (direction.x > 0)
+                {
+
+                    transform.position += RealDir * 1 / 100;
+                }
             }
-            else if (direction.x > 0)
-            {
-                
-            transform.position += RealDir * 1/100;
-            }
-            }
-            
+
         }
     }
+    //void
+    //check if trigger enter anything, stop moving (dashing = false) 
 }

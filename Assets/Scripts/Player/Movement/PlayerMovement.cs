@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     public bool ableToMove = true;
     private float jumpGoodFrames;
     [SerializeField] private int JumpCount;
+    public int AvailableJumps;
     public bool sliding = false;
     [SerializeField] private bool gripping;
     //public bool crouching;
@@ -64,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
     public float thingy;
     public bool CanMoveCam;
     public Vector3 BackFootOffset;
+    [SerializeField] AimScript AimingScript;
     //[SerializeField] private GameObject TransitionPanel;
     /*
     Unlockables are:
@@ -119,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
         canWalk = true;
         gripping = false;
         Grounded = true;
-        PlayerAnim.SetBool("Idle", true);
+        //PlayerAnim.SetBool("Idle", true);
     }
     public void Recoil()
     {
@@ -179,7 +181,7 @@ public class PlayerMovement : MonoBehaviour
             {
 
                 Grounded = true;
-
+                PlayerAnim.SetBool("Falling", false);
             }
 
         }
@@ -190,14 +192,16 @@ public class PlayerMovement : MonoBehaviour
             {
                 PlayerRB.gravityScale = 1f;
             }
-         
-        
-                
+
+
+
             //PlayerRB.gravityScale = 3f;
-            
+
             //if (PlayerRB.linearVelocityY < 0 && !PlayerAttack.instance.attacking)
             //{
-                PlayerAnim.SetBool("Falling", true);
+
+            //PlayerAnim.SetBool("Falling", true);
+                
                // PlayerRB.gravityScale = 1.5f;
             //}
         }
@@ -254,7 +258,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (moveActionRight.WasReleasedThisFrame())
         {
-            if (!MovingLeft && !sliding)
+            if (!MovingLeft && !sliding && !AimingScript.Aiming)
             {
                 PlayerAnim.SetBool("Running", false);
                 PlayerAnim.SetBool("Idle", true);
@@ -269,7 +273,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (moveActionLeft.WasReleasedThisFrame())
         {
-            if (!MovingRight && !sliding)
+            if (!MovingRight && !sliding && !AimingScript.Aiming)
             {
                 PlayerAnim.SetBool("Running", false);
                 PlayerAnim.SetBool("Idle", true);
@@ -348,8 +352,7 @@ public class PlayerMovement : MonoBehaviour
             Grounded = false;
             if (PlayerRB.linearVelocityY < 0 && !PlayerAttack.instance.attacking)
             {
-                PlayerAnim.SetBool("Falling", true);
-                //PlayerRB.gravityScale = 1.5f;
+                //PlayerAnim.SetBool("Falling", true);
             }
         }
         //}
@@ -476,7 +479,7 @@ public class PlayerMovement : MonoBehaviour
                // transform.Rotate(new Vector3(0f, 180f, 0f));
                 }
            // }
-            if (Grounded && !PlayerAttack.instance.attacking)
+            if (Grounded && !PlayerAttack.instance.attacking && !AimingScript.Aiming)
             {
                 PlayerAnim.SetBool("Running", true);
                 PlayerAnim.SetBool("Idle", false);
@@ -499,26 +502,27 @@ public class PlayerMovement : MonoBehaviour
             //else
             //{
                 cameraFollowObject.CallTurn();
-                if (transform.rotation == Quaternion.Euler(0f, 0f, 0f))
-                {
+            if (transform.rotation == Quaternion.Euler(0f, 0f, 0f))
+            {
                 transform.rotation = Quaternion.Euler(0f, 180f, 0f);
                 BackFootOffset = BackFootOffset * -1;
                 //transform.Rotate(new Vector3(0f, 180f, 0f));
-                }
+            }
             //}
 
-            if (Grounded && !PlayerAttack.instance.attacking)
+            if (Grounded && !PlayerAttack.instance.attacking && !AimingScript.Aiming)
             {
                 PlayerAnim.SetBool("Running", true);
                 PlayerAnim.SetBool("Idle", false);
             }
+           
         }
     }
     void StartCrouching()
     {
         if (ableToMove)
         {
-            if (Grounded)
+            /*if (Grounded)
             {
                 //ableToMove = false;
                 //transform.GetChild(1).gameObject.SetActive(true);
@@ -543,15 +547,16 @@ public class PlayerMovement : MonoBehaviour
             MovingRight = false;
                 canWalk = false;
                 PlayerRB.linearVelocityX = 0;
-            }
-            else if (gripping)
+            }*/
+            //else if (gripping)
+            if (gripping)
             {
 
                 PlayerAnim.SetBool("Falling", false);
                 gripping = false;
                 PlayerRB.gravityScale = 1;
             }
-            else if (!Grounded)
+            else if (!Grounded && Unlockables[4] == true)
             {
                 slamming = true;
                 PlayerRB.gravityScale = 4f;
@@ -588,10 +593,13 @@ public class PlayerMovement : MonoBehaviour
                 PlayerRB.gravityScale = 1;
                 JumpCount++;
             }
-            else if (Unlockables[3] == true && JumpCount < 2)
+            else if (Unlockables[3] == true && JumpCount < AvailableJumps)
             {
                 PlayerRB.AddForce(transform.up * (JumpForce * 1.5f), ForceMode2D.Impulse);
-                PlayerAnim.Play("jump", -1, 0f);
+                PlayerAnim.SetBool("Idle", false);
+                PlayerRB.gravityScale = 1;
+                JumpCount++;
+                //PlayerAnim.Play("jump", -1, 0f);
                 // JumpCount++;
             }
             canWalk = false;
@@ -637,7 +645,7 @@ public class PlayerMovement : MonoBehaviour
 
     void StartSlide()
     {
-        if (Grounded && !PlayerAttack.instance.attacking)
+        if (Grounded && !PlayerAttack.instance.attacking && Unlockables[0] == true)
         {
             if (transform.localScale.x == 1)
             {
@@ -663,7 +671,9 @@ public class PlayerMovement : MonoBehaviour
 
     void EndSlide()
     {
-        ableToMove = true;
+        if (Grounded && !PlayerAttack.instance.attacking && Unlockables[0] == true)
+        {
+            ableToMove = true;
         sliding = false;
         PlayerAnim.SetBool("Sliding", false);
         gameObject.GetComponent<BoxCollider2D>().enabled = true;
@@ -681,6 +691,8 @@ public class PlayerMovement : MonoBehaviour
        // slideFrames = 0;
        PlayerAttack.instance.ableToAttack = true;
         canWalk = true;
+        }
+        
     }
 
     public void EndJump()
@@ -691,7 +703,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (!MovingLeft && !MovingRight)
         {
-            PlayerAnim.SetBool("Idle", true);
+            //PlayerAnim.SetBool("Idle", true);
         }
         else if (MovingLeft || MovingRight)
         {
@@ -755,7 +767,11 @@ public class PlayerMovement : MonoBehaviour
     }
     public void GrabLedge()
     {
+        if (Unlockables[3]== true)
+        {
+            
         gripping = true;
+        }
         //Debug.Log("Grab ledge");
     }
     

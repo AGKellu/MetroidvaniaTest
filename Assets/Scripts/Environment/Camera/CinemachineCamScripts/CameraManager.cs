@@ -26,7 +26,7 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private float panSpeed = 0f;
     //[SerializeField] private float lookCapUp;
     //[SerializeField] private float lookCapDown;
-    
+
     private InputAction panCamUp;
     private InputAction panCamDown;
     private bool Moving;
@@ -79,7 +79,7 @@ public class CameraManager : MonoBehaviour
 
         if (Direction && !movingDown && PlayerMovement.instance.Grounded && !PlayerMovement.instance.MovingRight && !PlayerMovement.instance.MovingLeft && PlayerMovement.instance.CanMoveCam)
         {
-            
+
             movingUp = true;
         }
         else if (!Direction && !movingUp && PlayerMovement.instance.Grounded && !PlayerMovement.instance.MovingRight && !PlayerMovement.instance.MovingLeft && PlayerMovement.instance.CanMoveCam)
@@ -90,7 +90,7 @@ public class CameraManager : MonoBehaviour
     public void StartMovingUp()
     {
         Working = true;
-        for (int i = 0; i< allCams.Length; i++)
+        for (int i = 0; i < allCams.Length; i++)
         {
             if (allCams[i].gameObject.name.Contains("Up"))
             {
@@ -100,8 +100,8 @@ public class CameraManager : MonoBehaviour
             }
             else
             {
-                
-                allCams[i].Priority =0;
+
+                allCams[i].Priority = 0;
             }
         }
     }
@@ -123,30 +123,30 @@ public class CameraManager : MonoBehaviour
             }
         }
     }
-    
+
     void Move(bool movingUp)
     {
         if (movingUp)
         {
             if (PlayerMovement.instance.gameObject.transform.rotation == Quaternion.Euler(0f, 180f, 0f))
-        {
-            currentCam.transform.position = new Vector3(FollowTarget.transform.position.x, currentCam.transform.position.y + (panSpeed * Time.deltaTime), currentCam.transform.position.z);
-        }
-        else if (PlayerMovement.instance.gameObject.transform.rotation == Quaternion.Euler(0f, 0f, 0f))
-        {
-            currentCam.transform.position = new Vector3(FollowTarget.transform.position.x, currentCam.transform.position.y + (panSpeed * Time.deltaTime), currentCam.transform.position.z);
-        }
+            {
+                currentCam.transform.position = new Vector3(FollowTarget.transform.position.x, currentCam.transform.position.y + (panSpeed * Time.deltaTime), currentCam.transform.position.z);
+            }
+            else if (PlayerMovement.instance.gameObject.transform.rotation == Quaternion.Euler(0f, 0f, 0f))
+            {
+                currentCam.transform.position = new Vector3(FollowTarget.transform.position.x, currentCam.transform.position.y + (panSpeed * Time.deltaTime), currentCam.transform.position.z);
+            }
         }
         else
         {
             if (PlayerMovement.instance.gameObject.transform.rotation == Quaternion.Euler(0f, 180f, 0f))
-                {
-                    currentCam.transform.position = new Vector3(FollowTarget.transform.position.x, currentCam.transform.position.y - (panSpeed * Time.deltaTime), currentCam.transform.position.z);
-                }
-                else if (PlayerMovement.instance.gameObject.transform.rotation == Quaternion.Euler(0f, 0f, 0f))
-                {
-                    currentCam.transform.position = new Vector3(FollowTarget.transform.position.x, currentCam.transform.position.y - (panSpeed * Time.deltaTime), currentCam.transform.position.z);
-                }
+            {
+                currentCam.transform.position = new Vector3(FollowTarget.transform.position.x, currentCam.transform.position.y - (panSpeed * Time.deltaTime), currentCam.transform.position.z);
+            }
+            else if (PlayerMovement.instance.gameObject.transform.rotation == Quaternion.Euler(0f, 0f, 0f))
+            {
+                currentCam.transform.position = new Vector3(FollowTarget.transform.position.x, currentCam.transform.position.y - (panSpeed * Time.deltaTime), currentCam.transform.position.z);
+            }
         }
     }
 
@@ -160,11 +160,11 @@ public class CameraManager : MonoBehaviour
         if (movingUp)
         {
             movingUp = false;
-            for (int i = 0; i< allCams.Length; i++)
+            for (int i = 0; i < allCams.Length; i++)
             {
                 if (allCams[i].gameObject.name.Contains("Follow"))
                 {
-                    allCams[i].Priority= 1;
+                    allCams[i].Priority = 1;
                     currentCam = allCams[i];
                 }
                 else if (allCams[i].gameObject.name.Contains("Up"))
@@ -182,11 +182,11 @@ public class CameraManager : MonoBehaviour
                 if (allCams[i].gameObject.name.Contains("Up"))
                 {
                     allCams[i].Priority = 0;
-                    allCams[i].transform.localPosition = new Vector3(allCams[i].transform.position.x,-0.75f,-10);
+                    allCams[i].transform.localPosition = new Vector3(allCams[i].transform.position.x, -0.75f, -10);
                 }
                 else if (allCams[i].gameObject.name.Contains("Follow"))
                 {
-                    allCams[i].Priority=1;
+                    allCams[i].Priority = 1;
                     currentCam = allCams[i];
                 }
             }
@@ -258,57 +258,57 @@ public class CameraManager : MonoBehaviour
     }
     #endregion
 
-   /* #region Pan Camera
+    /* #region Pan Camera
 
-    public void PanCameraOnContact(float panDistance, float panTime, PanDirection panDirection, bool panToStartingPos)
-    {
-        panCameraCoroutine = StartCoroutine(PanCamera(panDistance, panTime, panDirection, panToStartingPos));
-    }
-    
-    private IEnumerator PanCamera(float panDistance, float panTime, PanDirection panDirection, bool panToStartingPos)
-    {
-        Vector2 endPos = Vector2.zero;
-        Vector2 startingPos = Vector2.zero;
+     public void PanCameraOnContact(float panDistance, float panTime, PanDirection panDirection, bool panToStartingPos)
+     {
+         panCameraCoroutine = StartCoroutine(PanCamera(panDistance, panTime, panDirection, panToStartingPos));
+     }
 
-        if (!panToStartingPos)
-        {
-            switch(panDirection)
-            {
-                case PanDirection.Up:
-                    endPos = Vector2.up;
-                    break;
-                case PanDirection.Down:
-                    endPos = Vector2.down;
-                    break;
-                case PanDirection.Left:
-                    endPos = Vector2.right;
-                    break;
-                case PanDirection.Right:
-                    endPos = Vector2.left;
-                    break;
-                default:
-                    break;
+     private IEnumerator PanCamera(float panDistance, float panTime, PanDirection panDirection, bool panToStartingPos)
+     {
+         Vector2 endPos = Vector2.zero;
+         Vector2 startingPos = Vector2.zero;
 
-            }
+         if (!panToStartingPos)
+         {
+             switch(panDirection)
+             {
+                 case PanDirection.Up:
+                     endPos = Vector2.up;
+                     break;
+                 case PanDirection.Down:
+                     endPos = Vector2.down;
+                     break;
+                 case PanDirection.Left:
+                     endPos = Vector2.right;
+                     break;
+                 case PanDirection.Right:
+                     endPos = Vector2.left;
+                     break;
+                 default:
+                     break;
 
-            endPos *= panDistance;
-            startingPos = startingTrackedObjectOffset;
-            endPos += startingPos;
-        }
-        else
-        {
-            startingPos = positionComposer.TargetOffset;
-            endPos = startingTrackedObjectOffset;
-        }
-        float elapsedTime = 0f;
-        while (elapsedTime < panTime)
-        {
-            Vector3 panLerp = Vector3.Lerp(startingPos, endPos, (elapsedTime / panTime));
-            positionComposer.TargetOffset = panLerp;
-            yield return null;
-        }
-       
-    }
-    #endregion
-    */
+             }
+
+             endPos *= panDistance;
+             startingPos = startingTrackedObjectOffset;
+             endPos += startingPos;
+         }
+         else
+         {
+             startingPos = positionComposer.TargetOffset;
+             endPos = startingTrackedObjectOffset;
+         }
+         float elapsedTime = 0f;
+         while (elapsedTime < panTime)
+         {
+             Vector3 panLerp = Vector3.Lerp(startingPos, endPos, (elapsedTime / panTime));
+             positionComposer.TargetOffset = panLerp;
+             yield return null;
+         }
+
+     }
+     #endregion
+     */
 }

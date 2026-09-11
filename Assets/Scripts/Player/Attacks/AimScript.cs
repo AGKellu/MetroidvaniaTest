@@ -1,6 +1,7 @@
 //using System.Numerics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 public class AimScript : MonoBehaviour
 {
     private Vector3 mousePos;
@@ -10,6 +11,9 @@ public class AimScript : MonoBehaviour
     [SerializeField] GameObject AimRay;
     [SerializeField] GameObject Shot;
     [SerializeField] GameObject Line;
+
+    [Header("Misc")]
+    [SerializeField] Image ShotBarImage;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,7 +25,7 @@ public class AimScript : MonoBehaviour
     {
         if (Aiming)
         {
-            
+
 
             mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Mouse.current.position.ReadValue().x, Mouse.current.position.ReadValue().y, Camera.main.nearClipPlane));
             AimRay.transform.position = mousePos;
@@ -58,6 +62,14 @@ public class AimScript : MonoBehaviour
     public void Aim()
     {
         Aiming = true;
+        PlayerMovement.instance.ableToMove = false;
+        PlayerMovement.instance.MovingLeft = false;
+        PlayerMovement.instance.MovingRight = false;
+        PlayerMovement.instance.gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 0);
+        if (PlayerMovement.instance.MovingRight)
+        {
+            Debug.Log("Stop");
+        }
         AimRay.SetActive(true);
         Line.SetActive(true);
     }
@@ -66,6 +78,7 @@ public class AimScript : MonoBehaviour
         Aiming = false;
         AimRay.SetActive(false);
         Line.SetActive(false);
+        PlayerMovement.instance.ableToMove = true;
         if (!PlayerMovement.instance.MovingLeft && !PlayerMovement.instance.MovingRight)
         {
             PlayerAttack.instance.PlayerAnim.SetBool("Idle", true);
@@ -77,27 +90,50 @@ public class AimScript : MonoBehaviour
     }
     public void Shoot()
     {
-        //GameObject Projectile = Instantiate(Shot, new Vector2(UpperBody.transform.position.x - .25f, UpperBody.transform.position.y - .1f), UpperBody.transform.rotation);
-        GameObject Projectile = Instantiate(Shot, new Vector2(UpperBody.transform.position.x - .25f, UpperBody.transform.position.y - .1f), Shot.transform.rotation);
-        //Destroy(Projectile, 0.5f);
-        Projectile.GetComponent<ProjectileScript>().BelongsTo = PlayerAttack.instance.gameObject;
-        Projectile.GetComponent<ProjectileScript>().mousePos = mousePos;
-        //Projectile.transform.LookAt(AimRay.transform);
-        //Projectile.transform.localRotation = Quaternion.Euler(Projectile.transform.localRotation.x, Projectile.transform.localRotation.y, UpperBody.transform.localRotation.z);
-        //Debug.Log(Projectile.transform.rotation.z);
-        
-        /*if (Projectile.transform.localRotation != Quaternion.Euler(0f, 0f, ))
+        if (Aiming)
+        {
+            //if (ShotBarImage.fillAmount >= ammo)
+            //{
+
+                ShotBarImage.fillAmount -= PlayerAttack.instance.ammo;
+                PlayerAttack.instance.reloading = false;
+                GameObject Projectile = Instantiate(Shot, new Vector2(UpperBody.transform.position.x - .25f, UpperBody.transform.position.y - .1f), Shot.transform.rotation);
+                Projectile.GetComponent<ProjectileScript>().BelongsTo = PlayerAttack.instance.gameObject;
+                Projectile.GetComponent<ProjectileScript>().mousePos = mousePos;
+
+                //if (ShotBarImage.fillAmount >= ammo)
+                //{
+                //ShotBarImage.fillAmount -= ammo;
+                //reloading = false;
+                //PlayerMovement.instance.ableToMove = false;
+                PlayerAttack.instance.attacking = true;
+                if (PlayerMovement.instance.Grounded)
                 {
-                    Projectile.GetComponent<Rigidbody2D>().linearVelocityX = -5;
-                    //Debug.Log(Projectile.GetComponent<Rigidbody2D>().linearVelocityX);
+                    PlayerMovement.instance.gameObject.GetComponent<Rigidbody2D>().linearVelocityX = 0;
                 }
-                if (Projectile.transform.localRotation == Quaternion.Euler(0f, 0f, 0f))
-                {
-                    Projectile.GetComponent<Rigidbody2D>().linearVelocityX = 5;
-                }
-        */
-        
-       //Projectile.GetComponent<Rigidbody2D>().linearVelocity = transform.TransformDirection(Vector3.forward * 50);
-        //Projectile.GetComponent<Rigidbody2D>().linearVelocityX = 5;
+                //currentAttack = Normal;
+                PlayerAttack.instance.attacking = true;
+                //if (!PlayerMovement.instance.MovingLeft && !PlayerMovement.instance.MovingRight)
+                //{
+                  //  PlayerAttack.instance.PlayerAnim.SetBool("Idle", false);
+                //}
+                //else
+                //{
+                  //  PlayerAttack.instance.PlayerAnim.SetBool("Running", false);
+                    //}
+                    //if (PlayerAnim.GetBool("Crouching"))
+                    //{
+                    //  attacking = true;
+                    //}
+                    //else
+                    //{
+                    //  attacking = true;
+                    //AimingScript.Shoot();
+               // }
+            //}
+        }
+        // }
+        // }
+
     }
 }
