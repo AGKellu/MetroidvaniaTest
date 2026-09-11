@@ -15386,7 +15386,7 @@ MonoBehaviour:
   FourthMask: {fileID: 978018288}
   FifthMask: {fileID: 1348840729}
   Fireball: {fileID: 6831931665148355495, guid: 383c80186434c3a479b677f723c315ba, type: 3}
-  Unlockables: 010101
+  Unlockables: 000000
   MeleeHB: {fileID: 5334200526625482467}
   AbilityUIBoxes:
   - {fileID: 6183659932104161723}
@@ -15644,7 +15644,7 @@ MonoBehaviour:
   sliding: 0
   gripping: 0
   canWalk: 0
-  Unlockables: 0100000001
+  Unlockables: 0000000000
   Values: {fileID: 11400000, guid: d0a6d281caa2dc745aa220a6d0eccbb7, type: 2}
   CrouchHB: {fileID: 575863606361913894}
   climbPosition: {x: 0, y: 0}
