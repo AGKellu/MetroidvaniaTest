@@ -54,16 +54,20 @@ public class SpawnerScript : MonoBehaviour
         //Player.GetComponent<PlayerMovement>().Camera = null;
         //Player.GetComponent<PlayerMovement>().Camera = Camera;
         // Player.GetComponent<PlayerAttack>().Camera = Camera;
-        if (Player.transform.rotation == Quaternion.Euler(0f, 0f, 0f))
-        {
-            Player.transform.position = LeftTrans.GetComponent<TransitionScript>().nowPosition;
-            LeftDoor.GetComponent<DoorScript>().Close();
-        }
-        else if (Player.transform.rotation == Quaternion.Euler(0f, 180f, 0f))
-        {
-            Player.transform.position = RightTrans.GetComponent<TransitionScript>().nowPosition;
-            RightDoor.GetComponent<DoorScript>().Close();
-        }
+
+        //Bug, it doesnt spawn the same 
+        //if (Player.transform.rotation == Quaternion.Euler(0f, 0f, 0f))
+        //{
+            //Player.transform.position = LeftTrans.GetComponent<TransitionScript>().nowPosition;
+            //LeftDoor.GetComponent<DoorScript>().Close();
+        //}
+       // else if (Player.transform.rotation == Quaternion.Euler(0f, 180f, 0f))
+        //{
+          //  Player.transform.position = RightTrans.GetComponent<TransitionScript>().nowPosition;
+            //RightDoor.GetComponent<DoorScript>().Close();
+        //}
+
+
        // Player.transform.localScale = Vals.currentRotation;
     }
     public void Spawn()

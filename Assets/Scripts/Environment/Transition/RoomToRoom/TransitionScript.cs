@@ -19,7 +19,7 @@ public class TransitionScript : MonoBehaviour
     [Space(10)]
     [Header("This Door")]
     public DoorToSpawnAt CurrentDoorPosition;
-    [SerializeField] private string RoomToLoad;
+    //[SerializeField] private string RoomToLoad;
     //[SerializeField] private GameObject RealPlayer;
     //[SerializeField] private PlayerSOScript Values;
     public Vector3 nowPosition;
@@ -42,7 +42,7 @@ public class TransitionScript : MonoBehaviour
         //}
 
     }
-    IEnumerator Transition()
+    /*IEnumerator Transition()
     {
         AsyncOperation loadScene = SceneManager.LoadSceneAsync(RoomToLoad, LoadSceneMode.Additive);
         while (!loadScene.isDone)
@@ -57,7 +57,7 @@ public class TransitionScript : MonoBehaviour
         }
         //THIS WORKS!!!
         //if the new stuff doesnt work (below code), COME BACK to this
-    }
+    }*/
     public void CoolTrans()
     {
         SceneSwapManager.SwapSceneFromDoorUse(_sceneToLoad, DoorToSpawnTo);

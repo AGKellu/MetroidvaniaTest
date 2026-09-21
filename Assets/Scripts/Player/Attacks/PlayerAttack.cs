@@ -20,7 +20,7 @@ public class PlayerAttack : MonoBehaviour
     public ScriptableObjectScript currentAttack;
     public ScriptableObjectScript MeleeAttackSO;
     public ScriptableObjectScript Normal;
-    [SerializeField] private int SpellHeldFrames = 0;
+   // [SerializeField] private int SpellHeldFrames = 0;
     // [SerializeField] private bool healing;
     [SerializeField] private string[] SpellBook;
     [SerializeField] private string currentSpell;
@@ -47,7 +47,7 @@ public class PlayerAttack : MonoBehaviour
     //[SerializeField]private bool Aiming;
     [SerializeField] private bool invuln = false;
     public bool ableToAttack;
-    [SerializeField] private float ManaDrainSpeed;
+    //[SerializeField] private float ManaDrainSpeed;
     //  [SerializeField] private float TimeToNextHealthTick;
     private bool inCooldown;
     public bool invisible;
@@ -130,7 +130,7 @@ public class PlayerAttack : MonoBehaviour
         Shoot.performed += ctx => Attack();
 
         Melee = InputSystem.actions.FindAction("Attacks/Melee");
-        //Melee.performed += ctx => MeleeAttack();
+        Melee.performed += ctx => MeleeAttack();
         Aim = InputSystem.actions.FindAction("Attacks/Aim");
         Aim.performed += ctx => StartAim();
         Aim.canceled += ctx => EndAiming();
@@ -252,7 +252,7 @@ public class PlayerAttack : MonoBehaviour
     }
     void StartAim()
     {
-        if (PlayerMovement.instance.Grounded && ableToAttack)
+        if (PlayerMovement.instance.Grounded && ableToAttack && !attacking)
         {
             //Aiming = true;
             //AimRay.SetActive(true);
@@ -306,6 +306,10 @@ public class PlayerAttack : MonoBehaviour
         {
 
             ShotBarImage.fillAmount += .01f;
+            if (ShotBarImage.fillAmount >= 1)
+            {
+                reloading = false;
+            }
         }
 
         else if (invuln)
@@ -420,7 +424,7 @@ public class PlayerAttack : MonoBehaviour
     }
     void MeleeAttack()
     {
-        if (!attacking && ableToAttack)
+        if (!attacking && ableToAttack && !Aim.IsPressed())
         {
             PlayerMovement.instance.ableToMove = false;
             currentAttack = MeleeAttackSO;
@@ -435,6 +439,7 @@ public class PlayerAttack : MonoBehaviour
             else
             {
                 attacking = true;
+                
                 PlayerAnim.SetBool(currentClipName, false);
                 PlayerAnim.Play("ShootMelee");
                 MeleeHB.SetActive(true);
@@ -536,15 +541,19 @@ public class PlayerAttack : MonoBehaviour
         PlayerMovement.instance.ableToMove = true;
         MeleeHB.SetActive(false);
         // Debug.Log(Aim.IsPressed());
-        /*if (!PlayerMovement.instance.MovingLeft && !PlayerMovement.instance.MovingRight && !Aim.IsPressed())
+        if (!Aim.IsPressed())
         {
-            PlayerAnim.SetBool("Idle", true);
+            if (!PlayerMovement.instance.MovingLeft && !PlayerMovement.instance.MovingRight)
+            {
+                PlayerAnim.SetBool("Idle", true);
+            }
+            else if (PlayerMovement.instance.MovingLeft || PlayerMovement.instance.MovingRight)
+            {
+                PlayerAnim.SetBool("Running", true);
+            }
         }
-        else
-        {
-            PlayerAnim.SetBool("Running", true);
-        }*/
         attacking = false;
+        //Debug.Log("Attack Ended");
         yield return new WaitForSeconds(2);
 
         reloading = true;
@@ -651,12 +660,12 @@ public class PlayerAttack : MonoBehaviour
             {
                 if (SpellInt == 0)
                 {
-                    if (Unlockables[SpellInt] == true)
-                    {
+                   // if (Unlockables[SpellInt] == true)
+                    //{
                         GameObject PlayerClone = Instantiate(ClonePlayer, transform.position, Quaternion.identity);
                         PlayerClone.transform.rotation = transform.rotation;
                         Destroy(PlayerClone, 3);
-                    }
+                    //}
 
                     //make player invisible to enemies 
                     /*if (transform.rotation.y == 0)
@@ -715,29 +724,7 @@ public class PlayerAttack : MonoBehaviour
 
 
 
-    void SpellCheck()
-    {
-        //if (healing)
-        //{
-        //  CancelHeal();
-        //}
-        /*else 
-        {
-            if (SpellHeldFrames >= 10)
-        {
-            
-        }
-          //  StartHeal();
-        //}
-        else
-        {
-            FireSpell1();
-        }
-        }
-        */
-        SpellHeldFrames = 0;
-        //healingFrames = 0;
-    }
+    
 
 
     void OnCollisionEnter2D(Collision2D other)

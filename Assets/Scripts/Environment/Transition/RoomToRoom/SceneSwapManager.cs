@@ -55,6 +55,12 @@ public class SceneSwapManager : MonoBehaviour
         //GameObject Player = GameObject.FindGameObjectWithTag("Player");
         //Player.GetComponent<PlayerMovement>().enabled = true;
         InputSystem.actions.FindActionMap("Move").Enable();
+        PlayerMovement.instance.ableToMove = true;
+        PlayerMovement.instance.MovingRight = false;
+        PlayerMovement.instance.MovingLeft = false;
+        PlayerMovement.instance.gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector3(0, 0, 0);
+        PlayerMovement.instance.gameObject.GetComponent<Animator>().SetBool("Running", false);
+        PlayerMovement.instance.gameObject.GetComponent<Animator>().SetBool("Idle", true);
         InputSystem.actions.FindActionMap("Attacks").Enable();
     }
     private void DisablePlayer()
@@ -63,6 +69,7 @@ public class SceneSwapManager : MonoBehaviour
         //Player.GetComponent<PlayerMovement>().enabled = false;
         //Debug.Log(playerInput.currentActionMap);
         InputSystem.actions.FindActionMap("Move").Disable();
+        PlayerMovement.instance.ableToMove = false;
         InputSystem.actions.FindActionMap("Attacks").Disable();
     }
     
