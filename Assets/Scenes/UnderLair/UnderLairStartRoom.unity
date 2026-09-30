@@ -7882,7 +7882,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 149914946642496016, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: nowPosition.x
-      value: 11
+      value: 14.5
       objectReference: {fileID: 0}
     - target: {fileID: 149914946642496016, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: CurrentDoorPosition
@@ -7898,11 +7898,15 @@ PrefabInstance:
       objectReference: {fileID: 102900000, guid: e5c7a87305d113544b4ac868042dcb19, type: 3}
     - target: {fileID: 253584485623210418, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 764180377304896964, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.13
       objectReference: {fileID: 0}
     - target: {fileID: 1028036232454281664, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3132292607738067647, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: m_LocalScale.x
@@ -7910,7 +7914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3132292607738067647, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15
+      value: 15.1
       objectReference: {fileID: 0}
     - target: {fileID: 3132292607738067647, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7954,7 +7958,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4911491878664968962, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5737137948598207042, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: m_Name
@@ -13095,7 +13099,7 @@ Transform:
   m_GameObject: {fileID: 4156818657284740262}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 11.04, y: -0.05, z: 0}
+  m_LocalPosition: {x: 11.04, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13748,7 +13752,7 @@ MonoBehaviour:
   Grounded: 1
   ableToMove: 1
   JumpCount: 0
-  AvailableJumps: 0
+  AvailableJumps: 1
   sliding: 0
   gripping: 0
   canWalk: 0

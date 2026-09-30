@@ -5861,11 +5861,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 149914946642496016, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: DoorToSpawnTo
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 149914946642496016, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: nowPosition.x
-      value: 11
+      value: 29.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 149914946642496016, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
+      propertyPath: nowPosition.y
+      value: 3.222
       objectReference: {fileID: 0}
     - target: {fileID: 149914946642496016, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: CurrentDoorPosition
@@ -5873,12 +5877,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 149914946642496016, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: _sceneToLoad._sceneName
-      value: DebugScene
+      value: UnderLairRoom3
       objectReference: {fileID: 0}
     - target: {fileID: 149914946642496016, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: _sceneToLoad._sceneAsset
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 102900000, guid: 0c3de87775c1e4646a4152d9cfbb1fb4, type: 3}
     - target: {fileID: 3132292607738067647, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: m_LocalScale.x
       value: -1
@@ -14138,7 +14142,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 509845657283619797, guid: 4c764fbc3cadc33468e2b9040248cc47, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1699494306567353589, guid: 4c764fbc3cadc33468e2b9040248cc47, type: 3}
       propertyPath: m_IsActive
@@ -14146,7 +14150,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1841128257237595351, guid: 4c764fbc3cadc33468e2b9040248cc47, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1955336410608458142, guid: 4c764fbc3cadc33468e2b9040248cc47, type: 3}
       propertyPath: FireDoor
@@ -14162,7 +14166,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3307431173639575813, guid: 4c764fbc3cadc33468e2b9040248cc47, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16
+      value: 15.9
       objectReference: {fileID: 0}
     - target: {fileID: 3307431173639575813, guid: 4c764fbc3cadc33468e2b9040248cc47, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14210,7 +14214,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3545693547924352364, guid: 4c764fbc3cadc33468e2b9040248cc47, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976978834244046452, guid: 4c764fbc3cadc33468e2b9040248cc47, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6117374305060980913, guid: 4c764fbc3cadc33468e2b9040248cc47, type: 3}
       propertyPath: DoorToSpawnTo

@@ -56,16 +56,16 @@ public class SpawnerScript : MonoBehaviour
         // Player.GetComponent<PlayerAttack>().Camera = Camera;
 
         //Bug, it doesnt spawn the same 
-        //if (Player.transform.rotation == Quaternion.Euler(0f, 0f, 0f))
-        //{
-            //Player.transform.position = LeftTrans.GetComponent<TransitionScript>().nowPosition;
-            //LeftDoor.GetComponent<DoorScript>().Close();
-        //}
-       // else if (Player.transform.rotation == Quaternion.Euler(0f, 180f, 0f))
-        //{
-          //  Player.transform.position = RightTrans.GetComponent<TransitionScript>().nowPosition;
-            //RightDoor.GetComponent<DoorScript>().Close();
-        //}
+        if (Player.transform.rotation == Quaternion.Euler(0f, 0f, 0f))
+        {
+            Player.transform.position = LeftTrans.GetComponent<TransitionScript>().nowPosition;
+            LeftDoor.GetComponent<DoorScript>().Close();
+        }
+        else if (Player.transform.rotation == Quaternion.Euler(0f, 180f, 0f))
+        {
+            Player.transform.position = RightTrans.GetComponent<TransitionScript>().nowPosition;
+            RightDoor.GetComponent<DoorScript>().Close();
+        }
 
 
        // Player.transform.localScale = Vals.currentRotation;

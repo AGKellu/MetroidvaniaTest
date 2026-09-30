@@ -75,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
     Slide
     Wall Jump
     Double Jump
+        When double jump gets unlocked, set unlocked [3] to true, then set available jumps to 2
     Ledge Grab
     Slam
     */
@@ -178,8 +179,10 @@ public class PlayerMovement : MonoBehaviour
          }*/
 
         RaycastHit2D hitDown = Physics2D.Raycast(transform.position + BackFootOffset, -Vector2.up, thingy, LayerMask.GetMask("Ground"));
+        RaycastHit2D hitDown2 = Physics2D.Raycast(transform.position - BackFootOffset, -Vector2.up, thingy, LayerMask.GetMask("Ground"));
         //RaycastHit2D hitDown = Physics2D.Raycast(transform.position, -Vector2.up, thingy, LayerMask.GetMask("Ground"));
         Debug.DrawRay(transform.position + BackFootOffset, -Vector2.up * thingy, Color.red);
+        Debug.DrawRay(transform.position - BackFootOffset, -Vector2.up * thingy, Color.red);
         //Debug.DrawRay(transform.position, -Vector2.up * thingy, Color.red);
         //Backfoot offset when turned to the left, lets the player not be grounded or move 
         if (hitDown)
@@ -188,6 +191,11 @@ public class PlayerMovement : MonoBehaviour
             {
 
                 Grounded = true;
+                /*if (!moveActionRight && !moveActionRight)
+                {
+                    PlayerRB.linearVelocity = new Vector2(0, 0);
+
+                }*/
                 if (LastGroundIsLedge)
                 {
                     LastGroundIsLedge = false;
@@ -203,7 +211,32 @@ public class PlayerMovement : MonoBehaviour
 
 
         }
-        
+        if (hitDown2)
+        {
+            if (hitDown2.collider.gameObject.name.Contains("Floor") && !hitDown2.collider.gameObject.name.Contains("Ledge"))
+            {
+
+                Grounded = true;
+                /*if (!moveActionRight && !moveActionRight)
+                {
+                    PlayerRB.linearVelocity = new Vector2(0, 0);
+
+                }*/
+                if (LastGroundIsLedge)
+                {
+                    LastGroundIsLedge = false;
+                }
+                PlayerAnim.SetBool("Falling", false);
+            }
+            if (hitDown2.collider.gameObject.name.Contains("Ledge"))
+            {
+                LastGroundIsLedge = true;
+                Grounded = true;
+                PlayerAnim.SetBool("Falling", false);
+            }
+        }
+
+
         else
         {
             if (LastGroundIsLedge)
@@ -609,17 +642,21 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Grounded || coyoteTime)
             {
-                PlayerRB.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
+                if (JumpCount < AvailableJumps)
+                {
+                    PlayerRB.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
                 PlayerAnim.SetTrigger("Jumping");
                 PlayerAnim.SetBool("Idle", false);
                 //Grounded = false;
                 //Jumping = true;
                 PlayerRB.gravityScale = 1;
                 JumpCount++;
+                }
+                
             }
-            else if (Unlockables[3] == true && JumpCount < AvailableJumps)
+            else if (Unlockables[2] == true && (JumpCount < AvailableJumps))
             {
-                PlayerRB.AddForce(transform.up * (JumpForce * 1.5f), ForceMode2D.Impulse);
+                PlayerRB.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
                 PlayerAnim.SetBool("Idle", false);
                 PlayerRB.gravityScale = 1;
                 JumpCount++;
