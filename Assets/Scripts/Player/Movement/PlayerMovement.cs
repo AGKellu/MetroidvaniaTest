@@ -178,10 +178,11 @@ public class PlayerMovement : MonoBehaviour
              }
          }*/
 
-        RaycastHit2D hitDown = Physics2D.Raycast(transform.position + BackFootOffset, -Vector2.up, thingy, LayerMask.GetMask("Ground"));
+         RaycastHit2D hitDown = Physics2D.Raycast(transform.position + BackFootOffset, -Vector2.up, thingy, LayerMask.GetMask("Ground"));
         RaycastHit2D hitDown2 = Physics2D.Raycast(transform.position - BackFootOffset, -Vector2.up, thingy, LayerMask.GetMask("Ground"));
         //RaycastHit2D hitDown = Physics2D.Raycast(transform.position, -Vector2.up, thingy, LayerMask.GetMask("Ground"));
         Debug.DrawRay(transform.position + BackFootOffset, -Vector2.up * thingy, Color.red);
+        //Debug.DrawRay(hitDown);
         Debug.DrawRay(transform.position - BackFootOffset, -Vector2.up * thingy, Color.red);
         //Debug.DrawRay(transform.position, -Vector2.up * thingy, Color.red);
         //Backfoot offset when turned to the left, lets the player not be grounded or move 
@@ -191,6 +192,7 @@ public class PlayerMovement : MonoBehaviour
             {
 
                 Grounded = true;
+                canWalk = true;
                 /*if (!moveActionRight && !moveActionRight)
                 {
                     PlayerRB.linearVelocity = new Vector2(0, 0);
@@ -206,22 +208,21 @@ public class PlayerMovement : MonoBehaviour
             {
                 LastGroundIsLedge = true;
                 Grounded = true;
+                canWalk = true;
                 PlayerAnim.SetBool("Falling", false);
             }
 
 
         }
-        if (hitDown2)
+        
+        else if (hitDown2)
         {
             if (hitDown2.collider.gameObject.name.Contains("Floor") && !hitDown2.collider.gameObject.name.Contains("Ledge"))
             {
 
                 Grounded = true;
-                /*if (!moveActionRight && !moveActionRight)
-                {
-                    PlayerRB.linearVelocity = new Vector2(0, 0);
-
-                }*/
+                canWalk = true;
+                
                 if (LastGroundIsLedge)
                 {
                     LastGroundIsLedge = false;
@@ -232,6 +233,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 LastGroundIsLedge = true;
                 Grounded = true;
+                canWalk = true;
                 PlayerAnim.SetBool("Falling", false);
             }
         }
@@ -244,6 +246,7 @@ public class PlayerMovement : MonoBehaviour
                 coyoteTime = true;
             }
             Grounded = false;
+            canWalk = false;
             if (!slamming)
             {
                 PlayerRB.gravityScale = 1f;
@@ -262,47 +265,11 @@ public class PlayerMovement : MonoBehaviour
             if (coyoteTimeFrames >= 5)
             {
                 coyoteTime = false;
-                coyoteTimeFrames = 0;
+                //coyoteTimeFrames = 0;
                 //Debug.Log("coyote time is gone");
             }
         }
-        /*if (sliding)
-        {
-           // Camera.GetComponent<CameraFollow>().sliding  = true;
-            slideFrames++;
-            ableToMove = false;
-            if (slideFrames == 30)
-            {
-                EndSlide();
-            }
-        }*/
-        /*if (Grounded)
-        {
-            PlayerRB.linearVelocityY = 0;
-            PlayerRB.gravityScale = 0;
-        }
-        else 
-        {
-            if (gripping)
-            {
-                PlayerRB.linearVelocity = new Vector2(0, 0);
-                PlayerRB.gravityScale = 0;
-            
-            }
-            else 
-            {
-                PlayerRB.gravityScale = 1;
-            }
-        }*/
-
-        /*if (Grounded)
-        {
-            PlayerRB.gravityScale = 0;
-        }
-        else 
-        {
-            PlayerRB.gravityScale = 1;
-        }*/
+        
 
 
 
@@ -349,14 +316,14 @@ public class PlayerMovement : MonoBehaviour
             {
                 PlayerAnim.SetBool("Running", false);
                 PlayerAnim.SetBool("Idle", true);
-                
+
             }
         }
         else if (QueueReleaseRight)
         {
             if (!MovingLeft)
             {
-                
+
             PlayerAnim.SetBool("Running", false);
             PlayerAnim.SetBool("Idle", true);
             }
@@ -405,6 +372,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             Grounded = false;
+            canWalk = false;
             if (PlayerRB.linearVelocityY < 0 && !PlayerAttack.instance.attacking)
             {
                 //PlayerAnim.SetBool("Falling", true);
@@ -445,7 +413,7 @@ public class PlayerMovement : MonoBehaviour
                     }
                     else
                     {
-                        
+
                     PlayerRB.linearVelocityX = Speed;
                     }
                 }*/
@@ -479,7 +447,7 @@ public class PlayerMovement : MonoBehaviour
                     }
                     else
                     {
-                        
+
                     PlayerRB.linearVelocityX = -Speed;
                     }
                    // Debug.Log("Moving left");
@@ -531,7 +499,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 transform.rotation = Quaternion.Euler(0f, 0f, 0f);
                 //BackFootOffset = BackFootOffset * -1;
-                BackFootOffset.x = -0.1f;
+                BackFootOffset.x = -0.115f;
                 // transform.Rotate(new Vector3(0f, 180f, 0f));
             }
             // }
@@ -562,7 +530,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 transform.rotation = Quaternion.Euler(0f, 180f, 0f);
                 //BackFootOffset = BackFootOffset * -1;
-                BackFootOffset.x = 0.1f;
+                BackFootOffset.x = 0.115f;
                 //transform.Rotate(new Vector3(0f, 180f, 0f));
             }
             //}
@@ -599,7 +567,7 @@ public class PlayerMovement : MonoBehaviour
                     PlayerAnim.SetBool("Idle", false);
                     PlayerAnim.SetBool("Crouching", true);
                 }
-            
+
             MovingLeft = false;
             MovingRight = false;
                 canWalk = false;
@@ -645,14 +613,14 @@ public class PlayerMovement : MonoBehaviour
                 if (JumpCount < AvailableJumps)
                 {
                     PlayerRB.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
-                PlayerAnim.SetTrigger("Jumping");
-                PlayerAnim.SetBool("Idle", false);
-                //Grounded = false;
-                //Jumping = true;
-                PlayerRB.gravityScale = 1;
-                JumpCount++;
+                    PlayerAnim.SetTrigger("Jumping");
+                    PlayerAnim.SetBool("Idle", false);
+                    //Grounded = false;
+                    //Jumping = true;
+                    PlayerRB.gravityScale = 1;
+                    JumpCount++;
                 }
-                
+
             }
             else if (Unlockables[2] == true && (JumpCount < AvailableJumps))
             {
@@ -668,10 +636,10 @@ public class PlayerMovement : MonoBehaviour
             /*make another else if once you do wall logic
             else if (Unlockables[2] == true))
             {
-            
+
             PlayerRB.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
             PlayerAnim.SetBool("Jumping", true);
-            
+
             CurrentlyJumping = true;
             }
             */
@@ -781,6 +749,7 @@ public class PlayerMovement : MonoBehaviour
         canWalk = true;
         //
         slamming = false;
+        //coyoteTime = false;
         CrouchHB.GetComponent<BoxCollider2D>().offset = new Vector2(0, 0);
 
         //falling = false;
@@ -842,5 +811,8 @@ public class PlayerMovement : MonoBehaviour
     //   coyoteTime = true;
     // }
     // }
-
+    //void OnCollision2D (Collision2D coll)
+    //{
+    //  Debug.Log(coll.gameObject.name);
+    //}
 }
