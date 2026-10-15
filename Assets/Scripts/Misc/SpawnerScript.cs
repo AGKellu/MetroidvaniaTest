@@ -25,22 +25,22 @@ public class SpawnerScript : MonoBehaviour
         //   Debug.Log("There is another pplayer jere\nYOu should never see this!");
         // }
         //  Spawn();
-        PlayerCheck();
+       // PlayerCheck();
        // SceneManager.activeSceneChanged += ChangePlayer;
     }
-   // void OnEnable()
-   // {
-      //  SceneManager.sceneLoaded += ChangePlayer;
+    // void OnEnable()
+    // {
+    //  SceneManager.sceneLoaded += ChangePlayer;
     //}
     //void OnDisable()
     //{
-     //   SceneManager.sceneLoaded -= ChangePlayer;
-   // }
-   // private void ChangePlayer(Scene current, LoadSceneMode mode)
-   // {
-      //  Debug.Log("Send Player to " + current.name);
-        
-        //Debug.Log(current.name + " has changed to " + newScene.name);
+    //   SceneManager.sceneLoaded -= ChangePlayer;
+    // }
+    // private void ChangePlayer(Scene current, LoadSceneMode mode)
+    // {
+    //  Debug.Log("Send Player to " + current.name);
+
+    //Debug.Log(current.name + " has changed to " + newScene.name);
     //}
     public void PlayerCheck()
     {

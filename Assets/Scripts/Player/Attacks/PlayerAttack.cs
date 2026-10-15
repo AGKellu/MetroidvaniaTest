@@ -74,7 +74,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private GameObject FifthMask;
     [SerializeField] private GameObject Fireball;
     // [SerializeField] private GameObject Shot;
-    [SerializeField] private bool[] Unlockables;
+    public bool[] Unlockables;
     [SerializeField] private GameObject MeleeHB;
     [SerializeField] private GameObject[] AbilityUIBoxes;
     public static PlayerAttack instance;
@@ -107,13 +107,13 @@ public class PlayerAttack : MonoBehaviour
     Long Beam (just put effective range to 1 or 1.25)
     Normal Shot (just put Able to attack to true)
     */
-
+    //Normal unlockables are both maxHealth++ and ammo-- pickups (E tanks and )
 
 
     //when getting a new health mask, HealthMasks.Add(newMask);
     //private int MaskInt = 0;
     //private int HealthInt = 0;
-    [SerializeField] PlayerSOScript Values;
+   // [SerializeField] public PlayerSOScript Values;
     void Awake()
     {
         if (instance == null)
@@ -145,13 +145,13 @@ public class PlayerAttack : MonoBehaviour
         // Melee.canceled += ctx => SpellCheck();
         //Heal = InputSystem.actions.FindAction("Heal");
         //Heal.performed += ctx => StartHeal();
-        Health = Values.Health;
-        maxHealth = Values.maxHealth;
+        //Health = Values.Health;
+        //maxHealth = Values.maxHealth;
         //Mana = Values.Mana;
         //ManaMax = Values.ManaMax;
         //currentAttack = Values.currentAttack;
         //Spell1 = Values.Spell1;
-        Normal = Values.Normal;
+        //Normal = Values.Normal;
         //ammo = .3f;
         //maxAmmo = 1.0f;
         reloading = false;
@@ -754,15 +754,15 @@ public class PlayerAttack : MonoBehaviour
     }
     public void Transition()
     {
-        Values.Health = Health;
-        Values.maxHealth = maxHealth;
+        //Values.Health = Health;
+        //Values.maxHealth = maxHealth;
         //Values.Mana = Mana;
         //Values.ManaMax = ManaMax;
         //Values.currentAttack = currentAttack;
         //Values.Spell1 = Spell1;
         //hfeiuheuihfe
-        Values.Normal = Normal;
-        Values.ableToAttack = ableToAttack;
+        //Values.Normal = Normal;
+        //Values.ableToAttack = ableToAttack;
         //Values.currentTransform = transform.position;
         //Destroy(gameObject, 0);
         //Debug.Log(Values.currentTransform);

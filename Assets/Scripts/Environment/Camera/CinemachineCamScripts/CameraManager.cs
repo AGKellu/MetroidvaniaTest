@@ -33,12 +33,29 @@ public class CameraManager : MonoBehaviour
     private GameObject FollowTarget;
     private bool Working;
     [SerializeField] private CinemachineCamera ShatterCam;
+    private bool FoundPlayer;
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
         }
+
+    }
+    void Start()
+    {
+        panCamUp = InputSystem.actions.FindAction("Camera/MoveUp");
+        panCamUp.performed += ctx => StartCamPan(true);
+        panCamUp.canceled += ctx => StopMovingUpDown();
+        panCamDown = InputSystem.actions.FindAction("Camera/MoveDown");
+        panCamDown.performed += ctx => StartCamPan(false);
+        panCamDown.canceled += ctx => StopMovingUpDown();
+
+
+    }
+    void RealStart()
+    {
+        FollowTarget = GameObject.FindGameObjectWithTag("Follower");
         for (int i = 0; i < allCams.Length; i++)
         {
             allCams[i].Follow = GameObject.FindGameObjectWithTag("Follower").transform;
@@ -52,16 +69,6 @@ public class CameraManager : MonoBehaviour
             }
         }
         startingTrackedObjectOffset = positionComposer.TargetOffset;
-    }
-    void Start()
-    {
-        panCamUp = InputSystem.actions.FindAction("Camera/MoveUp");
-        panCamUp.performed += ctx => StartCamPan(true);
-        panCamUp.canceled += ctx => StopMovingUpDown();
-        panCamDown = InputSystem.actions.FindAction("Camera/MoveDown");
-        panCamDown.performed += ctx => StartCamPan(false);
-        panCamDown.canceled += ctx => StopMovingUpDown();
-        FollowTarget = GameObject.FindGameObjectWithTag("Follower");
     }
     public void Shake(Vector3 direction)
     {
@@ -195,33 +202,50 @@ public class CameraManager : MonoBehaviour
     }
     private void Update()
     {
-        if (movingUp)
+        
+        if (!FoundPlayer)
         {
-            lookFrames++;
-            if (lookFrames >= 5)
+            if (PlayerMovement.instance == null)
             {
-                StartMovingUp();
+
+            }
+            else
+            {
+                RealStart();
+                FoundPlayer = true;
             }
         }
-        else if (movingDown)
-        {
-            lookFrames++;
-            if (lookFrames >= 5)
-            {
-                StartMovingDown();
-            }
-        }
-        if (Working)
+        else
         {
             if (movingUp)
             {
-                Move(true);
+                lookFrames++;
+                if (lookFrames >= 5)
+                {
+                    StartMovingUp();
+                }
             }
             else if (movingDown)
             {
-                Move(false);
+                lookFrames++;
+                if (lookFrames >= 5)
+                {
+                    StartMovingDown();
+                }
+            }
+            if (Working)
+            {
+                if (movingUp)
+                {
+                    Move(true);
+                }
+                else if (movingDown)
+                {
+                    Move(false);
+                }
             }
         }
+
     }
 
     #region Lerp The Y Damping

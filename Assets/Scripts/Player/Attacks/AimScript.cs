@@ -112,7 +112,7 @@ public class AimScript : MonoBehaviour
                     PlayerMovement.instance.gameObject.GetComponent<Rigidbody2D>().linearVelocityX = 0;
                 }
                 //currentAttack = Normal;
-                PlayerAttack.instance.attacking = true;
+               // PlayerAttack.instance.attacking = true;
                 //if (!PlayerMovement.instance.MovingLeft && !PlayerMovement.instance.MovingRight)
                 //{
                   //  PlayerAttack.instance.PlayerAnim.SetBool("Idle", false);

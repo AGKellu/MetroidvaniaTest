@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     public float JumpSpeed;
     public bool MovingLeft;
     public bool MovingRight;
+    public bool lastDirectionRight;
     public bool slamming;
     public float slideSpeed;
 
@@ -45,23 +46,25 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Misc")]
     private int trueFrames;
+    //public string lastRoomSaved;
     //private int fallFrames = 0;
     //private bool falling;
 
     [SerializeField]
-    private bool[] Unlockables;
+    public bool[] Unlockables;
     public static PlayerMovement instance;
     private GameObject Spawner;
 
-    [SerializeField] private PlayerSOScript Values;
+    [SerializeField] public PlayerSOScript Values;
     [SerializeField] private GameObject CrouchHB;
     public Vector2 climbPosition;
+    public bool OnSaveStation;
     //public GameObject Camera;
 
     [Header("Camera Stuff")]
     public CameraFollowObject cameraFollowObject;
     [SerializeField] private GameObject cameraFollowGO;
-    private float fallSpeedYDampingChangeThreshold;
+   // private float fallSpeedYDampingChangeThreshold;
     public float thingy;
     public bool CanMoveCam;
     public Vector3 BackFootOffset;
@@ -75,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
     Slide
     Wall Jump
     Double Jump
-        When double jump gets unlocked, set unlocked [3] to true, then set available jumps to 2
+        When double jump gets unlocked, set unlocked [2] to true, then set available jumps to 2
     Ledge Grab
     Slam
     */
@@ -120,8 +123,8 @@ public class PlayerMovement : MonoBehaviour
         cameraFollowObject = cameraFollowGO.GetComponent<CameraFollowObject>();
         //GameObject Spawner()
         // transform.localScale = Values.currentRotation;
-        CameraManager.instance.enabled = true;
-        fallSpeedYDampingChangeThreshold = CameraManager.instance.fallSpeedYDampingChangeThreshold;
+        //CameraManager.instance.enabled = true;
+        //fallSpeedYDampingChangeThreshold = CameraManager.instance.fallSpeedYDampingChangeThreshold;
         canWalk = true;
         gripping = false;
         Grounded = true;
@@ -142,6 +145,22 @@ public class PlayerMovement : MonoBehaviour
             PlayerRB.linearVelocity = 0.05f * new Vector2(-25, -25);
             // PlayerRB.linearVelocity = 0.15f * new Vector2(-25, -25);
         }
+    }
+    public void Spawn(bool Loaded)
+    {
+        GameObject Spawner = GameObject.Find("Spawner");
+        //if (Loaded)
+        //{
+
+       // Spawner.GetComponent<SpawnerScript>().PlayerCheck(Loaded, gameObject);
+       Spawner.GetComponent<SpawnerScript>().PlayerCheck();
+       // }
+       // else
+        //{
+         
+       // }
+        
+        //fallSpeedYDampingChangeThreshold = CameraManager.instance.fallSpeedYDampingChangeThreshold;
     }
     //void
     // Update is called once per frame
@@ -178,7 +197,7 @@ public class PlayerMovement : MonoBehaviour
              }
          }*/
 
-         RaycastHit2D hitDown = Physics2D.Raycast(transform.position + BackFootOffset, -Vector2.up, thingy, LayerMask.GetMask("Ground"));
+        RaycastHit2D hitDown = Physics2D.Raycast(transform.position + BackFootOffset, -Vector2.up, thingy, LayerMask.GetMask("Ground"));
         RaycastHit2D hitDown2 = Physics2D.Raycast(transform.position - BackFootOffset, -Vector2.up, thingy, LayerMask.GetMask("Ground"));
         //RaycastHit2D hitDown = Physics2D.Raycast(transform.position, -Vector2.up, thingy, LayerMask.GetMask("Ground"));
         Debug.DrawRay(transform.position + BackFootOffset, -Vector2.up * thingy, Color.red);
@@ -214,7 +233,7 @@ public class PlayerMovement : MonoBehaviour
 
 
         }
-        
+
         else if (hitDown2)
         {
             if (hitDown2.collider.gameObject.name.Contains("Floor") && !hitDown2.collider.gameObject.name.Contains("Ledge"))
@@ -222,7 +241,7 @@ public class PlayerMovement : MonoBehaviour
 
                 Grounded = true;
                 canWalk = true;
-                
+
                 if (LastGroundIsLedge)
                 {
                     LastGroundIsLedge = false;
@@ -269,7 +288,7 @@ public class PlayerMovement : MonoBehaviour
                 //Debug.Log("coyote time is gone");
             }
         }
-        
+
 
 
 
@@ -337,7 +356,7 @@ public class PlayerMovement : MonoBehaviour
 
     void CheckForMovement()
     {
-        if (PlayerRB.linearVelocityY < fallSpeedYDampingChangeThreshold && !CameraManager.instance.isLerpingYDamping && !CameraManager.instance.lerpedFromPlayerFalling)
+        /*if (PlayerRB.linearVelocityY < fallSpeedYDampingChangeThreshold && !CameraManager.instance.isLerpingYDamping && !CameraManager.instance.lerpedFromPlayerFalling)
         {
             CameraManager.instance.LerpYDamping(true);
             // fallFrames++;
@@ -347,7 +366,7 @@ public class PlayerMovement : MonoBehaviour
             //  PlayerRB.gravityScale = 1.5f;
 
             //}
-        }
+        }*/
         //if (PlayerRB.linearVelocityY <0 && PlayerRB.linearVelocityY > 0)
         //{
         RaycastHit2D hitDown = Physics2D.Raycast(transform.position, -Vector2.up, thingy, LayerMask.GetMask("Ground"));
@@ -487,6 +506,7 @@ public class PlayerMovement : MonoBehaviour
         if (ableToMove && canWalk)
         {
             MovingRight = true;
+            lastDirectionRight = true;
             MovingLeft = false;
             //if (gameObject.GetComponent<PlayerAttack>().attacking)
             //{
@@ -518,7 +538,9 @@ public class PlayerMovement : MonoBehaviour
         if (ableToMove && canWalk)
         {
             MovingLeft = true;
+            lastDirectionRight = false;
             MovingRight = false;
+            
             //if (gameObject.GetComponent<PlayerAttack>().attacking)
             //{
             //gameObject.GetComponent<PlayerAttack>().QueueLeftTurn = true;
@@ -606,62 +628,71 @@ public class PlayerMovement : MonoBehaviour
     }
     void StartJump()
     {
-        if (ableToMove)
+        if (OnSaveStation)
         {
-            if (Grounded || coyoteTime)
+            GameObject SaveStation = GameObject.Find("SaveStation");
+            SaveStation.GetComponent<SaveLoad>().Save();
+        }
+        else
+        {
+            if (ableToMove)
             {
-                if (JumpCount < AvailableJumps)
+                if (Grounded || coyoteTime)
+                {
+                    if (JumpCount < AvailableJumps)
+                    {
+                        PlayerRB.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
+                        PlayerAnim.SetTrigger("Jumping");
+                        PlayerAnim.SetBool("Idle", false);
+                        //Grounded = false;
+                        //Jumping = true;
+                        PlayerRB.gravityScale = 1;
+                        JumpCount++;
+                    }
+
+                }
+                else if (Unlockables[2] == true && (JumpCount < AvailableJumps))
                 {
                     PlayerRB.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
-                    PlayerAnim.SetTrigger("Jumping");
                     PlayerAnim.SetBool("Idle", false);
-                    //Grounded = false;
-                    //Jumping = true;
                     PlayerRB.gravityScale = 1;
                     JumpCount++;
+                    //PlayerAnim.Play("jump", -1, 0f);
+                    // JumpCount++;
                 }
+                canWalk = false;
+                //CrouchHB.GetComponent<BoxCollider2D>().offset = new Vector2(0, 0);
+                /*make another else if once you do wall logic
+                else if (Unlockables[2] == true))
+                {
 
-            }
-            else if (Unlockables[2] == true && (JumpCount < AvailableJumps))
-            {
                 PlayerRB.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
-                PlayerAnim.SetBool("Idle", false);
-                PlayerRB.gravityScale = 1;
-                JumpCount++;
-                //PlayerAnim.Play("jump", -1, 0f);
-                // JumpCount++;
+                PlayerAnim.SetBool("Jumping", true);
+
+                CurrentlyJumping = true;
+                }
+                */
+                //}
+                //Camera.GetComponent<CameraFollow>().movingUp = true;
             }
-            canWalk = false;
-            //CrouchHB.GetComponent<BoxCollider2D>().offset = new Vector2(0, 0);
-            /*make another else if once you do wall logic
-            else if (Unlockables[2] == true))
+            if (gripping)
             {
-
-            PlayerRB.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
-            PlayerAnim.SetBool("Jumping", true);
-
-            CurrentlyJumping = true;
+                gripping = false;
+                transform.position = Vector2.Lerp(transform.position, climbPosition, 1f);
+                EndJump();
             }
-            */
-            //}
-            //Camera.GetComponent<CameraFollow>().movingUp = true;
-        }
-        if (gripping)
-        {
-            gripping = false;
-            transform.position = Vector2.Lerp(transform.position, climbPosition, 1f);
-            EndJump();
-        }
 
-        //CREATE COYOTE TIME and jump buffering
-        //create a timer when youre falling, if the jump button is pressed
-        //and the player touches the ground before the timer ends(5 frames), jump when getting on the ground
+            //CREATE COYOTE TIME and jump buffering
+            //create a timer when youre falling, if the jump button is pressed
+            //and the player touches the ground before the timer ends(5 frames), jump when getting on the ground
 
-        //put this code in jump script
-        //create a timer after leaving the ground (5 frames)
-        // if (playervelocityY < 0  && (playervelocityX > || <0) && timer < ground leave timer)
-        //Jump
-        //fallFrames = 0;
+            //put this code in jump script
+            //create a timer after leaving the ground (5 frames)
+            // if (playervelocityY < 0  && (playervelocityX > || <0) && timer < ground leave timer)
+            //Jump
+            //fallFrames = 0;
+
+        }
 
     }
     void EndUpwardMomentum()
@@ -792,7 +823,7 @@ public class PlayerMovement : MonoBehaviour
         //Values.JumpForce = JumpForce;
         //Values.JumpSpeed = JumpSpeed;
         //Values.JumpCount = JumpCount;
-        Values.currentRotation = transform.localScale;
+        //Values.currentRotation = transform.localScale;
         //TransitionPanel.GetComponent<Animator>().SetTrigger("Start");
     }
     public void GrabLedge()
@@ -815,4 +846,5 @@ public class PlayerMovement : MonoBehaviour
     //{
     //  Debug.Log(coll.gameObject.name);
     //}
+
 }
