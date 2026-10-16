@@ -47,6 +47,7 @@ public class PlayerAttack : MonoBehaviour
     //[SerializeField]private bool Aiming;
     [SerializeField] private bool invuln = false;
     public bool ableToAttack;
+    public bool ableToMelee;
     //[SerializeField] private float ManaDrainSpeed;
     //  [SerializeField] private float TimeToNextHealthTick;
     private bool inCooldown;
@@ -429,9 +430,10 @@ public class PlayerAttack : MonoBehaviour
     }
     void MeleeAttack()
     {
-        if (!attacking && ableToAttack && !Aim.IsPressed())
+        if (!attacking && ableToMelee && !Aim.IsPressed() && PlayerMovement.instance.Grounded)
         {
             PlayerMovement.instance.ableToMove = false;
+            gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 0);
             currentAttack = MeleeAttackSO;
             attacking = true;
             AnimatorClipInfo[] clipInfo = PlayerAnim.GetCurrentAnimatorClipInfo(0);

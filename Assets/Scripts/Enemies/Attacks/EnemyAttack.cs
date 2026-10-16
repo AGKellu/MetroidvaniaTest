@@ -35,14 +35,18 @@ public class EnemyAttack : MonoBehaviour
         {
 
             FreezeBlock.SetActive(false);
-        Anim.SetTrigger("Dead");
+            Anim.SetTrigger("Dead");
             //CameraManager.instance.Shake(new Vector3(-.2f, -.2f, 0));
             StartCoroutine(CameraManager.instance.Shatter(60));
-            
-        Destroy(gameObject, 1);
-        GameObject Drop = Instantiate(DNADrop, transform.position, Quaternion.identity);
-//
-        gameObject.SetActive(false);
+
+            Destroy(gameObject, 1);
+            GameObject Drop = Instantiate(DNADrop, transform.position, Quaternion.identity);
+            //
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("push enemy");
         }
         
     }
@@ -106,7 +110,7 @@ public class EnemyAttack : MonoBehaviour
                 EndRecoil();
             }
         }
-        if (attacking)
+        /*if (attacking)
         {
             timeSinceAttack++;
             if (timeSinceAttack == 4)
@@ -133,7 +137,7 @@ public class EnemyAttack : MonoBehaviour
         else if (chasing)
         {
 
-        }
+        }*/
     }
 
     void MoveTowardsPlayer()

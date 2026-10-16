@@ -9,6 +9,7 @@ public class SaveLoad : MonoBehaviour
     public int SavedHealth, SavedMaxHealth;
     public float SavedAmmo;
     public string SavedRoomName;
+    public bool[] BreakableDoors;
     //public double TimeSinceLoad;
     public bool[] AttackUnlockables, MovementUnlockables;
     //public Vector3 nowPosition;

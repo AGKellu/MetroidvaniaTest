@@ -17,16 +17,7 @@ public class SpawnerScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
-        //Spawn();
-        //SpawnPlayerOneTime();
-        //if (GameObject.FindGameObjectWithTag("Player"))
-        //{
-        //   Debug.Log("There is another pplayer jere\nYOu should never see this!");
-        // }
-        //  Spawn();
-        //PlayerCheck();
-       // SceneManager.activeSceneChanged += ChangePlayer;
+        Spawn();
     }
     // void OnEnable()
     // {
@@ -58,15 +49,15 @@ public class SpawnerScript : MonoBehaviour
         if (loaded)
         {
             Player.transform.position = doorToSpawnTo.GetComponent<SaveStation>().nowPosition;
-        
+
             //Player.transform.position = doorToSpawnTo.GetComponent<SaveStation>().nowPosition;
         }
         else
         {
-             Player.transform.position = doorToSpawnTo.transform.GetChild(0).gameObject.GetComponent<TransitionScript>().nowPosition;
-        
-           // Player.transform.position = doorToSpawnTo.transform.GetChild(0).gameObject.GetComponent<TransitionScript>().nowPosition;
-        
+            Player.transform.position = doorToSpawnTo.transform.GetChild(0).gameObject.GetComponent<TransitionScript>().nowPosition;
+
+            // Player.transform.position = doorToSpawnTo.transform.GetChild(0).gameObject.GetComponent<TransitionScript>().nowPosition;
+
         }
         // Player.transform.position = 
         //The following works if spawning at certain doors dont 
@@ -82,7 +73,13 @@ public class SpawnerScript : MonoBehaviour
         }*/
 
 
-       // Player.transform.localScale = Vals.currentRotation;
+        // Player.transform.localScale = Vals.currentRotation;
+    }
+    public void TurnOffDoor(GameObject Door)
+    {
+        Door.GetComponent<Animator>().enabled = false;
+        Door.GetComponent<BoxCollider2D>().enabled = false;
+        Door.GetComponent<SpriteRenderer>().enabled = false;
     }
     public void Spawn()
     {

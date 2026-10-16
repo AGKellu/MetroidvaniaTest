@@ -42,16 +42,38 @@ public class SceneSwapManager : MonoBehaviour
         GameObject[] Spawners = GameObject.FindGameObjectsWithTag("Spawner");
         GameObject[] Doors = GameObject.FindGameObjectsWithTag("Door");
         GameObject SpawnDoor = null;
+        GameObject BrokenDoor = null;
         foreach (GameObject Door in Doors)
         {
             if (Door.scene.name == myScene.SceneName)
             {
+
+                //check all doors to see if breakable
+                //check saveload instance to check breakable[breakabledoorint of door]
+                //if saveload breakabledoor[breakabledoorint of door] = true, set door to false
                 if (Door.transform.GetChild(0).GetComponent<TransitionScript>().CurrentDoorPosition == doorToSpawnAt)
                 {
-                    Debug.Log(Door.name);
+                    //Debug.Log(Door.name);
                     SpawnDoor = Door;
                     //Debug.Log(Door.name);
                 }
+                for (int i = 0; i < SaveLoad.instance.BreakableDoors.Length; i++)
+                {
+                    if (i == Door.GetComponent<DoorScript>().BreakableDoorInt && Door.GetComponent<DoorScript>().BreakableDoor)
+                    {
+                        if (SaveLoad.instance.BreakableDoors[i] == true)
+                        {
+                            
+                        BrokenDoor = Door;
+                        }
+                       // if (Door.GetComponent<DoorScript>().BreakableDoor)
+                        //{
+                            
+                        //}
+                    }
+                
+                }
+                
                 //Debug.Log(Door.name);
             }
         }
@@ -62,6 +84,11 @@ public class SceneSwapManager : MonoBehaviour
             if (Spawners[i].scene.name == myScene.SceneName)
             {
                 Debug.Log(Spawners[i]);
+                if (BrokenDoor != null)
+                {
+                Spawners[i].GetComponent<SpawnerScript>().TurnOffDoor(BrokenDoor);
+                    
+                }
                 Spawners[i].GetComponent<SpawnerScript>().PlayerCheck(SpawnDoor, false);
             }
         }
