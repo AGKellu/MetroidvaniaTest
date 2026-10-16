@@ -45,7 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d862219d247c87241992dd7507be76c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TransitionScript
-  RoomToLoad: TestScene
+  DoorToSpawnTo: 0
+  _sceneToLoad:
+    _sceneAsset: {fileID: 0}
+    _sceneName: 
+  CurrentDoorPosition: 0
   nowPosition: {x: -4.05, y: -0.05, z: 0}
 --- !u!61 &2316808403343768617
 BoxCollider2D:
@@ -270,4 +274,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DoorScript
   NormalDoor: 0
   FireDoor: 1
-  IceBool: 0
+  IceDoor: 0
