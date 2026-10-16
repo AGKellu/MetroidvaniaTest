@@ -23,6 +23,7 @@ public class SceneSwapManager : MonoBehaviour
     private IEnumerator FadeOutThenChangeScene(SceneField myScene, TransitionScript.DoorToSpawnAt doorToSpawnAt = TransitionScript.DoorToSpawnAt.None)
     {
         DisablePlayer();
+        Scene currentScene = SceneManager.GetActiveScene();
         SceneFadeManager.instance.StartFadeOut();
         
         while (SceneFadeManager.instance.isFadingOut)
@@ -31,7 +32,23 @@ public class SceneSwapManager : MonoBehaviour
         }
         //yield return null;
         _doorToSpawnTo = doorToSpawnAt;
-        SceneManager.LoadScene(myScene);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(myScene.SceneName, LoadSceneMode.Additive);
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+        GameObject Player = GameObject.FindWithTag("Player");
+        SceneManager.MoveGameObjectToScene(Player, SceneManager.GetSceneByName(myScene.SceneName));
+        GameObject[] Spawners = GameObject.FindGameObjectsWithTag("Spawner");
+        for (int i = 0; i < Spawners.Length; i++)
+        {
+            Debug.Log(Spawners[i].scene.name);
+            if (Spawners[i].scene.name == myScene.SceneName)
+            {
+                Spawners[i].GetComponent<SpawnerScript>().PlayerCheck();
+            }
+        }
+        //SceneManager.LoadScene(myScene);
        // PlayerMovement.instance.Grounded = true;
         //PlayerMovement.instance.canWalk = true;
         //PlayerMovement.instance.gameObject.transform.position = ;
@@ -47,6 +64,7 @@ public class SceneSwapManager : MonoBehaviour
         {
             yield return null;
         }
+        SceneManager.UnloadSceneAsync(currentScene);
         EnablePlayer();
     }
 

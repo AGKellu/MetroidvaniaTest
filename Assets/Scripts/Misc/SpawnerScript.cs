@@ -25,7 +25,7 @@ public class SpawnerScript : MonoBehaviour
         //   Debug.Log("There is another pplayer jere\nYOu should never see this!");
         // }
         //  Spawn();
-       // PlayerCheck();
+        //PlayerCheck();
        // SceneManager.activeSceneChanged += ChangePlayer;
     }
     // void OnEnable()
@@ -54,8 +54,7 @@ public class SpawnerScript : MonoBehaviour
         //Player.GetComponent<PlayerMovement>().Camera = null;
         //Player.GetComponent<PlayerMovement>().Camera = Camera;
         // Player.GetComponent<PlayerAttack>().Camera = Camera;
-
-        //Bug, it doesnt spawn the same 
+        
         if (Player.transform.rotation == Quaternion.Euler(0f, 0f, 0f))
         {
             Player.transform.position = LeftTrans.GetComponent<TransitionScript>().nowPosition;

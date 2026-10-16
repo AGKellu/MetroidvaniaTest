@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Resources/Main Menu.unity
+    path: Assets/Scenes/MainMenu/Main Menu.unity
     guid: a9638b79ca4ca5a48a2041421b4dfc07
   - enabled: 1
     path: Assets/Scenes/UnderLair/UnderLairStartRoom.unity

@@ -108,7 +108,16 @@ public class MainMenuController : MonoBehaviour
         }
         Player.SetActive(true);
         SceneManager.MoveGameObjectToScene(Player, SceneManager.GetSceneByName(_newGameLevel));
-        PlayerMovement.instance.Spawn(false);
+        GameObject[] Spawners = GameObject.FindGameObjectsWithTag("Spawner");
+        for (int i = 0; i < Spawners.Length; i++)
+        {
+            Debug.Log(Spawners[i].scene.name);
+            if (Spawners[i].scene.name == _newGameLevel)
+            {
+                Spawners[i].GetComponent<SpawnerScript>().PlayerCheck();
+            }
+        }
+        //PlayerMovement.instance.Spawn(false);
         //SceneSwapManager.instance.EnablePlayer();
         SceneManager.UnloadSceneAsync(currentScene);
 
@@ -144,7 +153,7 @@ public class MainMenuController : MonoBehaviour
             SceneManager.MoveGameObjectToScene(Player, SceneManager.GetSceneByName(loadGameLevel));
             //SceneSwapManager.instance.EnablePlayer();
             //GameObject PO = GameObject.Find("PERSISTOBJECTS");
-            PlayerMovement.instance.Spawn(true);
+            //PlayerMovement.instance.Spawn(true);
             GameObject SaveStation = GameObject.Find("SaveStation");
             if (SaveStation)
             {

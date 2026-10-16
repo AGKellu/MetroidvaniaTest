@@ -146,7 +146,7 @@ public class PlayerMovement : MonoBehaviour
             // PlayerRB.linearVelocity = 0.15f * new Vector2(-25, -25);
         }
     }
-    public void Spawn(bool Loaded)
+    /*public void Spawn(bool Loaded)
     {
         GameObject Spawner = GameObject.Find("Spawner");
         //if (Loaded)
@@ -161,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
        // }
         
         //fallSpeedYDampingChangeThreshold = CameraManager.instance.fallSpeedYDampingChangeThreshold;
-    }
+    }*/
     //void
     // Update is called once per frame
     void Update()
