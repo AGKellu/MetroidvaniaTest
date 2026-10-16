@@ -40,14 +40,32 @@ public class SceneSwapManager : MonoBehaviour
         GameObject Player = GameObject.FindWithTag("Player");
         SceneManager.MoveGameObjectToScene(Player, SceneManager.GetSceneByName(myScene.SceneName));
         GameObject[] Spawners = GameObject.FindGameObjectsWithTag("Spawner");
-        for (int i = 0; i < Spawners.Length; i++)
+        GameObject[] Doors = GameObject.FindGameObjectsWithTag("Door");
+        GameObject SpawnDoor = null;
+        foreach (GameObject Door in Doors)
         {
-            Debug.Log(Spawners[i].scene.name);
-            if (Spawners[i].scene.name == myScene.SceneName)
+            if (Door.scene.name == myScene.SceneName)
             {
-                Spawners[i].GetComponent<SpawnerScript>().PlayerCheck();
+                if (Door.transform.GetChild(0).GetComponent<TransitionScript>().CurrentDoorPosition == doorToSpawnAt)
+                {
+                    Debug.Log(Door.name);
+                    SpawnDoor = Door;
+                    //Debug.Log(Door.name);
+                }
+                //Debug.Log(Door.name);
             }
         }
+        
+        for (int i = 0; i < Spawners.Length; i++)
+        {
+            //Debug.Log(Spawners[i].scene.name);
+            if (Spawners[i].scene.name == myScene.SceneName)
+            {
+                Debug.Log(Spawners[i]);
+                Spawners[i].GetComponent<SpawnerScript>().PlayerCheck(SpawnDoor, false);
+            }
+        }
+        
         //SceneManager.LoadScene(myScene);
        // PlayerMovement.instance.Grounded = true;
         //PlayerMovement.instance.canWalk = true;

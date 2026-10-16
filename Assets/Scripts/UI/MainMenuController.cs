@@ -108,15 +108,29 @@ public class MainMenuController : MonoBehaviour
         }
         Player.SetActive(true);
         SceneManager.MoveGameObjectToScene(Player, SceneManager.GetSceneByName(_newGameLevel));
+        GameObject[] Doors = GameObject.FindGameObjectsWithTag("Door");
+        GameObject SpawnDoor = null;
+        foreach(GameObject Door in Doors)
+        {
+            if (Door.scene.name == _newGameLevel)
+            {
+                if (Door.name == "LeftDoor")
+                {
+                    SpawnDoor = Door;
+                }
+                //Debug.Log(Door.name);
+            }
+        }
         GameObject[] Spawners = GameObject.FindGameObjectsWithTag("Spawner");
         for (int i = 0; i < Spawners.Length; i++)
         {
-            Debug.Log(Spawners[i].scene.name);
+            //Debug.Log(Spawners[i].scene.name);
             if (Spawners[i].scene.name == _newGameLevel)
             {
-                Spawners[i].GetComponent<SpawnerScript>().PlayerCheck();
+                Spawners[i].GetComponent<SpawnerScript>().PlayerCheck(SpawnDoor, false);
             }
         }
+        
         //PlayerMovement.instance.Spawn(false);
         //SceneSwapManager.instance.EnablePlayer();
         SceneManager.UnloadSceneAsync(currentScene);
@@ -137,10 +151,13 @@ public class MainMenuController : MonoBehaviour
         //loadGameLevel = contents[3];
         if (File.Exists(Application.dataPath + "/save.txt"))
         {
-
-            //for below to work, you have to spawn the player in the main menu, then when playing, save, then set that string somewhere 
-            // loadGameLevel = PlayerMovement.instance.lastRoomSaved;
-            loadGameLevel = Values.lastRoomSaved;
+            loadGameLevel = SaveLoad.instance.SetString();
+            //Debug.Log(loadGameLevel);
+            //yield return null;
+            //Debug.Log(saveObject.SavedRoomName);
+            //yield return null;
+            //loadGameLevel = saveObject.SavedRoomName;
+           
             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(loadGameLevel, LoadSceneMode.Additive);
             while (!asyncLoad.isDone)
             {
@@ -151,15 +168,18 @@ public class MainMenuController : MonoBehaviour
             }
             Player.SetActive(true);
             SceneManager.MoveGameObjectToScene(Player, SceneManager.GetSceneByName(loadGameLevel));
-            //SceneSwapManager.instance.EnablePlayer();
-            //GameObject PO = GameObject.Find("PERSISTOBJECTS");
-            //PlayerMovement.instance.Spawn(true);
+            
             GameObject SaveStation = GameObject.Find("SaveStation");
+            GameObject Spawner = GameObject.Find("Spawner");
             if (SaveStation)
             {
-                SaveStation.GetComponent<SaveLoad>().Load();
+
+                //SaveStation.GetComponent<SaveLoad>().Load();
+                Spawner.GetComponent<SpawnerScript>().PlayerCheck(SaveStation, true);
+                
             }
             SceneManager.UnloadSceneAsync(currentScene);
+            
 
         }
         else
@@ -282,4 +302,5 @@ public class MainMenuController : MonoBehaviour
     {
 
     }
+   
 }

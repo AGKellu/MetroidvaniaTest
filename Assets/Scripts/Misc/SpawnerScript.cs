@@ -42,7 +42,7 @@ public class SpawnerScript : MonoBehaviour
 
     //Debug.Log(current.name + " has changed to " + newScene.name);
     //}
-    public void PlayerCheck()
+    public void PlayerCheck(GameObject doorToSpawnTo, bool loaded)
     {
         GameObject Player = GameObject.FindGameObjectWithTag("Player");
         //GameObject Camera = GameObject.FindGameObjectWithTag("MainCamera");
@@ -54,8 +54,23 @@ public class SpawnerScript : MonoBehaviour
         //Player.GetComponent<PlayerMovement>().Camera = null;
         //Player.GetComponent<PlayerMovement>().Camera = Camera;
         // Player.GetComponent<PlayerAttack>().Camera = Camera;
+        //Debug.Log(doorToSpawnTo);
+        if (loaded)
+        {
+            Player.transform.position = doorToSpawnTo.GetComponent<SaveStation>().nowPosition;
         
-        if (Player.transform.rotation == Quaternion.Euler(0f, 0f, 0f))
+            //Player.transform.position = doorToSpawnTo.GetComponent<SaveStation>().nowPosition;
+        }
+        else
+        {
+             Player.transform.position = doorToSpawnTo.transform.GetChild(0).gameObject.GetComponent<TransitionScript>().nowPosition;
+        
+           // Player.transform.position = doorToSpawnTo.transform.GetChild(0).gameObject.GetComponent<TransitionScript>().nowPosition;
+        
+        }
+        // Player.transform.position = 
+        //The following works if spawning at certain doors dont 
+        /*if (Player.transform.rotation == Quaternion.Euler(0f, 0f, 0f))
         {
             Player.transform.position = LeftTrans.GetComponent<TransitionScript>().nowPosition;
             LeftDoor.GetComponent<DoorScript>().Close();
@@ -64,7 +79,7 @@ public class SpawnerScript : MonoBehaviour
         {
             Player.transform.position = RightTrans.GetComponent<TransitionScript>().nowPosition;
             RightDoor.GetComponent<DoorScript>().Close();
-        }
+        }*/
 
 
        // Player.transform.localScale = Vals.currentRotation;

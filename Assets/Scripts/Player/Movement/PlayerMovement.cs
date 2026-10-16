@@ -630,8 +630,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (OnSaveStation)
         {
-            GameObject SaveStation = GameObject.Find("SaveStation");
-            SaveStation.GetComponent<SaveLoad>().Save();
+            SaveLoad.instance.Save();
+            //GameObject SaveStation = GameObject.Find("SaveStation");
+            //SaveStation.GetComponent<SaveLoad>().Save();
         }
         else
         {

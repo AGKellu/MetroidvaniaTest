@@ -4,16 +4,29 @@ using UnityEngine.SceneManagement;
 public class SaveLoad : MonoBehaviour
 {
     public bool SavedInRoom;
-    [SerializeField] private GameObject SaveCanvas;
+    //[SerializeField] private GameObject SaveCanvas;
     public bool ableToAttack;
     public int SavedHealth, SavedMaxHealth;
     public float SavedAmmo;
+    public string SavedRoomName;
     //public double TimeSinceLoad;
     public bool[] AttackUnlockables, MovementUnlockables;
-    public Vector3 nowPosition;
+    //public Vector3 nowPosition;
     private string saveSeparator = "#SAVE-VALUE#";
-
+    public static SaveLoad instance;
     
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,13 +40,14 @@ public class SaveLoad : MonoBehaviour
     }
     public void Save()
     {
+        
         AttackUnlockables = PlayerAttack.instance.Unlockables;
         MovementUnlockables = PlayerMovement.instance.Unlockables;
         SavedHealth = PlayerAttack.instance.Health;
         SavedAmmo = PlayerAttack.instance.ammo;
         SavedMaxHealth = PlayerAttack.instance.maxHealth;
-        PlayerMovement.instance.Values.lastRoomSaved = SceneManager.GetActiveScene().name;
-        Debug.Log(PlayerMovement.instance.Values.lastRoomSaved);
+        //PlayerMovement.instance.Values.lastRoomSaved = SceneManager.GetActiveScene().name;
+        //Debug.Log(PlayerMovement.instance.Values.lastRoomSaved);
         //Disable inputmap UI, Attack, Movement
         //while the game is running,and not at a menu/paused, add time to the in game timer
         //when saving, add that value to the save slot's file
@@ -47,16 +61,19 @@ public class SaveLoad : MonoBehaviour
              "" + SavedMaxHealth,
              SceneManager.GetActiveScene().name
          };*/
+        SavedRoomName = SceneManager.GetActiveScene().name;
         SaveObject saveObject = new SaveObject
         {
             SavedHealth = SavedHealth,
             SavedAmmo = SavedAmmo,
             SavedMaxHealth = SavedMaxHealth,
+            SavedRoomName = SavedRoomName,
             //SceneName = SceneManager.GetActiveScene().name
         };
         string json = JsonUtility.ToJson(saveObject);
-       //string saveString = "" + string.Join(saveSeparator, contents);
+        //string saveString = "" + string.Join(saveSeparator, contents);
         File.WriteAllText(Application.dataPath + "/save.txt", json);
+        Debug.Log("Saved");
         
     }
     public void Load()
@@ -74,45 +91,38 @@ public class SaveLoad : MonoBehaviour
             //PlayerAttack.instance.ammo = float.Parse(contents[1]);
             // PlayerAttack.instance.maxHealth = int.Parse(contents[2]);
             PlayerAttack.instance.Health = saveObject.SavedHealth;
+            PlayerAttack.instance.ammo = saveObject.SavedAmmo;
+            PlayerAttack.instance.maxHealth = saveObject.SavedMaxHealth;
         }
-       // else
-        //{
-          //  Debug.Log("No save Found!");
-        //}
-        
-        
+         else
+        {
+          Debug.Log("No save Found!");
+        }
+
+
 
     }
-    void OnTriggerEnter2D(Collider2D coll)
+    public string SetString()
     {
-        if (coll.gameObject.CompareTag("Player"))
+        if (File.Exists(Application.dataPath + "/save.txt"))
         {
-            SaveCanvas.SetActive(true);
-            PlayerMovement.instance.AvailableJumps = 0;
-            PlayerMovement.instance.OnSaveStation = true;
-        }
-    }
-    void OnTriggerExit2D(Collider2D coll)
-    {
-        if (coll.gameObject.CompareTag("Player"))
-        {
-            SaveCanvas.SetActive(false);
-            if (PlayerMovement.instance.Unlockables[2])
-            {
-                PlayerMovement.instance.AvailableJumps = 2;
-            }
-            else
-            {
 
-                PlayerMovement.instance.AvailableJumps = 1;
-            }
-            PlayerMovement.instance.OnSaveStation = false;
+            string saveString = File.ReadAllText(Application.dataPath + "/save.txt");
+            SaveObject saveObject = JsonUtility.FromJson<SaveObject>(saveString);
+
+            return saveObject.SavedRoomName;
+        }
+        else
+        {
+            return null;
         }
     }
+    
     private class SaveObject
     {
         public int SavedHealth, SavedMaxHealth;
         public float SavedAmmo;
+        public string SavedRoomName;
         //public string SceneName;
     }
 }
