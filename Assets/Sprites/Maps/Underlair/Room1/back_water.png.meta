@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: a8c53ebb7892c164da6657b3edbcfdbe
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9164746461626966817
+    second: back_water_0
+  - first:
+      213: -1703384239454068424
+    second: back_water_1
+  - first:
+      213: 2811899260411477348
+    second: back_water_2
+  - first:
+      213: -5930926204857127527
+    second: back_water_3
+  - first:
+      213: -2307912102325676837
+    second: back_water_4
+  - first:
+      213: 3434086324197453978
+    second: back_water_5
+  - first:
+      213: 2888480500804838270
+    second: back_water_6
+  - first:
+      213: 1642974211095260214
+    second: back_water_7
+  - first:
+      213: -8765000449119546425
+    second: back_water_8
+  - first:
+      213: 6454990504343534108
+    second: back_water_9
+  - first:
+      213: -3948177628927024248
+    second: back_water_10
+  - first:
+      213: 2158662516500881063
+    second: back_water_11
+  - first:
+      213: -1312650620389738872
+    second: back_water_12
+  - first:
+      213: 2171841434724932555
+    second: back_water_13
+  - first:
+      213: 432319779688143248
+    second: back_water_14
+  - first:
+      213: -2357567703310294105
+    second: back_water_15
+  - first:
+      213: -8236225034866934587
+    second: back_water_16
+  - first:
+      213: -5226490194988194084
+    second: back_water_17
+  - first:
+      213: 7958827333418595600
+    second: back_water_18
+  - first:
+      213: 88661816073826338
+    second: back_water_19
+  - first:
+      213: 2675945515642747145
+    second: back_water_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: back_water_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 265
+        width: 1914
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdcd43a66a740d080800000000000000
+      internalID: -9164746461626966817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_water_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 319
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83167532f0d5c58e0800000000000000
+      internalID: -1703384239454068424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_water_2
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 319
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46d7201ba7fd50720800000000000000
+      internalID: 2811899260411477348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_water_3
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 318
+        width: 20
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99d6f624a0e11bda0800000000000000
+      internalID: -5930926204857127527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_water_4
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 322
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd49d08bb26a8ffd0800000000000000
+      internalID: -2307912102325676837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_water_5
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 305
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a90f0d9315358af20800000000000000
+      internalID: 3434086324197453978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_water_6
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 305
+        width: 53
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e736d1f26b1f51820800000000000000
+      internalID: 2888480500804838270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_water_7
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 302
+        width: 31
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63ce57317540dc610800000000000000
+      internalID: 1642974211095260214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_water_8
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 313
+        width: 96
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c3171ec7867c5680800000000000000
+      internalID: -8765000449119546425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_water_9
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 305
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1a7ae7e9abb49950800000000000000
+      internalID: 6454990504343534108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_water_10
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 322
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88329a56d514539c0800000000000000
+      internalID: -3948177628927024248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_water_11
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 317
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ae5cf52f1c15fd10800000000000000
+      internalID: 2158662516500881063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_water_12
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 317
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8863979273788cde0800000000000000
+      internalID: -1312650620389738872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_water_13
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 300
+        width: 52
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcb1149274ee32e10800000000000000
+      internalID: 2171841434724932555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_water_14
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 316
+        width: 20
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 099dfa19c88eff500800000000000000
+      internalID: 432319779688143248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_water_15
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 320
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a3a14e2aac384fd0800000000000000
+      internalID: -2357567703310294105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_water_16
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 303
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ccb39ad7fc03bd80800000000000000
+      internalID: -8236225034866934587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_water_17
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 321
+        width: 25
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd6aaa9dbd6c777b0800000000000000
+      internalID: -5226490194988194084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_water_18
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 303
+        width: 41
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 015b515ca4f637e60800000000000000
+      internalID: 7958827333418595600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_water_19
+      rect:
+        serializedVersion: 2
+        x: 982
+        y: 300
+        width: 15
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 220b834b37dfa3100800000000000000
+      internalID: 88661816073826338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_water_20
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 313
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9097f2ac44ed22520800000000000000
+      internalID: 2675945515642747145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      back_water_0: -9164746461626966817
+      back_water_1: -1703384239454068424
+      back_water_10: -3948177628927024248
+      back_water_11: 2158662516500881063
+      back_water_12: -1312650620389738872
+      back_water_13: 2171841434724932555
+      back_water_14: 432319779688143248
+      back_water_15: -2357567703310294105
+      back_water_16: -8236225034866934587
+      back_water_17: -5226490194988194084
+      back_water_18: 7958827333418595600
+      back_water_19: 88661816073826338
+      back_water_2: 2811899260411477348
+      back_water_20: 2675945515642747145
+      back_water_3: -5930926204857127527
+      back_water_4: -2307912102325676837
+      back_water_5: 3434086324197453978
+      back_water_6: 2888480500804838270
+      back_water_7: 1642974211095260214
+      back_water_8: -8765000449119546425
+      back_water_9: 6454990504343534108
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

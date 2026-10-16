@@ -19122,7 +19122,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -20801,7 +20801,7 @@ MonoBehaviour:
   ammo: 0.3
   reloading: 0
   invuln: 0
-  ableToAttack: 1
+  ableToAttack: 0
   invisible: 0
   EffectiveRange: 0.75
   RangeFinder: {fileID: 261453287210589188}

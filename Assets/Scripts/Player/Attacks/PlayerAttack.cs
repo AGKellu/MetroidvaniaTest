@@ -319,6 +319,11 @@ public class PlayerAttack : MonoBehaviour
             {
                 ableToAttack = true;
                 PlayerMovement.instance.ableToMove = true;
+                if (!PlayerMovement.instance.MovingRight && !PlayerMovement.instance.MovingLeft && !attacking)
+                {
+                    PlayerAnim.SetBool("Idle", true);
+                    //Debug.Log("Huh");
+                }
             }
             if (InvulFrames >= 60)
             {
@@ -605,7 +610,7 @@ public class PlayerAttack : MonoBehaviour
             //yield return null;
             // }
             yield return new WaitForSeconds(duration);
-            Debug.Log("Hello");
+            //Debug.Log("Hello");
             PlayerRenderer.material = trueMaterial;
             yield return new WaitForSeconds(duration);
             StartCoroutine(Flash());
@@ -623,9 +628,9 @@ public class PlayerAttack : MonoBehaviour
         //Debug.Log(gameObject.GetComponent<PlayerMovement>().ableToMove);
         //Debug.Log("What the fuck");
         ableToAttack = true;
-        if (!PlayerMovement.instance.MovingRight && !PlayerMovement.instance.MovingLeft)
+        if (!PlayerMovement.instance.MovingRight && !PlayerMovement.instance.MovingLeft && !attacking)
         {
-            //PlayerAnim.SetBool("Idle", true);
+            PlayerAnim.SetBool("Idle", true);
             //Debug.Log("Huh");
         }
         else if (gameObject.GetComponent<Rigidbody2D>().linearVelocityY < -0.01)

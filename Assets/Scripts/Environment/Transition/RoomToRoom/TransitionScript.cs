@@ -12,6 +12,7 @@ public class TransitionScript : MonoBehaviour
         Two,
         Three,
         Four,
+        Five,
     }
     [Header("Spawn TO")]
     [SerializeField] private DoorToSpawnAt DoorToSpawnTo;
