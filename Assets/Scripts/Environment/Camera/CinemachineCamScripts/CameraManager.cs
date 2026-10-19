@@ -39,6 +39,7 @@ public class CameraManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            //DontDestroyOnLoad(gameObject);
         }
 
     }

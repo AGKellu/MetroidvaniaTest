@@ -38,7 +38,7 @@ public class EnemyMove : MonoBehaviour
             wallBump = Physics2D.OverlapPoint(wall.position, LayerMask.GetMask("Ground"));
             if (frontBump == null && bellyBump == null && backBump == null && wallBump == null)
             {
-                Debug.Log("In the air");
+               // Debug.Log("In the air");
                 transform.Translate(new Vector3(speed, -1.5f * speed, 0f) * Time.deltaTime);
             }
             else

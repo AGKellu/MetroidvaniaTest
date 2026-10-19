@@ -2743,7 +2743,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 425851795}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &425851797
 Camera:
   m_ObjectHideFlags: 0
@@ -12289,7 +12289,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1535907112}
-  - component: {fileID: 1535907114}
   - component: {fileID: 1535907113}
   - component: {fileID: 1535907116}
   m_Layer: 0
@@ -12411,14 +12410,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!81 &1535907114
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1535907110}
-  m_Enabled: 1
 --- !u!114 &1535907116
 MonoBehaviour:
   m_ObjectHideFlags: 0

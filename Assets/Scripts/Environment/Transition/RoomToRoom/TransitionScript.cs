@@ -14,9 +14,12 @@ public class TransitionScript : MonoBehaviour
         Four,
         Five,
     }
+
     [Header("Spawn TO")]
     [SerializeField] private DoorToSpawnAt DoorToSpawnTo;
     [SerializeField] private SceneField _sceneToLoad;
+   // [SerializeField] private bool InRoomTrans;
+    //public bool BigRoomLoad;
     [Space(10)]
     [Header("This Door")]
     public DoorToSpawnAt CurrentDoorPosition;
@@ -38,7 +41,15 @@ public class TransitionScript : MonoBehaviour
             other.gameObject.GetComponent<PlayerAttack>().Transition();
             other.gameObject.GetComponent<PlayerMovement>().Transition();
             //StartCoroutine(Transition());
+            //if (InRoomTrans)
+           // {
+                //RoomTrans();
+          // }
+           // else
+            //{
+                
             CoolTrans();
+           // }
         }
         //}
 
@@ -63,4 +74,8 @@ public class TransitionScript : MonoBehaviour
     {
         SceneSwapManager.SwapSceneFromDoorUse(_sceneToLoad, DoorToSpawnTo);
     }
+    //public void RoomTrans()
+    //{
+      //  gameObject.GetComponent<InRoomSceneTransition>().SwapSceneFromDoorUse();
+   // }
 }

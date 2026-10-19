@@ -6090,6 +6090,103 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &188410912
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 188410915}
+  - component: {fileID: 188410914}
+  - component: {fileID: 188410913}
+  m_Layer: 0
+  m_Name: InRoomTransitionTrigger (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!61 &188410913
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188410912}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.25, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &188410914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188410912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 470b0b3c263684d4eaf9dd47b60ff8bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InRoomSceneTransition
+  scenesToLoad:
+  - _sceneAsset: {fileID: 102900000, guid: e5c7a87305d113544b4ac868042dcb19, type: 3}
+    _sceneName: UnderLairRoom2
+  scenesToUnload:
+  - _sceneAsset: {fileID: 0}
+    _sceneName: UnderLairStartRoom
+--- !u!4 &188410915
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188410912}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 33.857002, y: 2.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &190406785
 GameObject:
   m_ObjectHideFlags: 0
@@ -15459,7 +15556,7 @@ Transform:
   m_GameObject: {fileID: 562227987}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.1375656, y: -0.2827, z: -10}
+  m_LocalPosition: {x: -2.4599895, y: 5.13614, z: -10}
   m_LocalScale: {x: 1, y: 1.3333334, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18555,7 +18652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 149914946642496016, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: _sceneToLoad._sceneName
-      value: DebugScene
+      value: SaveRoom
       objectReference: {fileID: 0}
     - target: {fileID: 149914946642496016, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: _sceneToLoad._sceneAsset
@@ -33177,7 +33274,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 509845657283619797, guid: 4c764fbc3cadc33468e2b9040248cc47, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1699494306567353589, guid: 4c764fbc3cadc33468e2b9040248cc47, type: 3}
       propertyPath: m_IsActive
@@ -33185,7 +33282,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1841128257237595351, guid: 4c764fbc3cadc33468e2b9040248cc47, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1955336410608458142, guid: 4c764fbc3cadc33468e2b9040248cc47, type: 3}
       propertyPath: FireDoor
@@ -33249,7 +33346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3545693547924352364, guid: 4c764fbc3cadc33468e2b9040248cc47, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6117374305060980913, guid: 4c764fbc3cadc33468e2b9040248cc47, type: 3}
       propertyPath: DoorToSpawnTo
@@ -40477,7 +40574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 149914946642496016, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: _sceneToLoad._sceneName
-      value: DebugScene
+      value: SaveRoom
       objectReference: {fileID: 0}
     - target: {fileID: 149914946642496016, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: _sceneToLoad._sceneAsset
@@ -50633,3 +50730,4 @@ SceneRoots:
   - {fileID: 847480525}
   - {fileID: 1772894258}
   - {fileID: 1895652712}
+  - {fileID: 188410915}

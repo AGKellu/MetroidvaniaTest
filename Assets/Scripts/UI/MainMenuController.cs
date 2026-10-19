@@ -107,6 +107,7 @@ public class MainMenuController : MonoBehaviour
 
         }
         Player.SetActive(true);
+        //Player.AddComponent<AudioListener>();
         SceneManager.MoveGameObjectToScene(Player, SceneManager.GetSceneByName(_newGameLevel));
         GameObject[] Doors = GameObject.FindGameObjectsWithTag("Door");
         GameObject SpawnDoor = null;
@@ -167,6 +168,7 @@ public class MainMenuController : MonoBehaviour
 
             }
             Player.SetActive(true);
+           // Player.AddComponent<AudioListener>();
             SceneManager.MoveGameObjectToScene(Player, SceneManager.GetSceneByName(loadGameLevel));
             
             GameObject SaveStation = GameObject.Find("SaveStation");
