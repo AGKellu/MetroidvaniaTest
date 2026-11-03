@@ -14,20 +14,45 @@ public class AimScript : MonoBehaviour
 
     [Header("Misc")]
     [SerializeField] Image ShotBarImage;
+    public bool ControllerAiming;
+    private InputAction AimMovement;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Aiming = false;
+
+        PlayerInput inputComponent = PlayerAttack.instance.gameObject.GetComponent<PlayerInput>();
+        if (Gamepad.current != null)
+        {
+            
+        inputComponent.SwitchCurrentControlScheme("Gamepad", Gamepad.current);
+        }
+        AimMovement = InputSystem.actions.FindAction("Attacks/AimMovement");
+        InputSystem.onDeviceChange += OnDeviceChange;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (Aiming)
         {
 
+            if (ControllerAiming)
+            {
+                Vector2 ControllerAim = new Vector2();
+                ControllerAim = AimMovement.ReadValue<Vector2>();
+                //mousePos = new Vector2(Screen.width / ControllerAim.x, Screen.height / ControllerAim.y);
+                //mousePos = ControllerAim;
+                mousePos = new Vector2(UpperBody.transform.position.x + ControllerAim.x, UpperBody.transform.position.y + ControllerAim.y);
+                //mousePos = ControllerAim.normalized;
+                //Debug.Log(mousePos);
+            }
+            else
+            {
 
-            mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Mouse.current.position.ReadValue().x, Mouse.current.position.ReadValue().y, Camera.main.nearClipPlane));
+                mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Mouse.current.position.ReadValue().x, Mouse.current.position.ReadValue().y, Camera.main.nearClipPlane));
+            }
             AimRay.transform.position = mousePos;
             Vector3 rotation = mousePos - transform.position;
             float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
@@ -35,6 +60,7 @@ public class AimScript : MonoBehaviour
             //UpperBody.transform.LookAt(AimRay.transform);
             Line.GetComponent<LineRenderer>().SetPosition(0, UpperBody.transform.position);
             Line.GetComponent<LineRenderer>().SetPosition(1, AimRay.transform.position);
+            //if (Vector2.Distance(AimRay.transform.position, ))
             if (rotZ < 70)
             {
                 PlayerMovement.instance.cameraFollowObject.CallTurn();
@@ -95,45 +121,84 @@ public class AimScript : MonoBehaviour
             //if (ShotBarImage.fillAmount >= ammo)
             //{
 
-                ShotBarImage.fillAmount -= PlayerAttack.instance.ammo;
-                PlayerAttack.instance.reloading = false;
-                GameObject Projectile = Instantiate(Shot, new Vector2(UpperBody.transform.position.x - .25f, UpperBody.transform.position.y - .1f), Shot.transform.rotation);
-                Projectile.GetComponent<ProjectileScript>().BelongsTo = PlayerAttack.instance.gameObject;
-                Projectile.GetComponent<ProjectileScript>().mousePos = mousePos;
+            ShotBarImage.fillAmount -= PlayerAttack.instance.ammo;
+            PlayerAttack.instance.reloading = false;
+            GameObject Projectile = Instantiate(Shot, PlayerAttack.instance.gameObject.transform.position, UpperBody.transform.rotation);
+            //GameObject Projectile = Instantiate(Shot, new Vector2(UpperBody.transform.position.x - .25f, UpperBody.transform.position.y - .1f), Shot.transform.rotation);
+            Projectile.GetComponent<ProjectileScript>().BelongsTo = PlayerAttack.instance.gameObject;
+            Projectile.GetComponent<ProjectileScript>().mousePos = mousePos;
 
-                //if (ShotBarImage.fillAmount >= ammo)
-                //{
-                //ShotBarImage.fillAmount -= ammo;
-                //reloading = false;
-                //PlayerMovement.instance.ableToMove = false;
-                PlayerAttack.instance.attacking = true;
-                if (PlayerMovement.instance.Grounded)
-                {
-                    PlayerMovement.instance.gameObject.GetComponent<Rigidbody2D>().linearVelocityX = 0;
-                }
-                //currentAttack = Normal;
-               // PlayerAttack.instance.attacking = true;
-                //if (!PlayerMovement.instance.MovingLeft && !PlayerMovement.instance.MovingRight)
-                //{
-                  //  PlayerAttack.instance.PlayerAnim.SetBool("Idle", false);
-                //}
-                //else
-                //{
-                  //  PlayerAttack.instance.PlayerAnim.SetBool("Running", false);
-                    //}
-                    //if (PlayerAnim.GetBool("Crouching"))
-                    //{
-                    //  attacking = true;
-                    //}
-                    //else
-                    //{
-                    //  attacking = true;
-                    //AimingScript.Shoot();
-               // }
+            //if (ShotBarImage.fillAmount >= ammo)
+            //{
+            //ShotBarImage.fillAmount -= ammo;
+            //reloading = false;
+            //PlayerMovement.instance.ableToMove = false;
+            PlayerAttack.instance.attacking = true;
+            if (PlayerMovement.instance.Grounded)
+            {
+                PlayerMovement.instance.gameObject.GetComponent<Rigidbody2D>().linearVelocityX = 0;
+            }
+            //currentAttack = Normal;
+            // PlayerAttack.instance.attacking = true;
+            //if (!PlayerMovement.instance.MovingLeft && !PlayerMovement.instance.MovingRight)
+            //{
+            //  PlayerAttack.instance.PlayerAnim.SetBool("Idle", false);
+            //}
+            //else
+            //{
+            //  PlayerAttack.instance.PlayerAnim.SetBool("Running", false);
+            //}
+            //if (PlayerAnim.GetBool("Crouching"))
+            //{
+            //  attacking = true;
+            //}
+            //else
+            //{
+            //  attacking = true;
+            //AimingScript.Shoot();
+            // }
             //}
         }
         // }
         // }
 
     }
+    void OnDeviceChange(InputDevice device, InputDeviceChange change)
+    {
+
+        PlayerInput inputComponent = PlayerAttack.instance.gameObject.GetComponent<PlayerInput>();
+        switch (change)
+        {
+            case InputDeviceChange.Added:
+            if (device.displayName.Contains("Controller"))
+                    {
+
+                    //Debug.Log(device.displayName + " connected.");
+                    ControllerAiming = true;
+                    //string currentScheme = inputComponent.currentControlScheme;
+                    inputComponent.SwitchCurrentControlScheme("Gamepad", Gamepad.current);
+                    //if (inputComponent.activeControlScheme)
+                }
+                break;
+            case InputDeviceChange.Disconnected:
+                if (device.displayName.Contains("Controller"))
+                {
+
+                    //Debug.Log(device.displayName + " disconnected.");
+                    ControllerAiming = false;
+                    inputComponent.SwitchCurrentControlScheme("Keyboard", Keyboard.current);
+                }
+                break;
+            case InputDeviceChange.Reconnected:
+            if (device.displayName.Contains("Controller"))
+                    {
+
+                    // Debug.Log(device.displayName + " reconnected.");
+                    ControllerAiming = true;
+                    inputComponent.SwitchCurrentControlScheme("Gamepad", Gamepad.current);
+                }
+                break;
+        }
+    }
+    
 }

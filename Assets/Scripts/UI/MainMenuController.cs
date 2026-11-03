@@ -131,6 +131,8 @@ public class MainMenuController : MonoBehaviour
                 Spawners[i].GetComponent<SpawnerScript>().PlayerCheck(SpawnDoor, false);
             }
         }
+        GameObject Music = GameObject.Find("MusicManager");
+        Music.GetComponent<AudioSource>().volume = AudioListener.volume;
         
         //PlayerMovement.instance.Spawn(false);
         //SceneSwapManager.instance.EnablePlayer();
@@ -178,8 +180,11 @@ public class MainMenuController : MonoBehaviour
 
                 //SaveStation.GetComponent<SaveLoad>().Load();
                 Spawner.GetComponent<SpawnerScript>().PlayerCheck(SaveStation, true);
-                
+
             }
+
+            GameObject Music = GameObject.Find("MusicManager");
+            Music.GetComponent<AudioSource>().volume = AudioListener.volume;
             SceneManager.UnloadSceneAsync(currentScene);
             
 

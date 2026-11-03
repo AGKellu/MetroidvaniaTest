@@ -15,7 +15,10 @@ public class SaveLoad : MonoBehaviour
     //public Vector3 nowPosition;
     private string saveSeparator = "#SAVE-VALUE#";
     public static SaveLoad instance;
-    
+
+    public AudioClip SaveJingle;
+    public AudioClip LoadJingle;
+
     void Awake()
     {
         if (instance == null)
@@ -74,6 +77,10 @@ public class SaveLoad : MonoBehaviour
         string json = JsonUtility.ToJson(saveObject);
         //string saveString = "" + string.Join(saveSeparator, contents);
         File.WriteAllText(Application.dataPath + "/save.txt", json);
+        GameObject SaveStation = GameObject.Find("SaveStation");
+        SaveStation.GetComponent<SaveStation>().PlayClip(SaveJingle);
+        //SaveStation.GetComponent<AudioSource>().clip = SaveJingle;
+        //SaveStation.GetComponent<AudioSource>().Play();
         Debug.Log("Saved");
         
     }
@@ -94,6 +101,9 @@ public class SaveLoad : MonoBehaviour
             PlayerAttack.instance.Health = saveObject.SavedHealth;
             PlayerAttack.instance.ammo = saveObject.SavedAmmo;
             PlayerAttack.instance.maxHealth = saveObject.SavedMaxHealth;
+
+            //SaveStation.GetComponent<AudioSource>().clip = LoadJingle;
+            //SaveStation.GetComponent<AudioSource>().Play();
         }
          else
         {

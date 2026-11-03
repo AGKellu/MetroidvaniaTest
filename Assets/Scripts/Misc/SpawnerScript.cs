@@ -11,6 +11,7 @@ public class SpawnerScript : MonoBehaviour
     public GameObject LeftTrans;
     public GameObject RightDoor;
     public GameObject RightTrans;
+    
     //public GameObject Camera;
     //public GameObject Player;
     //public GameObject EyeBat;
@@ -49,6 +50,16 @@ public class SpawnerScript : MonoBehaviour
         if (loaded)
         {
             Player.transform.position = doorToSpawnTo.GetComponent<SaveStation>().nowPosition;
+            if (Player.GetComponent<AudioSource>().isPlaying)
+            {
+
+                Player.GetComponent<AudioSource>().Stop();
+            }
+
+           // GameObject SaveStation = GameObject.Find("SaveStation");
+            doorToSpawnTo.GetComponent<SaveStation>().PlayClip(SaveLoad.instance.LoadJingle);
+            //doorToSpawnTo.GetComponent<AudioSource>().clip = doorToSpawnTo.GetComponent<SaveStation>().Load;
+            //doorToSpawnTo.GetComponent<AudioSource>().Play();
 
             //Player.transform.position = doorToSpawnTo.GetComponent<SaveStation>().nowPosition;
         }

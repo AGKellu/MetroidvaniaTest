@@ -545,7 +545,15 @@ public class PlayerAttack : MonoBehaviour
         timeSinceAttack = 0;
         //gameObject.GetComponent<PlayerMovement>().ableToMove = true;
         //PlayerAnim.SetTrigger("Attacking");
+        if (AimingScript.Aiming)
+        {
+
+        }
+        else
+        {
+            
         PlayerMovement.instance.ableToMove = true;
+        }
         MeleeHB.SetActive(false);
         // Debug.Log(Aim.IsPressed());
         if (!Aim.IsPressed())

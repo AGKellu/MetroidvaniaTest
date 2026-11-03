@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement Actions")]
     private InputAction moveActionRight;
     private InputAction moveActionLeft;
-    private InputAction moveActionCrouch;
+    //private InputAction moveActionCrouch;
     private InputAction Jump;
     private InputAction Slide;
     private InputAction CamToggle;
@@ -101,9 +101,9 @@ public class PlayerMovement : MonoBehaviour
         moveActionRight.performed += ctx => StartMovingRight();
         moveActionLeft = InputSystem.actions.FindAction("Move/WalkLeft");
         moveActionLeft.performed += ctx => StartMovingLeft();
-        moveActionCrouch = InputSystem.actions.FindAction("Move/Crouch");
-        moveActionCrouch.performed += ctx => StartCrouching();
-        moveActionCrouch.canceled += ctx => EndCrouch();
+       // moveActionCrouch = InputSystem.actions.FindAction("Move/Crouch");
+       // moveActionCrouch.performed += ctx => StartCrouching();
+       // moveActionCrouch.canceled += ctx => EndCrouch();
         Jump = InputSystem.actions.FindAction("Move/Jump");
         Jump.performed += ctx => StartJump();
         Jump.canceled += ctx => EndUpwardMomentum();

@@ -15,7 +15,7 @@ public class ProjectileScript : MonoBehaviour
 
     void Start()
     {
-        Destroy(gameObject, 2);
+        Destroy(this.gameObject, 2);
         //Debug.Log(mousePos);
         /*mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         Vector3 direction = mousePos - transform.position;
@@ -61,10 +61,12 @@ public class ProjectileScript : MonoBehaviour
     }
     void OnTriggerExit2D(Collider2D rangeCircle)
     {
+       // Debug.Log(rangeCircle.gameObject.name);
         if (rangeCircle.gameObject.name == "RangeCircle")
         {
-            //Debug.Log("Leaving effective range.\nDestroy.");
-            Destroy(gameObject);
+            Debug.Log("Leaving effective range.\nDestroy.");
+            Destroy(this.gameObject, 0);
+            return;
         }
     }
 }

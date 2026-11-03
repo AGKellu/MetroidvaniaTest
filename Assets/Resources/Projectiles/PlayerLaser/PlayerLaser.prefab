@@ -206,4 +206,4 @@ MonoBehaviour:
   OpensFire: 0
   OpensIce: 0
   mousePos: {x: 0, y: 0, z: 0}
-  force: 15
+  force: 7.5
