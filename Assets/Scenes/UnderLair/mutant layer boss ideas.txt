@@ -5,3 +5,4 @@ grabbing the beam could break the floor, making it so the player has to shoot a 
 The boss shakes the cavern, having a mix between stalagmites and acid fall, player has to kick rocks (looks like scaffolding from a previous door) that bars their path, kicking it into the boss to do damage
 The boss moves like Crocomire from Super Metroid/Arachnus from Metroid Fusion, where it slowly sandwiches the player between an acid lake and itself, only being pushed back when the player does damage 
 After the boss dies, the doors up and right are available; the player can get a health pickup on the right
+Vector3(20.9311218,1.88800001,0)

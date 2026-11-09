@@ -185,6 +185,7 @@ public class MainMenuController : MonoBehaviour
 
             GameObject Music = GameObject.Find("MusicManager");
             Music.GetComponent<AudioSource>().volume = AudioListener.volume;
+            Music.GetComponent<AudioSource>().Pause();
             SceneManager.UnloadSceneAsync(currentScene);
             
 

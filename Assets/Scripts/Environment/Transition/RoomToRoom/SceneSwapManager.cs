@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using System;
 public class SceneSwapManager : MonoBehaviour
 {
     public static SceneSwapManager instance;
@@ -38,6 +39,26 @@ public class SceneSwapManager : MonoBehaviour
         }
         GameObject Player = GameObject.FindWithTag("Player");
         SceneManager.MoveGameObjectToScene(Player, SceneManager.GetSceneByName(myScene.SceneName));
+        if (myScene.SceneName.Contains("Save", StringComparison.OrdinalIgnoreCase))
+        {
+            GameObject Music = GameObject.Find("MusicManager");
+            if (Music.GetComponent<AudioSource>().isPlaying)
+            {
+
+                Music.GetComponent<AudioSource>().Pause();
+            }
+            //Debug.Log("PauseMusic");
+        }
+        else if (currentScene.name.Contains("Save", StringComparison.OrdinalIgnoreCase))
+        {
+            GameObject Music = GameObject.Find("MusicManager");
+            if (!Music.GetComponent<AudioSource>().isPlaying)
+            {
+
+                Music.GetComponent<AudioSource>().Play();
+            }
+            //Debug.Log("PlayMusic");
+        }
         GameObject[] Spawners = GameObject.FindGameObjectsWithTag("Spawner");
         GameObject[] Doors = GameObject.FindGameObjectsWithTag("Door");
         GameObject SpawnDoor = null;

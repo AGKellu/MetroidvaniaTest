@@ -1,0 +1,4025 @@
+fileFormatVersion: 2
+guid: ff5a92fd196395647913f3d4c7506a81
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2454834210637331507
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_0
+  - first:
+      213: -212648597352283485
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_1
+  - first:
+      213: -6676681827725947500
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_2
+  - first:
+      213: 8970489415053848263
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_3
+  - first:
+      213: -5692750147494243214
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_4
+  - first:
+      213: 6277052923207070961
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_5
+  - first:
+      213: -1095870299332868956
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_6
+  - first:
+      213: -6922933187249941253
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_7
+  - first:
+      213: 382065202589151399
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_8
+  - first:
+      213: -4393091497385168882
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_9
+  - first:
+      213: -3090879546568699398
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_10
+  - first:
+      213: -6806552216491583164
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_11
+  - first:
+      213: 2575368368402553696
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_12
+  - first:
+      213: -5346086013701191390
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_13
+  - first:
+      213: -640852143458552761
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_14
+  - first:
+      213: 3455813734631781807
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_15
+  - first:
+      213: 8411520855413188391
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_16
+  - first:
+      213: -1414394583194861713
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_17
+  - first:
+      213: -5017344955647273446
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_18
+  - first:
+      213: 1609981814725868142
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_19
+  - first:
+      213: 2643950836849024364
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_20
+  - first:
+      213: 5924845713894782299
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_21
+  - first:
+      213: -7632057734509464124
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_22
+  - first:
+      213: 602999096153380719
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_23
+  - first:
+      213: 3751763272717934799
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_24
+  - first:
+      213: -1378491148696527182
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_25
+  - first:
+      213: -3752201379104985697
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_26
+  - first:
+      213: 4255323017529852380
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_27
+  - first:
+      213: 2510066028220995117
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_28
+  - first:
+      213: -5096750506687995689
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_29
+  - first:
+      213: -677736098801907860
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_30
+  - first:
+      213: -2913349368972671585
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_31
+  - first:
+      213: 6683290363908900090
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_32
+  - first:
+      213: -1192510572539383428
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_33
+  - first:
+      213: 5546032935599495442
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_34
+  - first:
+      213: 2616202413147079436
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_35
+  - first:
+      213: 3936718565412784044
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_36
+  - first:
+      213: -4529954290489340
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_37
+  - first:
+      213: -7950273805429166681
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_38
+  - first:
+      213: -5912195020219381154
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_39
+  - first:
+      213: -2467463415606999821
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_40
+  - first:
+      213: -5065485484311540192
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_41
+  - first:
+      213: -3145322624657135049
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_42
+  - first:
+      213: -1520196404272887391
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_43
+  - first:
+      213: -3195362223030504794
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_44
+  - first:
+      213: 3271034450199468091
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_45
+  - first:
+      213: 6297745035219672465
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_46
+  - first:
+      213: -733205760173903304
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_47
+  - first:
+      213: 1104819079074580030
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_48
+  - first:
+      213: -7269693543128041997
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_49
+  - first:
+      213: -2213668350249347562
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_50
+  - first:
+      213: 113290600770650019
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_51
+  - first:
+      213: -1776999384596266179
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_52
+  - first:
+      213: 3714867736499217909
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_53
+  - first:
+      213: -5549401219156996790
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_54
+  - first:
+      213: -4064908554391797966
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_55
+  - first:
+      213: -9134035253532062257
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_56
+  - first:
+      213: -4810716924606938811
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_57
+  - first:
+      213: 3175382884747367897
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_58
+  - first:
+      213: -5262353408243124712
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_59
+  - first:
+      213: -7711345655148212395
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_60
+  - first:
+      213: -7855533258819418298
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_61
+  - first:
+      213: -5546845182725304914
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_62
+  - first:
+      213: -4579948750393487001
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_63
+  - first:
+      213: -3437977255052228652
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_64
+  - first:
+      213: 8704023440355385355
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_65
+  - first:
+      213: 9089489395252019897
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_66
+  - first:
+      213: -1479457842905768885
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_67
+  - first:
+      213: 7204842858945986434
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_68
+  - first:
+      213: -5450374431648574013
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_69
+  - first:
+      213: 1590594997343028924
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_70
+  - first:
+      213: -4366612584670278465
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_71
+  - first:
+      213: -45921800469677709
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_72
+  - first:
+      213: 9181248597014518879
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_73
+  - first:
+      213: -2205608769233133940
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_74
+  - first:
+      213: 6788780475421312438
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_75
+  - first:
+      213: -8354272989734299173
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_76
+  - first:
+      213: 4539104412711684319
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_77
+  - first:
+      213: -9132009349855905752
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_78
+  - first:
+      213: 8212833622874964964
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_79
+  - first:
+      213: -894960753197573615
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_80
+  - first:
+      213: -1977051990216294934
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_81
+  - first:
+      213: 9124265585911667182
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_82
+  - first:
+      213: -2526778409777248119
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_83
+  - first:
+      213: -3205240157194521027
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_84
+  - first:
+      213: 6230313454951164169
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_85
+  - first:
+      213: 1104995340365849026
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_86
+  - first:
+      213: -4316846232530967362
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_87
+  - first:
+      213: -93340352340646673
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_88
+  - first:
+      213: -6218753772313952851
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_89
+  - first:
+      213: -7624931630655435824
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_90
+  - first:
+      213: 7742164825905929288
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_91
+  - first:
+      213: 8238798668157941498
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_92
+  - first:
+      213: -375114083152413441
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_93
+  - first:
+      213: 7684836573523557013
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_94
+  - first:
+      213: -371292835754860406
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_95
+  - first:
+      213: 201123784511755338
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_96
+  - first:
+      213: -2822276160063716526
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_97
+  - first:
+      213: -8384788033997637039
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_98
+  - first:
+      213: 7176623731406925259
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_99
+  - first:
+      213: -7073845713923437375
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_100
+  - first:
+      213: 5947882382457994009
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_101
+  - first:
+      213: 3676723633492296412
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_102
+  - first:
+      213: 1787665724982451792
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_103
+  - first:
+      213: -920228742572049077
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_104
+  - first:
+      213: -5062971218279790088
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_105
+  - first:
+      213: -8188690856070947225
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_106
+  - first:
+      213: 4722841166195712639
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_107
+  - first:
+      213: 5389523048915990676
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_108
+  - first:
+      213: 5043016039025691905
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_109
+  - first:
+      213: -3056690224446676331
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_110
+  - first:
+      213: -4464348581708405061
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_111
+  - first:
+      213: -952875442015261736
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_112
+  - first:
+      213: -4448822619430679606
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_113
+  - first:
+      213: 7873739630355024625
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_114
+  - first:
+      213: 6606574667119269564
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_115
+  - first:
+      213: -7640429275319293490
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_116
+  - first:
+      213: 258539451278473043
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_117
+  - first:
+      213: 4253456560804755845
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_118
+  - first:
+      213: 924238029766168293
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_119
+  - first:
+      213: -1171855726369898801
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_120
+  - first:
+      213: 3366704984847066514
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_121
+  - first:
+      213: 7189897043757406651
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_122
+  - first:
+      213: 4500571378641631136
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_123
+  - first:
+      213: -3502101294974525996
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_124
+  - first:
+      213: -2948431693991315523
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_125
+  - first:
+      213: 4989134182569091620
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_126
+  - first:
+      213: 6426568140038025281
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_127
+  - first:
+      213: -1756557530120256394
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_128
+  - first:
+      213: 5873576212268072955
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_129
+  - first:
+      213: 8557545976913795064
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_130
+  - first:
+      213: 5212042089639720551
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_131
+  - first:
+      213: 2777055881274918199
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_132
+  - first:
+      213: -5358947707417980614
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_133
+  - first:
+      213: -7243806597331144321
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_134
+  - first:
+      213: -3058329432012604059
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_135
+  - first:
+      213: -6876325375193072919
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_136
+  - first:
+      213: -6062817451655834395
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_137
+  - first:
+      213: 5541654016993148068
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_138
+  - first:
+      213: 596828130283504373
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_139
+  - first:
+      213: 3523492420723838674
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_140
+  - first:
+      213: -3973275401898708400
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_141
+  - first:
+      213: 21066348119727327
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_142
+  - first:
+      213: -8413858069140130527
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_143
+  - first:
+      213: 7655646848721065967
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_144
+  - first:
+      213: 8451604379427486426
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_145
+  - first:
+      213: 7952212102701550824
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_146
+  - first:
+      213: -7039533946239113667
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_147
+  - first:
+      213: 7369362824168836185
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_148
+  - first:
+      213: 1588746638352695032
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_149
+  - first:
+      213: 528915953323598164
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_150
+  - first:
+      213: -746853565934264789
+    second: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_151
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_0
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 1517
+        width: 39
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33cb38355b2511220800000000000000
+      internalID: 2454834210637331507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_1
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 1517
+        width: 45
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a205d43a358c0df0800000000000000
+      internalID: -212648597352283485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_2
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 1517
+        width: 46
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49dc6149049a753a0800000000000000
+      internalID: -6676681827725947500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_3
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 1517
+        width: 33
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ceafa568949d7c70800000000000000
+      internalID: 8970489415053848263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_4
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 1517
+        width: 31
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2749d8ff6e94ff0b0800000000000000
+      internalID: -5692750147494243214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_5
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 1447
+        width: 26
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f4b51c50629c1750800000000000000
+      internalID: 6277052923207070961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_6
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 1446
+        width: 27
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a40d58d4cfaac0f0800000000000000
+      internalID: -1095870299332868956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_7
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 1447
+        width: 26
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf4543a02fcccef90800000000000000
+      internalID: -6922933187249941253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_8
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 1447
+        width: 26
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a03d59074e5d4500800000000000000
+      internalID: 382065202589151399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_9
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 1379
+        width: 39
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0071980f8a9803c0800000000000000
+      internalID: -4393091497385168882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_10
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 1380
+        width: 37
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af19047bd6dfa15d0800000000000000
+      internalID: -3090879546568699398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_11
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 1381
+        width: 37
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4491fde52d44a81a0800000000000000
+      internalID: -6806552216491583164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_12
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 1380
+        width: 37
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06b596cd2eb8db320800000000000000
+      internalID: 2575368368402553696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_13
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 1299
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22908a66813eec5b0800000000000000
+      internalID: -5346086013701191390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_14
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 1301
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 744fa93fe5c3b17f0800000000000000
+      internalID: -640852143458552761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_15
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 1300
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa5b4ae284485ff20800000000000000
+      internalID: 3455813734631781807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_16
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 1299
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72761bfd6a9bbb470800000000000000
+      internalID: 8411520855413188391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_17
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 1226
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6ffe60de9f0f5ce0800000000000000
+      internalID: -1414394583194861713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_18
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 1226
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a16db0b885fce5ab0800000000000000
+      internalID: -5017344955647273446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_19
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 1227
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6af2913eedc75610800000000000000
+      internalID: 1609981814725868142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_20
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 1228
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6d9bf1274331b420800000000000000
+      internalID: 2643950836849024364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_21
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 1142
+        width: 60
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b55b1bd19c7493250800000000000000
+      internalID: 5924845713894782299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_22
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 1142
+        width: 50
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c57a454deb751690800000000000000
+      internalID: -7632057734509464124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_23
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 1142
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f679a1eab784e5800800000000000000
+      internalID: 602999096153380719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_24
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1142
+        width: 50
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc0a5bf91d0f01430800000000000000
+      internalID: 3751763272717934799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_25
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1142
+        width: 56
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2be5ce39a9d9edce0800000000000000
+      internalID: -1378491148696527182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_26
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 1142
+        width: 58
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9d67b8c9b08debc0800000000000000
+      internalID: -3752201379104985697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_27
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 1142
+        width: 60
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd109602db1fd0b30800000000000000
+      internalID: 4255323017529852380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_28
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 1072
+        width: 26
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2653e6f0cb85d220800000000000000
+      internalID: 2510066028220995117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_29
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 1072
+        width: 27
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d0e11cfa64b449b0800000000000000
+      internalID: -5096750506687995689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_30
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 1072
+        width: 32
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c670473eb923896f0800000000000000
+      internalID: -677736098801907860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_31
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 1072
+        width: 27
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9586cb3f24b197d0800000000000000
+      internalID: -2913349368972671585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_32
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 1071
+        width: 27
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af4c4972d21dfbc50800000000000000
+      internalID: 6683290363908900090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_33
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 1071
+        width: 27
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7174e4d3f9537fe0800000000000000
+      internalID: -1192510572539383428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_34
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 1072
+        width: 26
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 219560f129777fc40800000000000000
+      internalID: 5546032935599495442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_35
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 992
+        width: 52
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c03c628cb3e9e4420800000000000000
+      internalID: 2616202413147079436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_36
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 991
+        width: 50
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca74d187da802a630800000000000000
+      internalID: 3936718565412784044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_37
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 991
+        width: 50
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 408aaa3d708efeff0800000000000000
+      internalID: -4529954290489340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_38
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 992
+        width: 52
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ad2d48a814faa190800000000000000
+      internalID: -7950273805429166681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_39
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 992
+        width: 60
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5a8df804f9a3fda0800000000000000
+      internalID: -5912195020219381154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_40
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 922
+        width: 26
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f40970c81fc1cdd0800000000000000
+      internalID: -2467463415606999821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_41
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 926
+        width: 26
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02e86b44ac7c3b9b0800000000000000
+      internalID: -5065485484311540192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_42
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 927
+        width: 26
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73aef4dccb19954d0800000000000000
+      internalID: -3145322624657135049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_43
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 924
+        width: 26
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a90d76bc6d27eae0800000000000000
+      internalID: -1520196404272887391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_44
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 923
+        width: 27
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a27097ecfac7a3d0800000000000000
+      internalID: -3195362223030504794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_45
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 842
+        width: 60
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b385434708c056d20800000000000000
+      internalID: 3271034450199468091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_46
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 842
+        width: 57
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19d9f3e1eb5166750800000000000000
+      internalID: 6297745035219672465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_47
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 842
+        width: 65
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 832709dee3123d5f0800000000000000
+      internalID: -733205760173903304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_48
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 842
+        width: 68
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e36805d491b155f00800000000000000
+      internalID: 1104819079074580030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_49
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 842
+        width: 71
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f5f6ef2d3cdc1b90800000000000000
+      internalID: -7269693543128041997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_50
+      rect:
+        serializedVersion: 2
+        x: 1258
+        y: 687
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 616dcdc2d587741e0800000000000000
+      internalID: -2213668350249347562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_51
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 842
+        width: 71
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3af335f733d729100800000000000000
+      internalID: 113290600770650019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_52
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 842
+        width: 64
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d334d038974d657e0800000000000000
+      internalID: -1776999384596266179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_53
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 842
+        width: 60
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f5689d268cdd8330800000000000000
+      internalID: 3714867736499217909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_54
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 842
+        width: 57
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4d07004ef09cf2b0800000000000000
+      internalID: -5549401219156996790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_55
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 842
+        width: 65
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23fb703e43b8697c0800000000000000
+      internalID: -4064908554391797966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_56
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 842
+        width: 68
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcd8353c4536d3180800000000000000
+      internalID: -9134035253532062257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_57
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 842
+        width: 71
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54108d10276ec3db0800000000000000
+      internalID: -4810716924606938811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_59
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 842
+        width: 71
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8163a13d47d58f6b0800000000000000
+      internalID: -5262353408243124712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_60
+      rect:
+        serializedVersion: 2
+        x: 1184
+        y: 842
+        width: 64
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55f83acabfbcbf490800000000000000
+      internalID: -7711345655148212395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_61
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 842
+        width: 58
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6474dca1f1a8bf290800000000000000
+      internalID: -7855533258819418298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_62
+      rect:
+        serializedVersion: 2
+        x: 1371
+        y: 842
+        width: 57
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ead429bd1b5a503b0800000000000000
+      internalID: -5546845182725304914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_63
+      rect:
+        serializedVersion: 2
+        x: 1473
+        y: 842
+        width: 58
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7615d4b80e0c070c0800000000000000
+      internalID: -4579948750393487001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_64
+      rect:
+        serializedVersion: 2
+        x: 1558
+        y: 842
+        width: 50
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d74db6d6e9d940d0800000000000000
+      internalID: -3437977255052228652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_65
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 842
+        width: 67
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b006e0ff337eac870800000000000000
+      internalID: 8704023440355385355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_66
+      rect:
+        serializedVersion: 2
+        x: 1709
+        y: 832
+        width: 79
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b24da1627a542e70800000000000000
+      internalID: 9089489395252019897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_67
+      rect:
+        serializedVersion: 2
+        x: 1804
+        y: 838
+        width: 74
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4c9f6d2ee8e77be0800000000000000
+      internalID: -1479457842905768885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_68
+      rect:
+        serializedVersion: 2
+        x: 1894
+        y: 841
+        width: 74
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28f3cf5486ebcf360800000000000000
+      internalID: 7204842858945986434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_69
+      rect:
+        serializedVersion: 2
+        x: 1984
+        y: 841
+        width: 74
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c517bce4516c54b0800000000000000
+      internalID: -5450374431648574013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_71
+      rect:
+        serializedVersion: 2
+        x: 2075
+        y: 842
+        width: 71
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbc4af25dfca663c0800000000000000
+      internalID: -4366612584670278465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_72
+      rect:
+        serializedVersion: 2
+        x: 2178
+        y: 842
+        width: 60
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 379fe83ad5adc5ff0800000000000000
+      internalID: -45921800469677709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_73
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 772
+        width: 26
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5c9a9364f85a6f70800000000000000
+      internalID: 9181248597014518879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_74
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 773
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8e5f5c928a1461e0800000000000000
+      internalID: -2205608769233133940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_75
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 773
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b54897bfd7963e50800000000000000
+      internalID: 6788780475421312438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_76
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 773
+        width: 27
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd91f3a8af8af0c80800000000000000
+      internalID: -8354272989734299173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_77
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 773
+        width: 27
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd886160a632efe30800000000000000
+      internalID: 4539104412711684319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_78
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 773
+        width: 27
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 828fa4831e5944180800000000000000
+      internalID: -9132009349855905752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_79
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 772
+        width: 28
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e3c8d2aaa8d9f170800000000000000
+      internalID: 8212833622874964964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_80
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 772
+        width: 26
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11a1eb9cfe57493f0800000000000000
+      internalID: -894960753197573615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_81
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 773
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aedbda490b91094e0800000000000000
+      internalID: -1977051990216294934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_82
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 773
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee9169c3537ef9e70800000000000000
+      internalID: 9124265585911667182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_83
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 773
+        width: 27
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 988c91b7c641fecd0800000000000000
+      internalID: -2526778409777248119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_84
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 773
+        width: 27
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d367a922f03b483d0800000000000000
+      internalID: -3205240157194521027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_85
+      rect:
+        serializedVersion: 2
+        x: 1135
+        y: 773
+        width: 27
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90963b1e315867650800000000000000
+      internalID: 6230313454951164169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_86
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 772
+        width: 28
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c1e7f4586bb55f00800000000000000
+      internalID: 1104995340365849026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_87
+      rect:
+        serializedVersion: 2
+        x: 1315
+        y: 772
+        width: 28
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb42200293b7714c0800000000000000
+      internalID: -4316846232530967362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_88
+      rect:
+        serializedVersion: 2
+        x: 1406
+        y: 773
+        width: 26
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe4a68fa17364bef0800000000000000
+      internalID: -93340352340646673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_89
+      rect:
+        serializedVersion: 2
+        x: 1501
+        y: 775
+        width: 22
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dad3b97746c82b9a0800000000000000
+      internalID: -6218753772313952851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_90
+      rect:
+        serializedVersion: 2
+        x: 1591
+        y: 776
+        width: 22
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0db842e941dce2690800000000000000
+      internalID: -7624931630655435824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_91
+      rect:
+        serializedVersion: 2
+        x: 1679
+        y: 772
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84c95a0b3e1b17b60800000000000000
+      internalID: 7742164825905929288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_92
+      rect:
+        serializedVersion: 2
+        x: 1768
+        y: 771
+        width: 24
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af6f387dcb7165270800000000000000
+      internalID: 8238798668157941498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_93
+      rect:
+        serializedVersion: 2
+        x: 1857
+        y: 772
+        width: 26
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffc34739ab35bcaf0800000000000000
+      internalID: -375114083152413441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_94
+      rect:
+        serializedVersion: 2
+        x: 1947
+        y: 772
+        width: 27
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59a3dc9c52606aa60800000000000000
+      internalID: 7684836573523557013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_95
+      rect:
+        serializedVersion: 2
+        x: 2037
+        y: 773
+        width: 25
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a802f211227e8daf0800000000000000
+      internalID: -371292835754860406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_96
+      rect:
+        serializedVersion: 2
+        x: 2126
+        y: 772
+        width: 26
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4494b334098ac200800000000000000
+      internalID: 201123784511755338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_97
+      rect:
+        serializedVersion: 2
+        x: 2216
+        y: 772
+        width: 26
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 253495519c245d8d0800000000000000
+      internalID: -2822276160063716526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_98
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 692
+        width: 52
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15aff9425bf33ab80800000000000000
+      internalID: -8384788033997637039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_99
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 692
+        width: 54
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcde525a24d789360800000000000000
+      internalID: 7176623731406925259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_100
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 692
+        width: 57
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cc8ca15dc6a4dd90800000000000000
+      internalID: -7073845713923437375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_101
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 692
+        width: 57
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91b763c738f1b8250800000000000000
+      internalID: 5947882382457994009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_102
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 621
+        width: 27
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd2879f1aa8560330800000000000000
+      internalID: 3676723633492296412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_103
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 622
+        width: 26
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05e58b261801fc810800000000000000
+      internalID: 1787665724982451792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_104
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 622
+        width: 26
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4d73ee85d0ba33f0800000000000000
+      internalID: -920228742572049077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_105
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 622
+        width: 26
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f908627086bcb9b0800000000000000
+      internalID: -5062971218279790088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_106
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 542
+        width: 60
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76ed66c4d0deb5e80800000000000000
+      internalID: -8188690856070947225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_107
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 538
+        width: 44
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f72efa99407ea8140800000000000000
+      internalID: 4722841166195712639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_108
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 542
+        width: 34
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 498fa6778ae6bca40800000000000000
+      internalID: 5389523048915990676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_109
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 542
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10d49b25e546cf540800000000000000
+      internalID: 5043016039025691905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_110
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 542
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59262779f647495d0800000000000000
+      internalID: -3056690224446676331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_111
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 471
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb660c93e927b02c0800000000000000
+      internalID: -4464348581708405061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_112
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 478
+        width: 39
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dbac7385d4b6c2f0800000000000000
+      internalID: -952875442015261736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_113
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 475
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acb8c14066b9242c0800000000000000
+      internalID: -4448822619430679606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_114
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 467
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fa0a391a74254d60800000000000000
+      internalID: 7873739630355024625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_115
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 467
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb61db718a44fab50800000000000000
+      internalID: 6606574667119269564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_116
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 392
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec929190e0eb7f590800000000000000
+      internalID: -7640429275319293490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_117
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 392
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 357b0e9d244869300800000000000000
+      internalID: 258539451278473043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_118
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 392
+        width: 34
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 589725ec430570b30800000000000000
+      internalID: 4253456560804755845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_119
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 388
+        width: 44
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ee8e1c579d83dc00800000000000000
+      internalID: 924238029766168293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_120
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 392
+        width: 60
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcef6b5fc6bbcbfe0800000000000000
+      internalID: -1171855726369898801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_121
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 317
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 295a85d9850f8be20800000000000000
+      internalID: 3366704984847066514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_122
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 317
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb99ac08445a7c360800000000000000
+      internalID: 7189897043757406651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_123
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 325
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a77936e2dd357e30800000000000000
+      internalID: 4500571378641631136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_124
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 328
+        width: 39
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dd9b995d69066fc0800000000000000
+      internalID: -3502101294974525996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_125
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 321
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db7f42beef01517d0800000000000000
+      internalID: -2948431693991315523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_126
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 242
+        width: 52
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4222ac00b17fc3540800000000000000
+      internalID: 4989134182569091620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_127
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 241
+        width: 52
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1403fc78ca1cf2950800000000000000
+      internalID: 6426568140038025281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_128
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 241
+        width: 51
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67405a5ab347f97e0800000000000000
+      internalID: -1756557530120256394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_129
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 241
+        width: 59
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bff3c6d0272238150800000000000000
+      internalID: 5873576212268072955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_130
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 241
+        width: 51
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f71507e9b282c670800000000000000
+      internalID: 8557545976913795064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_131
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 241
+        width: 52
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7663c5b7aa4e45840800000000000000
+      internalID: 5212042089639720551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_132
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 172
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7350dcc4c951a8620800000000000000
+      internalID: 2777055881274918199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_133
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 173
+        width: 26
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a311579f37131a5b0800000000000000
+      internalID: -5358947707417980614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_134
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 175
+        width: 26
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7132707744d87b90800000000000000
+      internalID: -7243806597331144321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_135
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 175
+        width: 26
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56d34c6d591ae85d0800000000000000
+      internalID: -3058329432012604059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_136
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 175
+        width: 26
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9eabc9be0826290a0800000000000000
+      internalID: -6876325375193072919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_137
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 173
+        width: 26
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e4d30066ab8cdba0800000000000000
+      internalID: -6062817451655834395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_138
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 92
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ac3efea7f8e7ec40800000000000000
+      internalID: 5541654016993148068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_139
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 29
+        width: 39
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f24289b50c584800800000000000000
+      internalID: 596828130283504373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_140
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 30
+        width: 37
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2de860a30b5f5e030800000000000000
+      internalID: 3523492420723838674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_141
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 31
+        width: 37
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 052b703c2171cd8c0800000000000000
+      internalID: -3973275401898708400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_142
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 30
+        width: 37
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdc14646bb7da4000800000000000000
+      internalID: 21066348119727327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_143
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 31
+        width: 38
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12539562aa8fb3b80800000000000000
+      internalID: -8413858069140130527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_144
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 33
+        width: 38
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe79bdf5f325e3a60800000000000000
+      internalID: 7655646848721065967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_145
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 35
+        width: 39
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ada39e197612a4570800000000000000
+      internalID: 8451604379427486426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_146
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 37
+        width: 39
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ec861856ceeb5e60800000000000000
+      internalID: 7952212102701550824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_147
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 38
+        width: 38
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d362d164c2d8e4e90800000000000000
+      internalID: -7039533946239113667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_148
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 35
+        width: 38
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95c8d8ba17c354660800000000000000
+      internalID: 7369362824168836185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_149
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 33
+        width: 38
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8febb1966ac5c0610800000000000000
+      internalID: 1588746638352695032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_150
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 32
+        width: 38
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 451e3e9d146175700800000000000000
+      internalID: 528915953323598164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_151
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 2250
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2e114783a4a2a5f0800000000000000
+      internalID: -746853565934264789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 01d9e72ed4db90f45b45b60486651169
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_0: 2454834210637331507
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_1: -212648597352283485
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_10: -3090879546568699398
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_100: -7073845713923437375
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_101: 5947882382457994009
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_102: 3676723633492296412
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_103: 1787665724982451792
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_104: -920228742572049077
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_105: -5062971218279790088
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_106: -8188690856070947225
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_107: 4722841166195712639
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_108: 5389523048915990676
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_109: 5043016039025691905
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_11: -6806552216491583164
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_110: -3056690224446676331
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_111: -4464348581708405061
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_112: -952875442015261736
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_113: -4448822619430679606
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_114: 7873739630355024625
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_115: 6606574667119269564
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_116: -7640429275319293490
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_117: 258539451278473043
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_118: 4253456560804755845
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_119: 924238029766168293
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_12: 2575368368402553696
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_120: -1171855726369898801
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_121: 3366704984847066514
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_122: 7189897043757406651
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_123: 4500571378641631136
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_124: -3502101294974525996
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_125: -2948431693991315523
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_126: 4989134182569091620
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_127: 6426568140038025281
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_128: -1756557530120256394
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_129: 5873576212268072955
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_13: -5346086013701191390
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_130: 8557545976913795064
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_131: 5212042089639720551
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_132: 2777055881274918199
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_133: -5358947707417980614
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_134: -7243806597331144321
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_135: -3058329432012604059
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_136: -6876325375193072919
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_137: -6062817451655834395
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_138: 5541654016993148068
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_139: 596828130283504373
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_14: -640852143458552761
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_140: 3523492420723838674
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_141: -3973275401898708400
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_142: 21066348119727327
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_143: -8413858069140130527
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_144: 7655646848721065967
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_145: 8451604379427486426
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_146: 7952212102701550824
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_147: -7039533946239113667
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_148: 7369362824168836185
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_149: 1588746638352695032
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_15: 3455813734631781807
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_150: 528915953323598164
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_151: -746853565934264789
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_16: 8411520855413188391
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_17: -1414394583194861713
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_18: -5017344955647273446
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_19: 1609981814725868142
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_2: -6676681827725947500
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_20: 2643950836849024364
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_21: 5924845713894782299
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_22: -7632057734509464124
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_23: 602999096153380719
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_24: 3751763272717934799
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_25: -1378491148696527182
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_26: -3752201379104985697
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_27: 4255323017529852380
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_28: 2510066028220995117
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_29: -5096750506687995689
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_3: 8970489415053848263
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_30: -677736098801907860
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_31: -2913349368972671585
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_32: 6683290363908900090
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_33: -1192510572539383428
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_34: 5546032935599495442
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_35: 2616202413147079436
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_36: 3936718565412784044
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_37: -4529954290489340
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_38: -7950273805429166681
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_39: -5912195020219381154
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_4: -5692750147494243214
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_40: -2467463415606999821
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_41: -5065485484311540192
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_42: -3145322624657135049
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_43: -1520196404272887391
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_44: -3195362223030504794
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_45: 3271034450199468091
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_46: 6297745035219672465
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_47: -733205760173903304
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_48: 1104819079074580030
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_49: -7269693543128041997
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_5: 6277052923207070961
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_50: -2213668350249347562
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_51: 113290600770650019
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_52: -1776999384596266179
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_53: 3714867736499217909
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_54: -5549401219156996790
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_55: -4064908554391797966
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_56: -9134035253532062257
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_57: -4810716924606938811
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_58: 3175382884747367897
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_59: -5262353408243124712
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_6: -1095870299332868956
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_60: -7711345655148212395
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_61: -7855533258819418298
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_62: -5546845182725304914
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_63: -4579948750393487001
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_64: -3437977255052228652
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_65: 8704023440355385355
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_66: 9089489395252019897
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_67: -1479457842905768885
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_68: 7204842858945986434
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_69: -5450374431648574013
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_7: -6922933187249941253
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_70: 1590594997343028924
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_71: -4366612584670278465
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_72: -45921800469677709
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_73: 9181248597014518879
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_74: -2205608769233133940
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_75: 6788780475421312438
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_76: -8354272989734299173
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_77: 4539104412711684319
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_78: -9132009349855905752
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_79: 8212833622874964964
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_8: 382065202589151399
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_80: -894960753197573615
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_81: -1977051990216294934
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_82: 9124265585911667182
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_83: -2526778409777248119
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_84: -3205240157194521027
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_85: 6230313454951164169
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_86: 1104995340365849026
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_87: -4316846232530967362
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_88: -93340352340646673
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_89: -6218753772313952851
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_9: -4393091497385168882
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_90: -7624931630655435824
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_91: 7742164825905929288
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_92: 8238798668157941498
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_93: -375114083152413441
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_94: 7684836573523557013
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_95: -371292835754860406
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_96: 201123784511755338
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_97: -2822276160063716526
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_98: -8384788033997637039
+      Game Boy Advance - Metroid Fusion - Enemies & Bosses - Arachnus_99: 7176623731406925259
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

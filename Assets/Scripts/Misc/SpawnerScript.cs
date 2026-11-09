@@ -50,11 +50,12 @@ public class SpawnerScript : MonoBehaviour
         if (loaded)
         {
             Player.transform.position = doorToSpawnTo.GetComponent<SaveStation>().nowPosition;
-            if (Player.GetComponent<AudioSource>().isPlaying)
-            {
+            // if (Player.GetComponent<AudioSource>().isPlaying)
+            //{
 
-                Player.GetComponent<AudioSource>().Stop();
-            }
+            //  Player.GetComponent<AudioSource>().Stop();
+            //}
+            
 
            // GameObject SaveStation = GameObject.Find("SaveStation");
             doorToSpawnTo.GetComponent<SaveStation>().PlayClip(SaveLoad.instance.LoadJingle);
@@ -66,7 +67,7 @@ public class SpawnerScript : MonoBehaviour
         else
         {
             Player.transform.position = doorToSpawnTo.transform.GetChild(0).gameObject.GetComponent<TransitionScript>().nowPosition;
-
+           
             // Player.transform.position = doorToSpawnTo.transform.GetChild(0).gameObject.GetComponent<TransitionScript>().nowPosition;
 
         }
