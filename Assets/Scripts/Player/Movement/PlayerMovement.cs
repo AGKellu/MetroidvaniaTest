@@ -59,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject CrouchHB;
     public Vector2 climbPosition;
     public bool OnSaveStation;
+    public bool OnElevator;
     //public GameObject Camera;
 
     [Header("Camera Stuff")]
@@ -230,7 +231,10 @@ public class PlayerMovement : MonoBehaviour
                 canWalk = true;
                 PlayerAnim.SetBool("Falling", false);
             }
-
+            if (hitDown.collider.gameObject.name.Contains("Door"))
+            {
+                Debug.Log("what");
+            }
 
         }
 
@@ -254,6 +258,10 @@ public class PlayerMovement : MonoBehaviour
                 Grounded = true;
                 canWalk = true;
                 PlayerAnim.SetBool("Falling", false);
+            }
+            if (hitDown2.collider.gameObject.name.Contains("Door"))
+            {
+                Debug.Log("what");
             }
         }
 
@@ -290,7 +298,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-
+        
 
         CheckForRelease();
     }
@@ -633,6 +641,10 @@ public class PlayerMovement : MonoBehaviour
             SaveLoad.instance.Save();
             //GameObject SaveStation = GameObject.Find("SaveStation");
             //SaveStation.GetComponent<SaveLoad>().Save();
+        }
+        if (OnElevator)
+        {
+            
         }
         else
         {

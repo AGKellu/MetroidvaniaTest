@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.IO;
 using System.Collections;
+using Unity.Cinemachine;
 
 using UnityEngine.SceneManagement;
 public class MainMenuController : MonoBehaviour
@@ -134,6 +135,17 @@ public class MainMenuController : MonoBehaviour
         }
         GameObject Music = GameObject.Find("MusicManager");
         Music.GetComponent<AudioSource>().volume = AudioListener.volume;
+        Music.GetComponent<AudioSource>().Play();
+        //CameraManager.instance.gameObject.SetActive(true);
+        /*CameraManager.instance.Load();
+        GameObject[] Boundaries = GameObject.FindGameObjectsWithTag("Boundary");
+        foreach (GameObject Boundary in Boundaries)
+        {
+            if (Boundary.scene.name == _newGameLevel)
+            {
+                CameraManager.instance.PlayerFollowCam.GetComponent<CinemachineConfiner2D>().BoundingShape2D = Boundary.GetComponent<BoxCollider2D>();
+            }
+        }*/
         //PlayerMovement.instance.Spawn(false);
         //SceneSwapManager.instance.EnablePlayer();
         SceneManager.UnloadSceneAsync(currentScene);
@@ -186,6 +198,15 @@ public class MainMenuController : MonoBehaviour
             GameObject Music = GameObject.Find("MusicManager");
             Music.GetComponent<AudioSource>().volume = AudioListener.volume;
             Music.GetComponent<AudioSource>().Pause();
+           /* CameraManager.instance.Load();
+            GameObject[] Boundaries = GameObject.FindGameObjectsWithTag("Boundary");
+            foreach (GameObject Boundary in Boundaries)
+            {
+                if (Boundary.scene.name == _newGameLevel)
+                {
+                    CameraManager.instance.PlayerFollowCam.GetComponent<CinemachineConfiner2D>().BoundingShape2D = Boundary.GetComponent<BoxCollider2D>();
+                }
+            }*/
             SceneManager.UnloadSceneAsync(currentScene);
             
 

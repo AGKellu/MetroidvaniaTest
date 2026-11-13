@@ -41,7 +41,8 @@ public class SaveStation : MonoBehaviour
     {
         AudioSource.clip = SaveRoomOST;
         AudioSource.Play();
-        Debug.Log("audio clip ended!");
+        AudioSource.loop = true;
+        //Debug.Log("audio clip ended!");
     }
     void OnTriggerEnter2D(Collider2D coll)
     {

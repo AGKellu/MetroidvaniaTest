@@ -6428,7 +6428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6117374305060980913, guid: 4c764fbc3cadc33468e2b9040248cc47, type: 3}
       propertyPath: DoorToSpawnTo
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6117374305060980913, guid: 4c764fbc3cadc33468e2b9040248cc47, type: 3}
       propertyPath: nowPosition.x
@@ -6585,7 +6585,7 @@ Transform:
   m_GameObject: {fileID: 1451257992}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -38.030006, y: -4.98388, z: -10}
+  m_LocalPosition: {x: -5.2863235, y: 0.07814026, z: -10}
   m_LocalScale: {x: 1, y: 1.3333334, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

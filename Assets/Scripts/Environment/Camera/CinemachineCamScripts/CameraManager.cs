@@ -55,6 +55,13 @@ public class CameraManager : MonoBehaviour
 
 
     }
+    public void Load()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(true);
+        }
+    }
     void RealStart()
     {
         FollowTarget = GameObject.FindGameObjectWithTag("Follower");

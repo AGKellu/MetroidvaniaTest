@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using Unity.Cinemachine;
 using System;
 public class SceneSwapManager : MonoBehaviour
 {
@@ -92,7 +93,15 @@ public class SceneSwapManager : MonoBehaviour
             }
         }
 
-        CameraManager.instance.gameObject.SetActive(true);
+        //CameraManager.instance.gameObject.SetActive(true);
+        /*GameObject[] Boundaries = GameObject.FindGameObjectsWithTag("Boundary");
+        foreach (GameObject Boundary in Boundaries)
+        {
+            if (Boundary.scene.name == myScene.SceneName)
+            {
+                CameraManager.instance.PlayerFollowCam.GetComponent<CinemachineConfiner2D>().BoundingShape2D = Boundary.GetComponent<BoxCollider2D>();
+            }
+        }*/
         //CameraManager.instance.PlayerFollowCam
 
         for (int i = 0; i < Spawners.Length; i++)
@@ -100,7 +109,7 @@ public class SceneSwapManager : MonoBehaviour
             //Debug.Log(Spawners[i].scene.name);
             if (Spawners[i].scene.name == myScene.SceneName)
             {
-                Debug.Log(Spawners[i]);
+               // Debug.Log(Spawners[i]);
                 if (BrokenDoor != null)
                 {
                     Spawners[i].GetComponent<SpawnerScript>().TurnOffDoor(BrokenDoor);
