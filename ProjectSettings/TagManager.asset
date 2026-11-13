@@ -16,6 +16,7 @@ TagManager:
   - Drop
   - Container
   - Clone
+  - Boundary
   layers:
   - Default
   - TransparentFX

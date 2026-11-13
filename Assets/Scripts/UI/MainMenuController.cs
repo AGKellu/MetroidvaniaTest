@@ -42,6 +42,7 @@ public class MainMenuController : MonoBehaviour
     //public Scene loadGameLevel;
 
     public string loadGameLevel;
+    //[SerializeField] private GameObject CameraManager;
     //[SerializeField] private GameObject noSavedGameDialog = null;
 
     //[Header("Resolution Dropdowns")]
@@ -133,7 +134,6 @@ public class MainMenuController : MonoBehaviour
         }
         GameObject Music = GameObject.Find("MusicManager");
         Music.GetComponent<AudioSource>().volume = AudioListener.volume;
-        
         //PlayerMovement.instance.Spawn(false);
         //SceneSwapManager.instance.EnablePlayer();
         SceneManager.UnloadSceneAsync(currentScene);

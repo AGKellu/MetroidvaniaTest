@@ -1171,7 +1171,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 34
-    OrthographicSize: 1
+    OrthographicSize: 1.25
     NearClipPlane: 0.01
     FarClipPlane: 1000
     Dutch: 0
@@ -2666,7 +2666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 149914946642496016, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: nowPosition.x
-      value: 29.79
+      value: 22.46
       objectReference: {fileID: 0}
     - target: {fileID: 149914946642496016, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: nowPosition.y
@@ -2686,7 +2686,11 @@ PrefabInstance:
       objectReference: {fileID: 102900000, guid: 0c3de87775c1e4646a4152d9cfbb1fb4, type: 3}
     - target: {fileID: 253584485623210418, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 253584485623210418, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1028036232454281664, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: m_Enabled
@@ -2694,7 +2698,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1713293223187674848, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: NormalDoor
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1713293223187674848, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: BreakableDoor
@@ -2750,7 +2754,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4911491878664968962, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4911491878664968962, guid: bc763c7b0730ff346b84a0cbfe39a90f, type: 3}
       propertyPath: m_SortingOrder
@@ -4167,8 +4171,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpawnerScript
   GOsInScene:
   - {fileID: 8868382518697715766, guid: beea6ae51d489c0478fb128959f94d03, type: 3}
+  - {fileID: 8868382518697715766, guid: beea6ae51d489c0478fb128959f94d03, type: 3}
   GOPositions:
   - {x: 16.861, y: -0.0066, z: 0}
+  - {x: 19.431122, y: 0.752, z: 0}
   Vals: {fileID: 11400000, guid: d0a6d281caa2dc745aa220a6d0eccbb7, type: 2}
   LeftDoor: {fileID: 1371074007}
   LeftTrans: {fileID: 1371074008}
@@ -4988,6 +4994,7 @@ MonoBehaviour:
   movingDown: 0
   panSpeed: 0.5
   ShatterCam: {fileID: 0}
+  PlayerFollowCam: {fileID: 0}
 --- !u!4 &1220841571
 Transform:
   m_ObjectHideFlags: 0
@@ -6566,7 +6573,7 @@ Transform:
   m_GameObject: {fileID: 1451257992}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.83888, y: -0.35387, z: -10}
+  m_LocalPosition: {x: -19.778885, y: -0.35388, z: -10}
   m_LocalScale: {x: 1, y: 1.3333334, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7363,7 +7370,7 @@ GameObject:
   - component: {fileID: 1628741206}
   m_Layer: 0
   m_Name: Boundary (1)
-  m_TagString: Untagged
+  m_TagString: Boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

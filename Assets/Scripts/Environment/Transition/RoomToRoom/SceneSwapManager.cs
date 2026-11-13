@@ -8,6 +8,7 @@ public class SceneSwapManager : MonoBehaviour
 {
     public static SceneSwapManager instance;
     private TransitionScript.DoorToSpawnAt _doorToSpawnTo;
+    
     private void Awake()
     {
         if (instance == null)
@@ -90,6 +91,9 @@ public class SceneSwapManager : MonoBehaviour
 
             }
         }
+
+        CameraManager.instance.gameObject.SetActive(true);
+        //CameraManager.instance.PlayerFollowCam
 
         for (int i = 0; i < Spawners.Length; i++)
         {

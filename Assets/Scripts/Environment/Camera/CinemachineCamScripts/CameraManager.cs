@@ -34,6 +34,7 @@ public class CameraManager : MonoBehaviour
     private bool Working;
     [SerializeField] private CinemachineCamera ShatterCam;
     private bool FoundPlayer;
+    public GameObject PlayerFollowCam;
     private void Awake()
     {
         if (instance == null)
